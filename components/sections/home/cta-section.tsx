@@ -8,7 +8,10 @@ import { Button } from "@/components/ui/button"
 
 export function CTASection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-brand-charcoal via-brand-slate to-brand-charcoal relative overflow-hidden">
+    <section className="py-20 bg-ring relative overflow-hidden">
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/70" />
+      
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
@@ -34,7 +37,7 @@ export function CTASection() {
             </h2>
             <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
               Don't let your old car sit and depreciate. Get an instant quote and 
-              same-day pickup with CarooFix - the trusted choice for scrap car removal.
+              same-day pickup with Scrap Your Car — the trusted choice for scrap car removal.
             </p>
           </motion.div>
 
@@ -71,6 +74,10 @@ export function CTASection() {
             <Button
               size="lg"
               className="bg-brand-gold hover:bg-brand-gold/90 text-brand-charcoal font-semibold px-8 py-4 text-lg group min-w-[200px]"
+              onClick={() => {
+                const el = document.getElementById('valuation-form')
+                el?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+              }}
             >
               Get Instant Quote
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -81,7 +88,7 @@ export function CTASection() {
               className="border-white text-white hover:bg-white hover:text-brand-charcoal px-8 py-4 text-lg min-w-[200px]"
             >
               <Phone className="mr-2 h-5 w-5" />
-              Call (555) 123-4567
+              Call +971 4 123 4567
             </Button>
           </motion.div>
 
@@ -94,7 +101,7 @@ export function CTASection() {
             viewport={{ once: true }}
           >
             <div className="text-center">
-              <div className="text-3xl font-bold text-brand-gold mb-2">$500+</div>
+              <div className="text-3xl font-bold text-brand-gold mb-2">AED 500+</div>
               <div className="text-white text-sm">Average Payout</div>
             </div>
             <div className="text-center">
@@ -134,12 +141,12 @@ export function CTASection() {
           >
             <p className="text-gray-400 text-sm">
               Questions? Call us at{" "}
-              <a href="tel:5551234567" className="text-brand-gold hover:underline">
-                (555) 123-4567
+              <a href="tel:+97141234567" className="text-brand-gold hover:underline">
+                +971 4 123 4567
               </a>{" "}
               or email{" "}
-              <a href="mailto:info@caroofix.com" className="text-brand-gold hover:underline">
-                info@caroofix.com
+              <a href="mailto:info@scrapanycar.ae" className="text-brand-gold hover:underline">
+                info@scrapanycar.ae
               </a>
             </p>
           </motion.div>

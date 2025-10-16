@@ -95,7 +95,7 @@ export function ContactFormSection() {
     if (!formData.vehicleMake.trim()) newErrors.vehicleMake = "Vehicle make is required"
     if (!formData.vehicleModel.trim()) newErrors.vehicleModel = "Vehicle model is required"
     if (!formData.vehicleCondition) newErrors.vehicleCondition = "Vehicle condition is required"
-    if (!formData.location.trim()) newErrors.location = "Location is required"
+    if (!formData.location.trim()) newErrors.location = "City is required"
 
     // Email validation
     if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
@@ -475,17 +475,29 @@ export function ContactFormSection() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Vehicle Location *
+                    City *
                   </label>
-                  <input
-                    type="text"
+                  <select
                     value={formData.location}
                     onChange={(e) => handleInputChange("location", e.target.value)}
                     className={`w-full px-4 py-3 rounded-lg border ${
                       errors.location ? "border-red-500" : "border-border"
                     } bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-transparent transition-colors`}
-                    placeholder="Denver, CO 80202"
-                  />
+                  >
+                    <option value="">Select city</option>
+                    {[
+                      "Dubai",
+                      "Abu Dhabi",
+                      "Sharjah",
+                      "Ajman",
+                      "Al Ain",
+                      "Ras Al Khaimah",
+                      "Fujairah",
+                      "Umm Al Quwain"
+                    ].map((city) => (
+                      <option key={city} value={city}>{city}</option>
+                    ))}
+                  </select>
                   {errors.location && (
                     <p className="mt-1 text-sm text-red-500 flex items-center gap-1">
                       <AlertCircle className="h-4 w-4" />

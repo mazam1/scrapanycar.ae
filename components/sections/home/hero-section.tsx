@@ -2,21 +2,40 @@
 
 import * as React from "react"
 import { motion } from "framer-motion"
-import { ArrowRight, Car, DollarSign, Clock } from "lucide-react"
+import { ArrowRight, DollarSign, Clock } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
+  const [scrollY, setScrollY] = React.useState(0)
+
+  React.useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY)
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-brand-charcoal via-brand-slate to-brand-charcoal overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 50% 50%, white 1px, transparent 1px)`,
-          backgroundSize: '30px 30px'
-        }} />
-      </div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url(/hero_img.png)',
+          transform: `translateY(${scrollY * 0.5}px)`
+        }}
+      />
+      
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/60" />
+      
+      {/* Accent Color Overlay */}
+      <div 
+        className="absolute inset-0 opacity-20"
+        style={{
+          backgroundColor: '#c49a36'
+        }}
+      />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
@@ -56,10 +75,6 @@ export function HeroSection() {
               <span className="text-sm sm:text-base">Best Prices</span>
             </div>
             <div className="flex items-center gap-2 text-white">
-              <Car className="h-5 w-5 text-brand-gold" />
-              <span className="text-sm sm:text-base">Free Pickup</span>
-            </div>
-            <div className="flex items-center gap-2 text-white">
               <Clock className="h-5 w-5 text-brand-gold" />
               <span className="text-sm sm:text-base">Same Day Payment</span>
             </div>
@@ -75,6 +90,10 @@ export function HeroSection() {
             <Button
               size="lg"
               className="bg-brand-gold hover:bg-brand-gold/90 text-brand-charcoal font-semibold px-8 py-4 text-lg group"
+              onClick={() => {
+                const el = document.getElementById('valuation-form')
+                el?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+              }}
             >
               Get Instant Quote
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -88,38 +107,11 @@ export function HeroSection() {
             </Button>
           </motion.div>
 
-          {/* Trust Indicators */}
-          <motion.div
-            className="mt-12 text-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.0 }}
-          >
-            <p className="text-gray-400 text-sm mb-4">Trusted by 10,000+ customers</p>
-            <div className="flex justify-center items-center gap-8 opacity-60">
-              <div className="text-white text-xs">★★★★★ 4.9/5 Rating</div>
-              <div className="text-white text-xs">Licensed & Insured</div>
-              <div className="text-white text-xs">BBB Accredited</div>
-            </div>
-          </motion.div>
+
         </div>
       </div>
 
-      {/* Floating Elements */}
-      <motion.div
-        className="absolute top-20 left-10 opacity-20"
-        animate={{ y: [0, -20, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <Car className="h-12 w-12 text-brand-gold" />
-      </motion.div>
-      <motion.div
-        className="absolute bottom-20 right-10 opacity-20"
-        animate={{ y: [0, 20, 0] }}
-        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-      >
-        <DollarSign className="h-10 w-10 text-brand-gold" />
-      </motion.div>
+
     </section>
   )
 }

@@ -50,7 +50,7 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Brand colors from CarooFix brand guide
+        // Brand colors from Scrap Your Car brand guide
         brand: {
           charcoal: '#0B1320',
           slate: '#233040',

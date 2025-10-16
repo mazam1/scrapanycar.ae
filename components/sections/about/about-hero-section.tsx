@@ -28,7 +28,7 @@ export function AboutHeroSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             About{" "}
-            <span className="text-brand-gold">CarooFix</span>
+            <span className="text-brand-gold">Scrap Your Car</span>
           </motion.h1>
 
           {/* Subtitle */}

@@ -6,11 +6,11 @@ import BlogCategories from '@/components/sections/blog/blog-categories'
 import BlogSearch from '@/components/sections/blog/blog-search'
 
 export const metadata: Metadata = {
-  title: 'Blog | CarooFix - Car Selling Tips & Market Insights',
-  description: 'Stay updated with the latest car selling tips, market insights, and automotive news in the UAE. Expert advice from CarooFix.',
+  title: 'Blog | Scrap Your Car - Car Selling Tips & Market Insights',
+  description: 'Stay updated with the latest car selling tips, market insights, and automotive news in the UAE. Expert advice from Scrap Your Car.',
   keywords: 'car selling tips, UAE car market, automotive news, car valuation, vehicle selling guide',
   openGraph: {
-    title: 'Blog | CarooFix - Car Selling Tips & Market Insights',
+    title: 'Blog | Scrap Your Car - Car Selling Tips & Market Insights',
     description: 'Stay updated with the latest car selling tips, market insights, and automotive news in the UAE.',
     type: 'website',
   },

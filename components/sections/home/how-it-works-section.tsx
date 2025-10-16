@@ -2,14 +2,36 @@
 
 import * as React from "react"
 import { motion } from "framer-motion"
-import { Phone, Car, DollarSign, ArrowRight } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
+
+// Branded inline SVG icons
+const PhoneIcon = ({ className = "" }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M22 16.92a16 16 0 0 1-7.92-7.92L6.09 2 2 6.09l3.91 3.91a11 11 0 0 0 7.92 7.92L22 22z" />
+  </svg>
+)
+const PickupIcon = ({ className = "" }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="1" y="8" width="15" height="8" rx="2" />
+    <path d="M16 8l4 4v4" />
+    <circle cx="6" cy="18" r="2" />
+    <circle cx="18" cy="18" r="2" />
+  </svg>
+)
+const CashIcon = ({ className = "" }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="7" width="20" height="10" rx="2" />
+    <circle cx="12" cy="12" r="3" />
+    <path d="M6 10h0M18 10h0" />
+  </svg>
+)
 
 const steps = [
   {
     step: "01",
-    icon: Phone,
+    icon: PhoneIcon,
     title: "Get Your Quote",
     description: "Call us or fill out our online form with your vehicle details. Get an instant, no-obligation quote based on current market rates.",
     details: [
@@ -20,7 +42,7 @@ const steps = [
   },
   {
     step: "02",
-    icon: Car,
+    icon: PickupIcon,
     title: "Schedule Pickup",
     description: "Choose a convenient time for our team to come to you. We provide free towing and handle all the paperwork on the spot.",
     details: [
@@ -31,7 +53,7 @@ const steps = [
   },
   {
     step: "03",
-    icon: DollarSign,
+    icon: CashIcon,
     title: "Get Paid Instantly",
     description: "Receive payment immediately when we pick up your vehicle. Choose cash or instant bank transfer - it's that simple!",
     details: [
@@ -44,75 +66,118 @@ const steps = [
 
 export function HowItWorksSection() {
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="py-24 lg:py-32 bg-gradient-to-br from-muted/20 via-muted/30 to-muted/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-20 lg:mb-24"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            How It <span className="text-brand-gold">Works</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-gold/10 border border-brand-gold/20 mb-6">
+            <div className="w-2 h-2 rounded-full bg-brand-gold animate-pulse" />
+            <span className="text-sm font-medium text-brand-gold uppercase tracking-wider">Process</span>
+          </div>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+            How It <span className="text-brand-gold relative">
+              Works
+              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-brand-gold/60 to-brand-gold/20 rounded-full" />
+            </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Selling your scrap car has never been easier. Our simple 3-step process gets you cash fast.
+          <p className="text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            Selling your scrap car has never been easier. Our streamlined 3-step process 
+            <span className="text-foreground font-medium"> gets you cash fast</span>.
           </p>
         </motion.div>
 
         {/* Steps */}
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           {steps.map((step, index) => (
             <motion.div
               key={step.step}
               className="relative"
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.15 }}
               viewport={{ once: true }}
             >
-              <div className={`flex flex-col lg:flex-row items-center gap-8 lg:gap-16 mb-16 ${
-                index % 2 === 1 ? 'lg:flex-row-reverse' : ''
+              <div className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-20 mb-20 lg:mb-24 ${
+                step.step === "02" ? 'lg:flex-row-reverse' : ''
               }`}>
                 {/* Step Content */}
                 <div className="flex-1 text-center lg:text-left">
-                  <div className="inline-flex items-center gap-4 mb-6">
-                    <div className="text-6xl font-bold text-brand-gold/20">
-                      {step.step}
-                    </div>
-                    <div className="p-4 rounded-full bg-brand-gold/10 border border-brand-gold/20">
-                      <step.icon className="h-8 w-8 text-brand-gold" />
+                  <div className="relative mb-8">
+                    <div className="inline-flex items-center justify-center lg:justify-start mb-6">
+                      <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-gradient-to-br from-brand-gold to-brand-gold/80 flex items-center justify-center shadow-lg">
+                        <span className="text-2xl lg:text-3xl font-black text-white">
+                          {step.step}
+                        </span>
+                      </div>
                     </div>
                   </div>
                   
-                  <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-4">
+                  <h3 className="text-3xl lg:text-4xl font-bold text-foreground mb-6 leading-tight">
                     {step.title}
                   </h3>
                   
-                  <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                  <p className="text-xl lg:text-2xl text-muted-foreground mb-8 leading-relaxed max-w-2xl">
                     {step.description}
                   </p>
                   
-                  <ul className="space-y-2 mb-6">
+                  <div className="space-y-3 mb-8">
                     {step.details.map((detail, detailIndex) => (
-                      <li key={detailIndex} className="flex items-center gap-2 text-muted-foreground">
-                        <div className="w-2 h-2 rounded-full bg-brand-gold" />
-                        {detail}
-                      </li>
+                      <div key={detailIndex} className="flex items-start gap-3 text-left">
+                        <div className="w-2 h-2 rounded-full bg-brand-gold mt-3 flex-shrink-0" />
+                        <span className="text-lg text-foreground leading-relaxed">{detail}</span>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
 
                 {/* Step Visual */}
-                <div className="flex-1 max-w-md">
-                  <div className="relative p-8 rounded-2xl bg-gradient-to-br from-brand-gold/5 to-brand-gold/10 border border-brand-gold/20">
-                    <div className="absolute top-4 right-4 text-4xl font-bold text-brand-gold/30">
-                      {step.step}
-                    </div>
-                    <div className="flex items-center justify-center h-48">
-                      <step.icon className="h-24 w-24 text-brand-gold" />
+                <div className="flex-1 flex justify-center">
+                  <div className="relative w-full max-w-lg">
+                    <div className="relative group">
+                      {/* Background decoration */}
+                      <div className="absolute -inset-4 bg-gradient-to-r from-brand-gold/20 via-brand-gold/10 to-transparent rounded-3xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+                      
+                      {/* Main image container */}
+                      <div className="relative bg-gradient-to-br from-white/95 to-white/90 backdrop-blur-sm rounded-2xl p-6 lg:p-8 shadow-2xl border border-white/20 group-hover:shadow-3xl transition-all duration-500 group-hover:scale-[1.02]">
+                        <div className="aspect-square relative overflow-hidden rounded-xl">
+                          {step.step === "01" && (
+                            <img 
+                              src="/how_it_work_get_quote.png" 
+                              alt="Get Your Quote"
+                              className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                            />
+                          )}
+                          {step.step === "02" && (
+                            <img 
+                              src="/how_it_work_schedule_pickup.png" 
+                              alt="Schedule Pickup"
+                              className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                            />
+                          )}
+                          {step.step === "03" && (
+                            <img 
+                              src="/how_it_work_get_paid.png" 
+                              alt="Get Paid Instantly"
+                              className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                            />
+                          )}
+                          {!["01", "02", "03"].includes(step.step) && (
+                            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-brand-gold/10 to-brand-gold/5 rounded-xl border border-brand-gold/20">
+                              <step.icon className="h-24 w-24 text-brand-gold" />
+                            </div>
+                          )}
+                        </div>
+                        
+                        {/* Decorative elements */}
+                        <div className="absolute top-4 right-4 w-3 h-3 bg-brand-gold rounded-full opacity-60" />
+                        <div className="absolute bottom-4 left-4 w-2 h-2 bg-brand-gold/60 rounded-full" />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -120,45 +185,43 @@ export function HowItWorksSection() {
 
               {/* Arrow Connector */}
               {index < steps.length - 1 && (
-                <motion.div
-                  className="flex justify-center mb-8"
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: index * 0.2 + 0.4 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="p-3 rounded-full bg-brand-gold/10 border border-brand-gold/20">
-                    <ArrowRight className="h-6 w-6 text-brand-gold rotate-90 lg:rotate-0" />
-                  </div>
-                </motion.div>
+                <div className="flex justify-center my-12 lg:my-16">
+                  <motion.div
+                    className="relative flex items-center justify-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.15 + 0.4 }}
+                    viewport={{ once: true }}
+                  >
+                    {/* Background glow */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-gold/20 to-transparent rounded-full blur-lg" />
+                    
+                    {/* Main arrow container */}
+                    <div className="relative flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-brand-gold/10 via-brand-gold/20 to-brand-gold/10 rounded-full border border-brand-gold/30 backdrop-blur-sm">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-brand-gold animate-pulse" />
+                        <div className="w-12 h-0.5 bg-gradient-to-r from-brand-gold via-brand-gold/80 to-brand-gold/40 relative overflow-hidden">
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent animate-pulse" />
+                        </div>
+                        <div className="w-0 h-0 border-l-[10px] border-l-brand-gold border-y-[6px] border-y-transparent drop-shadow-sm" />
+                        <div className="w-12 h-0.5 bg-gradient-to-r from-brand-gold/40 via-brand-gold/20 to-transparent relative overflow-hidden">
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse" />
+                        </div>
+                        <div className="w-2 h-2 rounded-full bg-brand-gold/60 animate-pulse" style={{ animationDelay: '0.5s' }} />
+                      </div>
+                    </div>
+                    
+                    {/* Side decorations */}
+                    <div className="absolute -left-8 top-1/2 transform -translate-y-1/2 w-1 h-1 bg-brand-gold/40 rounded-full" />
+                    <div className="absolute -right-8 top-1/2 transform -translate-y-1/2 w-1 h-1 bg-brand-gold/40 rounded-full" />
+                  </motion.div>
+                </div>
               )}
             </motion.div>
           ))}
         </div>
 
-        {/* CTA */}
-        <motion.div
-          className="text-center mt-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="text-2xl font-bold text-foreground mb-4">
-            Ready to Get Started?
-          </h3>
-          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Join thousands of satisfied customers who chose CarooFix for their scrap car needs.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-brand-gold hover:bg-brand-gold/90 text-brand-charcoal font-semibold">
-              Get Your Quote Now
-            </Button>
-            <Button variant="outline" size="lg">
-              Call (555) 123-4567
-            </Button>
-          </div>
-        </motion.div>
+
       </div>
     </section>
   )

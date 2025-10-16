@@ -90,13 +90,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   
   if (!post) {
     return {
-      title: 'Post Not Found | CarooFix Blog',
+      title: 'Post Not Found | Scrap Your Car Blog',
       description: 'The requested blog post could not be found.'
     }
   }
 
   return {
-    title: `${post.title} | CarooFix Blog`,
+    title: `${post.title} | Scrap Your Car Blog`,
     description: post.excerpt,
     keywords: post.tags.join(', '),
     openGraph: {

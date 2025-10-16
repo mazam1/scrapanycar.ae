@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/providers/theme-provider";
+// ThemeProvider removed to enforce light theme only
 
 const inter = Inter({
   subsets: ["latin"],
@@ -17,24 +17,24 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "CarooFix - Premium Car Valuation & Instant Buying in UAE",
-  description: "Sell your car in UAE with CarooFix. Get instant, accurate valuations and fast, secure transactions. Premium car buying service with white-glove experience.",
-  keywords: "car valuation UAE, sell car Dubai, car buying service, instant car valuation, UAE car market",
-  authors: [{ name: "CarooFix" }],
-  creator: "CarooFix",
-  publisher: "CarooFix",
+  title: "Scrap Your Car - Premium Car Valuation & Instant Buying in UAE",
+  description: "Sell your car in UAE with Scrap Your Car. Get instant, accurate valuations and fast, secure transactions. Premium car buying service with white-glove experience.",
+  keywords: "car valuation UAE, sell car Dubai, scrap car UAE, instant car valuation, UAE car market",
+  authors: [{ name: "Scrap Your Car" }],
+  creator: "Scrap Your Car",
+  publisher: "Scrap Your Car",
   openGraph: {
-    title: "CarooFix - Premium Car Valuation & Instant Buying in UAE",
-    description: "Sell your car in UAE with CarooFix. Get instant, accurate valuations and fast, secure transactions.",
-    url: "https://caroofix.com",
-    siteName: "CarooFix",
+    title: "Scrap Your Car - Premium Car Valuation & Instant Buying in UAE",
+    description: "Sell your car in UAE with Scrap Your Car. Get instant, accurate valuations and fast, secure transactions.",
+    url: "https://scrapanycar.ae",
+    siteName: "Scrap Your Car",
     locale: "en_AE",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "CarooFix - Premium Car Valuation & Instant Buying in UAE",
-    description: "Sell your car in UAE with CarooFix. Get instant, accurate valuations and fast, secure transactions.",
+    title: "Scrap Your Car - Premium Car Valuation & Instant Buying in UAE",
+    description: "Sell your car in UAE with Scrap Your Car. Get instant, accurate valuations and fast, secure transactions.",
   },
   robots: {
     index: true,
@@ -59,14 +59,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${poppins.variable} antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        {children}
       </body>
     </html>
   );

@@ -43,7 +43,7 @@ export function AboutStorySection() {
                   <div>
                     <h3 className="text-xl font-semibold text-foreground mb-2">Founded in 2008</h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      CarooFix was established with a simple mission: to provide car owners with a 
+                      Scrap Your Car was established with a simple mission: to provide car owners with a 
                       fair, transparent, and hassle-free way to sell their scrap vehicles while 
                       promoting environmental sustainability.
                     </p>

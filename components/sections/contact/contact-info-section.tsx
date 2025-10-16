@@ -42,7 +42,7 @@ export function ContactInfoSection() {
               <Phone className="h-6 w-6 text-brand-gold" />
               <h3 className="font-semibold">Call Us</h3>
             </div>
-            <p className="text-muted-foreground">(555) 123-4567</p>
+            <p className="text-muted-foreground">+971 4 123 4567</p>
             <p className="text-muted-foreground">Mon–Sun: 7:00 AM – 9:00 PM</p>
           </div>
 
@@ -51,7 +51,7 @@ export function ContactInfoSection() {
               <Mail className="h-6 w-6 text-brand-gold" />
               <h3 className="font-semibold">Email</h3>
             </div>
-            <p className="text-muted-foreground">support@caroofix.com</p>
+            <p className="text-muted-foreground">support@scrapanycar.ae</p>
             <p className="text-muted-foreground">We reply within 2–4 hours</p>
           </div>
 

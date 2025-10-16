@@ -47,8 +47,14 @@ const carModels: { [key: string]: string[] } = {
 }
 
 const cities = [
-  "New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "Philadelphia",
-  "San Antonio", "San Diego", "Dallas", "San Jose", "Austin", "Jacksonville"
+  "Dubai",
+  "Abu Dhabi",
+  "Sharjah",
+  "Ajman",
+  "Al Ain",
+  "Ras Al Khaimah",
+  "Fujairah",
+  "Umm Al Quwain"
 ]
 
 const conditions = ["Excellent", "Good", "Fair", "Poor"]
@@ -117,8 +123,8 @@ export function CarValuationForm() {
     }
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required"
-    } else if (!/^\d{10}$/.test(formData.phone.replace(/\D/g, ""))) {
-      newErrors.phone = "Please enter a valid 10-digit phone number"
+    } else if (!/^[\+]?[1-9][\d]{6,14}$/.test(formData.phone.replace(/\s|\(|\)|-/g, ""))) {
+      newErrors.phone = "Please enter a valid phone number"
     }
     if (!formData.city) newErrors.city = "City is required"
 
@@ -216,7 +222,7 @@ export function CarValuationForm() {
                 className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold ${
                   errors.phone ? "border-red-500" : "border-gray-300"
                 }`}
-                placeholder="(555) 123-4567"
+                placeholder="+971 4 123 4567"
               />
               {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
             </div>

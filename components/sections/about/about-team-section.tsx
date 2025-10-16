@@ -8,10 +8,10 @@ const teamMembers = [
   {
     name: "Michael Johnson",
     role: "Founder & CEO",
-    bio: "With over 20 years in automotive recycling, Michael founded CarooFix with a vision to revolutionize the industry through fair pricing and exceptional service.",
+    bio: "With over 20 years in automotive recycling, Michael founded Scrap Your Car with a vision to revolutionize the industry through fair pricing and exceptional service.",
     image: "/team/michael-johnson.jpg",
     linkedin: "#",
-    email: "michael@caroofix.com"
+    email: "michael@scrapanycar.ae"
   },
   {
     name: "Sarah Chen",
@@ -19,7 +19,7 @@ const teamMembers = [
     bio: "Sarah oversees our daily operations, ensuring every customer receives prompt, professional service. Her background in logistics optimization drives our efficiency.",
     image: "/team/sarah-chen.jpg",
     linkedin: "#",
-    email: "sarah@caroofix.com"
+    email: "sarah@scrapanycar.ae"
   },
   {
     name: "David Rodriguez",
@@ -27,7 +27,7 @@ const teamMembers = [
     bio: "David leads our vehicle assessment team, bringing 15 years of automotive expertise to ensure accurate valuations and fair pricing for every customer.",
     image: "/team/david-rodriguez.jpg",
     linkedin: "#",
-    email: "david@caroofix.com"
+    email: "david@scrapanycar.ae"
   },
   {
     name: "Emily Thompson",
@@ -35,7 +35,7 @@ const teamMembers = [
     bio: "Emily ensures every customer has an exceptional experience from first contact to final payment. Her dedication to service excellence sets us apart.",
     image: "/team/emily-thompson.jpg",
     linkedin: "#",
-    email: "emily@caroofix.com"
+    email: "emily@scrapanycar.ae"
   },
   {
     name: "James Wilson",
@@ -43,7 +43,7 @@ const teamMembers = [
     bio: "James oversees our environmental initiatives and ensures all recycling processes meet the highest sustainability standards and regulatory requirements.",
     image: "/team/james-wilson.jpg",
     linkedin: "#",
-    email: "james@caroofix.com"
+    email: "james@scrapanycar.ae"
   },
   {
     name: "Lisa Martinez",
@@ -51,7 +51,7 @@ const teamMembers = [
     bio: "Lisa manages our financial operations and payment systems, ensuring customers receive fast, secure payments and transparent pricing structures.",
     image: "/team/lisa-martinez.jpg",
     linkedin: "#",
-    email: "lisa@caroofix.com"
+    email: "lisa@scrapanycar.ae"
   }
 ]
 
@@ -71,7 +71,7 @@ export function AboutTeamSection() {
             Meet Our <span className="text-brand-gold">Team</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            The dedicated professionals behind CarooFix's success, committed to providing 
+            The dedicated professionals behind Scrap Your Car's success, committed to providing 
             you with exceptional service and expertise.
           </p>
         </motion.div>
@@ -148,18 +148,18 @@ export function AboutTeamSection() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="mailto:careers@caroofix.com"
+                href="mailto:careers@scrapanycar.ae"
                 className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-brand-gold hover:bg-brand-gold/90 text-brand-charcoal font-semibold transition-colors"
               >
                 <Mail className="mr-2 h-4 w-4" />
                 View Open Positions
               </a>
               <a
-                href="tel:5551234567"
+                href="tel:+97141234567"
                 className="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-charcoal font-semibold transition-colors"
               >
                 <Phone className="mr-2 h-4 w-4" />
-                Call HR: (555) 123-4567
+                Call HR: +971 4 123 4567
               </a>
             </div>
           </div>

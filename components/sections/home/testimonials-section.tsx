@@ -9,8 +9,8 @@ const testimonials = [
     name: "Sarah Johnson",
     location: "Downtown",
     rating: 5,
-    text: "CarooFix made selling my old car incredibly easy. They gave me a fair price and picked it up the same day. The whole process took less than 2 hours!",
-    amount: "$850",
+    text: "Scrap Your Car made selling my old car incredibly easy. They gave me a fair price and picked it up the same day. The whole process took less than 2 hours!",
+    amount: "AED 850",
     vehicle: "2008 Honda Civic"
   },
   {
@@ -18,15 +18,15 @@ const testimonials = [
     location: "Westside",
     rating: 5,
     text: "I was skeptical at first, but they exceeded my expectations. Professional service, honest pricing, and they handled all the paperwork. Highly recommend!",
-    amount: "$1,200",
+    amount: "AED 1,200",
     vehicle: "2010 Ford F-150"
   },
   {
     name: "Emily Chen",
     location: "Eastside",
     rating: 5,
-    text: "My car wouldn't even start, but CarooFix still gave me a great offer. Free towing and instant payment - couldn't ask for better service!",
-    amount: "$650",
+    text: "My car wouldn't even start, but Scrap Your Car still gave me a great offer. Free towing and instant payment - couldn't ask for better service!",
+    amount: "AED 650",
     vehicle: "2006 Toyota Camry"
   },
   {
@@ -34,23 +34,23 @@ const testimonials = [
     location: "Northside",
     rating: 5,
     text: "Fast, reliable, and trustworthy. They offered more than other companies and the pickup was right on time. Will definitely use them again!",
-    amount: "$950",
+    amount: "AED 950",
     vehicle: "2009 Nissan Altima"
   },
   {
     name: "Lisa Martinez",
     location: "Southside",
     rating: 5,
-    text: "Excellent customer service from start to finish. They explained everything clearly and made the whole process stress-free. Thank you CarooFix!",
-    amount: "$750",
+    text: "Excellent customer service from start to finish. They explained everything clearly and made the whole process stress-free. Thank you Scrap Your Car!",
+    amount: "AED 750",
     vehicle: "2007 Chevrolet Malibu"
   },
   {
     name: "Robert Wilson",
     location: "Central",
     rating: 5,
-    text: "I needed to sell my car quickly due to a move, and CarooFix came through perfectly. Same-day service and fair pricing. Couldn't be happier!",
-    amount: "$1,100",
+    text: "I needed to sell my car quickly due to a move, and Scrap Your Car came through perfectly. Same-day service and fair pricing. Couldn't be happier!",
+    amount: "AED 1,100",
     vehicle: "2011 Hyundai Elantra"
   }
 ]
@@ -71,7 +71,7 @@ export function TestimonialsSection() {
             What Our <span className="text-brand-gold">Customers</span> Say
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Don't just take our word for it. Here's what real customers have to say about their CarooFix experience.
+            Don't just take our word for it. Here's what real customers have to say about their Scrap Your Car experience.
           </p>
         </motion.div>
 

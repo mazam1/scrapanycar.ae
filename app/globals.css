@@ -26,28 +26,6 @@
     --ring: #c49a36;
     --radius: 0.5rem;
   }
-
-  .dark {
-    --background: #262626;
-    --foreground: #fdfcfa;
-    --card: #262626;
-    --card-foreground: #fdfcfa;
-    --popover: #262626;
-    --popover-foreground: #fdfcfa;
-    --primary: #fdfcfa;
-    --primary-foreground: #262626;
-    --secondary: #233040;
-    --secondary-foreground: #e6eef6;
-    --muted: #233040;
-    --muted-foreground: #a8b3c3;
-    --accent: #c49a36;
-    --accent-foreground: #262626;
-    --destructive: #c3402f;
-    --destructive-foreground: #e6eef6;
-    --border: #233040;
-    --input: #233040;
-    --ring: #c49a36;
-  }
 }
 
 @layer base {

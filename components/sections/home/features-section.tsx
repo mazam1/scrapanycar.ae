@@ -77,7 +77,7 @@ export function FeaturesSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Why Choose <span className="text-brand-gold">CarooFix</span>?
+            Why Choose <span className="text-brand-gold">Scrap Your Car</span>?
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             We make selling your scrap car simple, fast, and profitable with our comprehensive service.
@@ -124,7 +124,7 @@ export function FeaturesSection() {
             <div className="text-muted-foreground">Cars Recycled</div>
           </div>
           <div className="p-6">
-            <div className="text-3xl lg:text-4xl font-bold text-brand-gold mb-2">$2M+</div>
+            <div className="text-3xl lg:text-4xl font-bold text-brand-gold mb-2">AED 2M+</div>
             <div className="text-muted-foreground">Paid to Customers</div>
           </div>
           <div className="p-6">

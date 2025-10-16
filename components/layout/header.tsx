@@ -2,14 +2,14 @@
 
 import * as React from "react"
 import Link from "next/link"
-import Image from "next/image"
+import { ImageWithFallback } from "@/components/ui/image-with-fallback"
 import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "@/components/common/theme-toggle"
+// ThemeToggle removed to enforce light theme only
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -35,32 +35,75 @@ export function Header() {
 
   return (
     <motion.header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled
-          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm"
-          : "bg-transparent"
-      )}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.3 }}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-200 ease-in-out"
+      style={{
+        backgroundColor: `rgba(0, 0, 0, 0.90)`,
+        backdropFilter: 'blur(12px)',
+        borderBottom: 'none'
+      }}
+      initial={{ 
+        y: -100,
+        height: '80px'
+      }}
+      animate={{ 
+        y: 0,
+        height: isScrolled ? '60px' : '80px'
+      }}
+      transition={{ duration: 0.2, ease: "easeInOut" }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+      <div 
+        className="absolute inset-0 opacity-20"
+        style={{
+          backgroundColor: '#c49a36'
+        }}
+      />
+      <div className="container mx-auto px-2 sm:px-4 lg:px-6 relative z-10">
+        <motion.div 
+          className="flex items-center justify-between"
+          initial={{
+            height: '80px',
+            paddingTop: '12px',
+            paddingBottom: '12px'
+          }}
+          animate={{ 
+            height: isScrolled ? '60px' : '80px',
+            paddingTop: isScrolled ? '8px' : '12px',
+            paddingBottom: isScrolled ? '8px' : '12px'
+          }}
+          transition={{ duration: 0.2, ease: "easeInOut" }}
+        >
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
-            <div className="relative w-12 h-8 lg:w-16 lg:h-10">
-              <Image
-                src="/logo.svg"
+            <motion.div 
+              className="relative"
+              initial={{
+                width: '64px',
+                height: '42px'
+              }}
+              animate={{
+                width: isScrolled ? '48px' : '64px',
+                height: isScrolled ? '32px' : '42px'
+              }}
+              transition={{ duration: 0.2, ease: "easeInOut" }}
+            >
+              <ImageWithFallback
+                src="/logo.png"
                 alt="Scrap Your Car Logo"
-                fill
-                className="object-contain text-foreground"
-                priority
+                className="object-contain w-full h-full text-foreground brightness-110 contrast-110 drop-shadow-sm"
               />
-            </div>
-            <span className="font-poppins font-bold text-xl lg:text-2xl text-foreground hidden sm:block">
+            </motion.div>
+            <motion.span 
+              className="font-poppins font-bold text-white hidden sm:block"
+              initial={{
+                fontSize: '20px'
+              }}
+              animate={{
+                fontSize: isScrolled ? '18px' : '20px'
+              }}
+              transition={{ duration: 0.2, ease: "easeInOut" }}
+            >
               Scrap Your Car
-            </span>
+            </motion.span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -70,10 +113,10 @@ export function Header() {
                 key={item.name}
                 href={item.href}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-brand-gold",
+                  "text-sm font-medium transition-colors duration-200",
                   pathname === item.href
-                    ? "text-brand-gold"
-                    : "text-muted-foreground"
+                    ? "text-[#c49a36]"
+                    : "text-[#fdfcfa] hover:text-[#c49a36]"
                 )}
               >
                 {item.name}
@@ -83,18 +126,24 @@ export function Header() {
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center space-x-4">
-            <ThemeToggle />
-            <Button variant="gold" size="sm">
+            <Button
+              variant="gold"
+              size="sm"
+              onClick={() => {
+                const el = document.getElementById('valuation-form')
+                el?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+              }}
+            >
               Get Valuation
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center space-x-2">
-            <ThemeToggle />
             <Button
               variant="ghost"
               size="icon"
+              className="text-white hover:text-[#c49a36] hover:bg-white/10"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? (
@@ -104,38 +153,62 @@ export function Header() {
               )}
             </Button>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="lg:hidden bg-background/95 backdrop-blur-md border-b border-border"
+            className="lg:hidden relative z-50"
+            style={{
+              backgroundColor: `rgba(38, 38, 38, 0.98)`,
+              backdropFilter: 'blur(12px)'
+            }}
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <div className="container mx-auto px-4 py-4">
+            <div 
+              className="absolute inset-0 opacity-20"
+              style={{
+                backgroundColor: '#c49a36'
+              }}
+            />
+            {/* Overlay backdrop */}
+            <div
+              className="fixed inset-0 bg-black/30"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+            <div className="container mx-auto px-4 py-4 relative z-10">
               <nav className="flex flex-col space-y-4">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
                     className={cn(
-                      "text-sm font-medium transition-colors hover:text-brand-gold py-2",
+                      "text-sm font-medium transition-colors duration-200 py-2",
                       pathname === item.href
-                        ? "text-brand-gold"
-                        : "text-muted-foreground"
+                        ? "text-[#c49a36]"
+                        : "text-[#fdfcfa] hover:text-[#c49a36]"
                     )}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.name}
                   </Link>
                 ))}
-                <div className="pt-4 border-t border-border">
-                  <Button variant="gold" size="sm" className="w-full">
+                <div className="pt-4 border-t border-white/20">
+                  <Button
+                    variant="gold"
+                    size="sm"
+                    className="w-full"
+                    onClick={() => {
+                      const el = document.getElementById('valuation-form')
+                      el?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                      setIsMobileMenuOpen(false)
+                    }}
+                  >
                     Get Valuation
                   </Button>
                 </div>

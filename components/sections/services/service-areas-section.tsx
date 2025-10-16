@@ -277,7 +277,7 @@ export function ServiceAreasSection() {
             </h3>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
               If we serve your area, we guarantee pickup within our stated response time or 
-              we'll add an extra $50 to your quote. That's our commitment to reliable service.
+              we'll add an extra AED 50 to your quote. That's our commitment to reliable service.
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">

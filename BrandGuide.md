@@ -1,4 +1,4 @@
-# CarooFix — Brand Guide
+# Scrap Your Car — Brand Guide
 
 > **Positioning:** Premium · Trustworthy · Efficient — car valuation & instant buying across UAE.
 
@@ -25,7 +25,7 @@
 **Secondary Audience:** Dealers and fleet managers seeking quick, honest valuations.
 
 **Market Positioning Statement:**
-> CarooFix is the premium, digital-first vehicle buyer in the UAE — combining on-demand convenience with institution-grade trust and clear pricing.
+> Scrap Your Car is the premium, digital-first vehicle buyer in the UAE — combining on-demand convenience with institution-grade trust and clear pricing.
 
 **Competitive Differentiators:**
 - Full digital-first valuation flow with optional in-person inspection.

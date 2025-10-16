@@ -10,10 +10,10 @@ import { ContactInfoSection } from "@/components/sections/contact/contact-info-s
 import { ContactMapSection } from "@/components/sections/contact/contact-map-section"
 
 export const metadata: Metadata = {
-  title: "Contact Us - CarooFix | Get Your Free Quote Today",
-  description: "Contact CarooFix for instant scrap car quotes, pickup scheduling, and customer support. Call (555) 123-4567 or fill out our online form for immediate assistance.",
+  title: "Contact Us - Scrap Your Car | Get Your Free Quote Today",
+  description: "Contact Scrap Your Car for instant scrap car quotes, pickup scheduling, and customer support. Call +971 4 123 4567 or fill out our online form for immediate assistance.",
   keywords: [
-    "contact CarooFix",
+    "contact Scrap Your Car",
     "scrap car quote",
     "car pickup scheduling",
     "customer support",
@@ -21,16 +21,16 @@ export const metadata: Metadata = {
     "sell car contact form"
   ],
   openGraph: {
-    title: "Contact CarooFix - Get Your Free Quote Today",
-    description: "Contact CarooFix for instant scrap car quotes and pickup scheduling. Professional customer support available 24/7.",
+    title: "Contact Scrap Your Car - Get Your Free Quote Today",
+    description: "Contact Scrap Your Car for instant scrap car quotes and pickup scheduling. Professional customer support available 24/7.",
     type: "website",
-    locale: "en_US",
-    siteName: "CarooFix"
+    locale: "en_AE",
+    siteName: "Scrap Your Car"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact CarooFix - Get Your Free Quote Today",
-    description: "Contact CarooFix for instant scrap car quotes and pickup scheduling. Professional customer support available 24/7."
+    title: "Contact Scrap Your Car - Get Your Free Quote Today",
+    description: "Contact Scrap Your Car for instant scrap car quotes and pickup scheduling. Professional customer support available 24/7."
   }
 }
 

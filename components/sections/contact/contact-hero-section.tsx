@@ -20,8 +20,8 @@ const contactMethods = [
     icon: Phone,
     title: "Call Us Now",
     description: "Speak directly with our experts",
-    value: "(555) 123-4567",
-    action: "tel:+15551234567",
+    value: "+971 4 123 4567",
+    action: "tel:+97141234567",
     available: "24/7 Available",
     color: "from-green-500 to-green-600"
   },
@@ -29,8 +29,8 @@ const contactMethods = [
     icon: Mail,
     title: "Email Support",
     description: "Get detailed responses",
-    value: "info@caroofix.com",
-    action: "mailto:info@caroofix.com",
+    value: "info@scrapanycar.ae",
+    action: "mailto:info@scrapanycar.ae",
     available: "Response within 1 hour",
     color: "from-blue-500 to-blue-600"
   },
@@ -138,9 +138,9 @@ export function ContactHeroSection() {
                 className="bg-brand-gold hover:bg-brand-gold/90 text-brand-charcoal font-semibold text-lg px-8"
                 asChild
               >
-                <a href="tel:+15551234567">
+                <a href="tel:+97141234567">
                   <Phone className="h-5 w-5 mr-2" />
-                  Call (555) 123-4567
+                  Call +971 4 123 4567
                 </a>
               </Button>
               <Button variant="outline" size="lg" className="text-lg px-8">
