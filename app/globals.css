@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #fdfcfa;
+    --foreground: #262626;
+    --card: #fdfcfa;
+    --card-foreground: #262626;
+    --popover: #fdfcfa;
+    --popover-foreground: #262626;
+    --primary: #262626;
+    --primary-foreground: #e6eef6;
+    --secondary: #233040;
+    --secondary-foreground: #e6eef6;
+    --muted: #cbd7e3;
+    --muted-foreground: #4b5563;
+    --accent: #fdfcfa;
+    --accent-foreground: #262626;
+    --destructive: #c3402f;
+    --destructive-foreground: #e6eef6;
+    --border: #cbd7e3;
+    --input: #cbd7e3;
+    --ring: #c49a36;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: #262626;
+    --foreground: #fdfcfa;
+    --card: #262626;
+    --card-foreground: #fdfcfa;
+    --popover: #262626;
+    --popover-foreground: #fdfcfa;
+    --primary: #fdfcfa;
+    --primary-foreground: #262626;
+    --secondary: #233040;
+    --secondary-foreground: #e6eef6;
+    --muted: #233040;
+    --muted-foreground: #a8b3c3;
+    --accent: #c49a36;
+    --accent-foreground: #262626;
+    --destructive: #c3402f;
+    --destructive-foreground: #e6eef6;
+    --border: #233040;
+    --input: #233040;
+    --ring: #c49a36;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-inter;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-poppins;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
