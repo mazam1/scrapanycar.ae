@@ -87,6 +87,19 @@ export function FormSection() {
   const [errors, setErrors] = React.useState<Partial<FormData>>({})
   const [availableModels, setAvailableModels] = React.useState<string[]>([])
 
+  // Highlight state for name field and ref for focusing
+  const [forceNameHighlight, setForceNameHighlight] = React.useState(false)
+  const nameInputRef = React.useRef<HTMLInputElement>(null)
+
+  React.useEffect(() => {
+    const handler = () => {
+      setForceNameHighlight(true)
+      nameInputRef.current?.focus()
+    }
+    window.addEventListener('highlight-name', handler)
+    return () => window.removeEventListener('highlight-name', handler)
+  }, [])
+
   const handleInputChange = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }))
     
@@ -195,15 +208,16 @@ export function FormSection() {
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div>
-                   <label className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
+                   <label className={`block text-sm font-medium mb-2 transition-colors duration-300 ${forceNameHighlight ? "text-red-500" : "text-foreground"}`}>
                      Enter your name
                    </label>
                   <input
                     type="text"
                     value={formData.name}
                     onChange={(e) => handleInputChange("name", e.target.value)}
+                    ref={nameInputRef}
                     className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all duration-300 bg-background text-foreground ${
-                      errors.name ? "border-red-500" : "border-border"
+                      errors.name || forceNameHighlight ? "border-red-500" : "border-border"
                     }`}
                     placeholder="Your full name"
                   />

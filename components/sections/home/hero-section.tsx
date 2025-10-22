@@ -93,17 +93,25 @@ export function HeroSection() {
               onClick={() => {
                 const el = document.getElementById('valuation-form')
                 el?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                window.dispatchEvent(new CustomEvent('highlight-name'))
               }}
             >
               Get Instant Quote
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button
+              asChild
               variant="outline"
               size="lg"
               className="border-white text-white hover:bg-white hover:text-brand-charcoal px-8 py-4 text-lg"
             >
-              Call Now: (555) 123-4567
+              <a
+                href="https://wa.me/971568559762"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                WhatsApp: +971568559762
+              </a>
             </Button>
           </motion.div>
 

@@ -6,7 +6,7 @@ import { FormSection } from "@/components/sections/home/form-section"
 import { FeaturesSection } from "@/components/sections/home/features-section"
 import { HowItWorksSection } from "@/components/sections/home/how-it-works-section"
 import { TestimonialsSection } from "@/components/sections/home/testimonials-section"
-import { CTASection } from "@/components/sections/home/cta-section"
+
 
 export default function HomePage() {
   return (
@@ -14,11 +14,11 @@ export default function HomePage() {
       <Header />
       <main>
         <HeroSection />
+
         <FormSection />
         <FeaturesSection />
         <HowItWorksSection />
         <TestimonialsSection />
-        <CTASection />
       </main>
       <Footer />
       <ScrollToTop />
