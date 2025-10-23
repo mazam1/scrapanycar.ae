@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import { Suspense } from "react"
 import Link from "next/link"
 import { useSearchParams } from "next/navigation"
 import { Facebook, Instagram, Mail, Phone, MapPin, Music, Ghost } from "lucide-react"
@@ -366,7 +367,7 @@ function SplitLayout({ currentYear, socialPlatforms }: { currentYear: number; so
   )
 }
 
-export function Footer({ variant: propVariant }: { variant?: FooterVariant }) {
+function FooterWithSearchParams({ variant: propVariant }: { variant?: FooterVariant }) {
   const currentYear = new Date().getFullYear()
   const searchParams = useSearchParams()
   const variantParam = searchParams?.get("footer") as FooterVariant | null
@@ -390,5 +391,13 @@ export function Footer({ variant: propVariant }: { variant?: FooterVariant }) {
         {variant === "split" && <SplitLayout currentYear={currentYear} socialPlatforms={socialPlatforms} />}
       </div>
     </footer>
+  )
+}
+
+export function Footer({ variant: propVariant }: { variant?: FooterVariant }) {
+  return (
+    <Suspense fallback={<div className="bg-gray-900 text-white py-8">Loading...</div>}>
+      <FooterWithSearchParams variant={propVariant} />
+    </Suspense>
   )
 }
