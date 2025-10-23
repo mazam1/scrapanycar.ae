@@ -6,7 +6,6 @@ import {
   Phone, 
   Mail, 
   Clock, 
-  MapPin,
   MessageSquare,
   Headphones,
   Star,
@@ -196,7 +195,7 @@ export function ContactHeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
         >
-          {quickStats.map((stat, index) => (
+          {quickStats.map((stat) => (
             <div
               key={stat.label}
               className="text-center p-6 rounded-xl bg-card/50 border border-border/50"

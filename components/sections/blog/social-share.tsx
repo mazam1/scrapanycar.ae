@@ -3,18 +3,11 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 
-interface SocialShareProps {
-  title: string
-  url: string
-  description: string
-}
-
-export default function SocialShare({ title, url, description }: SocialShareProps) {
+export default function SocialShare({ title, url }: { title: string; url: string }) {
   const [copied, setCopied] = useState(false)
   
   const fullUrl = typeof window !== 'undefined' ? `${window.location.origin}${url}` : url
   const encodedTitle = encodeURIComponent(title)
-  const encodedDescription = encodeURIComponent(description)
   const encodedUrl = encodeURIComponent(fullUrl)
 
   const shareLinks = {

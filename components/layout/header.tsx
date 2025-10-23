@@ -89,6 +89,8 @@ export function Header() {
               <ImageWithFallback
                 src="/logo.png"
                 alt="Scrap Your Car Logo"
+                width={120}
+                height={42}
                 className="object-contain w-full h-full text-foreground brightness-110 contrast-110 drop-shadow-sm"
               />
             </motion.div>

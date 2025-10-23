@@ -57,7 +57,7 @@ export function AboutStorySection() {
                   <div>
                     <h3 className="text-xl font-semibold text-foreground mb-2">Local Roots, Growing Reach</h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      Starting as a small family business, we've grown to serve the entire metropolitan 
+                      Starting as a small family business, we&apos;ve grown to serve the entire metropolitan 
                       area while maintaining our commitment to personalized service and community values.
                     </p>
                   </div>
@@ -101,68 +101,7 @@ export function AboutStorySection() {
             </motion.div>
           </div>
 
-          {/* Timeline */}
-          <motion.div
-            className="relative"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-2xl font-bold text-foreground text-center mb-12">
-              Our Journey
-            </h3>
-            
-            <div className="relative">
-              {/* Timeline Line */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-brand-gold/20" />
-              
-              {/* Timeline Items */}
-              <div className="space-y-12">
-                {[
-                  {
-                    year: "2008",
-                    title: "Company Founded",
-                    description: "Started as a small family business with a single tow truck and big dreams."
-                  },
-                  {
-                    year: "2012",
-                    title: "First Expansion",
-                    description: "Opened our first recycling facility and expanded our service area."
-                  },
-                  {
-                    year: "2016",
-                    title: "Technology Integration",
-                    description: "Launched our online quote system and mobile-friendly platform."
-                  },
-                  {
-                    year: "2020",
-                    title: "Environmental Certification",
-                    description: "Achieved ISO 14001 certification for environmental management."
-                  },
-                  {
-                    year: "2024",
-                    title: "Industry Leader",
-                    description: "Recognized as the top-rated scrap car service in the region."
-                  }
-                ].map((item, index) => (
-                  <div key={item.year} className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
-                    <div className={`flex-1 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
-                      <div className="p-6 rounded-xl bg-card border border-border">
-                        <div className="text-2xl font-bold text-brand-gold mb-2">{item.year}</div>
-                        <h4 className="text-lg font-semibold text-foreground mb-2">{item.title}</h4>
-                        <p className="text-muted-foreground">{item.description}</p>
-                      </div>
-                    </div>
-                    <div className="relative z-10">
-                      <div className="w-4 h-4 rounded-full bg-brand-gold border-4 border-background" />
-                    </div>
-                    <div className="flex-1" />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
+
         </div>
       </div>
     </section>

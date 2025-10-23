@@ -9,8 +9,6 @@ import {
   User,
   Car,
   MapPin,
-  Calendar,
-  Clock,
   CheckCircle,
   AlertCircle,
   Loader2
@@ -40,7 +38,7 @@ interface FormErrors {
 
 const vehicleConditions = [
   { value: "running", label: "Running - Drives normally" },
-  { value: "not-running", label: "Not Running - Doesn't start" },
+  { value: "not-running", label: "Not Running - Doesn&apos;t start" },
   { value: "accident", label: "Accident Damage - Collision damage" },
   { value: "mechanical", label: "Mechanical Issues - Engine/transmission problems" },
   { value: "flood", label: "Flood Damage - Water damage" },
@@ -179,7 +177,7 @@ export function ContactFormSection() {
                 Thank You for Your Submission!
               </h2>
               <p className="text-lg text-muted-foreground mb-6">
-                We've received your information and will contact you within 15 minutes with your 
+                We&apos;ve received your information and will contact you within 15 minutes with your 
                 personalized quote. Our team is already reviewing your vehicle details.
               </p>
               <div className="space-y-3 mb-8">
@@ -236,7 +234,7 @@ export function ContactFormSection() {
             Get Your <span className="text-brand-gold">Instant Quote</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Fill out the form below and we'll contact you within 15 minutes with a personalized quote for your vehicle.
+            Fill out the form below and we&apos;ll contact you within 15 minutes with a personalized quote for your vehicle.
           </p>
         </motion.div>
 

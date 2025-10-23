@@ -57,7 +57,7 @@ const blogPosts = [
   {
     id: 8,
     title: "Common Mistakes to Avoid When Selling Your Car",
-    excerpt: "Learn from others' mistakes and avoid common pitfalls that could cost you money when selling your vehicle.",
+    excerpt: "Learn from others&apos; mistakes and avoid common pitfalls that could cost you money when selling your vehicle.",
     image: "/blog/post-5.jpg",
     category: "Tips & Tricks",
     readTime: "6 min read",

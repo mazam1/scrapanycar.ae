@@ -125,8 +125,8 @@ export function AboutValuesSection() {
               Our Commitment to You
             </h3>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              These values aren't just words on a page – they're the foundation of every interaction, 
-              every decision, and every service we provide. When you choose Scrap Your Car, you're choosing 
+              These values aren&apos;t just words on a page – they&apos;re the foundation of every interaction, 
+              every decision, and every service we provide. When you choose Scrap Your Car, you&apos;re choosing 
               a partner who genuinely cares about your experience and the impact we have on our community.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">

@@ -94,7 +94,7 @@ export default function BlogSearch({
             className="absolute top-full left-0 right-0 mt-2 bg-card border border-border rounded-xl shadow-lg z-10 p-2"
           >
             <div className="text-sm text-muted-foreground p-2">
-              Press Enter to search for "{searchQuery}"
+              Press Enter to search for &ldquo;{searchQuery}&rdquo;
             </div>
           </motion.div>
         )}

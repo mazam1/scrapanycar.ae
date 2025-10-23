@@ -2,9 +2,7 @@
 
 import * as React from "react"
 import { motion } from "framer-motion"
-import { ArrowRight } from "lucide-react"
-
-import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 // Branded inline SVG icons
 const PhoneIcon = ({ className = "" }: { className?: string }) => (
@@ -147,23 +145,29 @@ export function HowItWorksSection() {
                       <div className="relative bg-gradient-to-br from-white/95 to-white/90 backdrop-blur-sm rounded-2xl p-6 lg:p-8 shadow-2xl border border-white/20 group-hover:shadow-3xl transition-all duration-500 group-hover:scale-[1.02]">
                         <div className="aspect-square relative overflow-hidden rounded-xl">
                           {step.step === "01" && (
-                            <img 
+                            <Image 
                               src="/how_it_work_get_quote.png" 
                               alt="Get Your Quote"
+                              width={400}
+                              height={400}
                               className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                             />
                           )}
                           {step.step === "02" && (
-                            <img 
+                            <Image 
                               src="/how_it_work_schedule_pickup.png" 
                               alt="Schedule Pickup"
+                              width={400}
+                              height={400}
                               className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                             />
                           )}
                           {step.step === "03" && (
-                            <img 
+                            <Image 
                               src="/how_it_work_get_paid.png" 
                               alt="Get Paid Instantly"
+                              width={400}
+                              height={400}
                               className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                             />
                           )}

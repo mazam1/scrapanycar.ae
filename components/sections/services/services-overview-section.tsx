@@ -185,7 +185,7 @@ export function ServicesOverviewSection() {
             Additional Services
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {additionalServices.map((service, index) => (
+            {additionalServices.map((service) => (
               <div
                 key={service.title}
                 className="p-6 rounded-xl bg-muted/30 border border-border text-center"
@@ -213,8 +213,8 @@ export function ServicesOverviewSection() {
               Our Service Guarantee
             </h3>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              We stand behind every service we provide. If you're not completely satisfied with 
-              our quote, pickup service, or payment process, we'll make it right or you don't pay.
+              We stand behind every service we provide. If you&apos;re not completely satisfied with 
+              our quote, pickup service, or payment process, we&apos;ll make it right or you don&apos;t pay.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
               <div className="p-4 rounded-lg bg-background/50">

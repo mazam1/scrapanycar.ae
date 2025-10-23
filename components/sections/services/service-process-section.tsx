@@ -22,7 +22,7 @@ const processSteps = [
     step: "01",
     icon: Phone,
     title: "Get Your Quote",
-    description: "Call us or fill out our online form with your vehicle details. We'll provide an instant, no-obligation quote based on current market rates.",
+    description: "Call us or fill out our online form with your vehicle details. We&apos;ll provide an instant, no-obligation quote based on current market rates.",
     details: [
       "Instant online valuation",
       "No hidden fees or charges",
@@ -84,7 +84,7 @@ const processFeatures = [
 
 const testimonialHighlight = {
   rating: 5,
-  text: "The entire process was incredibly smooth. They gave me a fair quote, picked up my old car the same day, and paid me cash on the spot. Couldn't ask for better service!",
+  text: "The entire process was incredibly smooth. They gave me a fair quote, picked up my old car the same day, and paid me cash on the spot. Couldn&apos;t ask for better service!",
   author: "Sarah M.",
   vehicle: "2015 Honda Civic",
   location: "Denver, CO"
@@ -185,7 +185,7 @@ export function ServiceProcessSection() {
             Why Choose Our Process?
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {processFeatures.map((feature, index) => (
+            {processFeatures.map((feature) => (
               <div
                 key={feature.title}
                 className="p-6 rounded-xl bg-card border border-border text-center hover:border-brand-gold/50 transition-all duration-300"
@@ -216,7 +216,7 @@ export function ServiceProcessSection() {
                 ))}
               </div>
               <blockquote className="text-lg text-foreground italic leading-relaxed mb-4">
-                "{testimonialHighlight.text}"
+                &ldquo;{testimonialHighlight.text}&rdquo;
               </blockquote>
               <div className="text-muted-foreground">
                 <div className="font-semibold">{testimonialHighlight.author}</div>

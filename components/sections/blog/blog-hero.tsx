@@ -24,7 +24,7 @@ export default function BlogHero() {
             
             <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
               Stay informed with expert advice, market trends, and insider tips 
-              to maximize your car's value in the UAE market.
+              to maximize your car&apos;s value in the UAE market.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
