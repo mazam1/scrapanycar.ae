@@ -12,6 +12,22 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      {/* Header spacing for visual consistency */}
+      <div 
+        className="w-full relative"
+        style={{
+          height: '20px',
+          backgroundColor: 'rgba(0, 0, 0, 0.90)',
+          backdropFilter: 'blur(12px)'
+        }}
+      >
+        <div 
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundColor: '#c49a36'
+          }}
+        />
+      </div>
       <main>
         <ServicesHeroSection />
         <CoreServicesSection />

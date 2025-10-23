@@ -98,10 +98,10 @@ export default function BlogListings() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="responsive-text-xl font-bold text-foreground mb-4 text-container-center">
             Latest Articles
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="responsive-text-lg text-muted-foreground max-w-2xl mx-auto text-container-center">
             Stay updated with our latest insights, tips, and market analysis 
             to make informed decisions about your car.
           </p>
@@ -119,39 +119,39 @@ export default function BlogListings() {
               className="group"
             >
               <Link href={`/blog/${post.slug}`} className="block">
-                <div className="bg-card rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group-hover:scale-[1.02]">
+                <div className="bg-card rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group-hover:scale-[1.02] min-h-[480px] flex flex-col">
                   {/* Post Image */}
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-48 overflow-hidden flex-shrink-0">
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10" />
                     <div className="absolute top-4 left-4 z-10">
-                      <span className="bg-accent text-accent-foreground px-3 py-1 rounded-full text-sm font-medium">
+                      <span className="bg-accent text-accent-foreground px-3 py-1 rounded-full responsive-text-sm font-medium text-truncate max-w-[120px]">
                         {post.category}
                       </span>
                     </div>
                   </div>
                   
                   {/* Post Content */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-accent transition-colors line-clamp-2">
+                  <div className="p-6 flex flex-col flex-grow">
+                    <h3 className="responsive-text-lg font-bold text-foreground mb-3 group-hover:text-accent transition-colors text-clamp-2 card-text">
                       {post.title}
                     </h3>
                     
-                    <p className="text-muted-foreground mb-4 line-clamp-3">
+                    <p className="text-muted-foreground mb-4 text-clamp-3 card-text flex-grow responsive-text-sm">
                       {post.excerpt}
                     </p>
                     
                     {/* Post Meta */}
-                    <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
-                      <span className="font-medium">{post.author}</span>
-                      <span>{post.readTime}</span>
+                    <div className="flex items-center justify-between responsive-text-sm text-muted-foreground mb-4 flex-shrink-0">
+                      <span className="font-medium text-truncate max-w-[120px]">{post.author}</span>
+                      <span className="whitespace-nowrap">{post.readTime}</span>
                     </div>
                     
                     {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-2 mb-4 flex-shrink-0 max-h-[60px] overflow-y-auto">
                       {post.tags.slice(0, 2).map((tag) => (
                         <span
                           key={tag}
-                          className="bg-muted text-muted-foreground px-2 py-1 rounded text-xs"
+                          className="bg-muted text-muted-foreground px-2 py-1 rounded text-xs text-truncate max-w-[80px]"
                         >
                           #{tag}
                         </span>
@@ -159,8 +159,8 @@ export default function BlogListings() {
                     </div>
                     
                     {/* Read More */}
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-muted-foreground">
+                    <div className="flex items-center justify-between flex-shrink-0">
+                      <span className="responsive-text-sm text-muted-foreground text-truncate max-w-[100px]">
                         {new Date(post.publishDate).toLocaleDateString('en-US', {
                           year: 'numeric',
                           month: 'short',
@@ -168,9 +168,9 @@ export default function BlogListings() {
                         })}
                       </span>
                       
-                      <div className="flex items-center text-accent group-hover:text-accent/80 transition-colors">
-                        <span className="text-sm font-medium mr-2">Read More</span>
-                        <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="flex items-center text-accent group-hover:text-accent/80 transition-colors flex-shrink-0">
+                        <span className="responsive-text-sm font-medium mr-2 whitespace-nowrap">Read More</span>
+                        <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
                       </div>
@@ -189,12 +189,12 @@ export default function BlogListings() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="flex justify-center items-center space-x-2"
+            className="flex justify-center items-center space-x-2 flex-wrap gap-2"
           >
             <button
               onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
               disabled={currentPage === 1}
-              className="px-4 py-2 rounded-lg bg-card text-muted-foreground hover:bg-accent hover:text-accent-foreground disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+              className="px-4 py-2 rounded-lg bg-card text-muted-foreground hover:bg-accent hover:text-accent-foreground disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 btn-text responsive-text-sm whitespace-nowrap"
             >
               Previous
             </button>
@@ -203,7 +203,7 @@ export default function BlogListings() {
               <button
                 key={page}
                 onClick={() => setCurrentPage(page)}
-                className={`px-4 py-2 rounded-lg transition-all duration-200 ${
+                className={`px-4 py-2 rounded-lg transition-all duration-200 btn-text responsive-text-sm min-w-[40px] ${
                   currentPage === page
                     ? 'bg-accent text-accent-foreground'
                     : 'bg-card text-muted-foreground hover:bg-accent/10 hover:text-foreground'
@@ -216,7 +216,7 @@ export default function BlogListings() {
             <button
               onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
               disabled={currentPage === totalPages}
-              className="px-4 py-2 rounded-lg bg-card text-muted-foreground hover:bg-accent hover:text-accent-foreground disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+              className="px-4 py-2 rounded-lg bg-card text-muted-foreground hover:bg-accent hover:text-accent-foreground disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 btn-text responsive-text-sm whitespace-nowrap"
             >
               Next
             </button>

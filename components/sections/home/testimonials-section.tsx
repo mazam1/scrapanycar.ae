@@ -88,10 +88,10 @@ export function TestimonialsSection() {
           viewport={{ once: true }}
         >
           <div className="flex flex-col items-center text-center">
-            <h2 className="tracking-tight text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">
+            <h2 className="tracking-tight responsive-text-xl font-bold text-foreground text-container-center">
               What Our <span className="text-brand-gold">Customers</span> Say
             </h2>
-            <p className="mt-4 max-w-3xl text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed">
+            <p className="mt-4 max-w-3xl responsive-text-lg text-muted-foreground leading-relaxed text-container-center">
               Real stories from car owners who sold with us. Transparent process, fair prices, fast payout.
             </p>
           </div>
@@ -107,16 +107,16 @@ export function TestimonialsSection() {
         >
           <div className="grid grid-cols-3 items-center rounded-xl border border-border bg-muted/30 text-center">
             <div className="py-6">
-              <div className="text-2xl lg:text-3xl font-bold text-brand-gold">4.9/5</div>
-              <div className="text-xs sm:text-sm text-muted-foreground">Average Rating</div>
+              <div className="responsive-text-lg font-bold text-brand-gold">4.9/5</div>
+              <div className="responsive-text-sm text-muted-foreground text-truncate">Average Rating</div>
             </div>
             <div className="py-6 border-x border-border">
-              <div className="text-2xl lg:text-3xl font-bold text-brand-gold">10,000+</div>
-              <div className="text-xs sm:text-sm text-muted-foreground">Happy Customers</div>
+              <div className="responsive-text-lg font-bold text-brand-gold">10,000+</div>
+              <div className="responsive-text-sm text-muted-foreground text-truncate">Happy Customers</div>
             </div>
             <div className="py-6">
-              <div className="text-2xl lg:text-3xl font-bold text-brand-gold">100%</div>
-              <div className="text-xs sm:text-sm text-muted-foreground">Satisfaction Rate</div>
+              <div className="responsive-text-lg font-bold text-brand-gold">100%</div>
+              <div className="responsive-text-sm text-muted-foreground text-truncate">Satisfaction Rate</div>
             </div>
           </div>
         </motion.div>
@@ -126,7 +126,7 @@ export function TestimonialsSection() {
           {testimonials.map((t, index) => (
             <motion.article
               key={t.name}
-              className="group h-full rounded-2xl bg-card border border-border/60 p-6 sm:p-7 lg:p-8 hover:border-brand-gold/60 hover:shadow-xl transition-all duration-300 relative overflow-hidden"
+              className="group h-full rounded-2xl bg-card border border-border/60 p-6 sm:p-7 lg:p-8 hover:border-brand-gold/60 hover:shadow-xl transition-all duration-300 relative overflow-hidden min-h-[320px] flex flex-col"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.08 }}
@@ -139,36 +139,36 @@ export function TestimonialsSection() {
               </div>
 
               {/* header */}
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-10 h-10 rounded-full bg-muted/30 border border-border/60 flex items-center justify-center">
+              <div className="flex items-center gap-4 mb-4 flex-shrink-0">
+                <div className="w-10 h-10 rounded-full bg-muted/30 border border-border/60 flex items-center justify-center flex-shrink-0">
                   <User className="h-5 w-5 text-brand-gold" />
                 </div>
-                <div className="min-w-0">
-                  <div className="text-sm sm:text-base font-semibold text-foreground truncate">{t.name}</div>
-                  <div className="text-xs text-muted-foreground truncate">{t.title}</div>
+                <div className="min-w-0 flex-grow">
+                  <div className="responsive-text-base font-semibold text-foreground text-truncate">{t.name}</div>
+                  <div className="responsive-text-sm text-muted-foreground text-truncate">{t.title}</div>
                 </div>
               </div>
 
               {/* rating */}
-              <div className="flex items-center gap-2 mb-3">
+              <div className="flex items-center gap-2 mb-3 flex-shrink-0">
                 <div className="flex items-center gap-1">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="h-4 w-4 fill-brand-gold text-brand-gold" />
                   ))}
                 </div>
-                <span className="text-xs text-muted-foreground">{t.ratingText}</span>
+                <span className="responsive-text-sm text-muted-foreground">{t.ratingText}</span>
               </div>
 
               {/* review */}
-              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                “{t.review}”
+              <p className="responsive-text-sm text-muted-foreground leading-relaxed card-text flex-grow mb-4 max-h-[120px] overflow-y-auto">
+                "{t.review}"
               </p>
 
               {/* vehicle & amount */}
-              <div className="mt-6 rounded-lg border border-border/60 bg-muted/40 p-3">
-                <div className="flex justify-between items-center text-xs sm:text-sm">
-                  <span className="text-muted-foreground">{t.vehicle}</span>
-                  <span className="font-semibold text-brand-gold">{t.amount}</span>
+              <div className="mt-auto rounded-lg border border-border/60 bg-muted/40 p-3 flex-shrink-0">
+                <div className="flex justify-between items-center responsive-text-sm gap-2">
+                  <span className="text-muted-foreground text-truncate flex-grow">{t.vehicle}</span>
+                  <span className="font-semibold text-brand-gold whitespace-nowrap">{t.amount}</span>
                 </div>
               </div>
             </motion.article>

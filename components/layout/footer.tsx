@@ -137,17 +137,22 @@ function ClassicLayout({ currentYear, socialPlatforms }: { currentYear: number; 
             Follow Us
             <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-white/40 rounded-full" />
           </h3>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4 sm:gap-4 md:gap-4">
             {socialPlatforms.map((social) => {
               const Icon = social.icon
               return (
-                <Link key={social.name} href={social.href} className="group rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors p-4 flex items-center gap-3" aria-label={social.name}>
-                  <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
-                    <Icon className="h-5 w-5 text-[#fdfcfa]/90" />
+                <Link 
+                  key={social.name} 
+                  href={social.href} 
+                  className="group rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-200 p-4 flex items-center gap-3 min-h-[72px] w-full" 
+                  aria-label={social.name}
+                >
+                  <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-white/15 transition-colors duration-200">
+                    <Icon className="h-6 w-6 text-[#fdfcfa]/90 group-hover:text-[#fdfcfa] transition-colors duration-200" />
                   </div>
-                  <div className="flex flex-col">
-                    <span className="text-[#fdfcfa] text-sm font-semibold">{social.name}</span>
-                    <span className="text-[#fdfcfa]/70 text-xs">{social.subtitle}</span>
+                  <div className="flex flex-col justify-center min-w-0 flex-1">
+                    <span className="text-[#fdfcfa] text-sm font-semibold truncate">{social.name}</span>
+                    <span className="text-[#fdfcfa]/70 text-xs truncate">{social.subtitle}</span>
                   </div>
                 </Link>
               )
@@ -307,12 +312,19 @@ function SplitLayout({ currentYear, socialPlatforms }: { currentYear: number; so
             <NewsletterForm />
             <div className="pt-2">
               <h4 className="font-poppins font-semibold text-[#fdfcfa] mb-3">Follow Us</h4>
-              <div className="grid grid-cols-4 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-3 md:gap-4">
                 {socialPlatforms.map((social) => {
                   const Icon = social.icon
                   return (
-                    <Link key={social.name} href={social.href} aria-label={social.name} className="group rounded-md border border-white/10 bg-white/5 hover:bg-white/10 transition-colors p-3 flex items-center justify-center">
-                      <Icon className="h-5 w-5 text-[#fdfcfa]/90" />
+                    <Link 
+                      key={social.name} 
+                      href={social.href} 
+                      aria-label={social.name} 
+                      className="group rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-200 p-3 flex items-center justify-center min-h-[56px] w-full aspect-square"
+                    >
+                      <div className="w-full h-full flex items-center justify-center">
+                        <Icon className="h-6 w-6 text-[#fdfcfa]/90 group-hover:text-[#fdfcfa] transition-colors duration-200" />
+                      </div>
                     </Link>
                   )
                 })}

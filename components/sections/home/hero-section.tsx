@@ -41,7 +41,7 @@ export function HeroSection() {
         <div className="text-center max-w-4xl mx-auto">
           {/* Main Heading */}
           <motion.h1
-            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight"
+            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight text-container-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -54,7 +54,7 @@ export function HeroSection() {
 
           {/* Subtitle */}
           <motion.p
-            className="text-xl sm:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="responsive-text-xl text-gray-300 mb-8 max-w-3xl mx-auto text-container-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -70,13 +70,13 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <div className="flex items-center gap-2 text-white">
-              <DollarSign className="h-5 w-5 text-brand-gold" />
-              <span className="text-sm sm:text-base">Best Prices</span>
+            <div className="flex items-center gap-2 text-white min-w-fit">
+              <DollarSign className="h-5 w-5 text-brand-gold flex-shrink-0" />
+              <span className="responsive-text-sm whitespace-nowrap">Best Prices</span>
             </div>
-            <div className="flex items-center gap-2 text-white">
-              <Clock className="h-5 w-5 text-brand-gold" />
-              <span className="text-sm sm:text-base">Same Day Payment</span>
+            <div className="flex items-center gap-2 text-white min-w-fit">
+              <Clock className="h-5 w-5 text-brand-gold flex-shrink-0" />
+              <span className="responsive-text-sm whitespace-nowrap">Same Day Payment</span>
             </div>
           </motion.div>
 

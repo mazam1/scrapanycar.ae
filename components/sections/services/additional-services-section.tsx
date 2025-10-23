@@ -36,10 +36,10 @@ export default function AdditionalServicesSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="responsive-text-xl font-bold text-foreground mb-4 text-container-center">
             Additional Services
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="responsive-text-lg text-muted-foreground max-w-3xl mx-auto text-container-center">
             Comprehensive support services to make your car selling experience seamless
           </p>
         </motion.div>
@@ -48,23 +48,23 @@ export default function AdditionalServicesSection() {
           {additionalServices.map((service, index) => (
             <motion.div
               key={index}
-              className="bg-card rounded-2xl p-8 text-center border border-border hover:border-brand-gold/60 transition-colors group"
+              className="bg-card rounded-2xl p-8 text-center border border-border hover:border-brand-gold/60 transition-colors group min-h-[280px] flex flex-col"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               {/* Icon */}
-              <div className="bg-brand-gold w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-brand-gold/90 transition-colors">
+              <div className="bg-brand-gold w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-brand-gold/90 transition-colors flex-shrink-0">
                 <div className="text-brand-charcoal">
                   {service.icon}
                 </div>
               </div>
 
               {/* Content */}
-              <h3 className="text-xl font-bold text-foreground mb-4">
+              <h3 className="responsive-text-base font-bold text-foreground mb-4 card-text">
                 {service.title}
               </h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground card-text flex-1 responsive-text-sm">
                 {service.description}
               </p>
             </motion.div>

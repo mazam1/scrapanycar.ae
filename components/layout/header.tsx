@@ -57,18 +57,18 @@ export function Header() {
           backgroundColor: '#c49a36'
         }}
       />
-      <div className="container mx-auto px-2 sm:px-4 lg:px-6 relative z-10">
+      <div className="container mx-auto relative z-10" style={{ paddingLeft: '24px', paddingRight: '24px' }}>
         <motion.div 
           className="flex items-center justify-between"
           initial={{
             height: '80px',
-            paddingTop: '12px',
-            paddingBottom: '12px'
+            paddingTop: '0px',
+            paddingBottom: '0px'
           }}
           animate={{ 
             height: isScrolled ? '60px' : '80px',
-            paddingTop: isScrolled ? '8px' : '12px',
-            paddingBottom: isScrolled ? '8px' : '12px'
+            paddingTop: '0px',
+            paddingBottom: '0px'
           }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
         >
@@ -109,8 +109,8 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            {navigation.map((item) => (
+          <nav className="hidden lg:flex items-center">
+            {navigation.map((item, index) => (
               <Link
                 key={item.name}
                 href={item.href}
@@ -120,6 +120,11 @@ export function Header() {
                     ? "text-[#c49a36]"
                     : "text-[#fdfcfa] hover:text-[#c49a36]"
                 )}
+                style={{
+                  marginLeft: index === 0 ? '0px' : '40px',
+                  padding: '0px',
+                  margin: index === 0 ? '0px' : '0px 0px 0px 40px'
+                }}
               >
                 {item.name}
               </Link>
@@ -127,7 +132,7 @@ export function Header() {
           </nav>
 
           {/* Desktop Actions */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center" style={{ marginLeft: '48px', padding: '0px' }}>
             <Button
               variant="gold"
               size="sm"

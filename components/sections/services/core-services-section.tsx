@@ -68,10 +68,10 @@ export default function CoreServicesSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="responsive-text-xl font-bold text-foreground mb-4 text-container-center">
             Core Services
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="responsive-text-lg text-muted-foreground max-w-3xl mx-auto text-container-center">
             Everything you need to sell your car quickly, safely, and profitably
           </p>
         </motion.div>
@@ -80,44 +80,44 @@ export default function CoreServicesSection() {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="relative rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all group"
+              className="relative rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all group min-h-[400px]"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <div className={`${service.bgImage} p-8 h-full relative hover:border-brand-gold/60`}>
+              <div className={`${service.bgImage} p-8 h-full relative hover:border-brand-gold/60 flex flex-col`}>
                 {/* Content */}
-                <div className="relative z-10">
-                  <div className="flex items-center mb-4">
-                    <div className="bg-background border border-border rounded-full p-3 mr-4">
+                <div className="relative z-10 flex-1 flex flex-col">
+                  <div className="flex items-start mb-4">
+                    <div className="bg-background border border-border rounded-full p-3 mr-4 flex-shrink-0">
                       {service.icon}
                     </div>
-                    <h3 className="text-2xl font-bold text-foreground">
+                    <h3 className="responsive-text-lg font-bold text-foreground card-text">
                       {service.title}
                     </h3>
                   </div>
                   
-                  <p className="text-muted-foreground mb-6 text-lg leading-relaxed">
+                  <p className="text-muted-foreground mb-6 responsive-text-base card-text flex-1">
                     {service.description}
                   </p>
                   
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                  <div className="grid grid-cols-1 gap-3 mb-6">
                     {service.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center">
-                        <CheckCircle className="w-5 h-5 text-brand-gold mr-2 flex-shrink-0" />
-                        <span className="text-foreground/80 text-sm">{feature}</span>
+                      <div key={featureIndex} className="flex items-start">
+                        <CheckCircle className="w-5 h-5 text-brand-gold mr-3 flex-shrink-0 mt-0.5" />
+                        <span className="text-foreground/80 responsive-text-sm card-text">{feature}</span>
                       </div>
                     ))}
                   </div>
                   
                   {service.premium && (
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between mt-auto">
                       <div className="flex items-center">
-                        <span className="bg-brand-gold/10 text-brand-gold px-3 py-1 rounded-full text-sm font-medium">
+                        <span className="bg-brand-gold/10 text-brand-gold px-3 py-1 rounded-full text-sm font-medium whitespace-nowrap">
                           ★ Premium Service
                         </span>
                       </div>
-                      <div className="text-brand-gold text-lg">
+                      <div className="text-brand-gold text-lg flex-shrink-0">
                         ★★★★★
                       </div>
                     </div>
