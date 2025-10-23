@@ -1,3 +1,4 @@
+import { Suspense } from "react"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { ScrollToTop } from "@/components/common/scroll-to-top"
@@ -6,6 +7,7 @@ import { FormSection } from "@/components/sections/home/form-section"
 import { FeaturesSection } from "@/components/sections/home/features-section"
 import { HowItWorksSection } from "@/components/sections/home/how-it-works-section"
 import { TestimonialsSection } from "@/components/sections/home/testimonials-section"
+import { GetInTouchSection } from "@/components/sections/home/get-in-touch-section"
 
 
 export default function HomePage() {
@@ -19,8 +21,12 @@ export default function HomePage() {
         <FeaturesSection />
         <HowItWorksSection />
         <TestimonialsSection />
+        {/* New section inserted just before footer to mirror styling */}
+        <GetInTouchSection />
       </main>
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
       <ScrollToTop />
     </div>
   )

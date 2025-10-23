@@ -15,7 +15,7 @@ export default function CoreServicesSection() {
         "Instant valuation report",
         "No hidden fees or charges"
       ],
-      bgImage: "bg-gradient-to-br from-orange-400 to-orange-600",
+      bgImage: "bg-card border border-border",
       premium: true
     },
     {
@@ -28,7 +28,7 @@ export default function CoreServicesSection() {
         "Interior and exterior evaluation",
         "Detailed condition report"
       ],
-      bgImage: "bg-gradient-to-br from-blue-400 to-blue-600",
+      bgImage: "bg-card border border-border",
       premium: true
     },
     {
@@ -41,7 +41,7 @@ export default function CoreServicesSection() {
         "Same-day payment processing",
         "Secure transaction guarantee"
       ],
-      bgImage: "bg-gradient-to-br from-green-400 to-green-600",
+      bgImage: "bg-card border border-border",
       premium: true
     },
     {
@@ -54,13 +54,13 @@ export default function CoreServicesSection() {
         "Professional transport team",
         "Full insurance coverage during transport"
       ],
-      bgImage: "bg-gradient-to-br from-purple-400 to-purple-600",
+      bgImage: "bg-card border border-border",
       premium: true
     }
   ]
 
   return (
-    <section className="bg-slate-900 py-20 px-4">
+    <section className="bg-background py-20 px-4">
       <div className="max-w-7xl mx-auto">
         <motion.div 
           className="text-center mb-16"
@@ -68,10 +68,10 @@ export default function CoreServicesSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Core Services
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Everything you need to sell your car quickly, safely, and profitably
           </p>
         </motion.div>
@@ -80,35 +80,32 @@ export default function CoreServicesSection() {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="relative rounded-2xl overflow-hidden shadow-2xl"
+              className="relative rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all group"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <div className={`${service.bgImage} p-8 h-full relative`}>
-                {/* Background overlay */}
-                <div className="absolute inset-0 bg-black/20" />
-                
+              <div className={`${service.bgImage} p-8 h-full relative hover:border-brand-gold/60`}>
                 {/* Content */}
                 <div className="relative z-10">
                   <div className="flex items-center mb-4">
-                    <div className="bg-white/20 backdrop-blur-sm rounded-full p-3 mr-4">
+                    <div className="bg-background border border-border rounded-full p-3 mr-4">
                       {service.icon}
                     </div>
-                    <h3 className="text-2xl font-bold text-white">
+                    <h3 className="text-2xl font-bold text-foreground">
                       {service.title}
                     </h3>
                   </div>
                   
-                  <p className="text-white/90 mb-6 text-lg leading-relaxed">
+                  <p className="text-muted-foreground mb-6 text-lg leading-relaxed">
                     {service.description}
                   </p>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
                     {service.features.map((feature, featureIndex) => (
                       <div key={featureIndex} className="flex items-center">
-                        <CheckCircle className="w-5 h-5 text-white mr-2 flex-shrink-0" />
-                        <span className="text-white/90 text-sm">{feature}</span>
+                        <CheckCircle className="w-5 h-5 text-brand-gold mr-2 flex-shrink-0" />
+                        <span className="text-foreground/80 text-sm">{feature}</span>
                       </div>
                     ))}
                   </div>
@@ -116,11 +113,11 @@ export default function CoreServicesSection() {
                   {service.premium && (
                     <div className="flex items-center justify-between">
                       <div className="flex items-center">
-                        <span className="bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                        <span className="bg-brand-gold/10 text-brand-gold px-3 py-1 rounded-full text-sm font-medium">
                           ★ Premium Service
                         </span>
                       </div>
-                      <div className="text-yellow-300 text-lg">
+                      <div className="text-brand-gold text-lg">
                         ★★★★★
                       </div>
                     </div>

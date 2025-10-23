@@ -64,10 +64,10 @@ export function FeaturesSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Why Choose <span className="text-blue-600">Caroofix</span> for Selling Your Car
+            Why Choose <span className="text-blue-600">ScrapYourCar</span> for Selling Your Car
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Caroofix has been the trusted choice for car sellers nationwide for over 15 years. We specialize in 
+            ScrapYourCar has been the trusted choice for car sellers nationwide for over 15 years. We specialize in 
             providing fair, transparent, and hassle-free car buying services.
           </p>
         </motion.div>

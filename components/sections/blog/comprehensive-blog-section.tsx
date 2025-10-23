@@ -169,9 +169,9 @@ export default function ComprehensiveBlogSection() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-900">
+    <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 bg-slate-900 overflow-hidden">
+      <section className="relative py-16 lg:py-24 bg-background overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center" />
@@ -186,12 +186,12 @@ export default function ComprehensiveBlogSection() {
               transition={{ duration: 0.8 }}
               className="text-center mb-16"
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
                 Car Selling
-                <span className="block text-orange-500">Blog & Insights</span>
+                <span className="block text-brand-gold">Blog & Insights</span>
               </h1>
               
-              <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed max-w-4xl mx-auto">
+              <p className="text-xl md:text-2xl text-muted-foreground/90 mb-8 leading-relaxed max-w-4xl mx-auto">
                 Expert insights, market trends, and practical tips to help you get the best value for your 
                 vehicle. Stay informed with the latest in automotive buying and selling.
               </p>
@@ -204,19 +204,19 @@ export default function ComprehensiveBlogSection() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="max-w-4xl mx-auto"
             >
-              <div className="bg-slate-800 rounded-2xl overflow-hidden shadow-2xl">
+              <div className="bg-card border border-border rounded-2xl overflow-hidden shadow-sm">
                 <div className="flex flex-col lg:flex-row">
                   {/* Article Image */}
                   <div className="lg:w-1/2 relative">
-                    <div className="aspect-[4/3] lg:aspect-auto lg:h-full bg-gradient-to-br from-gray-600 to-gray-800 relative overflow-hidden">
+                    <div className="aspect-[4/3] lg:aspect-auto lg:h-full bg-muted relative overflow-hidden">
                       {/* Placeholder for car image */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-gray-500 to-gray-700 flex items-center justify-center">
-                        <div className="w-32 h-20 bg-gray-400 rounded-lg opacity-50"></div>
+                      <div className="absolute inset-0 bg-muted flex items-center justify-center">
+                        <div className="w-32 h-20 bg-muted-foreground/20 rounded-lg opacity-50"></div>
                       </div>
                       
                       {/* Featured Badge */}
                       <div className="absolute top-6 left-6">
-                        <span className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
+                        <span className="bg-brand-gold text-white px-4 py-2 rounded-full text-sm font-semibold">
                           Featured
                         </span>
                       </div>
@@ -226,23 +226,23 @@ export default function ComprehensiveBlogSection() {
                   {/* Article Content */}
                   <div className="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center">
                     <div className="mb-4">
-                      <span className="bg-orange-500/10 text-orange-400 px-3 py-1 rounded-full text-sm font-medium">
+                      <span className="bg-brand-gold/10 text-brand-gold px-3 py-1 rounded-full text-sm font-medium">
                         {featuredPost.category}
                       </span>
                     </div>
                     
-                    <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4 leading-tight">
+                    <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-4 leading-tight">
                       {featuredPost.title}
                     </h2>
                     
-                    <p className="text-gray-300 mb-6 leading-relaxed">
+                    <p className="text-muted-foreground mb-6 leading-relaxed">
                       {featuredPost.excerpt}
                     </p>
                     
                     {/* Article Meta */}
-                    <div className="flex items-center gap-6 text-sm text-gray-400 mb-6">
+                    <div className="flex items-center gap-6 text-sm text-muted-foreground mb-6">
                       <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
+                        <div className="w-8 h-8 bg-brand-gold rounded-full flex items-center justify-center">
                           <span className="text-white text-xs font-semibold">
                             {featuredPost.author.name.charAt(0)}
                           </span>
@@ -262,7 +262,7 @@ export default function ComprehensiveBlogSection() {
                     {/* Read More Button */}
                     <Link 
                       href={`/blog/${featuredPost.slug}`}
-                      className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 group w-fit"
+                      className="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold/90 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 group w-fit"
                     >
                       Read More
                       <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -276,7 +276,7 @@ export default function ComprehensiveBlogSection() {
       </section>
 
       {/* Latest Articles Section */}
-      <section className="py-16 lg:py-24 bg-slate-800">
+      <section className="py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <motion.div
@@ -286,10 +286,10 @@ export default function ComprehensiveBlogSection() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                 Latest Articles
               </h2>
-              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 Stay updated with the latest trends and insights in car selling
               </p>
             </motion.div>
@@ -308,14 +308,12 @@ export default function ComprehensiveBlogSection() {
                       className="group"
                     >
                       <Link href={`/blog/${article.slug}`} className="block">
-                        <div className="bg-slate-700 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-[1.02]">
+                        <div className="bg-card border border-border rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 group-hover:scale-[1.02]">
                           {/* Article Image */}
                           <div className="relative h-48 overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-br from-gray-600 to-gray-800 flex items-center justify-center">
-                              <div className="w-20 h-12 bg-gray-500 rounded opacity-50"></div>
-                            </div>
+                            <div className="absolute inset-0 bg-muted" />
                             <div className="absolute top-4 left-4 z-10">
-                              <span className="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                              <span className="bg-brand-gold text-white px-3 py-1 rounded-full text-sm font-medium">
                                 {article.category}
                               </span>
                             </div>
@@ -323,18 +321,18 @@ export default function ComprehensiveBlogSection() {
                           
                           {/* Article Content */}
                           <div className="p-6">
-                            <h3 className="text-xl font-bold text-white mb-3 group-hover:text-orange-400 transition-colors line-clamp-2">
+                            <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-brand-gold transition-colors line-clamp-2">
                               {article.title}
                             </h3>
                             
-                            <p className="text-gray-300 mb-4 line-clamp-3">
+                            <p className="text-muted-foreground mb-4 line-clamp-3">
                               {article.excerpt}
                             </p>
                             
                             {/* Article Meta */}
-                            <div className="flex items-center justify-between text-sm text-gray-400 mb-4">
+                            <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
                               <div className="flex items-center gap-2">
-                                <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
+                                <div className="w-6 h-6 bg-brand-gold rounded-full flex items-center justify-center">
                                   <span className="text-white text-xs font-semibold">
                                     {article.author.name.charAt(0)}
                                   </span>
@@ -347,7 +345,7 @@ export default function ComprehensiveBlogSection() {
                               </div>
                             </div>
                             
-                            <div className="flex items-center gap-2 text-orange-400 font-medium group-hover:gap-3 transition-all">
+                            <div className="flex items-center gap-2 text-brand-gold font-medium group-hover:gap-3 transition-all">
                               Read More
                               <ChevronRight className="w-4 h-4" />
                             </div>
@@ -369,7 +367,7 @@ export default function ComprehensiveBlogSection() {
                   >
                     <button
                       onClick={loadMoreArticles}
-                      className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105"
+                      className="bg-brand-gold hover:bg-brand-gold/90 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105"
                     >
                       Load More Articles
                     </button>
@@ -386,23 +384,23 @@ export default function ComprehensiveBlogSection() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
-                    className="bg-slate-700 rounded-2xl p-6"
+                    className="bg-card border border-border rounded-2xl p-6"
                   >
-                    <h3 className="text-xl font-bold text-white mb-6">Categories</h3>
+                    <h3 className="text-xl font-bold text-foreground mb-6">Categories</h3>
                     <div className="space-y-3">
                       {categories.map((category, index) => (
                         <Link
                           key={index}
                           href={`/blog?category=${category.name.toLowerCase().replace(' ', '-')}`}
-                          className="flex items-center justify-between p-3 rounded-lg hover:bg-slate-600 transition-colors group"
+                          className="flex items-center justify-between p-3 rounded-lg hover:bg-muted transition-colors group"
                         >
                           <div className="flex items-center gap-3">
-                            <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                            <span className="text-gray-300 group-hover:text-white transition-colors">
+                            <div className="w-2 h-2 bg-brand-gold rounded-full"></div>
+                            <span className="text-muted-foreground group-hover:text-foreground transition-colors">
                               {category.name}
                             </span>
                           </div>
-                          <span className="text-gray-400 text-sm bg-slate-600 px-2 py-1 rounded">
+                          <span className="text-muted-foreground text-sm bg-muted px-2 py-1 rounded">
                             {category.count}
                           </span>
                         </Link>
@@ -416,17 +414,17 @@ export default function ComprehensiveBlogSection() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.1 }}
                     viewport={{ once: true }}
-                    className="bg-slate-700 rounded-2xl p-6"
+                    className="bg-card border border-border rounded-2xl p-6"
                   >
-                    <h3 className="text-xl font-bold text-white mb-6">Recent Posts</h3>
+                    <h3 className="text-xl font-bold text-foreground mb-6">Recent Posts</h3>
                     <div className="space-y-4">
                       {recentPosts.map((post, index) => (
                         <Link
                           key={index}
                           href="#"
-                          className="block p-3 rounded-lg hover:bg-slate-600 transition-colors group"
+                          className="block p-3 rounded-lg hover:bg-muted transition-colors group"
                         >
-                          <span className="text-gray-300 group-hover:text-white transition-colors line-clamp-2">
+                          <span className="text-muted-foreground group-hover:text-foreground transition-colors line-clamp-2">
                             {post}
                           </span>
                         </Link>
@@ -440,10 +438,10 @@ export default function ComprehensiveBlogSection() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                     viewport={{ once: true }}
-                    className="bg-slate-700 rounded-2xl p-6"
+                    className="bg-card border border-border rounded-2xl p-6"
                   >
-                    <h3 className="text-xl font-bold text-white mb-4">Stay Updated</h3>
-                    <p className="text-gray-300 mb-6 text-sm">
+                    <h3 className="text-xl font-bold text-foreground mb-4">Stay Updated</h3>
+                    <p className="text-muted-foreground mb-6 text-sm">
                       Get the latest car selling tips and market insights delivered to your inbox.
                     </p>
                     <form onSubmit={handleSubscribe} className="space-y-4">
@@ -452,12 +450,12 @@ export default function ComprehensiveBlogSection() {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="Enter your email"
-                        className="w-full px-4 py-3 bg-slate-600 text-white rounded-lg border border-slate-500 focus:border-orange-500 focus:outline-none transition-colors"
+                        className="w-full px-4 py-3 bg-background text-foreground rounded-lg border border-input focus:border-brand-gold focus:outline-none transition-colors"
                         required
                       />
                       <button
                         type="submit"
-                        className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-lg font-semibold transition-colors"
+                        className="w-full bg-brand-gold hover:bg-brand-gold/90 text-white py-3 rounded-lg font-semibold transition-colors"
                       >
                         Subscribe
                       </button>
@@ -471,14 +469,14 @@ export default function ComprehensiveBlogSection() {
       </section>
 
       {/* Want to see more articles section */}
-      <section className="py-12 bg-slate-900">
+      <section className="py-12 bg-background">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-gray-400 mb-6">
+          <p className="text-muted-foreground mb-6">
             Want to see more articles? We have a wealth of knowledge to share.
           </p>
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200"
+            className="inline-flex items-center gap-2 border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200"
           >
             Load More Articles
           </Link>

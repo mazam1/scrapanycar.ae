@@ -6,58 +6,58 @@ import { Star, Quote, User } from "lucide-react"
 
 const testimonials = [
   {
-    name: "Ahmed Alrashidi",
-    title: "Planning Consultant",
+    name: "Noor Al Mansoori",
+    title: "Product Manager",
     ratingText: "5/5",
     review:
-      "I was skeptical about selling my 2019 BMW X5 online, but Scrap Your Car made it incredibly easy. The valuation was spot-on with market rates, and they handled all the paperwork. Got AED 185,000 for my car—exactly what I was hoping for!",
-    vehicle: "2019 BMW X5 xDrive40i",
-    amount: "AED 185,000"
+      "Sold my Lexus RX within 24 hours. The team handled everything and transferred funds instantly. Couldn’t be happier.",
+    vehicle: "2020 Lexus RX 350",
+    amount: "AED 145,000"
   },
   {
-    name: "Priya Sharma",
-    title: "Marketing Specialist",
+    name: "Daniel Reyes",
+    title: "Finance Analyst",
     ratingText: "4.5/5",
     review:
-      "Moving back to India meant I had to sell my Toyota Camry quickly. Scrap Your Car not only gave me a fair price but also completed the transaction in just 2 days. Their team was professional and transparent throughout the process.",
-    vehicle: "2020 Toyota Camry SE",
-    amount: "AED 72,000"
+      "Transparent valuation and no last-minute surprises. Pickup was on time and the process was super efficient.",
+    vehicle: "2018 Honda Accord Touring",
+    amount: "AED 68,000"
   },
   {
-    name: "Michael Johnson",
-    title: "Automotive Design Professional",
+    name: "Layla Hussein",
+    title: "Interior Designer",
     ratingText: "5/5",
     review:
-      "After my Audi A4 had some engine issues, I thought I’d get a terrible price for it. Scrap Your Car surprised me by offering AED 88,000 even with the mechanical problems. They truly buy cars in any condition!",
-    vehicle: "2018 Audi A4 Quattro",
-    amount: "AED 88,000"
+      "I had minor body damage on my Mini Cooper. Still got a great price and the staff were polite and professional.",
+    vehicle: "2019 Mini Cooper S",
+    amount: "AED 78,500"
   },
   {
-    name: "Fatima Al-Zahra",
-    title: "Teacher",
+    name: "Omar Khaled",
+    title: "Operations Lead",
+    ratingText: "5/5",
+    review:
+      "Instant quote matched the final offer. Documents were handled for me and payment hit my account the same day.",
+    vehicle: "2017 Ford Explorer Limited",
+    amount: "AED 57,000"
+  },
+  {
+    name: "Sofia Martins",
+    title: "Software Engineer",
     ratingText: "4/5",
     review:
-      "As a single mother, I needed to sell my Honda CR-V to upgrade to a larger family car. The team was understanding and patient, explaining every step. The whole process took less than a week!",
-    vehicle: "2017 Honda CR-V EX",
-    amount: "AED 62,000"
+      "Needed to sell quickly before moving. They scheduled pickup next morning and wrapped up in under an hour.",
+    vehicle: "2021 Mazda CX-5 Grand Touring",
+    amount: "AED 95,000"
   },
   {
-    name: "Raj Patel",
-    title: "IT Consultant",
+    name: "Arjun Mehta",
+    title: "Entrepreneur",
     ratingText: "5/5",
     review:
-      "I’ve sold cars before through classifieds and it was always a hassle. Scrap Your Car made it so simple—just filled out their form, got an instant quote, and had the money in my account the next day. Highly recommend!",
-    vehicle: "2021 Nissan Altima SV",
-    amount: "AED 78,000"
-  },
-  {
-    name: "Elena Petrov",
-    title: "Graphic Designer",
-    ratingText: "4.5/5",
-    review:
-      "My Mercedes C-Class was involved in a minor accident and I was worried about its resale value. Scrap Your Car gave me a fair assessment and offered AED 125,000. The inspection was thorough and the staff was very knowledgeable.",
-    vehicle: "2019 Mercedes-Benz C300",
-    amount: "AED 125,000"
+      "Fair market price, zero hassle. This is the easiest car sale I’ve ever done.",
+    vehicle: "2018 Mercedes-Benz E300",
+    amount: "AED 115,000"
   }
 ]
 

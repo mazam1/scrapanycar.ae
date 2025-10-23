@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { ArrowRight, DollarSign, Clock } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
+import ActionButtons from "@/components/sections/home/action-buttons"
 
 export function HeroSection() {
   const [scrollY, setScrollY] = React.useState(0)
@@ -80,9 +81,9 @@ export function HeroSection() {
             </div>
           </motion.div>
 
-          {/* CTA Buttons */}
+          {/* Primary CTA (kept) */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex justify-center items-center mb-6"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -95,31 +96,24 @@ export function HeroSection() {
                 el?.scrollIntoView({ behavior: 'smooth', block: 'start' })
                 window.dispatchEvent(new CustomEvent('highlight-name'))
               }}
+              aria-label="Open valuation form"
             >
               Get Instant Quote
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="border-white text-white hover:bg-white hover:text-brand-charcoal px-8 py-4 text-lg"
-            >
-              <a
-                href="https://wa.me/971568559762"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                WhatsApp: +971568559762
-              </a>
-            </Button>
           </motion.div>
 
-
+          {/* Action Buttons matching reference */}
+          <motion.div
+            className="flex justify-center items-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.0 }}
+          >
+            <ActionButtons />
+          </motion.div>
         </div>
       </div>
-
-
     </section>
   )
 }

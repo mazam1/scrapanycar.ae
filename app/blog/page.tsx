@@ -1,8 +1,9 @@
 import { Metadata } from 'next'
+import { Suspense } from 'react'
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { ScrollToTop } from "@/components/common/scroll-to-top"
-import BlogHero from '@/components/sections/blog/blog-hero'
+// import BlogHero from '@/components/sections/blog/blog-hero'
 import ComprehensiveBlogSection from '@/components/sections/blog/comprehensive-blog-section'
 
 export const metadata: Metadata = {
@@ -21,10 +22,12 @@ export default function BlogPage() {
     <div className="min-h-screen bg-background">
       <Header />
       <main>
-        <BlogHero />
+        {/* Removed redundant BlogHero to avoid empty space and duplication */}
         <ComprehensiveBlogSection />
       </main>
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
       <ScrollToTop />
     </div>
   )

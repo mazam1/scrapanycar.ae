@@ -10,7 +10,7 @@ export function TestimonialsSection() {
       name: "Ahmed Alrashidi",
       role: "Planning Consultant",
       rating: 5,
-      comment: "I was skeptical about selling my 2019 BMW X5 online, but CarooFix made it incredibly easy. The valuation was spot-on with market rates, and they handled all the paperwork. Got AED 185,000 for my car - exactly what I was hoping for!",
+      comment: "I was skeptical about selling my 2019 BMW X5 online, but ScrapYourCar made it incredibly easy. The valuation was spot-on with market rates, and they handled all the paperwork. Got AED 185,000 for my car - exactly what I was hoping for!",
       car: "2019 BMW X5 xDrive40i",
       amount: "AED 185,000",
       avatar: "👨‍💼"
@@ -19,7 +19,7 @@ export function TestimonialsSection() {
       name: "Priya Sharma", 
       role: "Marketing Specialist",
       rating: 4.5,
-      comment: "Moving back to India meant I had to sell my Toyota Camry quickly. CarooFix not only gave me a fair price but also completed the transaction in just 2 days. Their team was professional and transparent throughout the process.",
+      comment: "Moving back to India meant I had to sell my Toyota Camry quickly. ScrapYourCar not only gave me a fair price but also completed the transaction in just 2 days. Their team was professional and transparent throughout the process.",
       car: "2020 Toyota Camry SE",
       amount: "AED 72,000",
       avatar: "👩‍💼"
@@ -28,7 +28,7 @@ export function TestimonialsSection() {
       name: "Michael Johnson",
       role: "Automotive Design Professional", 
       rating: 5,
-      comment: "After my Audi A4 had some engine issues, I thought I&apos;d get a terrible price for it. CarooFix surprised me by offering AED 88,000 even with the mechanical problems. They truly buy cars in any condition!",
+      comment: "After my Audi A4 had some engine issues, I thought I&apos;d get a terrible price for it. ScrapYourCar surprised me by offering AED 88,000 even with the mechanical problems. They truly buy cars in any condition!",
       car: "2018 Audi A4 Quattro",
       amount: "AED 88,000",
       avatar: "👨‍🎨"
@@ -37,7 +37,7 @@ export function TestimonialsSection() {
       name: "Fatima Al-Zahra",
       role: "Teacher",
       rating: 4,
-      comment: "As a single mother, I needed to sell my Honda CR-V to upgrade to a larger family car. The team at CarooFix was understanding and patient, explaining every step. The whole process took less than a week!",
+      comment: "As a single mother, I needed to sell my Honda CR-V to upgrade to a larger family car. The team at ScrapYourCar was understanding and patient, explaining every step. The whole process took less than a week!",
       car: "2017 Honda CR-V EX",
       amount: "AED 62,000",
       avatar: "👩‍🏫"
@@ -46,7 +46,7 @@ export function TestimonialsSection() {
       name: "Raj Patel",
       role: "IT Consultant",
       rating: 5,
-      comment: "I&apos;ve sold cars before through classifieds and it was always a hassle. CarooFix made it so simple - just filled out their form, got an instant quote, and had the money in my account the next day. Highly recommend!",
+      comment: "I&apos;ve sold cars before through classifieds and it was always a hassle. ScrapYourCar made it so simple - just filled out their form, got an instant quote, and had the money in my account the next day. Highly recommend!",
       car: "2021 Nissan Altima SV",
       amount: "AED 78,000",
       avatar: "👨‍💻"
@@ -55,7 +55,7 @@ export function TestimonialsSection() {
       name: "Elena Petrov",
       role: "Graphic Designer",
       rating: 4.5,
-      comment: "My Mercedes C-Class was involved in a minor accident and I was worried about its resale value. CarooFix gave me a fair assessment and offered AED 125,000. The inspection was thorough and the staff was very knowledgeable.",
+      comment: "My Mercedes C-Class was involved in a minor accident and I was worried about its resale value. ScrapYourCar gave me a fair assessment and offered AED 125,000. The inspection was thorough and the staff was very knowledgeable.",
       car: "2019 Mercedes-Benz C300",
       amount: "AED 125,000",
       avatar: "👩‍🎨"
@@ -98,7 +98,7 @@ export function TestimonialsSection() {
             Customer Success Stories
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Real experiences from thousands of satisfied customers who chose Caroofix for their car selling journey
+            Real experiences from thousands of satisfied customers who chose ScrapYourCar for their car selling journey
           </p>
         </motion.div>
 

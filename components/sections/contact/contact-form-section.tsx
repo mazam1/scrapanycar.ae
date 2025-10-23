@@ -2,593 +2,274 @@
 
 import * as React from "react"
 import { motion } from "framer-motion"
-import { 
-  Send, 
-  Phone, 
-  Mail, 
-  User,
-  Car,
-  MapPin,
-  CheckCircle,
-  AlertCircle,
-  Loader2
-} from "lucide-react"
-
+import { Send, Phone, Mail, MapPin, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-interface FormData {
-  firstName: string
-  lastName: string
-  email: string
-  phone: string
-  vehicleYear: string
-  vehicleMake: string
-  vehicleModel: string
-  vehicleCondition: string
-  location: string
-  preferredDate: string
-  preferredTime: string
-  message: string
-  contactMethod: string
-}
-
-interface FormErrors {
-  [key: string]: string
-}
-
-const vehicleConditions = [
-  { value: "running", label: "Running - Drives normally" },
-  { value: "not-running", label: "Not Running - Doesn&apos;t start" },
-  { value: "accident", label: "Accident Damage - Collision damage" },
-  { value: "mechanical", label: "Mechanical Issues - Engine/transmission problems" },
-  { value: "flood", label: "Flood Damage - Water damage" },
-  { value: "fire", label: "Fire Damage - Fire or heat damage" }
-]
-
-const timeSlots = [
-  "8:00 AM - 10:00 AM",
-  "10:00 AM - 12:00 PM",
-  "12:00 PM - 2:00 PM",
-  "2:00 PM - 4:00 PM",
-  "4:00 PM - 6:00 PM",
-  "6:00 PM - 8:00 PM"
-]
-
-const contactMethods = [
-  { value: "phone", label: "Phone Call" },
-  { value: "email", label: "Email" },
-  { value: "text", label: "Text Message" }
-]
-
 export function ContactFormSection() {
-  const [formData, setFormData] = React.useState<FormData>({
-    firstName: "",
-    lastName: "",
+  const [formData, setFormData] = React.useState({
+    name: "",
     email: "",
     phone: "",
-    vehicleYear: "",
-    vehicleMake: "",
-    vehicleModel: "",
-    vehicleCondition: "",
-    location: "",
-    preferredDate: "",
-    preferredTime: "",
-    message: "",
-    contactMethod: "phone"
+    subject: "General Inquiry",
+    carMake: "",
+    carModel: "",
+    year: "",
+    contactMethod: "Phone Call",
+    contactTime: "",
+    message: ""
   })
 
-  const [errors, setErrors] = React.useState<FormErrors>({})
-  const [isSubmitting, setIsSubmitting] = React.useState(false)
-  const [isSubmitted, setIsSubmitted] = React.useState(false)
+  const timeSlots = [
+    "8:00 AM - 10:00 AM",
+    "10:00 AM - 12:00 PM",
+    "12:00 PM - 2:00 PM",
+    "2:00 PM - 4:00 PM",
+    "4:00 PM - 6:00 PM",
+    "6:00 PM - 8:00 PM"
+  ]
 
-  const validateForm = (): boolean => {
-    const newErrors: FormErrors = {}
-
-    // Required field validation
-    if (!formData.firstName.trim()) newErrors.firstName = "First name is required"
-    if (!formData.lastName.trim()) newErrors.lastName = "Last name is required"
-    if (!formData.email.trim()) newErrors.email = "Email is required"
-    if (!formData.phone.trim()) newErrors.phone = "Phone number is required"
-    if (!formData.vehicleYear.trim()) newErrors.vehicleYear = "Vehicle year is required"
-    if (!formData.vehicleMake.trim()) newErrors.vehicleMake = "Vehicle make is required"
-    if (!formData.vehicleModel.trim()) newErrors.vehicleModel = "Vehicle model is required"
-    if (!formData.vehicleCondition) newErrors.vehicleCondition = "Vehicle condition is required"
-    if (!formData.location.trim()) newErrors.location = "City is required"
-
-    // Email validation
-    if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email address"
-    }
-
-    // Phone validation
-    if (formData.phone && !/^[\+]?[1-9][\d]{0,15}$/.test(formData.phone.replace(/[\s\-\(\)]/g, ""))) {
-      newErrors.phone = "Please enter a valid phone number"
-    }
-
-    // Vehicle year validation
-    const currentYear = new Date().getFullYear()
-    const year = parseInt(formData.vehicleYear)
-    if (formData.vehicleYear && (isNaN(year) || year < 1900 || year > currentYear + 1)) {
-      newErrors.vehicleYear = `Please enter a valid year between 1900 and ${currentYear + 1}`
-    }
-
-    // Date validation (if provided)
-    if (formData.preferredDate) {
-      const selectedDate = new Date(formData.preferredDate)
-      const today = new Date()
-      today.setHours(0, 0, 0, 0)
-      if (selectedDate < today) {
-        newErrors.preferredDate = "Please select a future date"
-      }
-    }
-
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
   }
 
-  const handleInputChange = (field: keyof FormData, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }))
-    // Clear error when user starts typing
-    if (errors[field]) {
-      setErrors(prev => ({ ...prev, [field]: "" }))
-    }
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    
-    if (!validateForm()) {
-      return
-    }
-
-    setIsSubmitting(true)
-
-    try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      
-      // Here you would typically send the data to your backend
-      console.log("Form submitted:", formData)
-      
-      setIsSubmitted(true)
-    } catch (error) {
-      console.error("Submission error:", error)
-      setErrors({ submit: "Something went wrong. Please try again." })
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
-
-  if (isSubmitted) {
-    return (
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="max-w-2xl mx-auto text-center"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="p-8 rounded-2xl bg-card border border-border">
-              <div className="inline-flex p-4 rounded-full bg-green-500/10 border border-green-500/20 mb-6">
-                <CheckCircle className="h-8 w-8 text-green-500" />
-              </div>
-              <h2 className="text-3xl font-bold text-foreground mb-4">
-                Thank You for Your Submission!
-              </h2>
-              <p className="text-lg text-muted-foreground mb-6">
-                We&apos;ve received your information and will contact you within 15 minutes with your 
-                personalized quote. Our team is already reviewing your vehicle details.
-              </p>
-              <div className="space-y-3 mb-8">
-                <div className="flex items-center justify-center gap-2 text-muted-foreground">
-                  <Phone className="h-4 w-4" />
-                  <span>Expect a call at {formData.phone}</span>
-                </div>
-                <div className="flex items-center justify-center gap-2 text-muted-foreground">
-                  <Mail className="h-4 w-4" />
-                  <span>Confirmation sent to {formData.email}</span>
-                </div>
-              </div>
-              <Button 
-                onClick={() => {
-                  setIsSubmitted(false)
-                  setFormData({
-                    firstName: "",
-                    lastName: "",
-                    email: "",
-                    phone: "",
-                    vehicleYear: "",
-                    vehicleMake: "",
-                    vehicleModel: "",
-                    vehicleCondition: "",
-                    location: "",
-                    preferredDate: "",
-                    preferredTime: "",
-                    message: "",
-                    contactMethod: "phone"
-                  })
-                }}
-                variant="outline"
-              >
-                Submit Another Request
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-    )
+    // No backend specified; mimic submit
+    console.log("Contact form submitted", formData)
   }
 
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="relative py-16 lg:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 30 }}
+          className="max-w-5xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Get Your <span className="text-brand-gold">Instant Quote</span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Fill out the form below and we&apos;ll contact you within 15 minutes with a personalized quote for your vehicle.
-          </p>
-        </motion.div>
-
-        <div className="max-w-4xl mx-auto">
-          <motion.form
-            onSubmit={handleSubmit}
-            className="p-8 rounded-2xl bg-card border border-border"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            {/* Personal Information */}
-            <div className="mb-8">
-              <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-                <User className="h-5 w-5 text-brand-gold" />
-                Personal Information
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    First Name *
-                  </label>
-                  <input
-                    type="text"
-                    value={formData.firstName}
-                    onChange={(e) => handleInputChange("firstName", e.target.value)}
-                    className={`w-full px-4 py-3 rounded-lg border ${
-                      errors.firstName ? "border-red-500" : "border-border"
-                    } bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-transparent transition-colors`}
-                    placeholder="Enter your first name"
-                  />
-                  {errors.firstName && (
-                    <p className="mt-1 text-sm text-red-500 flex items-center gap-1">
-                      <AlertCircle className="h-4 w-4" />
-                      {errors.firstName}
-                    </p>
-                  )}
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Last Name *
-                  </label>
-                  <input
-                    type="text"
-                    value={formData.lastName}
-                    onChange={(e) => handleInputChange("lastName", e.target.value)}
-                    className={`w-full px-4 py-3 rounded-lg border ${
-                      errors.lastName ? "border-red-500" : "border-border"
-                    } bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-transparent transition-colors`}
-                    placeholder="Enter your last name"
-                  />
-                  {errors.lastName && (
-                    <p className="mt-1 text-sm text-red-500 flex items-center gap-1">
-                      <AlertCircle className="h-4 w-4" />
-                      {errors.lastName}
-                    </p>
-                  )}
-                </div>
-              </div>
-            </div>
-
-            {/* Contact Information */}
-            <div className="mb-8">
-              <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-                <Phone className="h-5 w-5 text-brand-gold" />
-                Contact Information
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => handleInputChange("email", e.target.value)}
-                    className={`w-full px-4 py-3 rounded-lg border ${
-                      errors.email ? "border-red-500" : "border-border"
-                    } bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-transparent transition-colors`}
-                    placeholder="your.email@example.com"
-                  />
-                  {errors.email && (
-                    <p className="mt-1 text-sm text-red-500 flex items-center gap-1">
-                      <AlertCircle className="h-4 w-4" />
-                      {errors.email}
-                    </p>
-                  )}
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Phone Number *
-                  </label>
-                  <input
-                    type="tel"
-                    value={formData.phone}
-                    onChange={(e) => handleInputChange("phone", e.target.value)}
-                    className={`w-full px-4 py-3 rounded-lg border ${
-                      errors.phone ? "border-red-500" : "border-border"
-                    } bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-transparent transition-colors`}
-                    placeholder="(555) 123-4567"
-                  />
-                  {errors.phone && (
-                    <p className="mt-1 text-sm text-red-500 flex items-center gap-1">
-                      <AlertCircle className="h-4 w-4" />
-                      {errors.phone}
-                    </p>
-                  )}
-                </div>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Preferred Contact Method
-                </label>
-                <div className="flex gap-4">
-                  {contactMethods.map((method) => (
-                    <label key={method.value} className="flex items-center gap-2 cursor-pointer">
-                      <input
-                        type="radio"
-                        name="contactMethod"
-                        value={method.value}
-                        checked={formData.contactMethod === method.value}
-                        onChange={(e) => handleInputChange("contactMethod", e.target.value)}
-                        className="text-brand-gold focus:ring-brand-gold"
-                      />
-                      <span className="text-foreground">{method.label}</span>
-                    </label>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Vehicle Information */}
-            <div className="mb-8">
-              <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-                <Car className="h-5 w-5 text-brand-gold" />
-                Vehicle Information
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Year *
-                  </label>
-                  <input
-                    type="number"
-                    min="1900"
-                    max={new Date().getFullYear() + 1}
-                    value={formData.vehicleYear}
-                    onChange={(e) => handleInputChange("vehicleYear", e.target.value)}
-                    className={`w-full px-4 py-3 rounded-lg border ${
-                      errors.vehicleYear ? "border-red-500" : "border-border"
-                    } bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-transparent transition-colors`}
-                    placeholder="2020"
-                  />
-                  {errors.vehicleYear && (
-                    <p className="mt-1 text-sm text-red-500 flex items-center gap-1">
-                      <AlertCircle className="h-4 w-4" />
-                      {errors.vehicleYear}
-                    </p>
-                  )}
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Make *
-                  </label>
-                  <input
-                    type="text"
-                    value={formData.vehicleMake}
-                    onChange={(e) => handleInputChange("vehicleMake", e.target.value)}
-                    className={`w-full px-4 py-3 rounded-lg border ${
-                      errors.vehicleMake ? "border-red-500" : "border-border"
-                    } bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-transparent transition-colors`}
-                    placeholder="Honda"
-                  />
-                  {errors.vehicleMake && (
-                    <p className="mt-1 text-sm text-red-500 flex items-center gap-1">
-                      <AlertCircle className="h-4 w-4" />
-                      {errors.vehicleMake}
-                    </p>
-                  )}
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Model *
-                  </label>
-                  <input
-                    type="text"
-                    value={formData.vehicleModel}
-                    onChange={(e) => handleInputChange("vehicleModel", e.target.value)}
-                    className={`w-full px-4 py-3 rounded-lg border ${
-                      errors.vehicleModel ? "border-red-500" : "border-border"
-                    } bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-transparent transition-colors`}
-                    placeholder="Civic"
-                  />
-                  {errors.vehicleModel && (
-                    <p className="mt-1 text-sm text-red-500 flex items-center gap-1">
-                      <AlertCircle className="h-4 w-4" />
-                      {errors.vehicleModel}
-                    </p>
-                  )}
-                </div>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Vehicle Condition *
-                </label>
-                <select
-                  value={formData.vehicleCondition}
-                  onChange={(e) => handleInputChange("vehicleCondition", e.target.value)}
-                  className={`w-full px-4 py-3 rounded-lg border ${
-                    errors.vehicleCondition ? "border-red-500" : "border-border"
-                  } bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-transparent transition-colors`}
-                >
-                  <option value="">Select vehicle condition</option>
-                  {vehicleConditions.map((condition) => (
-                    <option key={condition.value} value={condition.value}>
-                      {condition.label}
-                    </option>
-                  ))}
-                </select>
-                {errors.vehicleCondition && (
-                  <p className="mt-1 text-sm text-red-500 flex items-center gap-1">
-                    <AlertCircle className="h-4 w-4" />
-                    {errors.vehicleCondition}
-                  </p>
-                )}
-              </div>
-            </div>
-
-            {/* Location & Scheduling */}
-            <div className="mb-8">
-              <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
-                <MapPin className="h-5 w-5 text-brand-gold" />
-                Location & Scheduling
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    City *
-                  </label>
-                  <select
-                    value={formData.location}
-                    onChange={(e) => handleInputChange("location", e.target.value)}
-                    className={`w-full px-4 py-3 rounded-lg border ${
-                      errors.location ? "border-red-500" : "border-border"
-                    } bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-transparent transition-colors`}
-                  >
-                    <option value="">Select city</option>
-                    {[
-                      "Dubai",
-                      "Abu Dhabi",
-                      "Sharjah",
-                      "Ajman",
-                      "Al Ain",
-                      "Ras Al Khaimah",
-                      "Fujairah",
-                      "Umm Al Quwain"
-                    ].map((city) => (
-                      <option key={city} value={city}>{city}</option>
-                    ))}
-                  </select>
-                  {errors.location && (
-                    <p className="mt-1 text-sm text-red-500 flex items-center gap-1">
-                      <AlertCircle className="h-4 w-4" />
-                      {errors.location}
-                    </p>
-                  )}
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Preferred Date
-                  </label>
-                  <input
-                    type="date"
-                    value={formData.preferredDate}
-                    onChange={(e) => handleInputChange("preferredDate", e.target.value)}
-                    min={new Date().toISOString().split('T')[0]}
-                    className={`w-full px-4 py-3 rounded-lg border ${
-                      errors.preferredDate ? "border-red-500" : "border-border"
-                    } bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-transparent transition-colors`}
-                  />
-                  {errors.preferredDate && (
-                    <p className="mt-1 text-sm text-red-500 flex items-center gap-1">
-                      <AlertCircle className="h-4 w-4" />
-                      {errors.preferredDate}
-                    </p>
-                  )}
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    Preferred Time
-                  </label>
-                  <select
-                    value={formData.preferredTime}
-                    onChange={(e) => handleInputChange("preferredTime", e.target.value)}
-                    className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-transparent transition-colors"
-                  >
-                    <option value="">Select time slot</option>
-                    {timeSlots.map((slot) => (
-                      <option key={slot} value={slot}>
-                        {slot}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            {/* Additional Message */}
-            <div className="mb-8">
-              <label className="block text-sm font-medium text-foreground mb-2">
-                Additional Information
-              </label>
-              <textarea
-                value={formData.message}
-                onChange={(e) => handleInputChange("message", e.target.value)}
-                rows={4}
-                className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-transparent transition-colors resize-none"
-                placeholder="Tell us more about your vehicle's condition, any special circumstances, or questions you have..."
-              />
-            </div>
-
-            {/* Submit Button */}
-            <div className="text-center">
-              {errors.submit && (
-                <p className="mb-4 text-red-500 flex items-center justify-center gap-1">
-                  <AlertCircle className="h-4 w-4" />
-                  {errors.submit}
-                </p>
-              )}
-              <Button
-                type="submit"
-                size="lg"
-                disabled={isSubmitting}
-                className="bg-brand-gold hover:bg-brand-gold/90 text-brand-charcoal font-semibold text-lg px-12"
-              >
-                {isSubmitting ? (
-                  <>
-                    <Loader2 className="h-5 w-5 mr-2 animate-spin" />
-                    Submitting...
-                  </>
-                ) : (
-                  <>
-                    <Send className="h-5 w-5 mr-2" />
-                    Get My Quote
-                  </>
-                )}
-              </Button>
-              <p className="mt-4 text-sm text-muted-foreground">
-                By submitting this form, you agree to be contacted by our team regarding your vehicle quote.
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Left: Get In Touch Form */}
+            <div className="p-6 sm:p-8 rounded-2xl bg-card border border-border shadow-sm">
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-2">Get In Touch</h2>
+              <p className="text-muted-foreground mb-8">
+                Fill out the form below and we&apos;ll get back to you within 2
+                hours during business hours.
               </p>
+
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Name & Email */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      Your Name * *
+                    </label>
+                    <input
+                      name="name"
+                      type="text"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-lg border border-border bg-background"
+                      placeholder="Enter your name"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      Email Address * *
+                    </label>
+                    <input
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-lg border border-border bg-background"
+                      placeholder="your@email.com"
+                      required
+                    />
+                  </div>
+                </div>
+
+                {/* Phone & Subject */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      Phone Number * *
+                    </label>
+                    <input
+                      name="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-lg border border-border bg-background"
+                      placeholder="0568558762"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Subject</label>
+                    <select
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-lg border border-border bg-background"
+                    >
+                      <option>General Inquiry</option>
+                      <option>Request Valuation</option>
+                      <option>Schedule Pickup</option>
+                      <option>Sell My Car</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Vehicle Info (Optional) */}
+                <div>
+                  <div className="flex items-center gap-2 text-sm font-medium mb-3">
+                    <span className="text-brand-gold">🚗</span>
+                    <span>Vehicle Information (Optional)</span>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <input
+                      name="carMake"
+                      type="text"
+                      value={formData.carMake}
+                      onChange={handleChange}
+                      className="px-4 py-3 rounded-lg border border-border bg-background"
+                      placeholder="Car Make"
+                    />
+                    <input
+                      name="carModel"
+                      type="text"
+                      value={formData.carModel}
+                      onChange={handleChange}
+                      className="px-4 py-3 rounded-lg border border-border bg-background"
+                      placeholder="Car Model"
+                    />
+                    <input
+                      name="year"
+                      type="number"
+                      value={formData.year}
+                      onChange={handleChange}
+                      className="px-4 py-3 rounded-lg border border-border bg-background"
+                      placeholder="Year"
+                      min={1950}
+                      max={new Date().getFullYear() + 1}
+                    />
+                  </div>
+                </div>
+
+                {/* Contact Preferences */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      Preferred Contact Method
+                    </label>
+                    <select
+                      name="contactMethod"
+                      value={formData.contactMethod}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-lg border border-border bg-background"
+                    >
+                      <option>Phone Call</option>
+                      <option>Email</option>
+                      <option>WhatsApp</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">
+                      Preferred Contact Time
+                    </label>
+                    <select
+                      name="contactTime"
+                      value={formData.contactTime}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-lg border border-border bg-background"
+                    >
+                      <option value="">Select preferred time</option>
+                      {timeSlots.map(t => (
+                        <option key={t} value={t}>{t}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                {/* Message */}
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Tell us about your car or ask any questions...
+                  </label>
+                  <textarea
+                    name="message"
+                    rows={4}
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-lg border border-border bg-background resize-none"
+                  />
+                </div>
+
+                <Button type="submit" variant="gold" size="lg" className="w-full sm:w-auto">
+                  <Send className="h-5 w-5 mr-2" />
+                  Send Message
+                </Button>
+              </form>
             </div>
-          </motion.form>
-        </div>
+
+            {/* Right: Our Location & Why Choose Us */}
+            <div className="space-y-6">
+              {/* Our Location */}
+              <div className="rounded-2xl overflow-hidden bg-card border border-border shadow-sm">
+                <div className="p-6 border-b">
+                  <h3 className="text-xl font-bold">Our Location</h3>
+                </div>
+                <div className="relative">
+                  <div className="aspect-video w-full">
+                    <iframe
+                      title="Dubai, UAE"
+                      className="w-full h-full"
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28960.52298093807!2d55.2708!3d25.2048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5b8c9f0f3b1f%3A0x4a1e88f4c2eab6e3!2sDubai%2C%20United%20Arab%20Emirates!5e0!3m2!1sen!2s!4v1710012345678"
+                    />
+                  </div>
+                  {/* Overlay marker card */}
+                  <div className="absolute left-4 top-4 bg-background/95 backdrop-blur-sm border rounded-xl p-4 shadow-sm">
+                    <div className="flex items-center gap-2 mb-2">
+                      <MapPin className="h-5 w-5 text-brand-gold" />
+                      <span className="font-medium">DUBAI, UAE</span>
+                    </div>
+                    <Button variant="gold" size="sm">Get Directions</Button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Why Choose Us */}
+              <div className="rounded-2xl bg-card border border-border shadow-sm p-6">
+                <h3 className="text-xl font-bold mb-6">Why Choose Us</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="rounded-xl border p-4 text-center">
+                    <div className="text-2xl font-bold">2hrs</div>
+                    <div className="text-muted-foreground text-sm">Response Time</div>
+                  </div>
+                  <div className="rounded-xl border p-4 text-center">
+                    <div className="text-2xl font-bold">98%</div>
+                    <div className="text-muted-foreground text-sm">Satisfaction Rate</div>
+                  </div>
+                  <div className="rounded-xl border p-4 text-center">
+                    <div className="text-2xl font-bold">15+</div>
+                    <div className="text-muted-foreground text-sm">Years Experience</div>
+                  </div>
+                  <div className="rounded-xl border p-4 text-center">
+                    <div className="text-2xl font-bold">24/7</div>
+                    <div className="text-muted-foreground text-sm">Support Available</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   )

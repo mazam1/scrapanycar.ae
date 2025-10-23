@@ -4,20 +4,20 @@ import { motion } from 'framer-motion'
 
 export default function ServicesHeroSection() {
   return (
-    <section className="bg-slate-900 py-20 px-4">
+    <section className="bg-background py-20 px-4">
       <div className="max-w-4xl mx-auto text-center">
         <motion.h1 
-          className="text-5xl md:text-6xl font-bold text-white mb-6"
+          className="text-5xl md:text-6xl font-bold text-foreground mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           Our{' '}
-          <span className="text-orange-500">Services</span>
+          <span className="text-brand-gold">Services</span>
         </motion.h1>
         
         <motion.p 
-          className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto"
+          className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}

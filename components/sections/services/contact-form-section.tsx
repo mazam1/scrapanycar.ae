@@ -37,7 +37,7 @@ export function ContactFormSection() {
     {
       icon: Mail,
       title: "Email Address", 
-      value: "info@caroofix.com",
+      value: "info@scrapyourcar.com",
       color: "text-green-600"
     },
     {
@@ -78,7 +78,7 @@ export function ContactFormSection() {
             Get Started Today!
           </p>
           <p className="text-lg text-blue-200 max-w-3xl mx-auto">
-            Join thousands of satisfied customers who have trusted Caroofix for fair, fast, and professional car buying services.
+            Join thousands of satisfied customers who have trusted ScrapYourCar for fair, fast, and professional car buying services.
           </p>
         </motion.div>
 
