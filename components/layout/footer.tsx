@@ -112,7 +112,7 @@ function ClassicLayout({ currentYear, socialPlatforms }: { currentYear: number; 
               <div className="flex-shrink-0 w-9 h-9 rounded-full bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center group-hover:bg-brand-gold/15 transition-colors duration-200">
                 <Phone className="h-5 w-5" />
               </div>
-              <a href="tel:+97141234567" className="text-sm sm:text-base font-medium">+971 4 123 4567</a>
+              <a href="tel:+971568558762" className="text-sm sm:text-base font-medium">+971 56 855 8762</a>
             </div>
             <div className="group flex items-center space-x-4 text-[#fdfcfa]/90 hover:text-[#c49a36] transition-colors duration-200">
               <div className="flex-shrink-0 w-9 h-9 rounded-full bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center group-hover:bg-brand-gold/15 transition-colors duration-200">
@@ -221,7 +221,7 @@ function CompactLayout({ currentYear, socialPlatforms }: { currentYear: number; 
               <div className="flex-shrink-0 w-9 h-9 rounded-full bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center group-hover:bg-brand-gold/15 transition-colors duration-200">
                 <Phone className="h-5 w-5" />
               </div>
-              <a href="tel:+97141234567" className="text-sm sm:text-base font-medium">+971 4 123 4567</a>
+              <a href="tel:+971568558762" className="text-sm sm:text-base font-medium">+971 56 855 8762</a>
             </div>
             <div className="group flex items-center space-x-4 text-[#fdfcfa]/90 hover:text-[#c49a36] transition-colors duration-200">
               <div className="flex-shrink-0 w-9 h-9 rounded-full bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center group-hover:bg-brand-gold/15 transition-colors duration-200">
@@ -329,7 +329,7 @@ function SplitLayout({ currentYear, socialPlatforms }: { currentYear: number; so
                 <div className="flex-shrink-0 w-9 h-9 rounded-full bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center group-hover:bg-brand-gold/15 transition-colors duration-200">
                   <Phone className="h-5 w-5" />
                 </div>
-                <a href="tel:+97141234567" className="text-sm sm:text-base font-medium">+971 4 123 4567</a>
+                <a href="tel:+971568558762" className="text-sm sm:text-base font-medium">+971 56 855 8762</a>
               </div>
               <div className="group flex items-center space-x-4 text-[#fdfcfa]/90 hover:text-[#c49a36] transition-colors duration-200">
                 <div className="flex-shrink-0 w-9 h-9 rounded-full bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center group-hover:bg-brand-gold/15 transition-colors duration-200">

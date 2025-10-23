@@ -2,9 +2,8 @@
 
 import * as React from "react"
 import { motion } from "framer-motion"
-import { ArrowRight, DollarSign, Clock } from "lucide-react"
+import { DollarSign, Clock } from "lucide-react"
 
-import { Button } from "@/components/ui/button"
 import ActionButtons from "@/components/sections/home/action-buttons"
 
 export function HeroSection() {
@@ -81,34 +80,12 @@ export function HeroSection() {
             </div>
           </motion.div>
 
-          {/* Primary CTA (kept) */}
-          <motion.div
-            className="flex justify-center items-center mb-6"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            <Button
-              size="lg"
-              className="bg-brand-gold hover:bg-brand-gold/90 text-brand-charcoal font-semibold px-8 py-4 text-lg group"
-              onClick={() => {
-                const el = document.getElementById('valuation-form')
-                el?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                window.dispatchEvent(new CustomEvent('highlight-name'))
-              }}
-              aria-label="Open valuation form"
-            >
-              Get Instant Quote
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </Button>
-          </motion.div>
-
           {/* Action Buttons matching reference */}
           <motion.div
             className="flex justify-center items-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
           >
             <ActionButtons />
           </motion.div>

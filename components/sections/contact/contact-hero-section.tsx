@@ -37,7 +37,12 @@ export function ContactHeroSection() {
           transition={{ duration: 0.6, delay: 0.1 }}
         >
           {/* WhatsApp */}
-          <div className="p-6 rounded-2xl bg-card border border-border shadow-sm">
+          <a 
+            href="https://wa.me/971568558762"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-6 rounded-2xl bg-card border border-border shadow-sm hover:shadow-md transition-shadow cursor-pointer block"
+          >
             <div className="flex items-center justify-center mb-4">
               <div className="h-12 w-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center">
                 <Phone className="h-6 w-6 text-brand-gold" />
@@ -45,10 +50,10 @@ export function ContactHeroSection() {
             </div>
             <div className="text-center">
               <div className="font-semibold">WhatsApp Us</div>
-              <div className="mt-2 text-brand-slate font-medium">0568558762</div>
+              <div className="mt-2 text-brand-slate font-medium">+971568558762</div>
               <div className="mt-2 text-xs text-muted-foreground">Available 24/7 for immediate assistance</div>
             </div>
-          </div>
+          </a>
 
           {/* Email */}
           <div className="p-6 rounded-2xl bg-card border border-border shadow-sm">

@@ -105,7 +105,7 @@ export function ContactFormSection() {
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-lg border border-border bg-background"
-                      placeholder="0568558762"
+                      placeholder="+971568558762"
                       required
                     />
                   </div>
