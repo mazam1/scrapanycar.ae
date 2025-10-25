@@ -35,11 +35,11 @@ export function GetInTouchSection() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">
-              Ready to Sell Your Car?
-              <span className="block text-brand-gold">Get Started Today!</span>
+              Scrap Your Car Today
+              <span className="block text-brand-gold">Get Instant Cash!</span>
             </h2>
             <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl">
-              Join thousands of satisfied customers who trust our fair, fast, and professional car buying service.
+              Join thousands of satisfied customers who trust our fair, fast, and professional car valuation & instant buying service across UAE.
             </p>
 
             <div className="space-y-6">
@@ -48,7 +48,7 @@ export function GetInTouchSection() {
                   <DollarSign className="h-6 w-6" />
                 </div>
                 <div>
-                  <div className="text-sm font-semibold text-foreground">Market-Leading Prices</div>
+                  <div className="text-sm font-semibold text-foreground">Premium Market Valuation</div>
                   <div className="text-xs text-muted-foreground">Get up to 15% more than competitors</div>
                 </div>
               </div>
@@ -58,7 +58,7 @@ export function GetInTouchSection() {
                 </div>
                 <div>
                   <div className="text-sm font-semibold text-foreground">Trusted by 50,000+</div>
-                  <div className="text-xs text-muted-foreground">Customers nationwide</div>
+                  <div className="text-xs text-muted-foreground">UAE customers with 5-star ratings</div>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -66,8 +66,8 @@ export function GetInTouchSection() {
                   <Award className="h-6 w-6" />
                 </div>
                 <div>
-                  <div className="text-sm font-semibold text-foreground">Award-Winning Service</div>
-                  <div className="text-xs text-muted-foreground">Rated #1 car buying platform</div>
+                  <div className="text-sm font-semibold text-foreground">White-Glove Service</div>
+                  <div className="text-xs text-muted-foreground">Hassle-free paperwork & same-day payment</div>
                 </div>
               </div>
             </div>
@@ -82,7 +82,7 @@ export function GetInTouchSection() {
             viewport={{ once: true }}
           >
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl font-semibold text-foreground">Get in Touch</h3>
+              <h3 className="text-xl font-semibold text-foreground">Request a Free Valuation</h3>
             </div>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
@@ -94,6 +94,7 @@ export function GetInTouchSection() {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all duration-300 bg-background text-foreground border-border"
+                    placeholder="+971 XX XXX XXXX"
                   />
                 </div>
               </div>
@@ -107,6 +108,7 @@ export function GetInTouchSection() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all duration-300 bg-background text-foreground border-border"
+                    placeholder="your.email@example.com"
                   />
                 </div>
               </div>
@@ -115,30 +117,26 @@ export function GetInTouchSection() {
                 <label className="block text-sm font-medium text-foreground mb-2">Car Model</label>
                 <div className="relative">
                   <Car className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                  <select
+                  <input
+                    type="text"
                     value={model}
                     onChange={(e) => setModel(e.target.value)}
                     className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all duration-300 bg-background text-foreground border-border"
-                  >
-                    <option value="">Select model</option>
-                    {[
-                      "Camry", "Civic", "Corolla", "Accord", "RAV4", "X5", "A4", "GLC"
-                    ].map((m) => (
-                      <option key={m} value={m}>{m}</option>
-                    ))}
-                  </select>
+                    placeholder="Year, Make, Model (e.g., 2018 Toyota Camry)"
+                  />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">Tell us about your car...</label>
+                <label className="block text-sm font-medium text-foreground mb-2">Message (Optional)</label>
                 <div className="relative">
                   <MessageSquare className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                   <textarea
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 min-h-[120px] border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all duration-300 bg-background text-foreground border-border resize-y"
-                  />
+                    className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all duration-300 bg-background text-foreground border-border min-h-[100px] resize-none"
+                    placeholder="Tell us more about your car's condition, mileage, etc."
+                  ></textarea>
                 </div>
               </div>
 
@@ -147,7 +145,7 @@ export function GetInTouchSection() {
                   type="submit"
                   className="bg-brand-gold hover:bg-brand-gold/90 text-brand-charcoal font-semibold px-12 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full"
                 >
-                  Send Message
+                  Get Your Free Quote
                 </Button>
               </div>
 

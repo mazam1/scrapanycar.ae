@@ -89,19 +89,7 @@ function ClassicLayout({ currentYear, socialPlatforms }: { currentYear: number; 
           </p>
         </div>
 
-        <div className="space-y-6">
-          <h3 className="font-poppins font-bold text-lg sm:text-xl text-[#fdfcfa] mb-6 relative">
-            Quick Links
-            <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-white/40 rounded-full" />
-          </h3>
-          <nav className="grid grid-cols-2 gap-3" aria-label="Footer navigation">
-            {navigation.map((item) => (
-              <Link key={item.name} href={item.href} className="text-sm font-medium text-[#fdfcfa] hover:text-[#c49a36] transition-colors duration-200">
-                {item.name}
-              </Link>
-            ))}
-          </nav>
-        </div>
+
 
         <div className="space-y-6">
           <h3 className="font-poppins font-bold text-lg sm:text-xl text-[#fdfcfa] mb-6 relative">
@@ -145,10 +133,12 @@ function ClassicLayout({ currentYear, socialPlatforms }: { currentYear: number; 
                   key={social.name} 
                   href={social.href} 
                   className="group rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-200 p-4 flex items-center gap-3 min-h-[72px] w-full" 
-                  aria-label={social.name}
+                  aria-label={`Visit our ${social.name} page`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-white/15 transition-colors duration-200">
-                    <Icon className="h-6 w-6 text-[#fdfcfa]/90 group-hover:text-[#fdfcfa] transition-colors duration-200" />
+                    <Icon className="h-6 w-6 text-[#fdfcfa]/90 group-hover:text-[#fdfcfa] transition-colors duration-200" aria-hidden="true" />
                   </div>
                   <div className="flex flex-col justify-center min-w-0 flex-1">
                     <span className="text-[#fdfcfa] text-sm font-semibold truncate">{social.name}</span>
@@ -203,19 +193,7 @@ function CompactLayout({ currentYear, socialPlatforms }: { currentYear: number; 
           </div>
         </div>
 
-        <div className="space-y-6">
-          <h3 className="font-poppins font-bold text-lg sm:text-xl text-[#fdfcfa] mb-6 relative">
-            Quick Links
-            <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-white/40 rounded-full" />
-          </h3>
-          <nav className="grid grid-cols-2 gap-3" aria-label="Footer navigation">
-            {navigation.map((item) => (
-              <Link key={item.name} href={item.href} className="text-sm font-medium text-[#fdfcfa] hover:text-[#c49a36] transition-colors duration-200">
-                {item.name}
-              </Link>
-            ))}
-          </nav>
-        </div>
+
 
         <div className="space-y-6">
           <h3 className="font-poppins font-bold text-lg sm:text-xl text-[#fdfcfa] mb-6 relative">
@@ -251,8 +229,8 @@ function CompactLayout({ currentYear, socialPlatforms }: { currentYear: number; 
               {socialPlatforms.map((social) => {
                 const Icon = social.icon
                 return (
-                  <Link key={social.name} href={social.href} aria-label={social.name} className="group rounded-md border border-white/10 bg-white/5 hover:bg-white/10 transition-colors p-3 flex items-center justify-center">
-                    <Icon className="h-5 w-5 text-[#fdfcfa]/90" />
+                    <Link key={social.name} href={social.href} aria-label={`Visit our ${social.name} page`} target="_blank" rel="noopener noreferrer" className="group rounded-md border border-white/10 bg-white/5 hover:bg-white/10 transition-colors p-3 flex items-center justify-center">
+                    <Icon className="h-5 w-5 text-[#fdfcfa]/90 group-hover:text-[#fdfcfa] transition-colors duration-200" aria-hidden="true" />
                   </Link>
                 )
               })}
@@ -319,11 +297,13 @@ function SplitLayout({ currentYear, socialPlatforms }: { currentYear: number; so
                     <Link 
                       key={social.name} 
                       href={social.href} 
-                      aria-label={social.name} 
+                      aria-label={`Visit our ${social.name} page`} 
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="group rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-200 p-3 flex items-center justify-center min-h-[56px] w-full aspect-square"
                     >
                       <div className="w-full h-full flex items-center justify-center">
-                        <Icon className="h-6 w-6 text-[#fdfcfa]/90 group-hover:text-[#fdfcfa] transition-colors duration-200" />
+                        <Icon className="h-6 w-6 text-[#fdfcfa]/90 group-hover:text-[#fdfcfa] transition-colors duration-200" aria-hidden="true" />
                       </div>
                     </Link>
                   )
@@ -386,10 +366,10 @@ function FooterWithSearchParams({ variant: propVariant }: { variant?: FooterVari
   const variant = propVariant ?? variantParam ?? "classic"
 
   const socialPlatforms = [
-    { name: "Facebook", href: "#", icon: Facebook, subtitle: "Follow us" },
-    { name: "Instagram", href: "#", icon: Instagram, subtitle: "@scrapanycar" },
-    { name: "TikTok", href: "#", icon: Music, subtitle: "@scrapanycar" },
-    { name: "Snapchat", href: "#", icon: Ghost, subtitle: "scrapanycar" },
+    { name: "Facebook", href: "https://www.facebook.com/scrapyourcar", icon: Facebook, subtitle: "Follow us" },
+    { name: "Instagram", href: "https://www.instagram.com/scrapyourcar", icon: Instagram, subtitle: "@scrapyourcar" },
+    { name: "TikTok", href: "https://www.tiktok.com/@scrapyourcar", icon: Music, subtitle: "@scrapyourcar" },
+    { name: "Snapchat", href: "https://www.snapchat.com/add/scrapyourcar", icon: Ghost, subtitle: "@scrapyourcar" },
   ]
 
   return (
