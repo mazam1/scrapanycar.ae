@@ -18,6 +18,10 @@ const nextConfig = {
     }
     return config
   },
+  // Set a consistent port to avoid conflicts
+  devServer: {
+    port: 3001,
+  },
 }
 
 module.exports = nextConfig

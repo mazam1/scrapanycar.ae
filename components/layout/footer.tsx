@@ -366,10 +366,10 @@ function FooterWithSearchParams({ variant: propVariant }: { variant?: FooterVari
   const variant = propVariant ?? variantParam ?? "classic"
 
   const socialPlatforms = [
-    { name: "Facebook", href: "https://www.facebook.com/scrapyourcar", icon: Facebook, subtitle: "Follow us" },
-    { name: "Instagram", href: "https://www.instagram.com/scrapyourcar", icon: Instagram, subtitle: "@scrapyourcar" },
-    { name: "TikTok", href: "https://www.tiktok.com/@scrapyourcar", icon: Music, subtitle: "@scrapyourcar" },
-    { name: "Snapchat", href: "https://www.snapchat.com/add/scrapyourcar", icon: Ghost, subtitle: "@scrapyourcar" },
+    { name: "Facebook", href: "https://www.facebook.com/scrapanycar", icon: Facebook, subtitle: "Follow us" },
+    { name: "Instagram", href: "https://www.instagram.com/scrapanycar", icon: Instagram, subtitle: "@scrapanycar" },
+    { name: "TikTok", href: "https://www.tiktok.com/@scrapanycar", icon: Music, subtitle: "@scrapanycar" },
+    { name: "Snapchat", href: "https://www.snapchat.com/add/scrapanycar", icon: Ghost, subtitle: "scrapanycar" },
   ]
 
   return (

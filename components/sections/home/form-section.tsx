@@ -242,7 +242,7 @@ export function FormSection() {
 
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
-                    Choose year
+                    Enter your phone
                   </label>
                   <input
                     type="tel"
