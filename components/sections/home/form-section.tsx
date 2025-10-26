@@ -324,7 +324,7 @@ export function FormSection() {
 
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
-                    Enter your phone number
+                    Select year
                   </label>
                   <select
                     value={formData.year}
