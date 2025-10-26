@@ -44,8 +44,8 @@ export default function HowItWorksSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            How It Works
+          <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
+            How It <span className="text-brand-gold">Works</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Our streamlined 4-step process makes selling your car simple and stress-free

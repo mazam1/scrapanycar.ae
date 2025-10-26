@@ -36,8 +36,8 @@ export default function AdditionalServicesSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="responsive-text-xl font-bold text-foreground mb-4 text-container-center">
-            Additional Services
+          <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
+            Additional <span className="text-brand-gold">Services</span>
           </h2>
           <p className="responsive-text-lg text-muted-foreground max-w-3xl mx-auto text-container-center">
             Comprehensive support services to make your car selling experience seamless

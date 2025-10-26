@@ -6,7 +6,7 @@ import { CheckCircle, DollarSign, Calendar, MapPin } from 'lucide-react'
 export default function CoreServicesSection() {
   const services = [
     {
-      icon: <DollarSign className="w-8 h-8" />,
+      icon: <DollarSign className="w-8 h-8 text-white" />,
       title: "Free Vehicle Valuation",
       description: "Get a professional assessment of your car's market value with no obligations",
       features: [
@@ -15,11 +15,12 @@ export default function CoreServicesSection() {
         "Instant valuation report",
         "No hidden fees or charges"
       ],
-      bgImage: "bg-card border border-border",
+      bgImage: "border border-border bg-cover bg-center",
+      bgUrl: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=1200&auto=format&fit=crop",
       premium: true
     },
     {
-      icon: <Calendar className="w-8 h-8" />,
+      icon: <Calendar className="w-8 h-8 text-white" />,
       title: "Professional Car Inspection",
       description: "Thorough vehicle assessment by experienced automotive professionals",
       features: [
@@ -28,11 +29,12 @@ export default function CoreServicesSection() {
         "Interior and exterior evaluation",
         "Detailed condition report"
       ],
-      bgImage: "bg-card border border-border",
+      bgImage: "border border-border bg-cover bg-center",
+      bgUrl: "https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?q=80&w=1200&auto=format&fit=crop",
       premium: true
     },
     {
-      icon: <DollarSign className="w-8 h-8" />,
+      icon: <DollarSign className="w-8 h-8 text-white" />,
       title: "Instant Cash Payment",
       description: "Get paid immediately after accepting our fair market offer",
       features: [
@@ -41,11 +43,12 @@ export default function CoreServicesSection() {
         "Same-day payment processing",
         "Secure transaction guarantee"
       ],
-      bgImage: "bg-card border border-border",
+      bgImage: "border border-border bg-cover bg-center",
+      bgUrl: "https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?q=80&w=1200&auto=format&fit=crop",
       premium: true
     },
     {
-      icon: <MapPin className="w-8 h-8" />,
+      icon: <MapPin className="w-8 h-8 text-white" />,
       title: "Free Vehicle Pickup",
       description: "Convenient pickup service from your location at no extra cost",
       features: [
@@ -54,7 +57,8 @@ export default function CoreServicesSection() {
         "Professional transport team",
         "Full insurance coverage during transport"
       ],
-      bgImage: "bg-card border border-border",
+      bgImage: "border border-border bg-cover bg-center",
+      bgUrl: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=1200&auto=format&fit=crop",
       premium: true
     }
   ]
@@ -68,8 +72,8 @@ export default function CoreServicesSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="responsive-text-xl font-bold text-foreground mb-4 text-container-center">
-            Core Services
+          <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
+            Core <span className="text-brand-gold">Services</span>
           </h2>
           <p className="responsive-text-lg text-muted-foreground max-w-3xl mx-auto text-container-center">
             Everything you need to sell your car quickly, safely, and profitably
@@ -85,19 +89,24 @@ export default function CoreServicesSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <div className={`${service.bgImage} p-8 h-full relative hover:border-brand-gold/60 flex flex-col`}>
+              <div 
+                className={`${service.bgImage} p-8 h-full relative hover:border-brand-gold/60 flex flex-col`}
+                style={{ 
+                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${service.bgUrl})`,
+                }}
+              >
                 {/* Content */}
                 <div className="relative z-10 flex-1 flex flex-col">
                   <div className="flex items-start mb-4">
-                    <div className="bg-background border border-border rounded-full p-3 mr-4 flex-shrink-0">
+                    <div className="bg-black/40 backdrop-blur-sm border border-white/20 rounded-full p-3 mr-4 flex-shrink-0">
                       {service.icon}
                     </div>
-                    <h3 className="responsive-text-lg font-bold text-foreground card-text">
+                    <h3 className="responsive-text-lg font-bold text-white card-text">
                       {service.title}
                     </h3>
                   </div>
                   
-                  <p className="text-muted-foreground mb-6 responsive-text-base card-text flex-1">
+                  <p className="text-white/90 mb-6 responsive-text-base card-text flex-1">
                     {service.description}
                   </p>
                   
@@ -105,23 +114,12 @@ export default function CoreServicesSection() {
                     {service.features.map((feature, featureIndex) => (
                       <div key={featureIndex} className="flex items-start">
                         <CheckCircle className="w-5 h-5 text-brand-gold mr-3 flex-shrink-0 mt-0.5" />
-                        <span className="text-foreground/80 responsive-text-sm card-text">{feature}</span>
+                        <span className="text-white responsive-text-sm card-text">{feature}</span>
                       </div>
                     ))}
                   </div>
                   
-                  {service.premium && (
-                    <div className="flex items-center justify-between mt-auto">
-                      <div className="flex items-center">
-                        <span className="bg-brand-gold/10 text-brand-gold px-3 py-1 rounded-full text-sm font-medium whitespace-nowrap">
-                          ★ Premium Service
-                        </span>
-                      </div>
-                      <div className="text-brand-gold text-lg flex-shrink-0">
-                        ★★★★★
-                      </div>
-                    </div>
-                  )}
+                  {/* Premium service badge removed as requested */}
                 </div>
               </div>
             </motion.div>

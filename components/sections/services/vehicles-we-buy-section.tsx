@@ -9,25 +9,25 @@ export default function VehiclesWeBuySection() {
       icon: <Car className="w-8 h-8" />,
       title: "Luxury Vehicles",
       description: "Premium cars, sport cars, and high-end models",
-      bgImage: "bg-card"
+      bgImage: "bg-[url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1920&auto=format&fit=crop')] bg-cover bg-center"
     },
     {
       icon: <Users className="w-8 h-8" />,
       title: "Family Vehicles", 
       description: "SUVs, minivans, and family-friendly cars",
-      bgImage: "bg-card"
+      bgImage: "bg-[url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=1920&auto=format&fit=crop')] bg-cover bg-center"
     },
     {
       icon: <Zap className="w-8 h-8" />,
       title: "Sports Cars",
       description: "High-performance and sports vehicles",
-      bgImage: "bg-card"
+      bgImage: "bg-[url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1920&auto=format&fit=crop')] bg-cover bg-center"
     },
     {
       icon: <Compass className="w-8 h-8" />,
       title: "Compact Cars",
       description: "Economy cars, hatchbacks, and city vehicles",
-      bgImage: "bg-card"
+      bgImage: "bg-[url('https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=1920&auto=format&fit=crop')] bg-cover bg-center"
     }
   ]
 
@@ -40,8 +40,8 @@ export default function VehiclesWeBuySection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Vehicles We Buy
+          <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
+            Vehicles We <span className="text-brand-gold">Buy</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             We purchase all types of vehicles in any condition at competitive market prices
@@ -58,7 +58,10 @@ export default function VehiclesWeBuySection() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ y: -5 }}
             >
-              <div className={`${vehicle.bgImage} p-8 h-64 relative`}>               
+              <div className={`${vehicle.bgImage} p-8 h-64 relative`}>
+                {/* Dark overlay for better text readability */}
+                <div className="absolute inset-0 bg-black/50"></div>
+                
                 {/* Content */}
                 <div className="relative z-10 h-full flex flex-col justify-between">
                   <div>
@@ -68,11 +71,11 @@ export default function VehiclesWeBuySection() {
                       </div>
                     </div>
                     
-                    <h3 className="text-xl font-bold text-foreground mb-3">
+                    <h3 className="text-xl font-bold text-white mb-3">
                       {vehicle.title}
                     </h3>
                     
-                    <p className="text-muted-foreground text-sm leading-relaxed">
+                    <p className="text-white/80 text-sm leading-relaxed">
                       {vehicle.description}
                     </p>
                   </div>

@@ -13,8 +13,8 @@ export default function ReadyToStartSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Ready to Get Started?
+          <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
+            Ready to Get <span className="text-brand-gold">Started?</span>
           </h2>
           
           <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
@@ -28,16 +28,36 @@ export default function ReadyToStartSection() {
                 variant="gold"
                 size="lg"
                 className="font-semibold px-8 py-4 text-lg"
+                onClick={() => {
+                  // Find the valuation form section
+                  const formSection = document.getElementById('valuation-form')
+                  if (formSection) {
+                    // Smooth scroll to the form section
+                    formSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                    
+                    // After scrolling, find and focus the name input field
+                    setTimeout(() => {
+                      const nameInput = formSection.querySelector('input[type="text"][placeholder="Your full name"]')
+                      if (nameInput) {
+                        // Focus the name input field
+                        nameInput.focus()
+                      }
+                    }, 800) // Delay to allow smooth scrolling to complete
+                  } else {
+                    // If form not found on current page, navigate to home page with form
+                    window.location.href = '/#valuation-form'
+                  }
+                }}
               >
                 Get Free Valuation
               </Button>
             </motion.div>
             
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
-              <Button asChild variant="outline" size="lg" className="px-8 py-4 text-lg">
+              <Button asChild variant="gold" size="lg" className="font-semibold px-8 py-4 text-lg">
                 <a href="tel:+971568558762" className="flex items-center gap-2">
                   <Phone className="w-5 h-5" />
-                  Call +971 56 855 8762
+                  Call now
                 </a>
               </Button>
             </motion.div>
@@ -49,12 +69,7 @@ export default function ReadyToStartSection() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <div className="flex items-center gap-1">
-              <span className="text-brand-gold text-lg">★★★★★</span>
-            </div>
-            <span className="text-sm">
-              Trusted by 10,000+ satisfied customers
-            </span>
+            {/* Rating and customer count removed as requested */}
           </motion.div>
         </motion.div>
       </div>
