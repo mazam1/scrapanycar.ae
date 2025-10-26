@@ -429,7 +429,7 @@ export function FormSection() {
             <div className="text-center pt-6">
               <Button
                 type="submit"
-                className="bg-brand-gold hover:bg-brand-gold/90 text-brand-charcoal font-semibold px-12 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                className="w-full sm:w-auto bg-brand-gold hover:bg-brand-gold/90 text-brand-charcoal font-semibold px-6 sm:px-12 py-4 text-base sm:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 Request Free Valuation & Inspection
               </Button>

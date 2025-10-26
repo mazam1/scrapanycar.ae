@@ -4,7 +4,7 @@ import * as React from "react"
 import { Suspense } from "react"
 import Link from "next/link"
 import { useSearchParams } from "next/navigation"
-import { Facebook, Instagram, Mail, Phone, MapPin, Music, Ghost } from "lucide-react"
+import { Facebook, Instagram, Mail, Phone, MapPin, Twitter, Youtube } from "lucide-react"
 import { ImageWithFallback } from "@/components/ui/image-with-fallback"
 import { Button } from "@/components/ui/button"
 
@@ -70,7 +70,7 @@ function NewsletterForm() {
 function ClassicLayout({ currentYear, socialPlatforms }: { currentYear: number; socialPlatforms: any[] }) {
   return (
     <div className="container mx-auto px-2 sm:px-4 lg:px-6 py-16">
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
         <div className="space-y-6">
           <Link href="/" className="group block mb-6" aria-label="Go to home">
             <div className="flex items-center space-x-4">
@@ -83,13 +83,11 @@ function ClassicLayout({ currentYear, socialPlatforms }: { currentYear: number; 
               />
             </div>
           </Link>
-          <p className="text-[#fdfcfa]/90 leading-relaxed text-lg max-w-xl font-medium">
+          <p className="text-[#fdfcfa]/90 leading-relaxed text-lg font-medium">
             Your trusted partner for professional car buying services. We provide fair, fast,
             and transparent vehicle valuations with market-leading prices.
           </p>
         </div>
-
-
 
         <div className="space-y-6">
           <h3 className="font-poppins font-bold text-lg sm:text-xl text-[#fdfcfa] mb-6 relative">
@@ -125,6 +123,9 @@ function ClassicLayout({ currentYear, socialPlatforms }: { currentYear: number; 
             Follow Us
             <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-white/40 rounded-full" />
           </h3>
+          <p className="text-[#fdfcfa]/80 leading-relaxed mb-6">
+            Stay connected with us on social media for the latest updates, car tips, and exclusive offers.
+          </p>
           <div className="grid grid-cols-2 gap-4 sm:gap-4 md:gap-4">
             {socialPlatforms.map((social) => {
               const Icon = social.icon
@@ -170,7 +171,7 @@ function ClassicLayout({ currentYear, socialPlatforms }: { currentYear: number; 
 function CompactLayout({ currentYear, socialPlatforms }: { currentYear: number; socialPlatforms: any[] }) {
   return (
     <div className="container mx-auto px-2 sm:px-4 lg:px-6 py-16">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="space-y-6">
           <Link href="/" className="group block mb-6" aria-label="Go to home">
             <div className="flex items-center space-x-4">
@@ -183,7 +184,7 @@ function CompactLayout({ currentYear, socialPlatforms }: { currentYear: number; 
               />
             </div>
           </Link>
-          <p className="text-[#fdfcfa]/90 leading-relaxed text-lg max-w-xl font-medium">
+          <p className="text-[#fdfcfa]/90 leading-relaxed text-lg font-medium">
             Premium car valuation and instant buying across UAE.
           </p>
 
@@ -192,8 +193,6 @@ function CompactLayout({ currentYear, socialPlatforms }: { currentYear: number; 
             <NewsletterForm />
           </div>
         </div>
-
-
 
         <div className="space-y-6">
           <h3 className="font-poppins font-bold text-lg sm:text-xl text-[#fdfcfa] mb-6 relative">
@@ -222,9 +221,17 @@ function CompactLayout({ currentYear, socialPlatforms }: { currentYear: number; 
               </a>
             </div>
           </div>
+        </div>
 
+        <div className="space-y-6">
+          <h3 className="font-poppins font-bold text-lg sm:text-xl text-[#fdfcfa] mb-6 relative">
+            Follow Us
+            <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-white/40 rounded-full" />
+          </h3>
+          <p className="text-[#fdfcfa]/80 leading-relaxed mb-4">
+            Stay connected with us on social media for the latest updates, car tips, and exclusive offers.
+          </p>
           <div className="pt-4">
-            <h4 className="font-poppins font-semibold text-[#fdfcfa] mb-3">Follow Us</h4>
             <div className="grid grid-cols-4 gap-3">
               {socialPlatforms.map((social) => {
                 const Icon = social.icon
@@ -267,7 +274,7 @@ function SplitLayout({ currentYear, socialPlatforms }: { currentYear: number; so
           ))}
         </nav>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="space-y-6">
             <Link href="/" className="group block mb-6" aria-label="Go to home">
               <div className="flex items-center space-x-4">
@@ -280,7 +287,7 @@ function SplitLayout({ currentYear, socialPlatforms }: { currentYear: number; so
                 />
               </div>
             </Link>
-            <p className="text-[#fdfcfa]/90 leading-relaxed text-lg max-w-xl font-medium">
+            <p className="text-[#fdfcfa]/90 leading-relaxed text-lg font-medium">
               Trusted by thousands. Accurate valuations, fast turnaround.
             </p>
           </div>
@@ -290,7 +297,7 @@ function SplitLayout({ currentYear, socialPlatforms }: { currentYear: number; so
             <NewsletterForm />
             <div className="pt-2">
               <h4 className="font-poppins font-semibold text-[#fdfcfa] mb-3">Follow Us</h4>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-3 md:gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 {socialPlatforms.map((social) => {
                   const Icon = social.icon
                   return (
@@ -368,8 +375,8 @@ function FooterWithSearchParams({ variant: propVariant }: { variant?: FooterVari
   const socialPlatforms = [
     { name: "Facebook", href: "https://www.facebook.com/scrapanycar", icon: Facebook, subtitle: "Follow us" },
     { name: "Instagram", href: "https://www.instagram.com/scrapanycar", icon: Instagram, subtitle: "@scrapanycar" },
-    { name: "TikTok", href: "https://www.tiktok.com/@scrapanycar", icon: Music, subtitle: "@scrapanycar" },
-    { name: "Snapchat", href: "https://www.snapchat.com/add/scrapanycar", icon: Ghost, subtitle: "scrapanycar" },
+    { name: "Twitter", href: "https://twitter.com/scrapanycar", icon: Twitter, subtitle: "@scrapanycar" },
+    { name: "YouTube", href: "https://www.youtube.com/scrapanycar", icon: Youtube, subtitle: "scrapanycar" },
   ]
 
   return (

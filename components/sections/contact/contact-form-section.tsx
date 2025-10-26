@@ -50,9 +50,8 @@ export function ContactFormSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          style={{ height: "924px", width: "1024px" }}
         >
-          <div className="grid lg:grid-cols-2 gap-12 items-start h-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
             {/* Left: Get In Touch Form */}
             <div className="p-6 sm:p-8 rounded-2xl bg-card border border-border shadow-sm">
               <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-2">Get In Touch</h2>
@@ -215,7 +214,7 @@ export function ContactFormSection() {
                   type="submit" 
                   variant="gold" 
                   size="lg" 
-                  className="w-full sm:w-auto flex items-center justify-center"
+                  className="w-full flex items-center justify-center"
                 >
                   <Send className="h-[1.2em] w-[1.2em] mr-[8px] inline-flex" aria-hidden="true" />
                   <span>Send Message</span>
@@ -241,12 +240,12 @@ export function ContactFormSection() {
                     />
                   </div>
                   {/* Overlay marker card */}
-                  <div className="absolute left-4 top-4 bg-background/95 backdrop-blur-sm border rounded-xl p-4 shadow-sm">
+                  <div className="absolute left-4 top-4 bg-background/95 backdrop-blur-sm border rounded-xl p-3 sm:p-4 shadow-sm">
                     <div className="flex items-center gap-2 mb-2">
-                      <MapPin className="h-5 w-5 text-brand-gold" />
-                      <span className="font-medium">DUBAI, UAE</span>
+                      <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-brand-gold" />
+                      <span className="font-medium text-sm sm:text-base">DUBAI, UAE</span>
                     </div>
-                    <Button variant="gold" size="sm">Get Directions</Button>
+                    <Button variant="gold" size="sm" className="w-full text-xs sm:text-sm">Get Directions</Button>
                   </div>
                 </div>
               </div>
@@ -254,22 +253,22 @@ export function ContactFormSection() {
               {/* Why Choose Us */}
               <div className="rounded-2xl bg-card border border-border shadow-sm p-6">
                 <h3 className="text-xl font-bold mb-6">Why Choose Us</h3>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="rounded-xl border p-4 text-center">
-                    <div className="text-2xl font-bold">2hrs</div>
-                    <div className="text-muted-foreground text-sm">Response Time</div>
+                <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                  <div className="rounded-xl border p-3 sm:p-4 text-center">
+                    <div className="text-xl sm:text-2xl font-bold">2hrs</div>
+                    <div className="text-muted-foreground text-xs sm:text-sm">Response Time</div>
                   </div>
-                  <div className="rounded-xl border p-4 text-center">
-                    <div className="text-2xl font-bold">98%</div>
-                    <div className="text-muted-foreground text-sm">Satisfaction Rate</div>
+                  <div className="rounded-xl border p-3 sm:p-4 text-center">
+                    <div className="text-xl sm:text-2xl font-bold">98%</div>
+                    <div className="text-muted-foreground text-xs sm:text-sm">Satisfaction Rate</div>
                   </div>
-                  <div className="rounded-xl border p-4 text-center">
-                    <div className="text-2xl font-bold">15+</div>
-                    <div className="text-muted-foreground text-sm">Years Experience</div>
+                  <div className="rounded-xl border p-3 sm:p-4 text-center">
+                    <div className="text-xl sm:text-2xl font-bold">15+</div>
+                    <div className="text-muted-foreground text-xs sm:text-sm">Years Experience</div>
                   </div>
-                  <div className="rounded-xl border p-4 text-center">
-                    <div className="text-2xl font-bold">24/7</div>
-                    <div className="text-muted-foreground text-sm">Support Available</div>
+                  <div className="rounded-xl border p-3 sm:p-4 text-center">
+                    <div className="text-xl sm:text-2xl font-bold">24/7</div>
+                    <div className="text-muted-foreground text-xs sm:text-sm">Support Available</div>
                   </div>
                 </div>
               </div>

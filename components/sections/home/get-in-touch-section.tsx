@@ -82,7 +82,7 @@ export function GetInTouchSection() {
             viewport={{ once: true }}
           >
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl font-semibold text-foreground">Request a Free Valuation</h3>
+              <h3 className="text-xl font-semibold text-foreground">Get in Touch</h3>
             </div>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>

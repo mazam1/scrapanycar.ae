@@ -18,10 +18,8 @@ const nextConfig = {
     }
     return config
   },
-  // Set a consistent port to avoid conflicts
-  devServer: {
-    port: 3001,
-  },
+  // Next.js doesn't support devServer in config
+  // Port can be set using --port flag or in package.json scripts
 }
 
 module.exports = nextConfig

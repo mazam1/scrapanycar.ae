@@ -31,13 +31,16 @@ export function ContactInfoSection() {
 
         {/* Contact Methods */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
+          className="grid grid-cols-1 gap-6 mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <div className="p-6 rounded-xl border bg-card text-card-foreground shadow-sm min-h-[140px] flex flex-col">
+          <div 
+            className="p-6 rounded-xl border bg-card text-card-foreground shadow-sm flex flex-col mx-auto"
+            style={{ width: "1232px", height: "924px" }}
+          >
             <div className="flex items-center gap-3 mb-3">
               <Phone className="h-6 w-6 text-brand-gold flex-shrink-0" />
               <h3 className="font-semibold card-text">Call Us</h3>
@@ -48,7 +51,10 @@ export function ContactInfoSection() {
             </div>
           </div>
 
-          <div className="p-6 rounded-xl border bg-card text-card-foreground shadow-sm min-h-[140px] flex flex-col">
+          <div 
+            className="p-6 rounded-xl border bg-card text-card-foreground shadow-sm flex flex-col mx-auto"
+            style={{ width: "1232px", height: "924px" }}
+          >
             <div className="flex items-center gap-3 mb-3">
               <Mail className="h-6 w-6 text-brand-gold flex-shrink-0" />
               <h3 className="font-semibold card-text">Email</h3>
@@ -59,7 +65,10 @@ export function ContactInfoSection() {
             </div>
           </div>
 
-          <div className="p-6 rounded-xl border bg-card text-card-foreground shadow-sm min-h-[140px] flex flex-col">
+          <div 
+            className="p-6 rounded-xl border bg-card text-card-foreground shadow-sm flex flex-col mx-auto"
+            style={{ width: "1232px", height: "924px" }}
+          >
             <div className="flex items-center gap-3 mb-3">
               <MessageSquare className="h-6 w-6 text-brand-gold flex-shrink-0" />
               <h3 className="font-semibold card-text">Live Chat</h3>

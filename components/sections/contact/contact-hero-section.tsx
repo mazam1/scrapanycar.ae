@@ -31,7 +31,7 @@ export function ContactHeroSection() {
 
         {/* Contact Methods Grid */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-5xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
@@ -41,14 +41,14 @@ export function ContactHeroSection() {
             href="https://wa.me/971568558762"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-6 rounded-2xl bg-card border border-border shadow-sm hover:shadow-md transition-shadow cursor-pointer block"
+            className="p-6 rounded-2xl bg-card border border-border shadow-sm hover:shadow-md transition-shadow cursor-pointer block h-full flex flex-col"
           >
             <div className="flex items-center justify-center mb-4">
               <div className="h-12 w-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center">
                 <Phone className="h-6 w-6 text-brand-gold" />
               </div>
             </div>
-            <div className="text-center">
+            <div className="text-center flex-1 flex flex-col justify-between">
               <div className="font-semibold">WhatsApp Us</div>
               <div className="mt-2 text-brand-slate font-medium">+971568558762</div>
               <div className="mt-2 text-xs text-muted-foreground">Available 24/7 for immediate assistance</div>
@@ -56,13 +56,13 @@ export function ContactHeroSection() {
           </a>
 
           {/* Email */}
-          <div className="p-6 rounded-2xl bg-card border border-border shadow-sm">
+          <div className="p-6 rounded-2xl bg-card border border-border shadow-sm h-full flex flex-col">
             <div className="flex items-center justify-center mb-4">
               <div className="h-12 w-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center">
                 <Mail className="h-6 w-6 text-brand-gold" />
               </div>
             </div>
-            <div className="text-center">
+            <div className="text-center flex-1 flex flex-col justify-between">
               <div className="font-semibold">Email Us</div>
               <div className="mt-2 text-brand-slate font-medium">info@scrapyourcar.com</div>
               <div className="mt-2 text-xs text-muted-foreground">We respond within 2 hours</div>
@@ -70,13 +70,13 @@ export function ContactHeroSection() {
           </div>
 
           {/* Business Hours */}
-          <div className="p-6 rounded-2xl bg-card border border-border shadow-sm">
+          <div className="p-6 rounded-2xl bg-card border border-border shadow-sm h-full flex flex-col">
             <div className="flex items-center justify-center mb-4">
               <div className="h-12 w-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center">
                 <Clock className="h-6 w-6 text-brand-gold" />
               </div>
             </div>
-            <div className="text-center">
+            <div className="text-center flex-1 flex flex-col justify-between">
               <div className="font-semibold">Business Hours</div>
               <div className="mt-2 text-brand-slate font-medium">10:00 AM - 10:00 PM, Everyday</div>
               <div className="mt-2 text-xs text-muted-foreground">Emergency service available 24/7</div>

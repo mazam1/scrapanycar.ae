@@ -32,7 +32,7 @@ export default function BlogSearch({
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.4 }}
-      className="w-full lg:w-auto"
+      className="w-full lg:w-full max-w-md"
     >
       <form onSubmit={handleSearch} className="relative">
         <div className="relative">
@@ -42,7 +42,7 @@ export default function BlogSearch({
             onChange={handleInputChange}
             placeholder={placeholder}
             className="
-              w-full lg:w-80 px-4 py-3 pl-12 pr-4
+              w-full lg:w-full px-4 py-3 pl-12 pr-4
               bg-card border border-border rounded-xl
               text-foreground placeholder-muted-foreground
               focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent

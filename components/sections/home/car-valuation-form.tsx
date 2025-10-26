@@ -165,7 +165,7 @@ export function CarValuationForm() {
     >
       <div className="text-center mb-6">
         <h2 className="text-2xl font-bold text-brand-charcoal mb-2">
-          Get Your Free Car Valuation
+          Why Choose Scrap Your Car?
         </h2>
         <p className="text-gray-600 text-sm">
           Fill out the form below for an instant quote
