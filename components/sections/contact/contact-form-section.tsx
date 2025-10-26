@@ -45,13 +45,14 @@ export function ContactFormSection() {
     <section className="relative py-16 lg:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="max-w-4xl mx-auto"
+          className="w-full max-w-[1024px] mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
+          style={{ height: "924px", width: "1024px" }}
         >
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div className="grid lg:grid-cols-2 gap-12 items-start h-full">
             {/* Left: Get In Touch Form */}
             <div className="p-6 sm:p-8 rounded-2xl bg-card border border-border shadow-sm">
               <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-2">Get In Touch</h2>

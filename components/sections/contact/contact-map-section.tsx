@@ -30,13 +30,14 @@ export function ContactMapSection() {
         </div>
 
         <motion.div
-          className="rounded-xl overflow-hidden border bg-card"
+          className="rounded-xl overflow-hidden border bg-card mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
+          style={{ width: "1024px", height: "924px" }}
         >
-          <div className="aspect-video w-full">
+          <div className="w-full h-full">
             {/* Simple embeddable Google Map centered on Denver, CO */}
             <iframe
               title="Service Area Map"
