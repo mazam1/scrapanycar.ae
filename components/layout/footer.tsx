@@ -18,10 +18,8 @@ const navigation = [
   { name: "Contact", href: "/contact" },
 ]
 
-const legalLinks = [
-  { name: "Privacy Policy", href: "/privacy" },
-  { name: "Terms & Conditions", href: "/terms" },
-]
+// Legal links removed as requested
+const legalLinks = []
 
 function NewsletterForm() {
   const [email, setEmail] = React.useState("")
@@ -153,15 +151,8 @@ function ClassicLayout({ currentYear, socialPlatforms }: { currentYear: number; 
       </div>
 
       <div className="mt-16 pt-8 border-t border-white/20">
-        <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
-          <p className="text-[#fdfcfa]/70 text-sm sm:text-base font-medium">© {currentYear} Scrap Your Car. All rights reserved.</p>
-          <nav aria-label="Legal" className="flex items-center gap-6">
-            {legalLinks.map((l) => (
-              <Link key={l.name} href={l.href} className="text-[#fdfcfa]/80 text-sm font-medium hover:text-[#c49a36] transition-colors duration-200">
-                {l.name}
-              </Link>
-            ))}
-          </nav>
+        <div className="flex justify-center items-center">
+          <p className="text-[#fdfcfa]/70 text-sm sm:text-base font-medium text-center">© 2025 Scrap Your Car. All rights reserved.</p>
         </div>
       </div>
     </div>
@@ -247,15 +238,8 @@ function CompactLayout({ currentYear, socialPlatforms }: { currentYear: number; 
       </div>
 
       <div className="mt-16 pt-8 border-t border-white/20">
-        <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
-          <p className="text-[#fdfcfa]/70 text-sm sm:text-base font-medium">© {currentYear} Scrap Your Car. All rights reserved.</p>
-          <nav aria-label="Legal" className="flex items-center gap-6">
-            {legalLinks.map((l) => (
-              <Link key={l.name} href={l.href} className="text-[#fdfcfa]/80 text-sm font-medium hover:text-[#c49a36] transition-colors duration-200">
-                {l.name}
-              </Link>
-            ))}
-          </nav>
+        <div className="flex justify-center items-center">
+          <p className="text-[#fdfcfa]/70 text-sm sm:text-base font-medium text-center">© 2025 Scrap Your Car. All rights reserved.</p>
         </div>
       </div>
     </div>
@@ -350,15 +334,8 @@ function SplitLayout({ currentYear, socialPlatforms }: { currentYear: number; so
         </div>
 
         <div className="mt-6 pt-8 border-t border-white/20">
-          <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
-            <p className="text-[#fdfcfa]/70 text-sm sm:text-base font-medium">© {currentYear} Scrap Your Car. All rights reserved.</p>
-            <nav aria-label="Legal" className="flex items-center gap-6">
-              {legalLinks.map((l) => (
-                <Link key={l.name} href={l.href} className="text-[#fdfcfa]/80 text-sm font-medium hover:text-[#c49a36] transition-colors duration-200">
-                  {l.name}
-                </Link>
-              ))}
-            </nav>
+          <div className="flex justify-center items-center">
+            <p className="text-[#fdfcfa]/70 text-sm sm:text-base font-medium text-center">© 2025 Scrap Your Car. All rights reserved.</p>
           </div>
         </div>
       </div>
