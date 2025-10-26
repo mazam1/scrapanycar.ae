@@ -82,7 +82,7 @@ export function ContactFormSection() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
           {/* Contact Form */}
           <motion.div
             className="bg-white rounded-2xl p-8 shadow-2xl"

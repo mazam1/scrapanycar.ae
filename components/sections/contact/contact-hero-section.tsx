@@ -31,7 +31,7 @@ export function ContactHeroSection() {
 
         {/* Contact Methods Grid */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
@@ -66,20 +66,6 @@ export function ContactHeroSection() {
               <div className="font-semibold">Email Us</div>
               <div className="mt-2 text-brand-slate font-medium">info@scrapyourcar.com</div>
               <div className="mt-2 text-xs text-muted-foreground">We respond within 2 hours</div>
-            </div>
-          </div>
-
-          {/* Visit Us */}
-          <div className="p-6 rounded-2xl bg-card border border-border shadow-sm">
-            <div className="flex items-center justify-center mb-4">
-              <div className="h-12 w-12 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center">
-                <MapPin className="h-6 w-6 text-brand-gold" />
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="font-semibold">Visit Us</div>
-              <div className="mt-2 text-brand-slate font-medium">Dubai, UAE</div>
-              <div className="mt-2 text-xs text-muted-foreground">10:00 AM - 10:00 PM, Everyday</div>
             </div>
           </div>
 

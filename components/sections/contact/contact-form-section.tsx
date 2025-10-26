@@ -45,7 +45,7 @@ export function ContactFormSection() {
     <section className="relative py-16 lg:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="max-w-5xl mx-auto"
+          className="max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -210,9 +210,14 @@ export function ContactFormSection() {
                   />
                 </div>
 
-                <Button type="submit" variant="gold" size="lg" className="w-full sm:w-auto">
-                  <Send className="h-5 w-5 mr-2" />
-                  Send Message
+                <Button 
+                  type="submit" 
+                  variant="gold" 
+                  size="lg" 
+                  className="w-full sm:w-auto flex items-center justify-center"
+                >
+                  <Send className="h-[1.2em] w-[1.2em] mr-[8px] inline-flex" aria-hidden="true" />
+                  <span>Send Message</span>
                 </Button>
               </form>
             </div>
