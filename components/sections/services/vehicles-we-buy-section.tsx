@@ -9,7 +9,7 @@ export default function VehiclesWeBuySection() {
       icon: <Car className="w-8 h-8" />,
       title: "Luxury Vehicles",
       description: "Premium cars, sport cars, and high-end models",
-      bgImage: "bg-[url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1920&auto=format&fit=crop')] bg-cover bg-center"
+      bgImage: "bg-[url('https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?q=80&w=1920&auto=format&fit=crop')] bg-cover bg-center"
     },
     {
       icon: <Users className="w-8 h-8" />,
@@ -27,7 +27,7 @@ export default function VehiclesWeBuySection() {
       icon: <Compass className="w-8 h-8" />,
       title: "Compact Cars",
       description: "Economy cars, hatchbacks, and city vehicles",
-      bgImage: "bg-[url('https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=1920&auto=format&fit=crop')] bg-cover bg-center"
+      bgImage: "bg-[url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=1920&auto=format&fit=crop')] bg-cover bg-center"
     }
   ]
 

@@ -110,32 +110,6 @@ export function FeaturesSection() {
             </motion.div>
           ))}
         </div>
-
-        {/* Stats Section */}
-        <motion.div
-          className="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
-          <div className="p-6">
-            <div className="text-3xl lg:text-4xl font-bold text-brand-gold mb-2">10K+</div>
-            <div className="text-muted-foreground">Cars Recycled</div>
-          </div>
-          <div className="p-6">
-            <div className="text-3xl lg:text-4xl font-bold text-brand-gold mb-2">AED 2M+</div>
-            <div className="text-muted-foreground">Paid to Customers</div>
-          </div>
-          <div className="p-6">
-            <div className="text-3xl lg:text-4xl font-bold text-brand-gold mb-2">4.9★</div>
-            <div className="text-muted-foreground">Customer Rating</div>
-          </div>
-          <div className="p-6">
-            <div className="text-3xl lg:text-4xl font-bold text-brand-gold mb-2">24/7</div>
-            <div className="text-muted-foreground">Support Available</div>
-          </div>
-        </motion.div>
       </div>
     </section>
   )

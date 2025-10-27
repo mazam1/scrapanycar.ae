@@ -107,6 +107,11 @@ export default function BlogPostContent({ post }: BlogPostContentProps) {
 
             {/* Featured Image */}
             <div className="relative h-64 md:h-96 lg:h-[500px] rounded-2xl overflow-hidden">
+              <img 
+                src={post.image} 
+                alt={post.title}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20" />
             </div>
           </motion.header>

@@ -158,7 +158,7 @@ export function CarValuationForm() {
 
   return (
     <motion.div
-      className="bg-white rounded-2xl shadow-2xl p-6 lg:p-8 max-w-md w-full"
+      className="bg-white rounded-2xl p-6 lg:p-8 max-w-md w-full border border-[#C49A36] [box-shadow:0_25px_50px_-12px_rgba(196,154,54,0.25)]"
       initial={{ opacity: 0, x: 50 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.8, delay: 0.3 }}

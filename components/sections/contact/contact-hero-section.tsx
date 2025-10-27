@@ -11,8 +11,8 @@ import {
 
 export function ContactHeroSection() {
   return (
-    <section className="relative py-20 lg:py-28 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-background py-20 lg:py-28 px-4">
+      <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <motion.div
           className="text-center max-w-3xl mx-auto mb-12"

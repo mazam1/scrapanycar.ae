@@ -16,7 +16,7 @@ export default function CoreServicesSection() {
         "No hidden fees or charges"
       ],
       bgImage: "border border-border bg-cover bg-center",
-      bgUrl: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=1200&auto=format&fit=crop",
+      bgUrl: "https://images.unsplash.com/photo-1551522435-a13afa10f103?q=80&w=1200&auto=format&fit=crop",
       premium: true
     },
     {
@@ -30,7 +30,7 @@ export default function CoreServicesSection() {
         "Detailed condition report"
       ],
       bgImage: "border border-border bg-cover bg-center",
-      bgUrl: "https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?q=80&w=1200&auto=format&fit=crop",
+      bgUrl: "https://images.unsplash.com/photo-1493238792000-8113da705763?q=80&w=1200&auto=format&fit=crop",
       premium: true
     },
     {
@@ -44,7 +44,7 @@ export default function CoreServicesSection() {
         "Secure transaction guarantee"
       ],
       bgImage: "border border-border bg-cover bg-center",
-      bgUrl: "https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?q=80&w=1200&auto=format&fit=crop",
+      bgUrl: "https://images.unsplash.com/photo-1580048915913-4f8f5cb481c4?q=80&w=1200&auto=format&fit=crop",
       premium: true
     },
     {
@@ -58,7 +58,7 @@ export default function CoreServicesSection() {
         "Full insurance coverage during transport"
       ],
       bgImage: "border border-border bg-cover bg-center",
-      bgUrl: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=1200&auto=format&fit=crop",
+      bgUrl: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=1200&auto=format&fit=crop",
       premium: true
     }
   ]

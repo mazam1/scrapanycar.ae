@@ -88,36 +88,12 @@ export function TestimonialsSection() {
           viewport={{ once: true }}
         >
           <div className="flex flex-col items-center text-center">
-            <h2 className="tracking-tight responsive-text-xl font-bold text-foreground text-container-center">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground mb-6 leading-tight text-container-center">
               What Our <span className="text-brand-gold">Customers</span> Say
             </h2>
             <p className="mt-4 max-w-3xl responsive-text-lg text-muted-foreground leading-relaxed text-container-center">
               Real stories from car owners who sold with us. Transparent process, fair prices, fast payout.
             </p>
-          </div>
-        </motion.div>
-
-        {/* Stats Bar */}
-        <motion.div
-          className="mx-auto mb-12 lg:mb-16 max-w-4xl"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          viewport={{ once: true }}
-        >
-          <div className="grid grid-cols-3 items-center rounded-xl border border-border bg-muted/30 text-center">
-            <div className="py-6">
-              <div className="responsive-text-lg font-bold text-brand-gold">4.9/5</div>
-              <div className="responsive-text-sm text-muted-foreground text-truncate">Average Rating</div>
-            </div>
-            <div className="py-6 border-x border-border">
-              <div className="responsive-text-lg font-bold text-brand-gold">10,000+</div>
-              <div className="responsive-text-sm text-muted-foreground text-truncate">Happy Customers</div>
-            </div>
-            <div className="py-6">
-              <div className="responsive-text-lg font-bold text-brand-gold">100%</div>
-              <div className="responsive-text-sm text-muted-foreground text-truncate">Satisfaction Rate</div>
-            </div>
           </div>
         </motion.div>
 

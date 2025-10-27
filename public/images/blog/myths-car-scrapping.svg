@@ -1,0 +1,35 @@
+<svg width="1000" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1000" height="600" fill="#f0f0f0"/>
+  
+  <!-- Car outline -->
+  <g transform="translate(200, 150) scale(1.5)">
+    <!-- Car body -->
+    <path d="M50,180 L100,120 L350,120 L400,180 L400,250 L50,250 Z" fill="#3a4750" stroke="#2c3e50" stroke-width="3"/>
+    
+    <!-- Windows -->
+    <path d="M120,130 L150,150 L300,150 L330,130 Z" fill="#a3d9ff" stroke="#2c3e50" stroke-width="2"/>
+    
+    <!-- Wheels -->
+    <circle cx="120" cy="250" r="40" fill="#333" stroke="#222" stroke-width="3"/>
+    <circle cx="120" cy="250" r="20" fill="#666"/>
+    <circle cx="330" cy="250" r="40" fill="#333" stroke="#222" stroke-width="3"/>
+    <circle cx="330" cy="250" r="20" fill="#666"/>
+    
+    <!-- Recycling symbol -->
+    <g transform="translate(220, 200) scale(0.8)">
+      <path d="M0,-30 L-25,15 L-10,15 L-20,40 L20,40 L10,15 L25,15 Z" fill="#27ae60" stroke="#2c3e50" stroke-width="2"/>
+    </g>
+  </g>
+  
+  <!-- Myth busting elements -->
+  <g transform="translate(700, 150)">
+    <circle cx="0" cy="0" r="80" fill="#e74c3c" stroke="#c0392b" stroke-width="5"/>
+    <line x1="-50" y1="-50" x2="50" y2="50" stroke="white" stroke-width="15"/>
+    <line x1="50" y1="-50" x2="-50" y2="50" stroke="white" stroke-width="15"/>
+  </g>
+  
+  <!-- Title -->
+  <text x="500" y="450" font-family="Arial, sans-serif" font-size="40" font-weight="bold" text-anchor="middle" fill="#2c3e50">3 Common Myths About</text>
+  <text x="500" y="500" font-family="Arial, sans-serif" font-size="40" font-weight="bold" text-anchor="middle" fill="#2c3e50">Scrapping Your Car</text>
+</svg>

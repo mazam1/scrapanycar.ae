@@ -42,8 +42,8 @@ export function ContactFormSection() {
   }
 
   return (
-    <section className="relative py-16 lg:py-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-background py-16 lg:py-24 px-4">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           className="w-full max-w-[1024px] mx-auto"
           initial={{ opacity: 0, y: 20 }}
