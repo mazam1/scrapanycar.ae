@@ -137,25 +137,31 @@ export function Header() {
               variant="gold"
               size="sm"
               onClick={() => {
-                // First validate that the target form exists
-                const formSection = document.getElementById('valuation-form')
-                if (formSection) {
-                  // Smooth scroll to the form section
-                  formSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                  
-                  // After scrolling, find and focus the name input field
-                  setTimeout(() => {
-                    // Look for the name input within the form section
-                    const nameInput = formSection.querySelector('input[type="text"][placeholder="Your full name"]')
-                    if (nameInput) {
-                      // Focus the name input field
-                      nameInput.focus()
-                    } else {
-                      console.error("Name input field not found in the form")
-                    }
-                  }, 800) // Delay to allow smooth scrolling to complete
+                // Check if we're already on the home page
+                if (pathname !== '/') {
+                  // If not on home page, navigate to home page with a query parameter
+                  window.location.href = '/?scrollToForm=true';
                 } else {
-                  console.error("Valuation form not found on the page")
+                  // If already on home page, scroll to form
+                  const formSection = document.getElementById('valuation-form')
+                  if (formSection) {
+                    // Smooth scroll to the form section
+                    formSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                    
+                    // After scrolling, find and focus the name input field
+                    setTimeout(() => {
+                      // Look for the name input within the form section
+                      const nameInput = formSection.querySelector('input[type="text"][placeholder="Your full name"]')
+                      if (nameInput) {
+                        // Focus the name input field
+                        nameInput.focus()
+                      } else {
+                        console.error("Name input field not found in the form")
+                      }
+                    }, 800) // Delay to allow smooth scrolling to complete
+                  } else {
+                    console.error("Valuation form not found on the page")
+                  }
                 }
               }}
             >
@@ -232,25 +238,31 @@ export function Header() {
                       // First close the mobile menu
                       setIsMobileMenuOpen(false)
                       
-                      // Then validate that the target form exists
-                      const formSection = document.getElementById('valuation-form')
-                      if (formSection) {
-                        // Smooth scroll to the form section
-                        formSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                        
-                        // After scrolling, find and focus the name input field
-                        setTimeout(() => {
-                          // Look for the name input within the form section
-                          const nameInput = formSection.querySelector('input[type="text"][placeholder="Your full name"]')
-                          if (nameInput) {
-                            // Focus the name input field
-                            nameInput.focus()
-                          } else {
-                            console.error("Name input field not found in the form")
-                          }
-                        }, 800) // Delay to allow smooth scrolling to complete
+                      // Check if we're already on the home page
+                      if (pathname !== '/') {
+                        // If not on home page, navigate to home page with a query parameter
+                        window.location.href = '/?scrollToForm=true';
                       } else {
-                        console.error("Valuation form not found on the page")
+                        // If already on home page, scroll to form
+                        const formSection = document.getElementById('valuation-form')
+                        if (formSection) {
+                          // Smooth scroll to the form section
+                          formSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                          
+                          // After scrolling, find and focus the name input field
+                          setTimeout(() => {
+                            // Look for the name input within the form section
+                            const nameInput = formSection.querySelector('input[type="text"][placeholder="Your full name"]')
+                            if (nameInput) {
+                              // Focus the name input field
+                              nameInput.focus()
+                            } else {
+                              console.error("Name input field not found in the form")
+                            }
+                          }, 800) // Delay to allow smooth scrolling to complete
+                        } else {
+                          console.error("Valuation form not found on the page")
+                        }
                       }
                     }}
                   >

@@ -3,7 +3,7 @@
 import * as React from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { DollarSign, Users, Award, Phone, Mail, Car, MessageSquare } from "lucide-react"
+import { Phone, Mail, Car, MessageSquare, DollarSign, Users, Award } from "lucide-react"
 
 export function GetInTouchSection() {
   const [phone, setPhone] = React.useState("")
@@ -38,39 +38,43 @@ export function GetInTouchSection() {
               Scrap Your Car Today
               <span className="block text-brand-gold">Get Instant Cash!</span>
             </h2>
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl">
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mb-8">
               Join thousands of satisfied customers who trust our fair, fast, and professional car valuation & instant buying service across UAE.
             </p>
 
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="inline-flex p-3 rounded-lg bg-background border text-brand-gold">
-                  <DollarSign className="h-6 w-6" />
+            <div className="grid grid-cols-1 gap-6">
+              <div className="flex items-center mb-4">
+                <div className="w-[82px] h-[82px] flex items-center justify-center border border-brand-gold rounded-lg mr-4">
+                  <DollarSign className="w-6 h-6 text-brand-gold" />
                 </div>
                 <div>
-                  <div className="text-sm font-semibold text-foreground">Premium Market Valuation</div>
-                  <div className="text-xs text-muted-foreground">Get up to 15% more than competitors</div>
+                  <h3 className="font-bold text-lg">Premium Market Valuation</h3>
+                  <p className="text-muted-foreground text-sm">Get up to 15% more than competitors</p>
                 </div>
               </div>
-              <div className="flex items-start gap-4">
-                <div className="inline-flex p-3 rounded-lg bg-background border text-brand-gold">
-                  <Users className="h-6 w-6" />
+              
+              <div className="flex items-center mb-4">
+                <div className="w-[82px] h-[82px] flex items-center justify-center border border-brand-gold rounded-lg mr-4">
+                  <Users className="w-6 h-6 text-brand-gold" />
                 </div>
                 <div>
-                  <div className="text-sm font-semibold text-foreground">Trusted by 50,000+</div>
-                  <div className="text-xs text-muted-foreground">UAE customers with 5-star ratings</div>
+                  <h3 className="font-bold text-lg">Trusted by 50,000+</h3>
+                  <p className="text-muted-foreground text-sm">UAE customers with 5-star ratings</p>
                 </div>
               </div>
-              <div className="flex items-start gap-4">
-                <div className="inline-flex p-3 rounded-lg bg-background border text-brand-gold">
-                  <Award className="h-6 w-6" />
+              
+              <div className="flex items-center mb-4">
+                <div className="w-[82px] h-[82px] flex items-center justify-center border border-brand-gold rounded-lg mr-4">
+                  <Award className="w-6 h-6 text-brand-gold" />
                 </div>
                 <div>
-                  <div className="text-sm font-semibold text-foreground">White-Glove Service</div>
-                  <div className="text-xs text-muted-foreground">Hassle-free paperwork & same-day payment</div>
+                  <h3 className="font-bold text-lg">White-Glove Service</h3>
+                  <p className="text-muted-foreground text-sm">Hassle-free paperwork & same-day payment</p>
                 </div>
               </div>
             </div>
+
+
           </motion.div>
 
           {/* Right: Quick contact card */}

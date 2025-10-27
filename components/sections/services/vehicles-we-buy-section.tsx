@@ -9,7 +9,7 @@ export default function VehiclesWeBuySection() {
       icon: <Car className="w-8 h-8" />,
       title: "Luxury Vehicles",
       description: "Premium cars, sport cars, and high-end models",
-      bgImage: "bg-[url('https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?q=80&w=1920&auto=format&fit=crop')] bg-cover bg-center"
+      bgImage: "bg-[url('https://images.unsplash.com/photo-1556189250-72ba954cfc2b?q=80&w=1920&auto=format&fit=crop')] bg-cover bg-center"
     },
     {
       icon: <Users className="w-8 h-8" />,
