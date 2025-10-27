@@ -195,7 +195,7 @@ export function FormSection() {
         </motion.div>
 
         <motion.div
-          className="w-full max-w-5xl mx-auto bg-card/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 lg:p-12 border border-border/50 transition-all duration-300"
+          className="w-full mx-auto bg-card/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 lg:p-12 border border-border/50 transition-all duration-300"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
