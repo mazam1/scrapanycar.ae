@@ -12,7 +12,8 @@ import { TestimonialsSection } from "@/components/sections/home/testimonials-sec
 import { GetInTouchSection } from "@/components/sections/home/get-in-touch-section"
 import { useSearchParams } from "next/navigation"
 
-export default function HomePage() {
+// Component that uses searchParams wrapped in Suspense
+function ScrollHandler() {
   const searchParams = useSearchParams();
   
   useEffect(() => {
@@ -38,6 +39,11 @@ export default function HomePage() {
       }, 300);
     }
   }, [searchParams]);
+  
+  return null;
+}
+
+export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-background">
@@ -54,6 +60,7 @@ export default function HomePage() {
       </main>
       <Suspense fallback={null}>
         <Footer />
+        <ScrollHandler />
       </Suspense>
       <ScrollToTop />
     </div>
