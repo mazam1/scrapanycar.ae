@@ -42,10 +42,10 @@ export function ContactFormSection() {
   }
 
   return (
-    <section className="bg-background py-16 lg:py-24 px-4">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-background py-16 lg:py-24 px-4 flex justify-center">
+      <div className="w-full max-w-[1336px] mx-auto overflow-x-auto scrollbar-hide min-w-[1336px]">
         <motion.div
-          className="w-full max-w-[1024px] mx-auto"
+          className="w-full"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

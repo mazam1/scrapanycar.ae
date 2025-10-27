@@ -11,8 +11,8 @@ import {
 
 export function ContactHeroSection() {
   return (
-    <section className="bg-background py-20 lg:py-28 px-4">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-background py-20 lg:py-28 px-4 flex justify-center">
+      <div className="w-full max-w-[1336px] mx-auto overflow-x-auto scrollbar-hide min-w-[1336px]">
         {/* Heading */}
         <motion.div
           className="text-center max-w-3xl mx-auto mb-12"
@@ -31,7 +31,7 @@ export function ContactHeroSection() {
 
         {/* Contact Methods Grid */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-5xl mx-auto"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-[1336px] mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}

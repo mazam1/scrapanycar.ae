@@ -53,15 +53,6 @@ export function GetInTouchSection() {
                 </div>
               </div>
               
-              <div className="flex items-center mb-4">
-                <div className="w-[82px] h-[82px] flex items-center justify-center border border-brand-gold rounded-lg mr-4">
-                  <Users className="w-6 h-6 text-brand-gold" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-lg">Trusted by 50,000+</h3>
-                  <p className="text-muted-foreground text-sm">UAE customers with 5-star ratings</p>
-                </div>
-              </div>
               
               <div className="flex items-center mb-4">
                 <div className="w-[82px] h-[82px] flex items-center justify-center border border-brand-gold rounded-lg mr-4">

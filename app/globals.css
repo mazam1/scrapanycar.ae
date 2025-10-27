@@ -48,11 +48,23 @@
     word-wrap: break-word;
     hyphens: auto;
   }
-  p {
-    line-height: 1.7;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
   }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+  }
+}
+
+p {
+  line-height: 1.7;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
   
   /* Improved text contrast and readability */
   .text-muted-foreground {
@@ -82,7 +94,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
-}
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
