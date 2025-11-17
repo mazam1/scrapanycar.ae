@@ -29,11 +29,11 @@ export function HeroSection() {
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/60" />
       
-      {/* Accent Color Overlay */}
+      {/* Dark Overlay */}
       <div 
         className="absolute inset-0 opacity-20"
         style={{
-          backgroundColor: '#c49a36'
+          backgroundColor: '#000000'
         }}
       />
 
@@ -47,9 +47,9 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             Turn Your{" "}
-            <span className="text-brand-gold">Old Car</span>{" "}
+            <span className="text-brand-primary">Old Car</span>{" "}
             Into{" "}
-            <span className="text-brand-gold">Instant Cash</span>
+            <span className="text-brand-primary">Instant Cash</span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -71,11 +71,11 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <div className="flex items-center gap-2 text-white min-w-fit">
-              <DollarSign className="h-5 w-5 text-brand-gold flex-shrink-0" />
+              <DollarSign className="h-5 w-5 text-brand-secondary flex-shrink-0" />
               <span className="responsive-text-sm whitespace-nowrap">Best Prices</span>
             </div>
             <div className="flex items-center gap-2 text-white min-w-fit">
-              <Clock className="h-5 w-5 text-brand-gold flex-shrink-0" />
+              <Clock className="h-5 w-5 text-brand-secondary flex-shrink-0" />
               <span className="responsive-text-sm whitespace-nowrap">Same Day Payment</span>
             </div>
           </motion.div>

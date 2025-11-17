@@ -164,7 +164,7 @@ export function CarValuationForm() {
       transition={{ duration: 0.8, delay: 0.3 }}
     >
       <div className="text-center mb-6">
-        <h2 className="text-2xl font-bold text-brand-charcoal mb-2">
+        <h2 className="text-2xl font-bold text-brand-dark mb-2">
           Why Choose Scrap Your Car?
         </h2>
         <p className="text-gray-600 text-sm">
@@ -175,7 +175,7 @@ export function CarValuationForm() {
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Personal Information Section */}
         <div>
-          <h3 className="text-lg font-semibold text-brand-charcoal mb-4 border-b border-gray-200 pb-2">
+          <h3 className="text-lg font-semibold text-brand-dark mb-4 border-b border-gray-200 pb-2">
             Personal Information
           </h3>
           <div className="space-y-4">
@@ -187,7 +187,7 @@ export function CarValuationForm() {
                 type="text"
                 value={formData.name}
                 onChange={(e) => handleInputChange("name", e.target.value)}
-                className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold ${
+                className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary ${
                   errors.name ? "border-red-500" : "border-gray-300"
                 }`}
                 placeholder="Your full name"
@@ -203,7 +203,7 @@ export function CarValuationForm() {
                 type="email"
                 value={formData.email}
                 onChange={(e) => handleInputChange("email", e.target.value)}
-                className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold ${
+                className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary ${
                   errors.email ? "border-red-500" : "border-gray-300"
                 }`}
                 placeholder="your.email@example.com"
@@ -219,7 +219,7 @@ export function CarValuationForm() {
                 type="tel"
                 value={formData.phone}
                 onChange={(e) => handleInputChange("phone", e.target.value)}
-                className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold ${
+                className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary ${
                   errors.phone ? "border-red-500" : "border-gray-300"
                 }`}
                 placeholder="+971 4 123 4567"
@@ -234,7 +234,7 @@ export function CarValuationForm() {
               <select
                 value={formData.city}
                 onChange={(e) => handleInputChange("city", e.target.value)}
-                className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold ${
+                className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary ${
                   errors.city ? "border-red-500" : "border-gray-300"
                 }`}
               >
@@ -250,7 +250,7 @@ export function CarValuationForm() {
 
         {/* Vehicle Information Section */}
         <div>
-          <h3 className="text-lg font-semibold text-brand-charcoal mb-4 border-b border-gray-200 pb-2">
+          <h3 className="text-lg font-semibold text-brand-dark mb-4 border-b border-gray-200 pb-2">
             Vehicle Information
           </h3>
           <div className="space-y-4">
@@ -261,7 +261,7 @@ export function CarValuationForm() {
               <select
                 value={formData.make}
                 onChange={(e) => handleInputChange("make", e.target.value)}
-                className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold ${
+                className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary ${
                   errors.make ? "border-red-500" : "border-gray-300"
                 }`}
               >
@@ -281,7 +281,7 @@ export function CarValuationForm() {
                 value={formData.model}
                 onChange={(e) => handleInputChange("model", e.target.value)}
                 disabled={!formData.make}
-                className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold ${
+                className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary ${
                   errors.model ? "border-red-500" : "border-gray-300"
                 } ${!formData.make ? "bg-gray-100 cursor-not-allowed" : ""}`}
               >
@@ -300,7 +300,7 @@ export function CarValuationForm() {
               <select
                 value={formData.year}
                 onChange={(e) => handleInputChange("year", e.target.value)}
-                className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold ${
+                className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary ${
                   errors.year ? "border-red-500" : "border-gray-300"
                 }`}
               >
@@ -319,7 +319,7 @@ export function CarValuationForm() {
               <select
                 value={formData.condition}
                 onChange={(e) => handleInputChange("condition", e.target.value)}
-                className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold ${
+                className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary ${
                   errors.condition ? "border-red-500" : "border-gray-300"
                 }`}
               >
@@ -335,7 +335,7 @@ export function CarValuationForm() {
 
         {/* Additional Details Section */}
         <div>
-          <h3 className="text-lg font-semibold text-brand-charcoal mb-4 border-b border-gray-200 pb-2">
+          <h3 className="text-lg font-semibold text-brand-dark mb-4 border-b border-gray-200 pb-2">
             Additional Details
           </h3>
           <div className="space-y-4">
@@ -346,7 +346,7 @@ export function CarValuationForm() {
               <select
                 value={formData.color}
                 onChange={(e) => handleInputChange("color", e.target.value)}
-                className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold ${
+                className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary ${
                   errors.color ? "border-red-500" : "border-gray-300"
                 }`}
               >
@@ -366,7 +366,7 @@ export function CarValuationForm() {
                 type="number"
                 value={formData.mileage}
                 onChange={(e) => handleInputChange("mileage", e.target.value)}
-                className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-gold ${
+                className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary ${
                   errors.mileage ? "border-red-500" : "border-gray-300"
                 }`}
                 placeholder="e.g., 50000"
@@ -386,7 +386,7 @@ export function CarValuationForm() {
                       type="checkbox"
                       checked={formData.features.includes(feature)}
                       onChange={(e) => handleFeatureChange(feature, e.target.checked)}
-                      className="mr-2 h-4 w-4 text-brand-gold focus:ring-brand-gold border-gray-300 rounded"
+                      className="mr-2 h-4 w-4 text-brand-gold focus:ring-brand-primary border-gray-300 rounded"
                     />
                     <span className="text-sm text-gray-700">{feature}</span>
                   </label>
@@ -399,7 +399,7 @@ export function CarValuationForm() {
         {/* Submit Button */}
         <Button
           type="submit"
-          className="w-full bg-brand-gold hover:bg-brand-gold/90 text-brand-charcoal font-semibold py-3 text-lg"
+          className="w-full bg-brand-gold hover:bg-brand-gold/90 text-brand-dark font-semibold py-3 text-lg"
         >
           Request Free Valuation & Inspection
         </Button>

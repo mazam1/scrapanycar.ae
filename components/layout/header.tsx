@@ -37,7 +37,7 @@ export function Header() {
     <motion.header
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-200 ease-in-out"
       style={{
-        backgroundColor: `rgba(0, 0, 0, 0.90)`,
+        backgroundColor: `#000000`,
         backdropFilter: 'blur(12px)',
         borderBottom: 'none'
       }}
@@ -51,12 +51,6 @@ export function Header() {
       }}
       transition={{ duration: 0.2, ease: "easeInOut" }}
     >
-      <div 
-        className="absolute inset-0 opacity-20"
-        style={{
-          backgroundColor: '#c49a36'
-        }}
-      />
       <div className="container mx-auto relative z-10" style={{ paddingLeft: '24px', paddingRight: '24px' }}>
         <motion.div 
           className="flex items-center justify-between"
@@ -72,40 +66,29 @@ export function Header() {
           }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
         >
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3">
+          {/* Logo - Prominent */}
+          <Link href="/" className="flex items-center">
             <motion.div 
-              className="relative"
+              className="relative flex items-center justify-center"
               initial={{
-                width: '64px',
-                height: '42px'
+                width: '72px',
+                height: '50px'
               }}
               animate={{
-                width: isScrolled ? '48px' : '64px',
-                height: isScrolled ? '32px' : '42px'
+                width: isScrolled ? '56px' : '72px',
+                height: isScrolled ? '40px' : '50px'
               }}
               transition={{ duration: 0.2, ease: "easeInOut" }}
             >
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/10 to-brand-secondary/10 rounded-lg blur-lg opacity-50" />
               <ImageWithFallback
                 src="/logo.png"
                 alt="Scrap Your Car Logo"
-                width={120}
-                height={42}
-                className="object-contain w-full h-full text-foreground brightness-110 contrast-110 drop-shadow-sm"
+                width={140}
+                height={50}
+                className="object-contain w-full h-full text-foreground brightness-125 contrast-125 drop-shadow-lg relative z-10"
               />
             </motion.div>
-            <motion.span 
-              className="font-poppins font-bold text-white hidden sm:block"
-              initial={{
-                fontSize: '20px'
-              }}
-              animate={{
-                fontSize: isScrolled ? '18px' : '20px'
-              }}
-              transition={{ duration: 0.2, ease: "easeInOut" }}
-            >
-              Scrap Your Car
-            </motion.span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -117,8 +100,8 @@ export function Header() {
                 className={cn(
                   "text-sm font-medium transition-colors duration-200",
                   pathname === item.href
-                    ? "text-[#c49a36]"
-                    : "text-[#fdfcfa] hover:text-[#c49a36]"
+                    ? "text-brand-primary"
+                    : "text-white hover:text-brand-primary"
                 )}
                 style={{
                   marginLeft: index === 0 ? '0px' : '40px',
@@ -134,7 +117,7 @@ export function Header() {
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center" style={{ marginLeft: '48px', padding: '0px' }}>
             <Button
-              variant="gold"
+              variant="default"
               size="sm"
               onClick={() => {
                 // Check if we're already on the home page
@@ -174,7 +157,7 @@ export function Header() {
             <Button
               variant="ghost"
               size="icon"
-              className="text-white hover:text-[#c49a36] hover:bg-white/10"
+              className="text-white hover:text-brand-primary hover:bg-white/10"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? (
@@ -193,7 +176,7 @@ export function Header() {
           <motion.div
             className="lg:hidden relative z-50"
             style={{
-              backgroundColor: `rgba(38, 38, 38, 0.98)`,
+              backgroundColor: `#000000`,
               backdropFilter: 'blur(12px)'
             }}
             initial={{ opacity: 0, height: 0 }}
@@ -201,12 +184,6 @@ export function Header() {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <div 
-              className="absolute inset-0 opacity-20"
-              style={{
-                backgroundColor: '#c49a36'
-              }}
-            />
             {/* Overlay backdrop */}
             <div
               className="fixed inset-0 bg-black/30"
@@ -221,8 +198,8 @@ export function Header() {
                     className={cn(
                       "text-sm font-medium transition-colors duration-200 py-2",
                       pathname === item.href
-                        ? "text-[#c49a36]"
-                        : "text-[#fdfcfa] hover:text-[#c49a36]"
+                        ? "text-brand-primary"
+                        : "text-white hover:text-brand-primary"
                     )}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -231,7 +208,7 @@ export function Header() {
                 ))}
                 <div className="pt-4 border-t border-white/20">
                   <Button
-                    variant="gold"
+                    variant="default"
                     size="sm"
                     className="w-full"
                     onClick={() => {

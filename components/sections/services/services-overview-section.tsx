@@ -130,7 +130,7 @@ export function ServicesOverviewSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Complete <span className="text-brand-gold">Vehicle Recycling</span> Services
+            Complete <span className="text-brand-secondary">Vehicle Recycling</span> Services
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             From passenger cars to heavy commercial vehicles, we handle all types of automotive 
@@ -143,7 +143,7 @@ export function ServicesOverviewSection() {
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              className="group p-6 rounded-xl bg-card border border-border hover:border-brand-gold/50 transition-all duration-300 hover:shadow-lg"
+              className="group p-6 rounded-xl bg-card border border-border hover:border-brand-secondary/50 transition-all duration-300 hover:shadow-lg"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -155,7 +155,7 @@ export function ServicesOverviewSection() {
                   <service.icon className="h-6 w-6" />
                 </div>
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-brand-gold transition-colors">
+              <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-brand-secondary transition-colors">
                 {service.title}
               </h3>
               <p className="text-muted-foreground mb-4 leading-relaxed">
@@ -164,7 +164,7 @@ export function ServicesOverviewSection() {
               <ul className="space-y-2">
                 {service.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-gold" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-brand-secondary" />
                     {feature}
                   </li>
                 ))}
@@ -190,8 +190,8 @@ export function ServicesOverviewSection() {
                 key={service.title}
                 className="p-6 rounded-xl bg-muted/30 border border-border text-center"
               >
-                <div className="inline-flex p-3 rounded-full bg-brand-gold/10 border border-brand-gold/20 mb-4">
-                  <service.icon className="h-6 w-6 text-brand-gold" />
+                <div className="inline-flex p-3 rounded-full bg-brand-secondary/10 border border-brand-secondary/20 mb-4">
+                  <service.icon className="h-6 w-6 text-brand-secondary" />
                 </div>
                 <h4 className="font-semibold text-foreground mb-2">{service.title}</h4>
                 <p className="text-sm text-muted-foreground">{service.description}</p>
@@ -208,7 +208,7 @@ export function ServicesOverviewSection() {
           transition={{ duration: 0.8, delay: 0.6 }}
           viewport={{ once: true }}
         >
-          <div className="max-w-4xl mx-auto p-8 rounded-2xl bg-gradient-to-br from-brand-gold/5 to-brand-gold/10 border border-brand-gold/20">
+          <div className="max-w-4xl mx-auto p-8 rounded-2xl bg-gradient-to-br from-brand-gold/5 to-brand-gold/10 border border-brand-secondary/20">
             <h3 className="text-2xl font-bold text-foreground mb-4">
               Our Service Guarantee
             </h3>
@@ -218,23 +218,23 @@ export function ServicesOverviewSection() {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
               <div className="p-4 rounded-lg bg-background/50">
-                <Phone className="h-8 w-8 text-brand-gold mx-auto mb-2" />
+                <Phone className="h-8 w-8 text-brand-secondary mx-auto mb-2" />
                 <div className="font-semibold text-foreground mb-1">24/7 Support</div>
                 <div className="text-sm text-muted-foreground">Always available to help</div>
               </div>
               <div className="p-4 rounded-lg bg-background/50">
-                <MapPin className="h-8 w-8 text-brand-gold mx-auto mb-2" />
+                <MapPin className="h-8 w-8 text-brand-secondary mx-auto mb-2" />
                 <div className="font-semibold text-foreground mb-1">Metro-Wide Service</div>
                 <div className="text-sm text-muted-foreground">We come to you anywhere</div>
               </div>
               <div className="p-4 rounded-lg bg-background/50">
-                <Shield className="h-8 w-8 text-brand-gold mx-auto mb-2" />
+                <Shield className="h-8 w-8 text-brand-secondary mx-auto mb-2" />
                 <div className="font-semibold text-foreground mb-1">100% Satisfaction</div>
                 <div className="text-sm text-muted-foreground">Guaranteed or money back</div>
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-brand-gold hover:bg-brand-gold/90 text-brand-charcoal font-semibold">
+              <Button size="lg" className="bg-brand-primary hover:bg-brand-primary/90 text-white font-semibold">
                 Get Your Quote Now
               </Button>
               <Button variant="outline" size="lg">

@@ -34,33 +34,47 @@ export function GetInTouchSection() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">
-              Scrap Your Car Today
-              <span className="block text-brand-gold">Get Instant Cash!</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-secondary/10 border border-brand-secondary/20 mb-6">
+              <div className="w-2 h-2 rounded-full bg-brand-secondary animate-pulse" />
+              <span className="text-sm font-medium text-brand-secondary uppercase tracking-wider">Contact Us</span>
+            </div>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+              Scrap Your <span className="text-brand-secondary relative">
+                Car Today
+                <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-brand-secondary/60 to-brand-secondary/20 rounded-full" />
+              </span>
+              <span className="block text-brand-dark">Get Instant Cash!</span>
             </h2>
             <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mb-8">
               Join thousands of satisfied customers who trust our fair, fast, and professional car valuation & instant buying service across UAE.
             </p>
 
-            <div className="grid grid-cols-1 gap-6">
-              <div className="flex items-center mb-4">
-                <div className="w-[82px] h-[82px] flex items-center justify-center border border-brand-gold rounded-lg mr-4">
-                  <DollarSign className="w-6 h-6 text-brand-gold" />
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="inline-flex p-3 rounded-lg bg-background border text-brand-secondary">
+                  <DollarSign className="h-6 w-6" />
                 </div>
                 <div>
                   <h3 className="font-bold text-lg">Premium Market Valuation</h3>
                   <p className="text-muted-foreground text-sm">Get up to 15% more than competitors</p>
                 </div>
               </div>
-              
-              
-              <div className="flex items-center mb-4">
-                <div className="w-[82px] h-[82px] flex items-center justify-center border border-brand-gold rounded-lg mr-4">
-                  <Award className="w-6 h-6 text-brand-gold" />
+              <div className="flex items-start gap-4">
+                <div className="inline-flex p-3 rounded-lg bg-background border text-brand-secondary">
+                  <Users className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg">White-Glove Service</h3>
-                  <p className="text-muted-foreground text-sm">Hassle-free paperwork & same-day payment</p>
+                  <div className="text-sm font-semibold text-foreground">Trusted by 50,000+</div>
+                  <div className="text-xs text-muted-foreground">UAE customers with 5-star ratings</div>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="inline-flex p-3 rounded-lg bg-background border text-brand-secondary">
+                  <Award className="h-6 w-6" />
+                </div>
+                <div>
+                  <div className="text-sm font-semibold text-foreground">White-Glove Service</div>
+                  <div className="text-xs text-muted-foreground">Hassle-free paperwork & same-day payment</div>
                 </div>
               </div>
             </div>
@@ -88,7 +102,7 @@ export function GetInTouchSection() {
                     type="tel"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all duration-300 bg-background text-foreground border-border"
+                    className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground border-border"
                     placeholder="+971 XX XXX XXXX"
                   />
                 </div>
@@ -102,7 +116,7 @@ export function GetInTouchSection() {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all duration-300 bg-background text-foreground border-border"
+                    className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground border-border"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -116,7 +130,7 @@ export function GetInTouchSection() {
                     type="text"
                     value={model}
                     onChange={(e) => setModel(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all duration-300 bg-background text-foreground border-border"
+                    className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground border-border"
                     placeholder="Year, Make, Model (e.g., 2018 Toyota Camry)"
                   />
                 </div>
@@ -129,7 +143,7 @@ export function GetInTouchSection() {
                   <textarea
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all duration-300 bg-background text-foreground border-border min-h-[100px] resize-none"
+                    className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground border-border min-h-[100px] resize-none"
                     placeholder="Tell us more about your car's condition, mileage, etc."
                   ></textarea>
                 </div>
@@ -138,14 +152,14 @@ export function GetInTouchSection() {
               <div>
                 <Button
                   type="submit"
-                  className="bg-brand-gold hover:bg-brand-gold/90 text-brand-charcoal font-semibold px-12 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full"
+                  className="bg-brand-primary hover:bg-brand-primary/90 text-white font-semibold px-12 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full"
                 >
                   Get Your Free Quote
                 </Button>
               </div>
 
               <div className="text-center text-sm text-muted-foreground mt-2">
-                Prefer WhatsApp? <a href="https://wa.me/971568559762" target="_blank" rel="noopener noreferrer" className="text-brand-gold hover:underline">Chat with us</a>
+                Prefer WhatsApp? <a href="https://wa.me/971568559762" target="_blank" rel="noopener noreferrer" className="text-brand-primary hover:underline">Chat with us</a>
               </div>
             </form>
           </motion.div>

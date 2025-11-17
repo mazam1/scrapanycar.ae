@@ -16,11 +16,12 @@ export const typography = {
     semibold: "font-semibold",
     bold: "font-bold"
   },
-  // Colors
+  // Colors (aligned with brand color system)
   color: {
-    primary: "text-foreground",
-    secondary: "text-muted-foreground",
-    accent: "text-brand-gold"
+    primary: "text-brand-dark",           // Brand Dark - headings, main text
+    secondary: "text-brand-medium",       // Brand Medium - secondary text
+    accent: "text-brand-primary",         // Brand Primary - accents, highlights
+    highlight: "text-brand-secondary"     // Brand Secondary - secondary highlights
   },
   // Line heights
   line_height: {
@@ -74,10 +75,12 @@ export const scaling = {
 
 // Theme Implementation
 export const theme = {
-  // Gradients
+  // Gradients (new brand color system)
   gradient: {
-    brand: "bg-gradient-to-br from-muted/20 via-muted/30 to-muted/20",
-    gold: "bg-gradient-to-r from-brand-gold/60 to-brand-gold/20"
+    primary: "bg-gradient-primary",       // Linear gradient: Red to Orange (45deg)
+    accent: "bg-gradient-accent",         // Radial gradient: Red, Orange, Black
+    brandPrimary: "from-brand-primary to-brand-secondary",  // Utility-friendly
+    subtle: "bg-gradient-to-br from-brand-light/20 via-brand-light/30 to-brand-light/20"
   },
   // Shadows
   shadow: {
@@ -106,4 +109,36 @@ export const qa = {
 // Styling Method
 export const styling = {
   preferred_method: "Tailwind CSS with class-variance-authority"
+};
+
+// Brand Color Utilities
+export const brandColors = {
+  // Primary Colors
+  primary: "bg-brand-primary text-white",           // Main CTAs, buttons
+  secondary: "bg-brand-secondary text-white",       // Section highlights
+  dark: "bg-brand-dark text-white",                 // Contrast backgrounds
+  medium: "bg-brand-medium text-white",             // Neutral elements
+  light: "bg-brand-light text-brand-dark",          // Background tints
+  
+  // Text Colors
+  textPrimary: "text-brand-primary",                // Headings, CTA text
+  textSecondary: "text-brand-secondary",            // Accent text
+  textDark: "text-brand-dark",                      // Main text
+  textMedium: "text-brand-medium",                  // Secondary text
+  textLight: "text-brand-light",                    // Subtle text
+  
+  // Borders
+  borderPrimary: "border-brand-primary",
+  borderSecondary: "border-brand-secondary",
+  borderLight: "border-brand-light",
+  borderMedium: "border-brand-medium",
+  
+  // Button Variants
+  buttonPrimary: "bg-brand-primary hover:bg-opacity-90 text-white",
+  buttonSecondary: "bg-brand-secondary hover:bg-opacity-90 text-black",
+  buttonOutline: "border-2 border-brand-primary text-brand-primary hover:bg-brand-primary/10",
+  
+  // Gradients
+  gradientPrimary: "bg-gradient-primary",
+  gradientAccent: "bg-gradient-accent"
 };

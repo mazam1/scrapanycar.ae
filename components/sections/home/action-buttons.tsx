@@ -18,7 +18,7 @@ export default function ActionButtons() {
         aria-label="Open WhatsApp chat with customer support"
         target="_blank"
         rel="noopener noreferrer"
-        className="group inline-flex items-center justify-center select-none rounded-[12px] bg-brand-gold hover:bg-brand-gold/90 active:scale-95 transition-all duration-200 text-brand-charcoal font-poppins font-semibold tracking-normal h-12 sm:h-14 min-h-[48px] px-6 sm:px-8 shadow-md"
+        className="group inline-flex items-center justify-center select-none rounded-[12px] bg-brand-primary hover:bg-brand-primary/90 active:scale-95 transition-all duration-200 text-white font-poppins font-semibold tracking-normal h-12 sm:h-14 min-h-[48px] px-6 sm:px-8 shadow-md"
         style={{ letterSpacing: "0.2px" }}
       >
         {/* WhatsApp brand glyph (inline SVG for performance, no layout shift) */}

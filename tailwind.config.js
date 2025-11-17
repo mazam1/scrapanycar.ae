@@ -52,14 +52,13 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Brand colors from Scrap Your Car brand guide
+        // New Brand Color System
         brand: {
-          charcoal: '#0B1320',
-          slate: '#233040',
-          gold: '#C49A36',
-          success: '#1E9E6F',
-          warning: '#E08A00',
-          danger: '#C3402F',
+          primary: '#FF0000',      // Main CTA, buttons, highlights
+          secondary: '#F79F00',    // Accents, highlights, icons
+          dark: '#000000',         // Headings, text, contrast elements
+          medium: '#686567',       // Secondary text, outlines, neutral elements
+          light: '#929195',        // Background tint, cards, borders
         },
         neutral: {
           100: '#F7F8FA',
@@ -79,6 +78,10 @@ const config = {
       fontFamily: {
         'poppins': ['Poppins', 'Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
         'inter': ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+      },
+      backgroundImage: {
+        'gradient-primary': 'linear-gradient(45deg, #FF0000, #F79F00)',
+        'gradient-accent': 'radial-gradient(circle, #FF0000, #F79F00, #000000)',
       },
       keyframes: {
         "accordion-down": {

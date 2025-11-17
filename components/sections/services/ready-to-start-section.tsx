@@ -14,7 +14,7 @@ export default function ReadyToStartSection() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
-            Ready to Get <span className="text-brand-gold">Started?</span>
+            Ready to Get <span className="text-brand-primary">Started?</span>
           </h2>
           
           <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
@@ -25,7 +25,7 @@ export default function ReadyToStartSection() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
               <Button
-                variant="gold"
+                variant="default"
                 size="lg"
                 className="font-semibold px-8 py-4 text-lg"
                 onClick={() => {
@@ -54,7 +54,7 @@ export default function ReadyToStartSection() {
             </motion.div>
             
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
-              <Button asChild variant="gold" size="lg" className="font-semibold px-8 py-4 text-lg">
+              <Button asChild variant="secondary" size="lg" className="font-semibold px-8 py-4 text-lg">
                 <a href="tel:+971568558762" className="flex items-center gap-2">
                   <Phone className="w-5 h-5" />
                   Call now
