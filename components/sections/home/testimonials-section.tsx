@@ -66,7 +66,7 @@ export function TestimonialsSection() {
     <section className="py-24 bg-background relative overflow-hidden" aria-label="Customer testimonials">
       {/* Subtle background accents for pixel-perfect depth */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.06]">
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-gold/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-secondary/10 to-transparent" />
         <div
           className="absolute inset-0"
           style={{
@@ -88,10 +88,17 @@ export function TestimonialsSection() {
           viewport={{ once: true }}
         >
           <div className="flex flex-col items-center text-center">
-            <h2 className="tracking-tight responsive-text-xl font-bold text-foreground text-container-center">
-              What Our <span className="text-brand-gold">Customers</span> Say
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-secondary/10 border border-brand-secondary/20 mb-6">
+              <div className="w-2 h-2 rounded-full bg-brand-secondary animate-pulse" />
+              <span className="text-sm font-medium text-brand-secondary uppercase tracking-wider">Testimonials</span>
+            </div>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight text-container-center">
+              What Our <span className="text-brand-secondary relative">
+                Customers
+                <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-brand-secondary/60 to-brand-secondary/20 rounded-full" />
+              </span> Say
             </h2>
-            <p className="mt-4 max-w-3xl responsive-text-lg text-muted-foreground leading-relaxed text-container-center">
+            <p className="text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed text-container-center">
               Real stories from car owners who sold with us. Transparent process, fair prices, fast payout.
             </p>
           </div>
@@ -107,15 +114,15 @@ export function TestimonialsSection() {
         >
           <div className="grid grid-cols-3 items-center rounded-xl border border-border bg-muted/30 text-center">
             <div className="py-6">
-              <div className="responsive-text-lg font-bold text-brand-gold">4.9/5</div>
+              <div className="responsive-text-lg font-bold text-brand-secondary">4.9/5</div>
               <div className="responsive-text-sm text-muted-foreground text-truncate">Average Rating</div>
             </div>
             <div className="py-6 border-x border-border">
-              <div className="responsive-text-lg font-bold text-brand-gold">10,000+</div>
+              <div className="responsive-text-lg font-bold text-brand-secondary">10,000+</div>
               <div className="responsive-text-sm text-muted-foreground text-truncate">Happy Customers</div>
             </div>
             <div className="py-6">
-              <div className="responsive-text-lg font-bold text-brand-gold">100%</div>
+              <div className="responsive-text-lg font-bold text-brand-secondary">100%</div>
               <div className="responsive-text-sm text-muted-foreground text-truncate">Satisfaction Rate</div>
             </div>
           </div>
@@ -126,7 +133,7 @@ export function TestimonialsSection() {
           {testimonials.map((t, index) => (
             <motion.article
               key={t.name}
-              className="group h-full rounded-2xl bg-card border border-border/60 p-6 sm:p-7 lg:p-8 hover:border-brand-gold/60 hover:shadow-xl transition-all duration-300 relative overflow-hidden min-h-[320px] flex flex-col"
+              className="group h-full rounded-2xl bg-card border border-border/60 p-6 sm:p-7 lg:p-8 hover:border-brand-secondary/60 hover:shadow-xl transition-all duration-300 relative overflow-hidden min-h-[320px] flex flex-col"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.08 }}
@@ -135,13 +142,13 @@ export function TestimonialsSection() {
             >
               {/* decorative quote */}
               <div className="absolute top-6 right-6 opacity-10">
-                <Quote className="h-10 w-10 text-brand-gold" />
+                <Quote className="h-10 w-10 text-brand-secondary" />
               </div>
 
               {/* header */}
               <div className="flex items-center gap-4 mb-4 flex-shrink-0">
                 <div className="w-10 h-10 rounded-full bg-muted/30 border border-border/60 flex items-center justify-center flex-shrink-0">
-                  <User className="h-5 w-5 text-brand-gold" />
+                  <User className="h-5 w-5 text-brand-secondary" />
                 </div>
                 <div className="min-w-0 flex-grow">
                   <div className="responsive-text-base font-semibold text-foreground text-truncate">{t.name}</div>
@@ -153,7 +160,7 @@ export function TestimonialsSection() {
               <div className="flex items-center gap-2 mb-3 flex-shrink-0">
                 <div className="flex items-center gap-1">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-brand-gold text-brand-gold" />
+                    <Star key={i} className="h-4 w-4 fill-brand-gold text-brand-secondary" />
                   ))}
                 </div>
                 <span className="responsive-text-sm text-muted-foreground">{t.ratingText}</span>
@@ -168,7 +175,7 @@ export function TestimonialsSection() {
               <div className="mt-auto rounded-lg border border-border/60 bg-muted/40 p-3 flex-shrink-0">
                 <div className="flex justify-between items-center responsive-text-sm gap-2">
                   <span className="text-muted-foreground text-truncate flex-grow">{t.vehicle}</span>
-                  <span className="font-semibold text-brand-gold whitespace-nowrap">{t.amount}</span>
+                  <span className="font-semibold text-brand-primary whitespace-nowrap">{t.amount}</span>
                 </div>
               </div>
             </motion.article>

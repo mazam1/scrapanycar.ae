@@ -5,25 +5,37 @@
 
 @layer base {
   :root {
+    /* Brand Color System */
+    --brand-primary: #FF0000;     /* Main CTA, buttons, highlights */
+    --brand-secondary: #F79F00;   /* Accents, highlights, icons */
+    --brand-dark: #000000;        /* Headings, text, contrast elements */
+    --brand-medium: #686567;      /* Secondary text, outlines, neutral elements */
+    --brand-light: #929195;       /* Background tint, cards, borders */
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(45deg, #FF0000, #F79F00);
+    --gradient-accent: radial-gradient(circle, #FF0000, #F79F00, #000000);
+    
+    /* Legacy UI Variables (mapped to new brand) */
     --background: #fdfcfa;
     --foreground: #262626;
     --card: #fdfcfa;
     --card-foreground: #262626;
     --popover: #fdfcfa;
     --popover-foreground: #262626;
-    --primary: #262626;
-    --primary-foreground: #e6eef6;
-    --secondary: #233040;
-    --secondary-foreground: #e6eef6;
-    --muted: #cbd7e3;
-    --muted-foreground: #4b5563;
-    --accent: #fdfcfa;
-    --accent-foreground: #262626;
-    --destructive: #c3402f;
-    --destructive-foreground: #e6eef6;
-    --border: #cbd7e3;
-    --input: #cbd7e3;
-    --ring: #c49a36;
+    --primary: #FF0000;           /* Updated to brand primary */
+    --primary-foreground: #ffffff;
+    --secondary: #F79F00;         /* Updated to brand secondary */
+    --secondary-foreground: #000000;
+    --muted: #929195;             /* Updated to brand light */
+    --muted-foreground: #686567;  /* Updated to brand medium */
+    --accent: #FF0000;            /* Updated to brand primary */
+    --accent-foreground: #ffffff;
+    --destructive: #FF0000;
+    --destructive-foreground: #ffffff;
+    --border: #929195;            /* Updated to brand light */
+    --input: #929195;             /* Updated to brand light */
+    --ring: #FF0000;              /* Updated to brand primary */
     --radius: 0.5rem;
     --header-height: 80px;
   }
@@ -84,21 +96,25 @@
   }
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar with brand theme */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-muted;
+  background: linear-gradient(180deg, rgba(255, 0, 0, 0.05) 0%, rgba(247, 159, 0, 0.05) 100%);
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-muted-foreground rounded-full;
+  background: linear-gradient(180deg, #FF0000 0%, #F79F00 100%);
+  border-radius: 10px;
+  box-shadow: 0 0 6px rgba(255, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-primary;
+  background: linear-gradient(180deg, #FF0000 0%, #F79F00 100%);
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.5);
 }
 
 /* Smooth scrolling */

@@ -128,7 +128,7 @@ export function ServiceAreasSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            <span className="text-brand-gold">Metro-Wide</span> Service Coverage
+            <span className="text-brand-secondary">Metro-Wide</span> Service Coverage
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             We proudly serve the entire Denver metropolitan area with fast, reliable pickup 
@@ -149,8 +149,8 @@ export function ServiceAreasSection() {
               key={stat.label}
               className="text-center p-6 rounded-xl bg-card border border-border"
             >
-              <div className="inline-flex p-3 rounded-full bg-brand-gold/10 border border-brand-gold/20 mb-4">
-                <stat.icon className="h-6 w-6 text-brand-gold" />
+              <div className="inline-flex p-3 rounded-full bg-brand-secondary/10 border border-brand-secondary/20 mb-4">
+                <stat.icon className="h-6 w-6 text-brand-secondary" />
               </div>
               <div className="text-2xl lg:text-3xl font-bold text-foreground mb-1">{stat.number}</div>
               <div className="font-semibold text-foreground mb-2">{stat.label}</div>
@@ -164,7 +164,7 @@ export function ServiceAreasSection() {
           {serviceAreas.map((area, index) => (
             <motion.div
               key={`${area.city}-${area.state}`}
-              className="group p-8 rounded-2xl bg-card border border-border hover:border-brand-gold/50 transition-all duration-300 hover:shadow-lg"
+              className="group p-8 rounded-2xl bg-card border border-border hover:border-brand-secondary/50 transition-all duration-300 hover:shadow-lg"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -174,14 +174,14 @@ export function ServiceAreasSection() {
               {/* Header */}
               <div className="flex items-center justify-between mb-6">
                 <div>
-                  <h3 className="text-2xl font-bold text-foreground group-hover:text-brand-gold transition-colors">
+                  <h3 className="text-2xl font-bold text-foreground group-hover:text-brand-secondary transition-colors">
                     {area.city}, {area.state}
                   </h3>
                   <p className="text-muted-foreground mt-1">{area.description}</p>
                 </div>
                 <div className="text-right">
                   <div className="text-sm text-muted-foreground">Response Time</div>
-                  <div className="text-lg font-semibold text-brand-gold">{area.responseTime}</div>
+                  <div className="text-lg font-semibold text-brand-secondary">{area.responseTime}</div>
                 </div>
               </div>
 
@@ -200,7 +200,7 @@ export function ServiceAreasSection() {
                       key={neighborhoodIndex}
                       className="flex items-center gap-2 text-sm text-muted-foreground"
                     >
-                      <div className="w-1.5 h-1.5 rounded-full bg-brand-gold" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-brand-secondary" />
                       {neighborhood}
                     </div>
                   ))}
@@ -210,7 +210,7 @@ export function ServiceAreasSection() {
               {/* CTA */}
               <Button 
                 variant="outline" 
-                className="w-full group-hover:border-brand-gold group-hover:text-brand-gold transition-colors"
+                className="w-full group-hover:border-brand-secondary group-hover:text-brand-secondary transition-colors"
               >
                 <Phone className="h-4 w-4 mr-2" />
                 Get Quote for {area.city}
@@ -271,7 +271,7 @@ export function ServiceAreasSection() {
           transition={{ duration: 0.8, delay: 0.6 }}
           viewport={{ once: true }}
         >
-          <div className="max-w-4xl mx-auto p-8 rounded-2xl bg-gradient-to-br from-brand-gold/5 to-brand-gold/10 border border-brand-gold/20">
+          <div className="max-w-4xl mx-auto p-8 rounded-2xl bg-gradient-to-br from-brand-gold/5 to-brand-gold/10 border border-brand-secondary/20">
             <h3 className="text-2xl font-bold text-foreground mb-4">
               Service Area Guarantee
             </h3>
@@ -282,24 +282,24 @@ export function ServiceAreasSection() {
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
               <div className="p-4 rounded-lg bg-background/50">
-                <Clock className="h-8 w-8 text-brand-gold mx-auto mb-2" />
+                <Clock className="h-8 w-8 text-brand-secondary mx-auto mb-2" />
                 <div className="font-semibold text-foreground mb-1">On-Time Guarantee</div>
                 <div className="text-sm text-muted-foreground">Pickup within promised timeframe</div>
               </div>
               <div className="p-4 rounded-lg bg-background/50">
-                <MapPin className="h-8 w-8 text-brand-gold mx-auto mb-2" />
+                <MapPin className="h-8 w-8 text-brand-secondary mx-auto mb-2" />
                 <div className="font-semibold text-foreground mb-1">Wide Coverage</div>
                 <div className="text-sm text-muted-foreground">Serving 50+ metro communities</div>
               </div>
               <div className="p-4 rounded-lg bg-background/50">
-                <Star className="h-8 w-8 text-brand-gold mx-auto mb-2" />
+                <Star className="h-8 w-8 text-brand-secondary mx-auto mb-2" />
                 <div className="font-semibold text-foreground mb-1">Quality Service</div>
                 <div className="text-sm text-muted-foreground">98% customer satisfaction rate</div>
               </div>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-brand-gold hover:bg-brand-gold/90 text-brand-charcoal font-semibold">
+              <Button size="lg" className="bg-brand-secondary hover:bg-brand-secondary/90 text-brand-charcoal font-semibold">
                 <Phone className="h-5 w-5 mr-2" />
                 Call for Pickup
               </Button>

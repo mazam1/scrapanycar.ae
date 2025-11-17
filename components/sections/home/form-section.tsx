@@ -186,10 +186,17 @@ export function FormSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 transition-colors duration-300">
-            Get Your Free Car Valuation
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-secondary/10 border border-brand-secondary/20 mb-6">
+            <div className="w-2 h-2 rounded-full bg-brand-secondary animate-pulse" />
+            <span className="text-sm font-medium text-brand-secondary uppercase tracking-wider">Valuation</span>
+          </div>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight transition-colors duration-300">
+            Get Your <span className="text-brand-secondary relative">
+              Free Car Valuation
+              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-brand-secondary/60 to-brand-secondary/20 rounded-full" />
+            </span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto transition-colors duration-300">
+          <p className="text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed transition-colors duration-300">
             Fill out the form below for an instant quote and free inspection
           </p>
         </motion.div>
@@ -203,7 +210,7 @@ export function FormSection() {
           <form onSubmit={handleSubmit} className="space-y-10">
             {/* Personal Information Section */}
             <div>
-              <h3 className="text-xl font-semibold text-foreground mb-6 border-b-2 border-brand-gold pb-2 transition-colors duration-300">
+              <h3 className="text-xl font-semibold text-foreground mb-6 border-b-2 border-brand-primary pb-2 transition-colors duration-300">
                 Personal Information
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -216,7 +223,7 @@ export function FormSection() {
                     value={formData.name}
                     onChange={(e) => handleInputChange("name", e.target.value)}
                     ref={nameInputRef}
-                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all duration-300 bg-background text-foreground ${
+                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
                       errors.name || forceNameHighlight ? "border-red-500" : "border-border"
                     }`}
                     placeholder="Your full name"
@@ -232,7 +239,7 @@ export function FormSection() {
                     type="email"
                     value={formData.email}
                     onChange={(e) => handleInputChange("email", e.target.value)}
-                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all duration-300 bg-background text-foreground ${
+                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
                       errors.email ? "border-red-500" : "border-border"
                     }`}
                     placeholder="your.email@example.com"
@@ -248,7 +255,7 @@ export function FormSection() {
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => handleInputChange("phone", e.target.value)}
-                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all duration-300 bg-background text-foreground ${
+                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
                       errors.phone ? "border-red-500" : "border-border"
                     }`}
                     placeholder="(555) 123-4567"
@@ -263,7 +270,7 @@ export function FormSection() {
                   <select
                     value={formData.city}
                     onChange={(e) => handleInputChange("city", e.target.value)}
-                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all duration-300 bg-background text-foreground ${
+                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
                       errors.city ? "border-red-500" : "border-border"
                     }`}
                   >
@@ -279,7 +286,7 @@ export function FormSection() {
 
             {/* Vehicle Information Section */}
             <div>
-              <h3 className="text-xl font-semibold text-foreground mb-6 border-b-2 border-brand-gold pb-2 transition-colors duration-300">
+              <h3 className="text-xl font-semibold text-foreground mb-6 border-b-2 border-brand-primary pb-2 transition-colors duration-300">
                 Vehicle Information
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -290,7 +297,7 @@ export function FormSection() {
                   <select
                     value={formData.make}
                     onChange={(e) => handleInputChange("make", e.target.value)}
-                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all duration-300 bg-background text-foreground ${
+                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
                       errors.make ? "border-red-500" : "border-border"
                     }`}
                   >
@@ -310,7 +317,7 @@ export function FormSection() {
                     value={formData.model}
                     onChange={(e) => handleInputChange("model", e.target.value)}
                     disabled={!formData.make}
-                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all duration-300 bg-background text-foreground ${
+                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
                       errors.model ? "border-red-500" : "border-border"
                     } ${!formData.make ? "bg-muted cursor-not-allowed" : ""}`}
                   >
@@ -329,7 +336,7 @@ export function FormSection() {
                   <select
                     value={formData.year}
                     onChange={(e) => handleInputChange("year", e.target.value)}
-                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all duration-300 bg-background text-foreground ${
+                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
                       errors.year ? "border-red-500" : "border-border"
                     }`}
                   >
@@ -348,7 +355,7 @@ export function FormSection() {
                   <select
                     value={formData.condition}
                     onChange={(e) => handleInputChange("condition", e.target.value)}
-                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all duration-300 bg-background text-foreground ${
+                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
                       errors.condition ? "border-red-500" : "border-border"
                     }`}
                   >
@@ -364,7 +371,7 @@ export function FormSection() {
 
             {/* Additional Details Section */}
             <div>
-              <h3 className="text-xl font-semibold text-foreground mb-6 border-b-2 border-brand-gold pb-2 transition-colors duration-300">
+              <h3 className="text-xl font-semibold text-foreground mb-6 border-b-2 border-brand-primary pb-2 transition-colors duration-300">
                 Additional Details
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -375,7 +382,7 @@ export function FormSection() {
                   <select
                     value={formData.color}
                     onChange={(e) => handleInputChange("color", e.target.value)}
-                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all duration-300 bg-background text-foreground ${
+                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
                       errors.color ? "border-red-500" : "border-border"
                     }`}
                   >
@@ -395,7 +402,7 @@ export function FormSection() {
                     type="number"
                     value={formData.mileage}
                     onChange={(e) => handleInputChange("mileage", e.target.value)}
-                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all duration-300 bg-background text-foreground ${
+                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
                       errors.mileage ? "border-red-500" : "border-border"
                     }`}
                     placeholder="e.g., 50000"
@@ -410,12 +417,12 @@ export function FormSection() {
                   </label>
                   <div className="space-y-3 pt-2">
                     {features.map(feature => (
-                      <label key={feature} className="flex items-center">
+                      <label key={feature} className="flex items-center cursor-pointer">
                         <input
                           type="checkbox"
                           checked={formData.features.includes(feature)}
                           onChange={(e) => handleFeatureChange(feature, e.target.checked)}
-                          className="mr-3 h-4 w-4 text-brand-gold focus:ring-brand-gold border-border rounded transition-colors duration-300"
+                          className="mr-3 h-4 w-4 text-brand-primary bg-background border-brand-primary rounded focus:ring-2 focus:ring-brand-primary/50 transition-all duration-300 accent-brand-primary"
                         />
                         <span className="text-sm text-foreground transition-colors duration-300">{feature}</span>
                       </label>
@@ -429,7 +436,7 @@ export function FormSection() {
             <div className="text-center pt-6">
               <Button
                 type="submit"
-                className="w-full sm:w-auto bg-brand-gold hover:bg-brand-gold/90 text-brand-charcoal font-semibold px-6 sm:px-12 py-4 text-base sm:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                className="w-full sm:w-auto bg-brand-primary hover:bg-brand-primary/90 text-white font-semibold px-6 sm:px-12 py-4 text-base sm:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 Request Free Valuation & Inspection
               </Button>

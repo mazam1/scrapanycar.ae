@@ -56,17 +56,21 @@
 
 ---
 
-## 4. Color System (Light & Dark)
+## 4. Color System (New Brand Palette)
 
-Design uses a restrained, authoritative palette: deep charcoal for trust, warm gold for premium accents, and calm neutrals for surfaces.
+Design uses a bold, dynamic palette: vibrant red for primary CTAs, warm orange for secondary highlights, pure black for strong contrast, with neutral grays for secondary text and backgrounds.
 
 ### Core Colors (hex)
-- **Primary (Charcoal):** `#0B1320` — anchor text & brand weight
-- **Secondary (Slate):** `#233040` — navigation, subhead
-- **Accent / Gold:** `#C49A36` — CTA accents, microcopy highlights
+- **Primary (Red):** `#FF0000` — Main CTAs, buttons, primary highlights
+- **Secondary (Orange):** `#F79F00` — Accents, highlights, icons, hover states
+- **Dark (Black):** `#000000` — Headings, main text, strong contrast elements
+- **Medium (Gray):** `#686567` — Secondary text, outlines, neutral elements
+- **Light (Light Gray):** `#929195` — Background tints, cards, borders
+
+### Extended Colors
 - **Success:** `#1E9E6F`
 - **Warning:** `#E08A00`
-- **Danger/Error:** `#C3402F`
+- **Danger/Error:** `#FF0000` (aligned with primary)
 
 ### Background & Surface
 - **Light background:** `#F7F8FA` (page background)
@@ -113,35 +117,46 @@ Line-height: 1.3–1.6 depending on context. Use tighter leading for large headi
 
 ---
 
-## 6. Light & Dark Theme Tokens (Tailwind-ready)
+## 6. Brand Color Tokens (Tailwind-ready)
 
 ```css
 :root {
-  --bg: #F7F8FA;
+  /* Brand Color System */
+  --brand-primary: #FF0000;     /* Main CTA, buttons, highlights */
+  --brand-secondary: #F79F00;   /* Accents, highlights, icons */
+  --brand-dark: #000000;        /* Headings, text, contrast elements */
+  --brand-medium: #686567;      /* Secondary text, outlines, neutral elements */
+  --brand-light: #929195;       /* Background tint, cards, borders */
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(45deg, #FF0000, #F79F00);
+  --gradient-accent: radial-gradient(circle, #FF0000, #F79F00, #000000);
+  
+  /* Legacy UI Variables (mapped to new brand) */
+  --bg: #fdfcfa;
   --surface: #FFFFFF;
-  --text-primary: #0B1320;
-  --text-secondary: #4B5563;
-  --brand: #0B1320;
-  --accent: #C49A36;
-  --muted: #CBD7E3;
+  --text-primary: #000000;       /* Using brand-dark */
+  --text-secondary: #686567;     /* Using brand-medium */
+  --brand: #FF0000;              /* Using brand-primary */
+  --accent: #F79F00;             /* Using brand-secondary */
+  --muted: #929195;              /* Using brand-light */
   --success: #1E9E6F;
   --warning: #E08A00;
-  --danger: #C3402F;
-}
-
-.dark {
-  --bg: #0A0F14;
-  --surface: #0F1720;
-  --text-primary: #E6EEF6;
-  --text-secondary: #A8B3C3;
-  --brand: #E6EEF6;
-  --accent: #C49A36;
-  --muted: #233040;
-  --success: #1E9E6F;
-  --warning: #E08A00;
-  --danger: #C3402F;
+  --danger: #FF0000;             /* Using brand-primary */
 }
 ```
+
+### Color Usage Guide
+
+| Element | Color | Hex | Usage |
+|---------|-------|-----|-------|
+| Primary CTA Button | Brand Primary | `#FF0000` | Main action buttons, key highlights |
+| Secondary CTA | Brand Secondary | `#F79F00` | Hover states, accent buttons, icons |
+| Headings & Main Text | Brand Dark | `#000000` | H1-H6 tags, important content |
+| Secondary Text | Brand Medium | `#686567` | Subheadings, descriptions, meta text |
+| Borders & Backgrounds | Brand Light | `#929195` | Input fields, borders, subtle backgrounds |
+| Gradient Primary | Linear 45deg | Red → Orange | Hero sections, featured areas |
+| Gradient Accent | Radial | Red, Orange, Black | Special highlights, focus areas |
 
 ---
 

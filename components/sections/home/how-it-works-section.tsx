@@ -74,14 +74,14 @@ export function HowItWorksSection() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-gold/10 border border-brand-gold/20 mb-6">
-            <div className="w-2 h-2 rounded-full bg-brand-gold animate-pulse" />
-            <span className="text-sm font-medium text-brand-gold uppercase tracking-wider">Process</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-secondary/10 border border-brand-secondary/20 mb-6">
+            <div className="w-2 h-2 rounded-full bg-brand-secondary animate-pulse" />
+            <span className="text-sm font-medium text-brand-secondary uppercase tracking-wider">Process</span>
           </div>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-            How It <span className="text-brand-gold relative">
+            How It <span className="text-brand-secondary relative">
               Works
-              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-brand-gold/60 to-brand-gold/20 rounded-full" />
+              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-brand-secondary/60 to-brand-secondary/20 rounded-full" />
             </span>
           </h2>
           <p className="text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
@@ -108,7 +108,7 @@ export function HowItWorksSection() {
                 <div className="flex-1 text-center lg:text-left">
                   <div className="relative mb-8">
                     <div className="inline-flex items-center justify-center lg:justify-start mb-6">
-                      <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-gradient-to-br from-brand-gold to-brand-gold/80 flex items-center justify-center shadow-lg">
+                      <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-gradient-to-br from-brand-secondary to-brand-secondary/80 flex items-center justify-center shadow-lg">
                         <span className="text-2xl lg:text-3xl font-black text-white">
                           {step.step}
                         </span>
@@ -127,7 +127,7 @@ export function HowItWorksSection() {
                   <div className="space-y-3 mb-8">
                     {step.details.map((detail, detailIndex) => (
                       <div key={detailIndex} className="flex items-start gap-3 text-left">
-                        <div className="w-2 h-2 rounded-full bg-brand-gold mt-3 flex-shrink-0" />
+                        <div className="w-2 h-2 rounded-full bg-brand-secondary mt-3 flex-shrink-0" />
                         <span className="text-lg text-foreground leading-relaxed">{detail}</span>
                       </div>
                     ))}
@@ -139,7 +139,7 @@ export function HowItWorksSection() {
                   <div className="relative w-full max-w-lg">
                     <div className="relative group">
                       {/* Background decoration */}
-                      <div className="absolute -inset-4 bg-gradient-to-r from-brand-gold/20 via-brand-gold/10 to-transparent rounded-3xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+                      <div className="absolute -inset-4 bg-gradient-to-r from-brand-secondary/20 via-brand-secondary/10 to-transparent rounded-3xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
                       
                       {/* Main image container */}
                       <div className="relative bg-gradient-to-br from-white/95 to-white/90 backdrop-blur-sm rounded-2xl p-6 lg:p-8 shadow-2xl border border-white/20 group-hover:shadow-3xl transition-all duration-500 group-hover:scale-[1.02]">
@@ -172,15 +172,15 @@ export function HowItWorksSection() {
                             />
                           )}
                           {!["01", "02", "03"].includes(step.step) && (
-                            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-brand-gold/10 to-brand-gold/5 rounded-xl border border-brand-gold/20">
-                              <step.icon className="h-24 w-24 text-brand-gold" />
+                            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-brand-secondary/10 to-brand-secondary/5 rounded-xl border border-brand-secondary/20">
+                              <step.icon className="h-24 w-24 text-brand-secondary" />
                             </div>
                           )}
                         </div>
                         
                         {/* Decorative elements */}
-                        <div className="absolute top-4 right-4 w-3 h-3 bg-brand-gold rounded-full opacity-60" />
-                        <div className="absolute bottom-4 left-4 w-2 h-2 bg-brand-gold/60 rounded-full" />
+                        <div className="absolute top-4 right-4 w-3 h-3 bg-brand-secondary rounded-full opacity-60" />
+                        <div className="absolute bottom-4 left-4 w-2 h-2 bg-brand-secondary/60 rounded-full" />
                       </div>
                     </div>
                   </div>
@@ -198,26 +198,26 @@ export function HowItWorksSection() {
                     viewport={{ once: true }}
                   >
                     {/* Background glow */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-gold/20 to-transparent rounded-full blur-lg" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-primary/20 to-transparent rounded-full blur-lg" />
                     
                     {/* Main arrow container */}
-                    <div className="relative flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-brand-gold/10 via-brand-gold/20 to-brand-gold/10 rounded-full border border-brand-gold/30 backdrop-blur-sm">
+                    <div className="relative flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-brand-secondary/10 via-brand-secondary/20 to-brand-secondary/10 rounded-full border border-brand-secondary/30 backdrop-blur-sm">
                       <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-brand-gold animate-pulse" />
-                        <div className="w-12 h-0.5 bg-gradient-to-r from-brand-gold via-brand-gold/80 to-brand-gold/40 relative overflow-hidden">
+                        <div className="w-2 h-2 rounded-full bg-brand-secondary animate-pulse" />
+                        <div className="w-12 h-0.5 bg-gradient-to-r from-brand-secondary via-brand-secondary/80 to-brand-secondary/40 relative overflow-hidden">
                           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent animate-pulse" />
                         </div>
-                        <div className="w-0 h-0 border-l-[10px] border-l-brand-gold border-y-[6px] border-y-transparent drop-shadow-sm" />
-                        <div className="w-12 h-0.5 bg-gradient-to-r from-brand-gold/40 via-brand-gold/20 to-transparent relative overflow-hidden">
+                        <div className="w-0 h-0 border-l-[10px] border-l-brand-secondary border-y-[6px] border-y-transparent drop-shadow-sm" />
+                        <div className="w-12 h-0.5 bg-gradient-to-r from-brand-secondary/40 via-brand-secondary/20 to-transparent relative overflow-hidden">
                           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse" />
                         </div>
-                        <div className="w-2 h-2 rounded-full bg-brand-gold/60 animate-pulse" style={{ animationDelay: '0.5s' }} />
+                        <div className="w-2 h-2 rounded-full bg-brand-secondary/60 animate-pulse" style={{ animationDelay: '0.5s' }} />
                       </div>
                     </div>
                     
                     {/* Side decorations */}
-                    <div className="absolute -left-8 top-1/2 transform -translate-y-1/2 w-1 h-1 bg-brand-gold/40 rounded-full" />
-                    <div className="absolute -right-8 top-1/2 transform -translate-y-1/2 w-1 h-1 bg-brand-gold/40 rounded-full" />
+                    <div className="absolute -left-8 top-1/2 transform -translate-y-1/2 w-1 h-1 bg-brand-secondary/40 rounded-full" />
+                    <div className="absolute -right-8 top-1/2 transform -translate-y-1/2 w-1 h-1 bg-brand-secondary/40 rounded-full" />
                   </motion.div>
                 </div>
               )}
