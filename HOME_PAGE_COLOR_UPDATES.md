@@ -71,21 +71,21 @@ All home page colors have been updated to match the final brand color scheme. Ye
 
 | Element | Old | New | Color |
 |---------|-----|-----|-------|
-| Hero Text | `brand-gold` | `--brand-primary` | #FF0000 |
+| Hero Text | `brand-gold` | `--brand-primary` | #F44013 |
 | Hero Icons | `brand-primary` | `--brand-secondary` | #F79F00 |
 | Hero Overlay | Gradient | `--brand-dark` | #000000 |
 | Stats/Numbers | `brand-gold` | `--brand-secondary` | #F79F00 |
-| Separators | `brand-gold` | `--brand-primary` | #FF0000 |
+| Separators | `brand-gold` | `--brand-primary` | #F44013 |
 | Testimonials Icons | `brand-gold` | `--brand-secondary` | #F79F00 |
 | Footer Background | `rgba(0,0,0,0.90)` | `--brand-dark` | #000000 |
-| Footer Underlines | `brand-secondary` | `--brand-primary` | #FF0000 |
+| Footer Underlines | `brand-secondary` | `--brand-primary` | #F44013 |
 | Footer Icons | `brand-secondary` | `brand-secondary` | #F79F00 ✓ |
 
 ---
 
 ## Color System Summary
 
-### Primary (Red) - #FF0000
+### Primary (Red) - #F44013
 - Hero main text "Old Car", "Instant Cash"
 - "How It Works" separators/arrows
 - Footer heading underlines
@@ -108,7 +108,7 @@ All home page colors have been updated to match the final brand color scheme. Ye
 
 ✅ **Before**: Mixed golden/yellow tones created visual inconsistency
 ✅ **After**: Clean, modern palette with:
-- Bold red (#FF0000) for primary actions and separators
+- Bold red (#F44013) for primary actions and separators
 - Vibrant orange (#F79F00) for secondary highlights and statistics
 - Pure black (#000000) for authority and depth
 

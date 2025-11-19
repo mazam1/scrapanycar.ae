@@ -61,7 +61,7 @@
 Design uses a bold, dynamic palette: vibrant red for primary CTAs, warm orange for secondary highlights, pure black for strong contrast, with neutral grays for secondary text and backgrounds.
 
 ### Core Colors (hex)
-- **Primary (Red):** `#FF0000` — Main CTAs, buttons, primary highlights
+- **Primary (Red):** `#F44013` — Main CTAs, buttons, primary highlights
 - **Secondary (Orange):** `#F79F00` — Accents, highlights, icons, hover states
 - **Dark (Black):** `#000000` — Headings, main text, strong contrast elements
 - **Medium (Gray):** `#686567` — Secondary text, outlines, neutral elements
@@ -70,7 +70,7 @@ Design uses a bold, dynamic palette: vibrant red for primary CTAs, warm orange f
 ### Extended Colors
 - **Success:** `#1E9E6F`
 - **Warning:** `#E08A00`
-- **Danger/Error:** `#FF0000` (aligned with primary)
+- **Danger/Error:** `#F44013` (aligned with primary)
 
 ### Background & Surface
 - **Light background:** `#F7F8FA` (page background)
@@ -122,27 +122,27 @@ Line-height: 1.3–1.6 depending on context. Use tighter leading for large headi
 ```css
 :root {
   /* Brand Color System */
-  --brand-primary: #FF0000;     /* Main CTA, buttons, highlights */
+  --brand-primary: #F44013;     /* Main CTA, buttons, highlights */
   --brand-secondary: #F79F00;   /* Accents, highlights, icons */
   --brand-dark: #000000;        /* Headings, text, contrast elements */
   --brand-medium: #686567;      /* Secondary text, outlines, neutral elements */
   --brand-light: #929195;       /* Background tint, cards, borders */
   
   /* Gradients */
-  --gradient-primary: linear-gradient(45deg, #FF0000, #F79F00);
-  --gradient-accent: radial-gradient(circle, #FF0000, #F79F00, #000000);
+  --gradient-primary: linear-gradient(45deg, #F44013, #F79F00);
+  --gradient-accent: radial-gradient(circle, #F44013, #F79F00, #000000);
   
   /* Legacy UI Variables (mapped to new brand) */
   --bg: #fdfcfa;
   --surface: #FFFFFF;
   --text-primary: #000000;       /* Using brand-dark */
   --text-secondary: #686567;     /* Using brand-medium */
-  --brand: #FF0000;              /* Using brand-primary */
+  --brand: #F44013;              /* Using brand-primary */
   --accent: #F79F00;             /* Using brand-secondary */
   --muted: #929195;              /* Using brand-light */
   --success: #1E9E6F;
   --warning: #E08A00;
-  --danger: #FF0000;             /* Using brand-primary */
+  --danger: #F44013;             /* Using brand-primary */
 }
 ```
 
@@ -150,7 +150,7 @@ Line-height: 1.3–1.6 depending on context. Use tighter leading for large headi
 
 | Element | Color | Hex | Usage |
 |---------|-------|-----|-------|
-| Primary CTA Button | Brand Primary | `#FF0000` | Main action buttons, key highlights |
+| Primary CTA Button | Brand Primary | `#F44013` | Main action buttons, key highlights |
 | Secondary CTA | Brand Secondary | `#F79F00` | Hover states, accent buttons, icons |
 | Headings & Main Text | Brand Dark | `#000000` | H1-H6 tags, important content |
 | Secondary Text | Brand Medium | `#686567` | Subheadings, descriptions, meta text |

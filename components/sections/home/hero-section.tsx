@@ -2,9 +2,10 @@
 
 import * as React from "react"
 import { motion } from "framer-motion"
-import { DollarSign, Clock } from "lucide-react"
+import { Clock } from "lucide-react"
 
 import ActionButtons from "@/components/sections/home/action-buttons"
+import { UaeDirhamIcon } from "@/components/icons/uae-dirham-icon"
 
 export function HeroSection() {
   const [scrollY, setScrollY] = React.useState(0)
@@ -21,7 +22,7 @@ export function HeroSection() {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(/hero_img.png)',
+          backgroundImage: 'url(/hero_img.jpg)',
           transform: `translateY(${scrollY * 0.5}px)`
         }}
       />
@@ -71,7 +72,7 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <div className="flex items-center gap-2 text-white min-w-fit">
-              <DollarSign className="h-5 w-5 text-brand-secondary flex-shrink-0" />
+              <UaeDirhamIcon className="h-5 w-5 text-brand-secondary flex-shrink-0" />
               <span className="responsive-text-sm whitespace-nowrap">Best Prices</span>
             </div>
             <div className="flex items-center gap-2 text-white min-w-fit">

@@ -72,13 +72,13 @@ function ClassicLayout({ currentYear, socialPlatforms }: { currentYear: number; 
         <div className="space-y-6">
           <Link href="/" className="group block mb-6" aria-label="Go to home">
             <div className="flex items-center relative">
-              <div className="absolute -inset-2 bg-gradient-to-r from-brand-primary/20 to-brand-secondary/20 rounded-lg blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute " />
               <ImageWithFallback
                 src="/logo.png"
                 alt="Scrap Your Car Logo"
                 width={160}
                 height={56}
-                className="h-20 w-auto object-contain brightness-125 contrast-125 drop-shadow-xl transition-transform duration-300 group-hover:scale-110 relative z-10"
+                className="h-20 w-auto object-contain brightness-125 contrast-125 relative z-10"
               />
             </div>
           </Link>
@@ -91,7 +91,7 @@ function ClassicLayout({ currentYear, socialPlatforms }: { currentYear: number; 
         <div className="space-y-6">
           <h3 className="font-poppins font-bold text-lg sm:text-xl text-white mb-6 relative">
             Contact Information
-            <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-brand-primary rounded-full" />
+            <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-brand-secondary rounded-full" />
           </h3>
           <div className="space-y-4">
             <div className="group flex items-center space-x-4 text-white/90 hover:text-brand-secondary transition-colors duration-200">
@@ -120,7 +120,7 @@ function ClassicLayout({ currentYear, socialPlatforms }: { currentYear: number; 
         <div className="space-y-6">
           <h3 className="font-poppins font-bold text-lg sm:text-xl text-white mb-6 relative">
             Follow Us
-            <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-brand-primary rounded-full" />
+            <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-brand-secondary rounded-full" />
           </h3>
           <p className="text-white/80 leading-relaxed mb-6">
             Stay connected with us on social media for the latest updates, car tips, and exclusive offers.

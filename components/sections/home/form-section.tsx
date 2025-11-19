@@ -201,16 +201,20 @@ export function FormSection() {
           </p>
         </motion.div>
 
-        <motion.div
-          className="w-full mx-auto bg-card/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 lg:p-12 border border-border/50 transition-all duration-300"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
+        <div className="w-full mx-auto relative group">
+          <div className="absolute -inset-0.5 bg-gradient-to-br from-brand-secondary/25 via-brand-primary/10 to-transparent rounded-3xl blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-500 -z-10" />
+          <div className="absolute bg-white inset-0 rounded-3xl border border-brand-secondary/30 group-hover:border-brand-secondary/60 transition-all duration-300 -z-10" />
+          <motion.div
+            className="w-full bg-card/80 backdrop-blur-sm rounded-3xl p-8 lg:p-12 relative transition-all duration-300"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            suppressHydrationWarning
+          >
           <form onSubmit={handleSubmit} className="space-y-10">
             {/* Personal Information Section */}
             <div>
-              <h3 className="text-xl font-semibold text-foreground mb-6 border-b-2 border-brand-primary pb-2 transition-colors duration-300">
+              <h3 className="text-xl font-semibold text-foreground mb-6 border-b-2 border-brand-secondary pb-2 transition-colors duration-300">
                 Personal Information
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -286,7 +290,7 @@ export function FormSection() {
 
             {/* Vehicle Information Section */}
             <div>
-              <h3 className="text-xl font-semibold text-foreground mb-6 border-b-2 border-brand-primary pb-2 transition-colors duration-300">
+              <h3 className="text-xl font-semibold text-foreground mb-6 border-b-2 border-brand-secondary pb-2 transition-colors duration-300">
                 Vehicle Information
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -371,7 +375,7 @@ export function FormSection() {
 
             {/* Additional Details Section */}
             <div>
-              <h3 className="text-xl font-semibold text-foreground mb-6 border-b-2 border-brand-primary pb-2 transition-colors duration-300">
+              <h3 className="text-xl font-semibold text-foreground mb-6 border-b-2 border-brand-secondary pb-2 transition-colors duration-300">
                 Additional Details
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -442,7 +446,8 @@ export function FormSection() {
               </Button>
             </div>
           </form>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   )

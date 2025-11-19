@@ -106,13 +106,14 @@ export function TestimonialsSection() {
 
         {/* Stats Bar */}
         <motion.div
-          className="mx-auto mb-12 lg:mb-16 max-w-4xl"
+          className="mx-auto mb-12 lg:mb-16 max-w-4xl group relative bg-white bg-opacity-50 rounded-3xl"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
         >
-          <div className="grid grid-cols-3 items-center rounded-xl border border-border bg-muted/30 text-center">
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-secondary/20 via-brand-secondary/10 to-transparent rounded-xl blur-lg opacity-50 group-hover:opacity-70 transition-opacity duration-500 -z-10" />
+          <div className="grid grid-cols-3 items-center rounded-xl bg-muted/30 text-center relative border border-brand-secondary/20 group-hover:border-brand-secondary/50 transition-all duration-300">
             <div className="py-6">
               <div className="responsive-text-lg font-bold text-brand-secondary">4.9/5</div>
               <div className="responsive-text-sm text-muted-foreground text-truncate">Average Rating</div>
@@ -131,15 +132,18 @@ export function TestimonialsSection() {
         {/* Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
           {testimonials.map((t, index) => (
-            <motion.article
-              key={t.name}
-              className="group h-full rounded-2xl bg-card border border-border/60 p-6 sm:p-7 lg:p-8 hover:border-brand-secondary/60 hover:shadow-xl transition-all duration-300 relative overflow-hidden min-h-[320px] flex flex-col"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -2 }}
-            >
+            <div key={t.name} className="group relative">
+              <div className="absolute -inset-0.5 bg-gradient-to-br from-brand-secondary/20 via-brand-secondary/5 to-transparent rounded-2xl blur-lg opacity-50 group-hover:opacity-70 transition-opacity duration-500 -z-10" />
+              <div className="absolute bg-white inset-0 rounded-2xl border border-brand-secondary/20 group-hover:border-brand-secondary/50 transition-all duration-300 -z-10" />
+              <motion.article
+                className="h-full rounded-2xl bg-card p-6 sm:p-7 lg:p-8 relative overflow-hidden min-h-[320px] flex flex-col"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -2 }}
+                suppressHydrationWarning
+              >
               {/* decorative quote */}
               <div className="absolute top-6 right-6 opacity-10">
                 <Quote className="h-10 w-10 text-brand-secondary" />
@@ -178,7 +182,8 @@ export function TestimonialsSection() {
                   <span className="font-semibold text-brand-primary whitespace-nowrap">{t.amount}</span>
                 </div>
               </div>
-            </motion.article>
+              </motion.article>
+            </div>
           ))}
         </div>
       </div>

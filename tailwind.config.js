@@ -54,7 +54,7 @@ const config = {
         },
         // New Brand Color System
         brand: {
-          primary: '#FF0000',      // Main CTA, buttons, highlights
+          primary: '#F44013',      // Main CTA, buttons, highlights
           secondary: '#F79F00',    // Accents, highlights, icons
           dark: '#000000',         // Headings, text, contrast elements
           medium: '#686567',       // Secondary text, outlines, neutral elements
@@ -80,8 +80,8 @@ const config = {
         'inter': ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
       },
       backgroundImage: {
-        'gradient-primary': 'linear-gradient(45deg, #FF0000, #F79F00)',
-        'gradient-accent': 'radial-gradient(circle, #FF0000, #F79F00, #000000)',
+        'gradient-primary': 'linear-gradient(45deg, #F44013, #F79F00)',
+        'gradient-accent': 'radial-gradient(circle, #F44013, #F79F00, #000000)',
       },
       keyframes: {
         "accordion-down": {

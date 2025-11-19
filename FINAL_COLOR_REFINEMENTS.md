@@ -16,7 +16,7 @@ All old theme colors (golden/yellow) have been removed and replaced with the opt
 backgroundColor: '#c49a36' (opacity: 20%)
 
 // AFTER
-background: 'radial-gradient(circle, #FF0000, #F79F00, #000000)' (opacity: 20%)
+background: 'radial-gradient(circle, #F44013, #F79F00, #000000)' (opacity: 20%)
 ```
 - Now uses `--gradient-accent` (radial gradient with Red, Orange, Black)
 - More vibrant and dynamic visual effect
@@ -38,7 +38,7 @@ color: #F79F00 (--brand-secondary)
 <DollarSign className="text-brand-primary" />
 <Link className="bg-brand-primary text-white" />
 ```
-- Icon colors: Red (#FF0000) - `--brand-primary`
+- Icon colors: Red (#F44013) - `--brand-primary`
 - WhatsApp button: Red background with white text
 - Creates stronger visual hierarchy
 
@@ -65,7 +65,7 @@ Active link: text-brand-secondary (#F79F00)
 Hover: text-brand-secondary
 
 // AFTER
-Active link: text-brand-primary (#FF0000)
+Active link: text-brand-primary (#F44013)
 Hover: text-brand-primary
 ```
 - Primary red for active/focused states
@@ -106,11 +106,11 @@ hover:text-brand-primary
 |---------|-------|-----|---|
 | **Hero Gradient Overlay** | Radial Red→Orange→Black | Gradient | `--gradient-accent` |
 | **Hero Heading Accents** | Orange | #F79F00 | `--brand-secondary` |
-| **Hero Icons** | Red | #FF0000 | `--brand-primary` |
-| **WhatsApp Button** | Red | #FF0000 | `--brand-primary` |
+| **Hero Icons** | Red | #F44013 | `--brand-primary` |
+| **WhatsApp Button** | Red | #F44013 | `--brand-primary` |
 | **Header Background** | Black | #000000 | `--brand-dark` |
-| **Header Active Links** | Red | #FF0000 | `--brand-primary` |
-| **Header Hover** | Red | #FF0000 | `--brand-primary` |
+| **Header Active Links** | Red | #F44013 | `--brand-primary` |
+| **Header Hover** | Red | #F44013 | `--brand-primary` |
 
 ---
 
@@ -169,7 +169,7 @@ The following old/unnecessary styling has been removed:
 | Color | Contrast | Status |
 |-------|----------|--------|
 | Black (#000000) on White | 21:1 | ✅ WCAG AAA |
-| Red (#FF0000) on White | 3.99:1 | ✅ Large text OK |
+| Red (#F44013) on White | 3.99:1 | ✅ Large text OK |
 | Red on Black (header) | 5.25:1 | ✅ WCAG AA |
 | Orange (#F79F00) on White | 4.54:1 | ✅ WCAG AA |
 
@@ -213,7 +213,7 @@ The following old/unnecessary styling has been removed:
 
 ```
 Primary Actions & Highlights
-├─ Brand Primary: #FF0000 (Red)
+├─ Brand Primary: #F44013 (Red)
 └─ Use: Headers, active links, primary icons, CTAs
 
 Secondary Highlights
@@ -230,8 +230,8 @@ Neutral Elements
 └─ Use: Borders, backgrounds, subtle elements
 
 Gradients
-├─ Primary Gradient: linear-gradient(45deg, #FF0000, #F79F00)
-└─ Accent Gradient: radial-gradient(circle, #FF0000, #F79F00, #000000)
+├─ Primary Gradient: linear-gradient(45deg, #F44013, #F79F00)
+└─ Accent Gradient: radial-gradient(circle, #F44013, #F79F00, #000000)
 ```
 
 ---

@@ -157,12 +157,16 @@ export function CarValuationForm() {
   }
 
   return (
-    <motion.div
-      className="bg-white rounded-2xl p-6 lg:p-8 max-w-md w-full border border-[#C49A36] [box-shadow:0_25px_50px_-12px_rgba(196,154,54,0.25)]"
-      initial={{ opacity: 0, x: 50 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8, delay: 0.3 }}
-    >
+    <div className="relative group w-full max-w-md">
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-[#C49A36]/30 via-[#C49A36]/10 to-transparent rounded-2xl blur-lg opacity-60 group-hover:opacity-80 transition-opacity duration-500 -z-10" />
+      <div className="absolute inset-0 rounded-2xl border border-white/40 group-hover:border-[#C49A36]/50 transition-all duration-500 -z-10" />
+      <motion.div
+        className="bg-white rounded-2xl p-6 lg:p-8 w-full relative"
+        suppressHydrationWarning
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+      >
       <div className="text-center mb-6">
         <h2 className="text-2xl font-bold text-brand-dark mb-2">
           Why Choose Scrap Your Car?
@@ -404,6 +408,7 @@ export function CarValuationForm() {
           Request Free Valuation & Inspection
         </Button>
       </form>
-    </motion.div>
+      </motion.div>
+    </div>
   )
 }

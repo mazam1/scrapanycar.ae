@@ -14,10 +14,10 @@ Inactive link: text-white hover:text-brand-secondary
 
 // CTA Button
 <Button variant="default">Get Valuation</Button>
-// Renders: #FF0000 (red) background, white text
+// Renders: #F44013 (red) background, white text
 
 // Menu overlay
-backgroundColor: '#FF0000' (opacity: 10%)
+backgroundColor: '#F44013' (opacity: 10%)
 ```
 
 ### Footer (`components/layout/footer.tsx`)
@@ -39,7 +39,7 @@ backgroundColor: '#FF0000' (opacity: 10%)
 // Renders: #F79F00 (orange) background, black text
 
 // Footer overlay
-backgroundColor: '#FF0000' (opacity: 10%)
+backgroundColor: '#F44013' (opacity: 10%)
 ```
 
 ---
@@ -60,7 +60,7 @@ backgroundColor: '#FF0000' (opacity: 10%)
 // Color: #F79F00 (orange)
 
 // Background overlay
-backgroundColor: '#FF0000' (opacity: 10%)
+backgroundColor: '#F44013' (opacity: 10%)
 ```
 
 ### Action Buttons (`components/sections/home/action-buttons.tsx`)
@@ -81,7 +81,7 @@ className="bg-white/10 border border-white/20 text-white"
 ```tsx
 // Submit Button
 className="bg-brand-primary hover:bg-brand-primary/90 text-white"
-// Background: #FF0000 (red)
+// Background: #F44013 (red)
 // Text: white
 
 // Button hover
@@ -99,7 +99,7 @@ opacity-90 with smooth transition
 <Button className="bg-brand-primary hover:bg-brand-primary/90 text-white">
   Get Your Quote Now
 </Button>
-// Background: #FF0000 (red)
+// Background: #F44013 (red)
 // Text: white
 ```
 
@@ -120,11 +120,11 @@ className="group-hover:border-brand-secondary group-hover:text-brand-secondary"
 ```tsx
 // Heading Accent
 <span className="text-brand-primary">Started?</span>
-// Color: #FF0000 (red)
+// Color: #F44013 (red)
 
 // Primary Button
 <Button variant="default">Get Free Valuation</Button>
-// Background: #FF0000 (red)
+// Background: #F44013 (red)
 // Text: white
 
 // Secondary Button
@@ -137,7 +137,7 @@ className="group-hover:border-brand-secondary group-hover:text-brand-secondary"
 
 ## Color Palette Quick Reference
 
-### Primary Red (#FF0000)
+### Primary Red (#F44013)
 **Used for:**
 - Main CTA buttons
 - Form submission buttons
@@ -290,7 +290,7 @@ className="hover:text-brand-secondary transition-colors duration-200"
 
 | Text Color | Background | Ratio | Status |
 |-----------|-----------|-------|--------|
-| White | Brand Primary (#FF0000) | 3.99:1 | Use for large text only |
+| White | Brand Primary (#F44013) | 3.99:1 | Use for large text only |
 | White | Brand Secondary (#F79F00) | 5.04:1 | ✅ WCAG AA |
 | Brand Dark | Brand Secondary (#F79F00) | 9.94:1 | ✅ WCAG AAA |
 | Brand Dark | White | 21:1 | ✅ WCAG AAA |
@@ -366,7 +366,7 @@ brandColors.gradientAccent       // Radial red gradient
 
 ### Background Colors
 ```css
-bg-brand-primary     /* #FF0000 */
+bg-brand-primary     /* #F44013 */
 bg-brand-secondary   /* #F79F00 */
 bg-brand-dark        /* #000000 */
 bg-brand-medium      /* #686567 */
@@ -375,7 +375,7 @@ bg-brand-light       /* #929195 */
 
 ### Text Colors
 ```css
-text-brand-primary   /* #FF0000 */
+text-brand-primary   /* #F44013 */
 text-brand-secondary /* #F79F00 */
 text-brand-dark      /* #000000 */
 text-brand-medium    /* #686567 */
@@ -384,7 +384,7 @@ text-brand-light     /* #929195 */
 
 ### Borders
 ```css
-border-brand-primary      /* #FF0000 */
+border-brand-primary      /* #F44013 */
 border-brand-secondary    /* #F79F00 */
 border-brand-light        /* #929195 */
 ```

@@ -4,6 +4,7 @@ import * as React from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Phone, Mail, Car, MessageSquare, DollarSign, Users, Award } from "lucide-react"
+import { UaeDirhamIcon } from "@/components/icons/uae-dirham-icon"
 
 export function GetInTouchSection() {
   const [phone, setPhone] = React.useState("")
@@ -52,7 +53,7 @@ export function GetInTouchSection() {
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="inline-flex p-3 rounded-lg bg-background border text-brand-secondary">
-                  <DollarSign className="h-6 w-6" />
+                  <UaeDirhamIcon className="h-6 w-6" />
                 </div>
                 <div>
                   <h3 className="font-bold text-lg">Premium Market Valuation</h3>
@@ -83,13 +84,17 @@ export function GetInTouchSection() {
           </motion.div>
 
           {/* Right: Quick contact card */}
-          <motion.div
-            className="w-full bg-card/80 backdrop-blur-sm rounded-3xl shadow-2xl p-6 sm:p-8 border border-border/50"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
+          <div className="w-full relative group">
+            <div className="absolute -inset-0.5 bg-gradient-to-br from-brand-primary/25 via-brand-secondary/10 to-transparent rounded-3xl blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-500 -z-10" />
+            <div className="absolute bg-white inset-0 rounded-3xl border border-brand-primary/30 group-hover:border-brand-primary/60 transition-all duration-300 -z-10" />
+            <motion.div
+              className="w-full bg-card/80 backdrop-blur-sm rounded-3xl p-6 sm:p-8 relative"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              suppressHydrationWarning
+            >
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-semibold text-foreground">Get in Touch</h3>
             </div>
@@ -162,7 +167,8 @@ export function GetInTouchSection() {
                 Prefer WhatsApp? <a href="https://wa.me/971568559762" target="_blank" rel="noopener noreferrer" className="text-brand-primary hover:underline">Chat with us</a>
               </div>
             </form>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>

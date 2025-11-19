@@ -11,7 +11,7 @@ Your Next.js project has been updated with a new, bold brand color system. All c
 
 | Name | Color | Hex | Usage |
 |------|-------|-----|-------|
-| **Primary** | Red | `#FF0000` | CTAs, buttons, highlights, primary actions |
+| **Primary** | Red | `#F44013` | CTAs, buttons, highlights, primary actions |
 | **Secondary** | Orange | `#F79F00` | Accents, hover states, icons, secondary highlights |
 | **Dark** | Black | `#000000` | Headings, main text, strong contrast |
 | **Medium** | Gray | `#686567` | Secondary text, borders, outlines |
@@ -19,8 +19,8 @@ Your Next.js project has been updated with a new, bold brand color system. All c
 
 ### Gradients
 
-- **Primary Gradient**: `linear-gradient(45deg, #FF0000, #F79F00)`
-- **Accent Gradient**: `radial-gradient(circle, #FF0000, #F79F00, #000000)`
+- **Primary Gradient**: `linear-gradient(45deg, #F44013, #F79F00)`
+- **Accent Gradient**: `radial-gradient(circle, #F44013, #F79F00, #000000)`
 
 ---
 
@@ -32,7 +32,7 @@ Your Next.js project has been updated with a new, bold brand color system. All c
 New brand colors added to Tailwind extend config:
 ```javascript
 brand: {
-  primary: '#FF0000',      // Main CTA, buttons, highlights
+  primary: '#F44013',      // Main CTA, buttons, highlights
   secondary: '#F79F00',    // Accents, highlights, icons
   dark: '#000000',         // Headings, text, contrast elements
   medium: '#686567',       // Secondary text, outlines, neutral elements
@@ -56,13 +56,13 @@ brand: {
 
 CSS custom properties defined for easy access:
 ```css
---brand-primary: #FF0000;
+--brand-primary: #F44013;
 --brand-secondary: #F79F00;
 --brand-dark: #000000;
 --brand-medium: #686567;
 --brand-light: #929195;
---gradient-primary: linear-gradient(45deg, #FF0000, #F79F00);
---gradient-accent: radial-gradient(circle, #FF0000, #F79F00, #000000);
+--gradient-primary: linear-gradient(45deg, #F44013, #F79F00);
+--gradient-accent: radial-gradient(circle, #F44013, #F79F00, #000000);
 ```
 
 Core UI variables (primary, secondary, accent, border, etc.) have been mapped to the new brand colors for consistency.
@@ -253,7 +253,7 @@ Ensure WCAG AA compliance (4.5:1 minimum contrast ratio) for text:
 | Combination | Contrast Ratio | Status |
 |-------------|---|---|
 | Brand Dark (#000000) on white | 21:1 | ✅ WCAG AAA |
-| Brand Primary (#FF0000) on white | 3.99:1 | ⚠️ Use for large text only |
+| Brand Primary (#F44013) on white | 3.99:1 | ⚠️ Use for large text only |
 | Brand Secondary (#F79F00) on white | 4.54:1 | ✅ WCAG AA |
 | Brand Medium (#686567) on white | 6.42:1 | ✅ WCAG AA |
 | Brand Light (#929195) on white | 4.48:1 | ✅ WCAG AA |

@@ -94,15 +94,18 @@ export function FeaturesSection() {
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
-            <motion.div
-              key={feature.title}
-              className="group p-6 rounded-xl bg-card border border-border hover:border-brand-secondary/50 transition-all duration-300 hover:shadow-lg"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -5 }}
-            >
+            <div key={feature.title} className="group relative">
+              <div className="absolute -inset-0.5 bg-gradient-to-br from-brand-secondary/20 via-brand-secondary/5 to-transparent rounded-xl blur-lg opacity-50 group-hover:opacity-70 transition-opacity duration-500 -z-10" />
+              <div className="absolute bg-white inset-0 rounded-xl border border-brand-secondary/20 group-hover:border-brand-secondary/50 transition-all duration-300 -z-10" />
+              <motion.div
+                className="p-6 rounded-xl bg-card relative overflow-hidden"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -5 }}
+                suppressHydrationWarning
+              >
               <div className="mb-4">
                 <div className={`inline-flex p-3 rounded-lg bg-background border ${feature.color}`}>
                   <feature.icon className="h-6 w-6" />
@@ -114,12 +117,13 @@ export function FeaturesSection() {
               <p className="text-muted-foreground leading-relaxed">
                 {feature.description}
               </p>
-            </motion.div>
+              </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Stats Section with Creative Background */}
-        <div className="mt-32 relative">
+        <div className="mt-32 relative group">
           <motion.div
             className="absolute inset-0 -z-10"
             initial={{ opacity: 0 }}
@@ -127,13 +131,14 @@ export function FeaturesSection() {
             transition={{ duration: 1 }}
             viewport={{ once: true }}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-brand-secondary/15 via-brand-primary/10 to-brand-secondary/15 rounded-3xl" />
+            <div className="absolute -inset-1 bg-gradient-to-br from-brand-secondary/25 via-brand-secondary/10 to-transparent rounded-3xl blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+            <div className="absolute inset-0 rounded-3xl border border-brand-secondary/20 group-hover:border-brand-secondary/40 transition-all duration-500" />
             <div className="absolute top-0 right-0 w-80 h-80 bg-brand-secondary/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-primary/15 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center relative z-10"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center relative z-10 bg-white bg-opacity-50 rounded-3xl"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
