@@ -1,65 +1,37 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { CheckCircle, DollarSign, Calendar, MapPin } from 'lucide-react'
+import { CheckCircle, DollarSign, Calendar, MapPin, Zap, Shield } from 'lucide-react'
 
 export default function CoreServicesSection() {
   const services = [
     {
-      icon: <DollarSign className="w-8 h-8 text-white" />,
+      icon: DollarSign,
       title: "Free Vehicle Valuation",
-      description: "Get a professional assessment of your car's market value with no obligations",
-      features: [
-        "Comprehensive market analysis",
-        "Professional inspection by certified experts",
-        "Instant valuation report",
-        "No hidden fees or charges"
-      ],
-      bgImage: "border border-border bg-cover bg-center",
+      description: "Professional market assessment with no obligations",
+      features: ["Market analysis", "Expert inspection", "Instant report", "Zero hidden fees"],
       bgUrl: "https://images.unsplash.com/photo-1551522435-a13afa10f103?q=80&w=1200&auto=format&fit=crop",
-      premium: true
     },
     {
-      icon: <Calendar className="w-8 h-8 text-white" />,
-      title: "Professional Car Inspection",
-      description: "Thorough vehicle assessment by experienced automotive professionals",
-      features: [
-        "Complete mechanical inspection",
-        "Body and paint condition assessment",
-        "Interior and exterior evaluation",
-        "Detailed condition report"
-      ],
-      bgImage: "border border-border bg-cover bg-center",
+      icon: Calendar,
+      title: "Professional Inspection",
+      description: "Comprehensive vehicle assessment by certified experts",
+      features: ["Mechanical check", "Body condition", "Interior eval", "Detailed report"],
       bgUrl: "https://images.unsplash.com/photo-1493238792000-8113da705763?q=80&w=1200&auto=format&fit=crop",
-      premium: true
     },
     {
-      icon: <DollarSign className="w-8 h-8 text-white" />,
+      icon: Zap,
       title: "Instant Cash Payment",
-      description: "Get paid immediately after accepting our fair market offer",
-      features: [
-        "Multiple payment options available",
-        "Bank transfer or certified check",
-        "Same-day payment processing",
-        "Secure transaction guarantee"
-      ],
-      bgImage: "border border-border bg-cover bg-center",
+      description: "Same-day payment after offer acceptance",
+      features: ["Multiple options", "Bank transfer", "24h processing", "Secure guarantee"],
       bgUrl: "https://images.unsplash.com/photo-1580048915913-4f8f5cb481c4?q=80&w=1200&auto=format&fit=crop",
-      premium: true
     },
     {
-      icon: <MapPin className="w-8 h-8 text-white" />,
-      title: "Free Vehicle Pickup",
-      description: "Convenient pickup service from your location at no extra cost",
-      features: [
-        "Nationwide pickup coverage",
-        "Flexible scheduling options",
-        "Professional transport team",
-        "Full insurance coverage during transport"
-      ],
-      bgImage: "border border-border bg-cover bg-center",
+      icon: MapPin,
+      title: "Free Pickup Service",
+      description: "Convenient pickup from your location at zero cost",
+      features: ["Full coverage", "Flexible times", "Pro team", "Full insurance"],
       bgUrl: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=1200&auto=format&fit=crop",
-      premium: true
     }
   ]
 
@@ -69,61 +41,71 @@ export default function CoreServicesSection() {
         <motion.div 
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
         >
-          <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
-            Core <span className="text-brand-gold">Services</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-secondary/10 border border-brand-secondary/20 mb-6">
+            <div className="w-2 h-2 rounded-full bg-brand-secondary animate-pulse" />
+            <span className="text-sm font-medium text-brand-secondary uppercase tracking-wider">Core Services</span>
+          </div>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+            Everything for Your Car <span className="text-brand-secondary relative">
+              Sale
+              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-brand-secondary/60 to-brand-secondary/20 rounded-full" />
+            </span>
           </h2>
-          <p className="responsive-text-lg text-muted-foreground max-w-3xl mx-auto text-container-center">
-            Everything you need to sell your car quickly, safely, and profitably
+          <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Complete end-to-end solutions handled by experienced professionals
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              className="relative rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all group min-h-[400px]"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-            >
-              <div 
-                className={`${service.bgImage} p-8 h-full relative hover:border-brand-gold/60 flex flex-col`}
-                style={{ 
-                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${service.bgUrl})`,
-                }}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {services.map((service, index) => {
+            const Icon = service.icon
+            return (
+              <motion.div
+                key={index}
+                className="relative rounded-2xl overflow-hidden group min-h-[380px]"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -5 }}
               >
-                {/* Content */}
-                <div className="relative z-10 flex-1 flex flex-col">
-                  <div className="flex items-start mb-4">
-                    <div className="bg-black/40 backdrop-blur-sm border border-white/20 rounded-full p-3 mr-4 flex-shrink-0">
-                      {service.icon}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${service.bgUrl})` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/80" />
+                
+                <div className="relative z-10 p-8 h-full flex flex-col justify-between">
+                  <div>
+                    <div className="inline-flex items-center justify-center w-14 h-14 bg-brand-secondary/20 backdrop-blur-sm border border-brand-secondary/40 rounded-xl mb-6 group-hover:border-brand-secondary/60 transition-colors">
+                      <Icon className="w-7 h-7 text-brand-secondary" />
                     </div>
-                    <h3 className="responsive-text-lg font-bold text-white card-text">
+                    
+                    <h3 className="text-2xl font-bold text-white mb-3">
                       {service.title}
                     </h3>
+                    
+                    <p className="text-white/80 mb-6 leading-relaxed">
+                      {service.description}
+                    </p>
                   </div>
                   
-                  <p className="text-white/90 mb-6 responsive-text-base card-text flex-1">
-                    {service.description}
-                  </p>
-                  
-                  <div className="grid grid-cols-1 gap-3 mb-6">
-                    {service.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-start">
-                        <CheckCircle className="w-5 h-5 text-brand-gold mr-3 flex-shrink-0 mt-0.5" />
-                        <span className="text-white responsive-text-sm card-text">{feature}</span>
+                  <div className="space-y-3">
+                    {service.features.map((feature, i) => (
+                      <div key={i} className="flex items-center gap-3">
+                        <CheckCircle className="w-4 h-4 text-brand-secondary flex-shrink-0" />
+                        <span className="text-white/90 text-sm">{feature}</span>
                       </div>
                     ))}
                   </div>
-                  
-                  {/* Premium service badge removed as requested */}
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            )
+          })}
         </div>
       </div>
     </section>

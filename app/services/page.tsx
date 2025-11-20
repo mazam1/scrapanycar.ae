@@ -1,7 +1,6 @@
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { ScrollToTop } from "@/components/common/scroll-to-top"
-import ServicesHeroSection from '@/components/sections/services/services-hero-section'
 import CoreServicesSection from '@/components/sections/services/core-services-section'
 import HowItWorksSection from '@/components/sections/services/how-it-works-section'
 import VehiclesWeBuySection from '@/components/sections/services/vehicles-we-buy-section'
@@ -29,9 +28,8 @@ export default function ServicesPage() {
         />
       </div>
       <main>
-        <ServicesHeroSection />
-        <CoreServicesSection />
         <HowItWorksSection />
+        <CoreServicesSection />
         <VehiclesWeBuySection />
         <AdditionalServicesSection />
         <ReadyToStartSection />

@@ -7,19 +7,18 @@ import { Phone, Mail, Car, MessageSquare, DollarSign, Users, Award } from "lucid
 import { UaeDirhamIcon } from "@/components/icons/uae-dirham-icon"
 
 export function GetInTouchSection() {
+  const [name, setName] = React.useState("")
   const [phone, setPhone] = React.useState("")
   const [email, setEmail] = React.useState("")
-  const [model, setModel] = React.useState("")
   const [message, setMessage] = React.useState("")
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Lightweight client-side feedback; preserves existing functionality without side-effects
-    console.log("Quick contact submitted", { phone, email, model, message })
-    alert("Thanks! We\u2019ll reach out shortly.")
+    console.log("Quick contact submitted", { name, phone, email, message })
+    alert("Thanks! We'll reach out shortly.")
+    setName("")
     setPhone("")
     setEmail("")
-    setModel("")
     setMessage("")
   }
 
@@ -98,6 +97,21 @@ export function GetInTouchSection() {
             </div>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
+                <label className="block text-sm font-medium text-foreground mb-2">Your Name</label>
+                <div className="relative">
+                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all duration-300 bg-background text-foreground border-border"
+                    placeholder="Enter your name"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div>
                 <label className="block text-sm font-medium text-foreground mb-2">Phone Number</label>
                 <div className="relative">
                   <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -105,8 +119,9 @@ export function GetInTouchSection() {
                     type="tel"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground border-border"
+                    className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all duration-300 bg-background text-foreground border-border"
                     placeholder="+971 XX XXX XXXX"
+                    required
                   />
                 </div>
               </div>
@@ -119,22 +134,9 @@ export function GetInTouchSection() {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground border-border"
+                    className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all duration-300 bg-background text-foreground border-border"
                     placeholder="your.email@example.com"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">Car Model</label>
-                <div className="relative">
-                  <Car className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                  <input
-                    type="text"
-                    value={model}
-                    onChange={(e) => setModel(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground border-border"
-                    placeholder="Year, Make, Model (e.g., 2018 Toyota Camry)"
+                    required
                   />
                 </div>
               </div>
@@ -146,7 +148,7 @@ export function GetInTouchSection() {
                   <textarea
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground border-border min-h-[100px] resize-none"
+                    className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all duration-300 bg-background text-foreground border-border min-h-[100px] resize-none"
                     placeholder="Tell us more about your car's condition, mileage, etc."
                   ></textarea>
                 </div>
@@ -157,12 +159,12 @@ export function GetInTouchSection() {
                   type="submit"
                   className="bg-brand-primary hover:bg-brand-primary/90 text-white font-semibold px-12 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full"
                 >
-                  Get Your Free Quote
+                  Submit
                 </Button>
               </div>
 
               <div className="text-center text-sm text-muted-foreground mt-2">
-                Prefer WhatsApp? <a href="https://wa.me/971568559762" target="_blank" rel="noopener noreferrer" className="text-brand-primary hover:underline">Chat with us</a>
+                Prefer WhatsApp? <a href="https://wa.me/971568558762" target="_blank" rel="noopener noreferrer" className="text-brand-primary hover:underline">Chat with us</a>
               </div>
             </form>
             </motion.div>

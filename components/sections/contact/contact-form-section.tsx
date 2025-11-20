@@ -2,48 +2,31 @@
 
 import * as React from "react"
 import { motion } from "framer-motion"
-import { Send, Phone, Mail, MapPin, Clock } from "lucide-react"
+import { Send, Phone, Mail, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function ContactFormSection() {
-  const [formData, setFormData] = React.useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "General Inquiry",
-    carMake: "",
-    carModel: "",
-    year: "",
-    contactMethod: "Phone Call",
-    contactTime: "",
-    message: ""
-  })
-
-  const timeSlots = [
-    "8:00 AM - 10:00 AM",
-    "10:00 AM - 12:00 PM",
-    "12:00 PM - 2:00 PM",
-    "2:00 PM - 4:00 PM",
-    "4:00 PM - 6:00 PM",
-    "6:00 PM - 8:00 PM"
-  ]
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
-  }
+  const [name, setName] = React.useState("")
+  const [phone, setPhone] = React.useState("")
+  const [email, setEmail] = React.useState("")
+  const [message, setMessage] = React.useState("")
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // No backend specified; mimic submit
-    console.log("Contact form submitted", formData)
+    console.log("Contact form submitted", { name, phone, email, message })
+    alert("Thanks! We'll reach out shortly.")
+    setName("")
+    setPhone("")
+    setEmail("")
+    setMessage("")
   }
+
 
   return (
     <section className="bg-background py-16 lg:py-24 px-4 flex justify-center">
-      <div className="w-full max-w-[1336px] mx-auto overflow-x-auto scrollbar-hide min-w-[1336px]">
+      <div className="w-full max-w-[1336px] mx-auto">
+        
+        {/* Form and Location */}
         <motion.div
           className="w-full"
           initial={{ opacity: 0, y: 20 }}
@@ -51,186 +34,113 @@ export function ContactFormSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
             {/* Left: Get In Touch Form */}
-            <div className="p-6 sm:p-8 rounded-2xl bg-card border border-border shadow-sm">
-              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-2">Get In Touch</h2>
-              <p className="text-muted-foreground mb-8">
-                Fill out the form below and we&apos;ll get back to you within 2
-                hours during business hours.
-              </p>
+            <motion.div 
+              className="p-6 sm:p-8 rounded-3xl bg-card border border-brand-secondary shadow-lg relative overflow-hidden"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <div className="mb-6">
+                <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground border-b-2 border-brand-secondary pb-3">Get In Touch</h2>
+              </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Name & Email */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Your Name * *
-                    </label>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                {/* Name */}
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">Your Name</label>
+                  <div className="relative">
+                    <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-brand-secondary" />
                     <input
-                      name="name"
                       type="text"
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-border bg-background"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all duration-300 bg-background text-foreground border-brand-secondary/30"
                       placeholder="Enter your name"
                       required
                     />
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Email Address * *
-                    </label>
-                    <input
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-border bg-background"
-                      placeholder="your@email.com"
-                      required
-                    />
-                  </div>
                 </div>
 
-                {/* Phone & Subject */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Phone Number * *
-                    </label>
-                    <input
-                      name="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-border bg-background"
-                      placeholder="+971568558762"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Subject</label>
-                    <select
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-border bg-background"
-                    >
-                      <option>General Inquiry</option>
-                      <option>Request Valuation</option>
-                      <option>Schedule Pickup</option>
-                      <option>Sell My Car</option>
-                    </select>
-                  </div>
-                </div>
-
-                {/* Vehicle Info (Optional) */}
+                {/* Phone Number */}
                 <div>
-                  <div className="flex items-center gap-2 text-sm font-medium mb-3">
-                    <span className="text-brand-gold">🚗</span>
-                    <span>Vehicle Information (Optional)</span>
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <label className="block text-sm font-medium text-foreground mb-2">Phone Number</label>
+                  <div className="relative">
+                    <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-brand-secondary" />
                     <input
-                      name="carMake"
-                      type="text"
-                      value={formData.carMake}
-                      onChange={handleChange}
-                      className="px-4 py-3 rounded-lg border border-border bg-background"
-                      placeholder="Car Make"
-                    />
-                    <input
-                      name="carModel"
-                      type="text"
-                      value={formData.carModel}
-                      onChange={handleChange}
-                      className="px-4 py-3 rounded-lg border border-border bg-background"
-                      placeholder="Car Model"
-                    />
-                    <input
-                      name="year"
-                      type="number"
-                      value={formData.year}
-                      onChange={handleChange}
-                      className="px-4 py-3 rounded-lg border border-border bg-background"
-                      placeholder="Year"
-                      min={1950}
-                      max={new Date().getFullYear() + 1}
+                      type="tel"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all duration-300 bg-background text-foreground border-brand-secondary/30"
+                      placeholder="+971 XX XXX XXXX"
+                      required
                     />
                   </div>
                 </div>
 
-                {/* Contact Preferences */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Preferred Contact Method
-                    </label>
-                    <select
-                      name="contactMethod"
-                      value={formData.contactMethod}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-border bg-background"
-                    >
-                      <option>Phone Call</option>
-                      <option>Email</option>
-                      <option>WhatsApp</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Preferred Contact Time
-                    </label>
-                    <select
-                      name="contactTime"
-                      value={formData.contactTime}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-border bg-background"
-                    >
-                      <option value="">Select preferred time</option>
-                      {timeSlots.map(t => (
-                        <option key={t} value={t}>{t}</option>
-                      ))}
-                    </select>
+                {/* Email Address */}
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">Email Address</label>
+                  <div className="relative">
+                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-brand-secondary" />
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all duration-300 bg-background text-foreground border-brand-secondary/30"
+                      placeholder="your.email@example.com"
+                      required
+                    />
                   </div>
                 </div>
 
                 {/* Message */}
                 <div>
-                  <label className="block text-sm font-medium mb-2">
-                    Tell us about your car or ask any questions...
-                  </label>
-                  <textarea
-                    name="message"
-                    rows={4}
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg border border-border bg-background resize-none"
-                  />
+                  <label className="block text-sm font-medium text-foreground mb-2">Message (Optional)</label>
+                  <div className="relative">
+                    <Mail className="absolute left-3 top-3 h-4 w-4 text-brand-secondary" />
+                    <textarea
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all duration-300 bg-background text-foreground border-brand-secondary/30 min-h-[100px] resize-none"
+                      placeholder="Tell us more about your car's condition, mileage, etc."
+                    />
+                  </div>
                 </div>
 
-                <Button 
-                  type="submit" 
-                  variant="gold" 
-                  size="lg" 
-                  className="w-full flex items-center justify-center"
+                {/* Submit Button */}
+                <Button
+                  type="submit"
+                  className="w-full bg-brand-primary hover:bg-brand-primary/90 text-white font-semibold px-12 py-4 text-base rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  <Send className="h-[1.2em] w-[1.2em] mr-[8px] inline-flex" aria-hidden="true" />
-                  <span>Send Message</span>
+                  Submit
                 </Button>
-              </form>
-            </div>
 
-            {/* Right: Our Location & Why Choose Us */}
-            <div className="space-y-6">
-              {/* Our Location */}
-              <div className="rounded-2xl overflow-hidden bg-card border border-border shadow-sm">
-                <div className="p-6 border-b">
-                  <h3 className="text-xl font-bold">Our Location</h3>
+                {/* WhatsApp Alternative */}
+                <div className="text-center text-sm text-muted-foreground mt-2">
+                  Prefer WhatsApp? <a href="https://wa.me/971568558762" target="_blank" rel="noopener noreferrer" className="text-brand-secondary hover:underline font-medium">Chat with us</a>
                 </div>
-                <div className="relative">
-                  <div className="aspect-video w-full">
+              </form>
+            </motion.div>
+
+            {/* Right: Our Location */}
+            <motion.div 
+              className="relative group rounded-3xl overflow-hidden"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <div className="absolute -inset-0.5 bg-gradient-to-br from-brand-secondary/20 via-brand-secondary/5 to-transparent rounded-3xl blur-lg opacity-50 group-hover:opacity-70 transition-opacity duration-500 -z-10" />
+              <div className="absolute inset-0 rounded-3xl border border-brand-secondary/20 group-hover:border-brand-secondary/40 transition-all duration-300 -z-10" />
+              <div className="bg-card border border-brand-secondary rounded-3xl overflow-hidden shadow-lg h-full flex flex-col">
+                <div className="p-6 border-b-2 border-brand-secondary/20">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-foreground border-b-2 border-brand-secondary pb-2">Our Location</h3>
+                </div>
+                <div className="relative flex-1">
+                  <div className="w-full h-full">
                     <iframe
                       title="Dubai, UAE"
                       className="w-full h-full"
@@ -240,39 +150,19 @@ export function ContactFormSection() {
                     />
                   </div>
                   {/* Overlay marker card */}
-                  <div className="absolute left-4 top-4 bg-background/95 backdrop-blur-sm border rounded-xl p-3 sm:p-4 shadow-sm">
-                    <div className="flex items-center gap-2 mb-2">
-                      <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-brand-gold" />
-                      <span className="font-medium text-sm sm:text-base">DUBAI, UAE</span>
+                  <motion.div 
+                    className="absolute left-4 top-4 bg-background/95 backdrop-blur-sm border border-brand-secondary rounded-xl p-3 sm:p-4 shadow-lg group-hover:shadow-xl transition-shadow"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <div className="flex items-center gap-2 mb-3">
+                      <MapPin className="h-5 w-5 text-brand-secondary flex-shrink-0" />
+                      <span className="font-semibold text-sm sm:text-base text-foreground">DUBAI, UAE</span>
                     </div>
-                    <Button variant="gold" size="sm" className="w-full text-xs sm:text-sm">Get Directions</Button>
-                  </div>
+                    <Button className="w-full text-xs sm:text-sm bg-brand-primary hover:bg-brand-primary/90 text-white font-medium rounded-lg">Get Directions</Button>
+                  </motion.div>
                 </div>
               </div>
-
-              {/* Why Choose Us */}
-              <div className="rounded-2xl bg-card border border-border shadow-sm p-6">
-                <h3 className="text-xl font-bold mb-6">Why Choose Us</h3>
-                <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                  <div className="rounded-xl border p-3 sm:p-4 text-center">
-                    <div className="text-xl sm:text-2xl font-bold">2hrs</div>
-                    <div className="text-muted-foreground text-xs sm:text-sm">Response Time</div>
-                  </div>
-                  <div className="rounded-xl border p-3 sm:p-4 text-center">
-                    <div className="text-xl sm:text-2xl font-bold">98%</div>
-                    <div className="text-muted-foreground text-xs sm:text-sm">Satisfaction Rate</div>
-                  </div>
-                  <div className="rounded-xl border p-3 sm:p-4 text-center">
-                    <div className="text-xl sm:text-2xl font-bold">15+</div>
-                    <div className="text-muted-foreground text-xs sm:text-sm">Years Experience</div>
-                  </div>
-                  <div className="rounded-xl border p-3 sm:p-4 text-center">
-                    <div className="text-xl sm:text-2xl font-bold">24/7</div>
-                    <div className="text-muted-foreground text-xs sm:text-sm">Support Available</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       </div>

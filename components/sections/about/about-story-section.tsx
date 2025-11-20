@@ -16,11 +16,18 @@ export function AboutStorySection() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Our <span className="text-brand-gold">Story</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-secondary/10 border border-brand-secondary/20 mb-6">
+            <div className="w-2 h-2 rounded-full bg-brand-secondary animate-pulse" />
+            <span className="text-sm font-medium text-brand-secondary uppercase tracking-wider">Our Journey</span>
+          </div>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+            Our <span className="text-brand-secondary relative">
+              Story
+              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-brand-secondary/60 to-brand-secondary/20 rounded-full" />
+            </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Founded with a vision to revolutionize the automotive recycling industry through 
+            A vision to revolutionize the automotive recycling industry through 
             fair pricing, exceptional service, and environmental responsibility.
           </p>
         </motion.div>
@@ -36,11 +43,11 @@ export function AboutStorySection() {
           >
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-brand-gold/10 rounded-full">
-                  <Calendar className="h-6 w-6 text-brand-gold" />
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-brand-secondary/10 rounded-full">
+                  <Calendar className="h-6 w-6 text-brand-secondary" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">Founded in 2008</h3>
+                  <h3 className="text-xl font-semibold text-foreground mb-2">Our Foundation</h3>
                   <p className="text-muted-foreground leading-relaxed">
                     Scrap Your Car was established with a simple mission: to provide car owners with a 
                     fair, transparent, and hassle-free way to sell their scrap vehicles while 
@@ -50,8 +57,8 @@ export function AboutStorySection() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-brand-gold/10 rounded-full">
-                  <MapPin className="h-6 w-6 text-brand-gold" />
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-brand-secondary/10 rounded-full">
+                  <MapPin className="h-6 w-6 text-brand-secondary" />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-foreground mb-2">Local Roots, Growing Reach</h3>
@@ -63,8 +70,8 @@ export function AboutStorySection() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-brand-gold/10 rounded-full">
-                  <Target className="h-6 w-6 text-brand-gold" />
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-brand-secondary/10 rounded-full">
+                  <Target className="h-6 w-6 text-brand-secondary" />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-foreground mb-2">Innovation & Excellence</h3>
@@ -84,10 +91,10 @@ export function AboutStorySection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="relative p-8 rounded-2xl bg-brand-gold/5 border border-brand-gold/10">
+            <div className="relative p-8 rounded-2xl bg-gradient-to-br from-brand-secondary/10 to-brand-primary/5 border border-brand-secondary/20">
               <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-gold/10 rounded-full mb-6">
-                  <Heart className="h-8 w-8 text-brand-gold" />
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-secondary/10 rounded-full mb-6">
+                  <Heart className="h-8 w-8 text-brand-secondary" />
                 </div>
                 <h3 className="text-2xl font-bold text-foreground mb-4">Our Mission</h3>
                 <p className="text-muted-foreground leading-relaxed">
