@@ -117,8 +117,8 @@ export function Header() {
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center" style={{ marginLeft: '48px', padding: '0px' }}>
             <Button
-              variant="default"
               size="sm"
+              className="bg-brand-primary hover:bg-brand-primary/90 text-white font-semibold"
               onClick={() => {
                 // Check if we're already on the home page
                 if (pathname !== '/') {
@@ -148,7 +148,7 @@ export function Header() {
                 }
               }}
             >
-              Get Valuation
+              Get Evaluation
             </Button>
           </div>
 
@@ -208,9 +208,8 @@ export function Header() {
                 ))}
                 <div className="pt-4 border-t border-white/20">
                   <Button
-                    variant="default"
                     size="sm"
-                    className="w-full"
+                    className="w-full bg-brand-primary hover:bg-brand-primary/90 text-white font-semibold"
                     onClick={() => {
                       // First close the mobile menu
                       setIsMobileMenuOpen(false)
@@ -243,7 +242,7 @@ export function Header() {
                       }
                     }}
                   >
-                    Get Valuation
+                    Get Evaluation
                   </Button>
                 </div>
               </nav>

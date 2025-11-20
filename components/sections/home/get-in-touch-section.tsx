@@ -84,11 +84,9 @@ export function GetInTouchSection() {
           </motion.div>
 
           {/* Right: Quick contact card */}
-          <div className="w-full relative group">
-            <div className="absolute -inset-0.5 bg-gradient-to-br from-brand-primary/25 via-brand-secondary/10 to-transparent rounded-3xl blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-500 -z-10" />
-            <div className="absolute bg-white inset-0 rounded-3xl border border-brand-primary/30 group-hover:border-brand-primary/60 transition-all duration-300 -z-10" />
+          <div className="w-full relative">
             <motion.div
-              className="w-full bg-card/80 backdrop-blur-sm rounded-3xl p-6 sm:p-8 relative"
+              className="w-full bg-card rounded-3xl p-6 sm:p-8 relative border border-brand-secondary"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}

@@ -201,11 +201,9 @@ export function FormSection() {
           </p>
         </motion.div>
 
-        <div className="w-full mx-auto relative group">
-          <div className="absolute -inset-0.5 bg-gradient-to-br from-brand-secondary/25 via-brand-primary/10 to-transparent rounded-3xl blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-500 -z-10" />
-          <div className="absolute bg-white inset-0 rounded-3xl border border-brand-secondary/30 group-hover:border-brand-secondary/60 transition-all duration-300 -z-10" />
+        <div className="w-full mx-auto relative">
           <motion.div
-            className="w-full bg-card/80 backdrop-blur-sm rounded-3xl p-8 lg:p-12 relative transition-all duration-300"
+            className="w-full bg-card rounded-3xl p-8 lg:p-12 relative border border-brand-secondary"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}

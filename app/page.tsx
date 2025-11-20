@@ -54,7 +54,6 @@ export default function HomePage() {
         <FormSection />
         <FeaturesSection />
         <HowItWorksSection />
-        <TestimonialsSection />
         {/* New section inserted just before footer to mirror styling */}
         <GetInTouchSection />
       </main>

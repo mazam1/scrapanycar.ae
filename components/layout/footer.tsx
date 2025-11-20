@@ -125,25 +125,19 @@ function ClassicLayout({ currentYear, socialPlatforms }: { currentYear: number; 
           <p className="text-white/80 leading-relaxed mb-6">
             Stay connected with us on social media for the latest updates, car tips, and exclusive offers.
           </p>
-          <div className="grid grid-cols-2 gap-4 sm:gap-4 md:gap-4">
+          <div className="flex items-center gap-3">
             {socialPlatforms.map((social) => {
               const Icon = social.icon
               return (
                 <Link 
                   key={social.name} 
                   href={social.href} 
-                  className="group rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-200 p-3 flex items-center gap-3 min-h-[72px] w-full" 
+                  className="group hover:text-brand-secondary transition-colors duration-200"
                   aria-label={`Visit our ${social.name} page`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-white/15 transition-colors duration-200">
-                    <Icon className="h-5 w-5 text-white/90 group-hover:text-white transition-colors duration-200" aria-hidden="true" />
-                  </div>
-                  <div className="flex flex-col justify-center min-w-0 flex-1 overflow-hidden">
-                    <span className="text-white text-sm font-semibold whitespace-normal">{social.name}</span>
-                    <span className="text-white/70 text-xs whitespace-normal">{social.subtitle}</span>
-                  </div>
+                  <Icon className="h-6 w-6 text-white/80 group-hover:text-white transition-colors duration-200" aria-hidden="true" />
                 </Link>
               )
             })}
@@ -151,7 +145,7 @@ function ClassicLayout({ currentYear, socialPlatforms }: { currentYear: number; 
         </div>
       </div>
 
-      <div className="mt-16 pt-8 border-t border-white/20">
+      <div className="mt-16 pt-8 border-t border-brand-secondary">
         <div className="flex justify-center items-center">
           <p className="text-white/70 text-sm sm:text-base font-medium text-center">© 2025 Scrap Your Car. All rights reserved.</p>
         </div>
@@ -225,11 +219,11 @@ function CompactLayout({ currentYear, socialPlatforms }: { currentYear: number; 
             Stay connected with us on social media for the latest updates, car tips, and exclusive offers.
           </p>
           <div className="pt-4">
-            <div className="grid grid-cols-4 gap-3">
+            <div className="flex items-center gap-3">
               {socialPlatforms.map((social) => {
                 const Icon = social.icon
                 return (
-                  <Link key={social.name} href={social.href} aria-label={`Visit our ${social.name} page`} target="_blank" rel="noopener noreferrer" className="group rounded-md border border-white/10 bg-white/5 hover:bg-white/10 transition-colors p-3 flex items-center justify-center">
+                  <Link key={social.name} href={social.href} aria-label={`Visit our ${social.name} page`} target="_blank" rel="noopener noreferrer" className="group hover:text-brand-secondary transition-colors duration-200">
                     <Icon className="h-5 w-5 text-white/90 group-hover:text-white transition-colors duration-200" aria-hidden="true" />
                   </Link>
                 )
@@ -239,7 +233,7 @@ function CompactLayout({ currentYear, socialPlatforms }: { currentYear: number; 
         </div>
       </div>
 
-      <div className="mt-16 pt-8 border-t border-white/20">
+      <div className="mt-16 pt-8 border-t border-brand-secondary">
         <div className="flex justify-center items-center">
           <p className="text-white/70 text-sm sm:text-base font-medium text-center">© 2025 Scrap Your Car. All rights reserved.</p>
         </div>
@@ -284,7 +278,7 @@ function SplitLayout({ currentYear, socialPlatforms }: { currentYear: number; so
             <NewsletterForm />
             <div className="pt-2">
               <h4 className="font-poppins font-semibold text-white mb-3">Follow Us</h4>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div className="flex items-center gap-3">
                 {socialPlatforms.map((social) => {
                   const Icon = social.icon
                   return (
@@ -294,11 +288,9 @@ function SplitLayout({ currentYear, socialPlatforms }: { currentYear: number; so
                       aria-label={`Visit our ${social.name} page`} 
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-200 p-3 flex items-center justify-center min-h-[56px] w-full"
+                      className="group hover:text-brand-secondary transition-colors duration-200"
                     >
-                      <div className="w-full h-full flex items-center justify-center">
-                        <Icon className="h-5 w-5 text-white/90 group-hover:text-white transition-colors duration-200" aria-hidden="true" />
-                      </div>
+                      <Icon className="h-5 w-5 text-white/90 group-hover:text-white transition-colors duration-200" aria-hidden="true" />
                     </Link>
                   )
                 })}
@@ -336,7 +328,7 @@ function SplitLayout({ currentYear, socialPlatforms }: { currentYear: number; so
           </div>
         </div>
 
-        <div className="mt-6 pt-8 border-t border-white/20">
+        <div className="mt-6 pt-8 border-t border-brand-secondary">
           <div className="flex justify-center items-center">
             <p className="text-white/70 text-sm sm:text-base font-medium text-center">© 2025 Scrap Your Car. All rights reserved.</p>
           </div>

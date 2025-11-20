@@ -137,12 +137,9 @@ export function HowItWorksSection() {
                 {/* Step Visual */}
                 <div className="flex-1 flex justify-center">
                   <div className="relative w-full max-w-lg">
-                    <div className="relative group">
-                      {/* Background decoration */}
-                      <div className="absolute -inset-4 bg-gradient-to-r from-brand-secondary/20 via-brand-secondary/10 to-transparent rounded-3xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-                      
+                    <div className="relative">
                       {/* Main image container */}
-                      <div className="relative bg-gradient-to-br from-white/95 to-white/90 backdrop-blur-sm rounded-2xl p-6 lg:p-8 shadow-2xl border border-white/20 group-hover:shadow-3xl transition-all duration-500 group-hover:scale-[1.02]">
+                      <div className="relative bg-gradient-to-br from-white/95 to-white/90 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-brand-secondary transition-all duration-500">
                         <div className="aspect-square relative overflow-hidden rounded-xl">
                           {step.step === "01" && (
                             <Image 
@@ -187,40 +184,6 @@ export function HowItWorksSection() {
                 </div>
               </div>
 
-              {/* Arrow Connector */}
-              {index < steps.length - 1 && (
-                <div className="flex justify-center my-12 lg:my-16">
-                  <motion.div
-                    className="relative flex items-center justify-center"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.15 + 0.4 }}
-                    viewport={{ once: true }}
-                  >
-                    {/* Background glow */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-primary/20 to-transparent rounded-full blur-lg" />
-                    
-                    {/* Main arrow container */}
-                    <div className="relative flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-brand-secondary/10 via-brand-secondary/20 to-brand-secondary/10 rounded-full border border-brand-secondary/30 backdrop-blur-sm">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-brand-secondary animate-pulse" />
-                        <div className="w-12 h-0.5 bg-gradient-to-r from-brand-secondary via-brand-secondary/80 to-brand-secondary/40 relative overflow-hidden">
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent animate-pulse" />
-                        </div>
-                        <div className="w-0 h-0 border-l-[10px] border-l-brand-secondary border-y-[6px] border-y-transparent drop-shadow-sm" />
-                        <div className="w-12 h-0.5 bg-gradient-to-r from-brand-secondary/40 via-brand-secondary/20 to-transparent relative overflow-hidden">
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse" />
-                        </div>
-                        <div className="w-2 h-2 rounded-full bg-brand-secondary/60 animate-pulse" style={{ animationDelay: '0.5s' }} />
-                      </div>
-                    </div>
-                    
-                    {/* Side decorations */}
-                    <div className="absolute -left-8 top-1/2 transform -translate-y-1/2 w-1 h-1 bg-brand-secondary/40 rounded-full" />
-                    <div className="absolute -right-8 top-1/2 transform -translate-y-1/2 w-1 h-1 bg-brand-secondary/40 rounded-full" />
-                  </motion.div>
-                </div>
-              )}
             </motion.div>
           ))}
         </div>
