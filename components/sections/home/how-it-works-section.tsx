@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { motion } from "framer-motion"
+import { useReducedMotion } from "framer-motion"
 import Image from "next/image"
 
 // Branded inline SVG icons
@@ -63,16 +64,18 @@ const steps = [
 ]
 
 export function HowItWorksSection() {
+  const shouldReduceMotion = useReducedMotion()
+  
   return (
     <section className="py-24 lg:py-32 bg-gradient-to-br from-muted/20 via-muted/30 to-muted/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+        {/* Section Header - Optimized */}
         <motion.div
           className="text-center mb-20 lg:mb-24"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-secondary/10 border border-brand-secondary/20 mb-6">
             <div className="w-2 h-2 rounded-full bg-brand-secondary animate-pulse" />
@@ -90,16 +93,19 @@ export function HowItWorksSection() {
           </p>
         </motion.div>
 
-        {/* Steps */}
+        {/* Steps - Optimized */}
         <div className="max-w-7xl mx-auto">
           {steps.map((step, index) => (
             <motion.div
               key={step.step}
               className="relative"
-              initial={{ opacity: 0, y: 60 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.15 }}
-              viewport={{ once: true }}
+              transition={{ 
+                duration: 0.5, 
+                delay: shouldReduceMotion ? 0 : Math.min(index * 0.1, 0.2)
+              }}
+              viewport={{ once: true, amount: 0.2 }}
             >
               <div className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-20 mb-20 lg:mb-24 ${
                 step.step === "02" ? 'lg:flex-row-reverse' : ''

@@ -2,19 +2,22 @@
 
 import * as React from "react"
 import { motion } from "framer-motion"
+import { useReducedMotion } from "framer-motion"
 import { Calendar, MapPin, Target, Heart } from "lucide-react"
 
 export function AboutStorySection() {
+  const shouldReduceMotion = useReducedMotion()
+
   return (
     <section className="bg-background py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
+        {/* Section Header - Optimized timing */}
         <motion.div
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-secondary/10 border border-brand-secondary/20 mb-6">
             <div className="w-2 h-2 rounded-full bg-brand-secondary animate-pulse" />
@@ -34,12 +37,12 @@ export function AboutStorySection() {
 
         {/* Story Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-          {/* Text Content */}
+          {/* Text Content - Reduced animation duration */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: shouldReduceMotion ? 0 : -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true, amount: 0.2 }}
           >
             <div className="space-y-6">
               <div className="flex items-start gap-4">
@@ -84,12 +87,12 @@ export function AboutStorySection() {
             </div>
           </motion.div>
 
-          {/* Visual Content */}
+          {/* Visual Content - Reduced delay for better performance */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: shouldReduceMotion ? 0 : 20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: shouldReduceMotion ? 0 : 0.1 }}
+            viewport={{ once: true, amount: 0.2 }}
           >
             <div className="relative p-8 rounded-2xl bg-gradient-to-br from-brand-secondary/10 to-brand-primary/5 border border-brand-secondary/20">
               <div className="text-center">

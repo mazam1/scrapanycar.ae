@@ -1,9 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useReducedMotion } from 'framer-motion'
 import { CheckCircle, DollarSign, Calendar, MapPin, Zap, Shield } from 'lucide-react'
 
 export default function CoreServicesSection() {
+  const shouldReduceMotion = useReducedMotion()
   const services = [
     {
       icon: DollarSign,
@@ -40,10 +42,10 @@ export default function CoreServicesSection() {
       <div className="max-w-7xl mx-auto">
         <motion.div 
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-secondary/10 border border-brand-secondary/20 mb-6">
             <div className="w-2 h-2 rounded-full bg-brand-secondary animate-pulse" />
@@ -67,11 +69,14 @@ export default function CoreServicesSection() {
               <motion.div
                 key={index}
                 className="relative rounded-2xl overflow-hidden group min-h-[380px]"
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -5 }}
+                transition={{ 
+                  duration: 0.4, 
+                  delay: shouldReduceMotion ? 0 : Math.min(index * 0.08, 0.2)
+                }}
+                viewport={{ once: true, amount: 0.2 }}
+                whileHover={{ y: shouldReduceMotion ? 0 : -5 }}
               >
                 <div 
                   className="absolute inset-0 bg-cover bg-center"

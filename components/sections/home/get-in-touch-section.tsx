@@ -2,11 +2,13 @@
 
 import * as React from "react"
 import { motion } from "framer-motion"
+import { useReducedMotion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Phone, Mail, Car, MessageSquare, DollarSign, Users, Award } from "lucide-react"
 import { UaeDirhamIcon } from "@/components/icons/uae-dirham-icon"
 
 export function GetInTouchSection() {
+  const shouldReduceMotion = useReducedMotion()
   const [name, setName] = React.useState("")
   const [phone, setPhone] = React.useState("")
   const [email, setEmail] = React.useState("")
@@ -26,13 +28,13 @@ export function GetInTouchSection() {
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Left: Title and highlights */}
+          {/* Left: Title and highlights - Optimized */}
           <motion.div
             className="space-y-6"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true, amount: 0.3 }}
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-secondary/10 border border-brand-secondary/20 mb-6">
               <div className="w-2 h-2 rounded-full bg-brand-secondary animate-pulse" />
@@ -82,14 +84,14 @@ export function GetInTouchSection() {
 
           </motion.div>
 
-          {/* Right: Quick contact card */}
+          {/* Right: Quick contact card - Optimized */}
           <div className="w-full relative">
             <motion.div
               className="w-full bg-card rounded-3xl p-6 sm:p-8 relative border border-brand-secondary"
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true, amount: 0.2 }}
               suppressHydrationWarning
             >
             <div className="flex items-center justify-between mb-6">

@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { motion } from "framer-motion"
+import { useReducedMotion } from "framer-motion"
 import { 
   Shield, 
   UserCheck, 
@@ -65,16 +66,18 @@ const values = [
 ]
 
 export function AboutValuesSection() {
+  const shouldReduceMotion = useReducedMotion()
+
   return (
     <section className="bg-background py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
+        {/* Section Header - Optimized timing */}
         <motion.div
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-secondary/10 border border-brand-secondary/20 mb-6">
             <div className="w-2 h-2 rounded-full bg-brand-secondary animate-pulse" />
@@ -100,11 +103,14 @@ export function AboutValuesSection() {
               <div className="absolute bg-white inset-0 rounded-xl border border-brand-secondary/20 group-hover:border-brand-secondary/50 transition-all duration-300 -z-10" />
               <motion.div
                 className="p-6 rounded-xl bg-card relative overflow-hidden text-center"
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -5 }}
+                transition={{ 
+                  duration: 0.4, 
+                  delay: shouldReduceMotion ? 0 : Math.min(index * 0.08, 0.3)
+                }}
+                viewport={{ once: true, amount: 0.2 }}
+                whileHover={{ y: shouldReduceMotion ? 0 : -5 }}
               >
                 <div className="mb-4">
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-secondary/10 rounded-full mb-4">
@@ -125,10 +131,10 @@ export function AboutValuesSection() {
         {/* Commitment Statement */}
         <motion.div
           className="max-w-4xl mx-auto text-center"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <div className="p-8 rounded-2xl bg-gradient-to-br from-brand-secondary/10 to-brand-primary/5 border border-brand-secondary/20">
             <h3 className="text-2xl font-bold text-foreground mb-4">

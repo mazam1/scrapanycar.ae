@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { motion } from "framer-motion"
+import { useReducedMotion } from "framer-motion"
 import { 
   DollarSign, 
   Truck, 
@@ -65,16 +66,18 @@ const features = [
 ]
 
 export function FeaturesSection() {
+  const shouldReduceMotion = useReducedMotion()
+  
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+        {/* Section Header - Optimized */}
         <motion.div
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-secondary/10 border border-brand-secondary/20 mb-6">
             <div className="w-2 h-2 rounded-full bg-brand-secondary animate-pulse" />
@@ -91,7 +94,7 @@ export function FeaturesSection() {
           </p>
         </motion.div>
 
-        {/* Features Grid */}
+        {/* Features Grid - Optimized */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
             <div key={feature.title} className="group relative">
@@ -99,11 +102,14 @@ export function FeaturesSection() {
               <div className="absolute bg-white inset-0 rounded-xl border border-brand-secondary/20 group-hover:border-brand-secondary/50 transition-all duration-300 -z-10" />
               <motion.div
                 className="p-6 rounded-xl bg-card relative overflow-hidden"
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -5 }}
+                transition={{ 
+                  duration: 0.4, 
+                  delay: shouldReduceMotion ? 0 : Math.min(index * 0.08, 0.2)
+                }}
+                viewport={{ once: true, amount: 0.2 }}
+                whileHover={{ y: shouldReduceMotion ? 0 : -5 }}
                 suppressHydrationWarning
               >
               <div className="mb-4">
@@ -122,27 +128,22 @@ export function FeaturesSection() {
           ))}
         </div>
 
-        {/* Stats Section with Creative Background */}
+        {/* Stats Section - Optimized background (static, not animated) */}
         <div className="mt-32 relative group">
-          <motion.div
-            className="absolute inset-0 -z-10"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-          >
+          {/* Static background - no animation for CLS prevention */}
+          <div className="absolute inset-0 -z-10">
             <div className="absolute -inset-1 bg-gradient-to-br from-brand-secondary/25 via-brand-secondary/10 to-transparent rounded-3xl blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
             <div className="absolute inset-0 rounded-3xl border border-brand-secondary/20 group-hover:border-brand-secondary/40 transition-all duration-500" />
             <div className="absolute top-0 right-0 w-80 h-80 bg-brand-secondary/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-primary/15 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
-          </motion.div>
+          </div>
 
           <motion.div
             className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center relative z-10 bg-white bg-opacity-50 rounded-3xl"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.4 }}
+            viewport={{ once: true, amount: 0.2 }}
           >
             <div className="p-8">
               <div className="text-3xl lg:text-4xl font-bold text-brand-secondary mb-2">10K+</div>

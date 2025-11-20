@@ -2,10 +2,13 @@
 
 import * as React from "react"
 import { motion } from "framer-motion"
+import { useReducedMotion } from "framer-motion"
 import { Send, Phone, Mail, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function ContactFormSection() {
+  const shouldReduceMotion = useReducedMotion()
+  
   const [name, setName] = React.useState("")
   const [phone, setPhone] = React.useState("")
   const [email, setEmail] = React.useState("")
@@ -26,22 +29,22 @@ export function ContactFormSection() {
     <section className="bg-background py-16 lg:py-24 px-4 flex justify-center">
       <div className="w-full max-w-[1336px] mx-auto">
         
-        {/* Form and Location */}
+        {/* Form and Location - Optimized */}
         <motion.div
           className="w-full"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.3 }}
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
-            {/* Left: Get In Touch Form */}
+            {/* Left: Get In Touch Form - Optimized */}
             <motion.div 
               className="p-6 sm:p-8 rounded-3xl bg-card border border-brand-secondary shadow-lg relative overflow-hidden"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: shouldReduceMotion ? 0 : 0.05 }}
+              viewport={{ once: true, amount: 0.2 }}
             >
               <div className="mb-6">
                 <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground border-b-2 border-brand-secondary pb-3">Get In Touch</h2>
@@ -125,13 +128,13 @@ export function ContactFormSection() {
               </form>
             </motion.div>
 
-            {/* Right: Our Location */}
+            {/* Right: Our Location - Optimized */}
             <motion.div 
               className="relative group rounded-3xl overflow-hidden"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: shouldReduceMotion ? 0 : 0.1 }}
+              viewport={{ once: true, amount: 0.2 }}
             >
               <div className="absolute -inset-0.5 bg-gradient-to-br from-brand-secondary/20 via-brand-secondary/5 to-transparent rounded-3xl blur-lg opacity-50 group-hover:opacity-70 transition-opacity duration-500 -z-10" />
               <div className="absolute inset-0 rounded-3xl border border-brand-secondary/20 group-hover:border-brand-secondary/40 transition-all duration-300 -z-10" />
@@ -149,10 +152,10 @@ export function ContactFormSection() {
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28960.52298093807!2d55.2708!3d25.2048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5b8c9f0f3b1f%3A0x4a1e88f4c2eab6e3!2sDubai%2C%20United%20Arab%20Emirates!5e0!3m2!1sen!2s!4v1710012345678"
                     />
                   </div>
-                  {/* Overlay marker card */}
+                  {/* Overlay marker card - Optimized */}
                   <motion.div 
                     className="absolute left-4 top-4 bg-background/95 backdrop-blur-sm border border-brand-secondary rounded-xl p-3 sm:p-4 shadow-lg group-hover:shadow-xl transition-shadow"
-                    whileHover={{ scale: 1.05 }}
+                    whileHover={{ scale: shouldReduceMotion ? 1 : 1.05 }}
                   >
                     <div className="flex items-center gap-2 mb-3">
                       <MapPin className="h-5 w-5 text-brand-secondary flex-shrink-0" />

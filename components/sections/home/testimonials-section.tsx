@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { motion } from "framer-motion"
+import { useReducedMotion } from "framer-motion"
 import { Star, Quote, User } from "lucide-react"
 
 const testimonials = [
@@ -62,6 +63,8 @@ const testimonials = [
 ]
 
 export function TestimonialsSection() {
+  const shouldReduceMotion = useReducedMotion()
+  
   return (
     <section className="py-24 bg-background relative overflow-hidden" aria-label="Customer testimonials">
       {/* Subtle background accents for pixel-perfect depth */}
@@ -79,13 +82,13 @@ export function TestimonialsSection() {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
+        {/* Section Header - Optimized */}
         <motion.div
           className="mb-14 lg:mb-16"
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           <div className="flex flex-col items-center text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-secondary/10 border border-brand-secondary/20 mb-6">
@@ -104,13 +107,13 @@ export function TestimonialsSection() {
           </div>
         </motion.div>
 
-        {/* Stats Bar */}
+        {/* Stats Bar - Optimized */}
         <motion.div
           className="mx-auto mb-12 lg:mb-16 max-w-4xl group relative bg-white bg-opacity-50 rounded-3xl"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          viewport={{ once: true }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.4 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-secondary/20 via-brand-secondary/10 to-transparent rounded-xl blur-lg opacity-50 group-hover:opacity-70 transition-opacity duration-500 -z-10" />
           <div className="grid grid-cols-3 items-center rounded-xl bg-muted/30 text-center relative border border-brand-secondary/20 group-hover:border-brand-secondary/50 transition-all duration-300">
@@ -129,7 +132,7 @@ export function TestimonialsSection() {
           </div>
         </motion.div>
 
-        {/* Testimonials Grid */}
+        {/* Testimonials Grid - Optimized */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
           {testimonials.map((t, index) => (
             <div key={t.name} className="group relative">
@@ -137,11 +140,14 @@ export function TestimonialsSection() {
               <div className="absolute bg-white inset-0 rounded-2xl border border-brand-secondary/20 group-hover:border-brand-secondary/50 transition-all duration-300 -z-10" />
               <motion.article
                 className="h-full rounded-2xl bg-card p-6 sm:p-7 lg:p-8 relative overflow-hidden min-h-[320px] flex flex-col"
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -2 }}
+                transition={{ 
+                  duration: 0.4, 
+                  delay: shouldReduceMotion ? 0 : Math.min(index * 0.08, 0.2)
+                }}
+                viewport={{ once: true, amount: 0.2 }}
+                whileHover={{ y: shouldReduceMotion ? 0 : -2 }}
                 suppressHydrationWarning
               >
               {/* decorative quote */}

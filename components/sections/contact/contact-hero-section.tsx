@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { motion } from "framer-motion"
+import { useReducedMotion } from "framer-motion"
 import {
   Phone,
   Mail,
@@ -10,6 +11,8 @@ import {
 } from "lucide-react"
 
 export function ContactHeroSection() {
+  const shouldReduceMotion = useReducedMotion()
+  
   const contactMethods = [
     {
       icon: Phone,
@@ -34,12 +37,13 @@ export function ContactHeroSection() {
   return (
     <section className="bg-background py-20 lg:py-28 px-4 flex justify-center">
       <div className="w-full max-w-7xl mx-auto">
-        {/* Heading */}
+        {/* Heading - Use whileInView for better SEO */}
         <motion.div
           className="text-center max-w-3xl mx-auto mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-secondary/10 border border-brand-secondary/20 mb-6">
             <div className="w-2 h-2 rounded-full bg-brand-secondary animate-pulse" />
@@ -57,13 +61,13 @@ export function ContactHeroSection() {
           </p>
         </motion.div>
 
-        {/* Contact Methods Grid */}
+        {/* Contact Methods Grid - Optimized staggering */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-3 gap-8"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.4 }}
         >
           {contactMethods.map((method, index) => (
             <div key={method.title} className="group relative">
@@ -75,11 +79,14 @@ export function ContactHeroSection() {
                 target={method.title === "WhatsApp Us" ? "_blank" : undefined}
                 rel={method.title === "WhatsApp Us" ? "noopener noreferrer" : undefined}
                 className="p-6 rounded-2xl bg-card relative overflow-hidden h-full flex flex-col cursor-pointer"
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -5 }}
+                transition={{ 
+                  duration: 0.4, 
+                  delay: shouldReduceMotion ? 0 : Math.min(index * 0.08, 0.2)
+                }}
+                viewport={{ once: true, amount: 0.2 }}
+                whileHover={{ y: shouldReduceMotion ? 0 : -5 }}
               >
                 <div className="mb-6 flex justify-center">
                   <div className="inline-flex p-4 rounded-xl bg-background border border-brand-secondary/30 group-hover:border-brand-secondary/60 transition-colors">
