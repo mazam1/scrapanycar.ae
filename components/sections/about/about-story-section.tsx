@@ -46,7 +46,7 @@ export function AboutStorySection() {
           >
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-brand-secondary/10 rounded-full">
+                <div className="inline-flex items-center justify-center w-12 h-12">
                   <Calendar className="h-6 w-6 text-brand-secondary" />
                 </div>
                 <div>
@@ -60,7 +60,7 @@ export function AboutStorySection() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-brand-secondary/10 rounded-full">
+                <div className="inline-flex items-center justify-center w-12 h-12">
                   <MapPin className="h-6 w-6 text-brand-secondary" />
                 </div>
                 <div>
@@ -73,7 +73,7 @@ export function AboutStorySection() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-brand-secondary/10 rounded-full">
+                <div className="inline-flex items-center justify-center w-12 h-12">
                   <Target className="h-6 w-6 text-brand-secondary" />
                 </div>
                 <div>
