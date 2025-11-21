@@ -2,34 +2,28 @@
 
 import { motion } from 'framer-motion'
 import { useReducedMotion } from 'framer-motion'
-import { User, CheckCircle, DollarSign, TrendingUp } from 'lucide-react'
+import { Phone, Truck, DollarSign } from 'lucide-react'
 
 export default function HowItWorksSection() {
   const shouldReduceMotion = useReducedMotion()
   const steps = [
     {
       number: 1,
-      icon: User,
-      title: "Submit Details",
-      description: "Provide your vehicle information in seconds",
+      icon: Phone,
+      title: "Get Your Quote",
+      description: "Call us or fill out our online form with your vehicle details. Get an instant, no-obligation quote.",
     },
     {
       number: 2,
-      icon: CheckCircle,
-      title: "Inspection",
-      description: "We assess condition & current market value",
+      icon: Truck,
+      title: "Schedule Pickup",
+      description: "Choose a convenient time for our team to pick up your vehicle. Free towing service included.",
     },
     {
       number: 3,
-      icon: TrendingUp,
-      title: "Get Offer",
-      description: "Receive a fair, competitive quote instantly",
-    },
-    {
-      number: 4,
       icon: DollarSign,
-      title: "Get Paid",
-      description: "Accept & receive payment same day",
+      title: "Get Paid Instantly",
+      description: "Receive payment immediately when we pick up your vehicle. Cash or instant bank transfer.",
     }
   ]
 
@@ -58,7 +52,7 @@ export default function HowItWorksSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {steps.map((step, index) => {
             const Icon = step.icon
             return (
@@ -81,14 +75,17 @@ export default function HowItWorksSection() {
                     className="p-8 text-center rounded-2xl bg-card relative"
                     whileHover={{ y: shouldReduceMotion ? 0 : -5 }}
                   >
-                    {/* Step Number Badge */}
-                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-brand-secondary to-brand-primary text-white font-bold text-lg mb-6">
-                      {step.number}
-                    </div>
+                    {/* Number and Icon Container */}
+                    <div className="flex flex-col items-center gap-3 mb-6">
+                      {/* Step Number Badge */}
+                      <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-brand-secondary to-brand-primary text-white font-bold text-lg">
+                        {step.number}
+                      </div>
 
-                    {/* Icon */}
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-brand-secondary/10 mb-6 group-hover:bg-brand-secondary/20 transition-colors">
-                      <Icon className="w-8 h-8 text-brand-secondary" />
+                      {/* Icon */}
+                      <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-brand-secondary/10 group-hover:bg-brand-secondary/20 transition-colors">
+                        <Icon className="w-8 h-8 text-brand-secondary" />
+                      </div>
                     </div>
 
                     {/* Content */}
