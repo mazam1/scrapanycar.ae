@@ -10,6 +10,7 @@ import { FeaturesSection } from "@/components/sections/home/features-section"
 import { HowItWorksSection } from "@/components/sections/home/how-it-works-section"
 import { TestimonialsSection } from "@/components/sections/home/testimonials-section"
 import { GetInTouchSection } from "@/components/sections/home/get-in-touch-section"
+import LocalBusinessSchema from "@/components/seo/local-business-schema"
 import { useSearchParams } from "next/navigation"
 
 // Component that uses searchParams wrapped in Suspense
@@ -47,6 +48,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <LocalBusinessSchema />
       <Header />
       <main>
         <HeroSection />

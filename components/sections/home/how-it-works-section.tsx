@@ -36,7 +36,7 @@ const steps = [
     details: [
       "Instant online quote",
       "No hidden fees",
-      "Valid for 7 days"
+      "Valid for 48 hours"
     ]
   },
   {

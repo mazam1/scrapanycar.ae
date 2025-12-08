@@ -166,7 +166,7 @@ export function GetInTouchSection() {
               </div>
 
               <div className="text-center text-sm text-muted-foreground mt-2">
-                Prefer WhatsApp? <a href="https://wa.me/971568558762" target="_blank" rel="noopener noreferrer" className="text-brand-primary hover:underline">Chat with us</a>
+                Prefer WhatsApp? <a href="https://wa.me/971551988348" target="_blank" rel="noopener noreferrer" className="text-brand-primary hover:underline">Chat with us</a>
               </div>
             </form>
             </motion.div>

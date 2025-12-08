@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
+import OrganizationSchema from "@/components/seo/organization-schema";
+import { Toaster } from "sonner";
 // ThemeProvider removed to enforce light theme only
 
 const inter = Inter({
@@ -47,6 +49,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  alternates: {
+    canonical: "https://scrapanycar.ae"
+  }
 };
 
 export default function RootLayout({
@@ -56,10 +61,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
+      <head>
+        <OrganizationSchema />
+      </head>
       <body
         className={`${inter.variable} ${poppins.variable} antialiased w-full overflow-x-hidden`}
       >
         {children}
+        <Toaster position="top-center" richColors />
       </body>
     </html>
   );

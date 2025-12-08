@@ -32,10 +32,8 @@ export function AboutHeroSection() {
   const titleVariant = shouldReduceMotion
     ? { opacity: 1, y: 0 }
     : { opacity: 0, y: 20 }
-  
-  const titleAnimate = shouldReduceMotion
-    ? {}
-    : { opacity: 1, y: 0 }
+
+  const titleAnimate = { opacity: 1, y: 0 }
 
   return (
     <section className="relative py-20 px-4 bg-background">
@@ -44,9 +42,8 @@ export function AboutHeroSection() {
         <motion.div
           className="text-center mb-16"
           initial={titleVariant}
-          whileInView={titleAnimate}
+          animate={titleAnimate}
           transition={{ duration: 0.5 }}
-          viewport={{ once: true, amount: 0.3 }}
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-secondary/10 border border-brand-secondary/20 mb-6">
             <div className="w-2 h-2 rounded-full bg-brand-secondary animate-pulse" />
@@ -65,20 +62,17 @@ export function AboutHeroSection() {
         </motion.div>
 
         {/* Key Stats - Static background, only fade animation */}
-        <div className="mt-20 relative group overflow-hidden">
+        <div className="mt-20 relative group overflow-hidden rounded-3xl border border-brand-secondary/20 hover:border-brand-secondary/40 transition-all duration-500">
           {/* Static background - no animation for CLS prevention */}
-          <div
-            className="absolute inset-0 -z-10 overflow-hidden"
-          >
-            <div className="absolute -inset-1 bg-gradient-to-br from-brand-secondary/25 via-brand-secondary/10 to-transparent rounded-3xl blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-            <div className="absolute inset-0 rounded-3xl border border-brand-secondary/20 group-hover:border-brand-secondary/40 transition-all duration-500" />
-            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-secondary/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-72 h-72 bg-brand-primary/15 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4 pointer-events-none" />
+          <div className="absolute inset-0 -z-10 overflow-hidden rounded-3xl">
+            <div className="absolute inset-0 bg-gradient-to-br from-brand-secondary/25 via-brand-secondary/10 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-secondary/20 rounded-full blur-3xl opacity-50" />
+            <div className="absolute bottom-0 left-0 w-72 h-72 bg-brand-primary/15 rounded-full blur-3xl opacity-50" />
           </div>
 
           {/* Stats Grid - Optimized with container variants */}
           <motion.div
-            className="grid grid-cols-2 lg:grid-cols-3 gap-8 text-center relative z-10 bg-white bg-opacity-50 rounded-3xl p-8"
+            className="grid grid-cols-2 lg:grid-cols-3 gap-8 text-center relative z-10 bg-white/50 backdrop-blur-sm rounded-3xl p-8"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.4 }}

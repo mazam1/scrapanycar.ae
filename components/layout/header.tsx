@@ -85,20 +85,26 @@ export function Header() {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center flex-grow justify-center">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className={cn(
-                    "text-sm font-medium transition-colors duration-200 px-4 py-2",
-                    pathname === item.href
-                      ? "text-brand-primary"
-                      : "text-white hover:text-brand-primary"
-                  )}
-                >
-                  {item.name}
-                </Link>
-              ))}
+              {navigation.map((item) => {
+                const isActive = pathname === item.href
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className={cn(
+                      "text-sm font-medium transition-all duration-200 px-4 py-2 relative",
+                      isActive
+                        ? "text-brand-primary"
+                        : "text-white hover:text-brand-primary"
+                    )}
+                  >
+                    {item.name}
+                    {isActive && (
+                      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-primary rounded-full" />
+                    )}
+                  </Link>
+                )
+              })}
             </nav>
 
             {/* Desktop Actions */}
@@ -169,21 +175,24 @@ export function Header() {
               <div className="bg-black/95 backdrop-blur-sm border-b border-white/10">
                 <div className="w-full px-4 sm:px-6 py-4 space-y-1">
                   <nav className="space-y-2">
-                    {navigation.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className={cn(
-                          "block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200",
-                          pathname === item.href
-                            ? "bg-brand-primary/20 text-brand-primary"
-                            : "text-white hover:bg-white/10 hover:text-brand-primary"
-                        )}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
+                    {navigation.map((item) => {
+                      const isActive = pathname === item.href
+                      return (
+                        <Link
+                          key={item.name}
+                          href={item.href}
+                          className={cn(
+                            "block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200",
+                            isActive
+                              ? "bg-brand-primary/20 text-brand-primary"
+                              : "text-white hover:bg-white/10 hover:text-brand-primary"
+                          )}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {item.name}
+                        </Link>
+                      )
+                    })}
                   </nav>
                   
                   <div className="pt-4 border-t border-white/10">

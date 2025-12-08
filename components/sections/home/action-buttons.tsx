@@ -14,7 +14,7 @@ export default function ActionButtons() {
     >
       {/* WhatsApp Button */}
       <Link
-        href="https://wa.me/971568559762"
+        href="https://wa.me/971551988348"
         aria-label="Open WhatsApp chat with customer support"
         target="_blank"
         rel="noopener noreferrer"
@@ -35,7 +35,7 @@ export default function ActionButtons() {
 
       {/* Call Now Button */}
       <Link
-        href="tel:00971568558762"
+        href="tel:00971551988348"
         aria-label="Call customer support directly"
         className="group inline-flex items-center justify-center select-none rounded-[12px] bg-white/10 hover:bg-white/15 active:scale-95 transition-all duration-200 text-white font-poppins font-semibold tracking-normal h-12 sm:h-14 min-h-[48px] px-6 sm:px-8 border border-white/20 backdrop-blur-[2px]"
         style={{ letterSpacing: "0.2px" }}

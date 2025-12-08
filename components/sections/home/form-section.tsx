@@ -4,6 +4,7 @@ import * as React from "react"
 import { motion } from "framer-motion"
 import { useReducedMotion } from "framer-motion"
 import { Button } from "@/components/ui/button"
+import { toast } from "sonner"
 
 interface FormData {
   // Personal Information
@@ -164,11 +165,26 @@ export function FormSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    
+
     if (validateForm()) {
       console.log("Form submitted:", formData)
       // Here you would typically send the data to your backend
-      alert("Thank you! We'll contact you soon with your free valuation.")
+      toast.success("Thank you! We'll contact you soon with your free valuation.", {
+        description: "Our team will review your information and get back to you within 24 hours.",
+        duration: 5000,
+      })
+
+      // Reset form after successful submission
+      setFormData({
+        name: "", email: "", phone: "", city: "",
+        make: "", model: "", year: "", condition: "",
+        color: "", mileage: "", features: []
+      })
+    } else {
+      toast.error("Please fill in all required fields", {
+        description: "Check the form for any errors and try again.",
+        duration: 4000,
+      })
     }
   }
 
@@ -216,71 +232,87 @@ export function FormSection() {
           >
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Three-Column Layout */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+
               {/* Column 1: Personal Information */}
-              <div className="space-y-6">
-                <h3 className="text-lg font-semibold text-foreground border-b-2 border-brand-secondary pb-3 transition-colors duration-300">
+              <div className="flex flex-col">
+                <h3 className="text-lg font-semibold text-foreground border-b-2 border-brand-secondary pb-3 mb-6 transition-colors duration-300">
                   Personal Information
                 </h3>
-                <div className="space-y-4">
+                <div className="space-y-4 flex-1">
                   <div>
-                    <label className={`block text-sm font-medium mb-2 transition-colors duration-300 ${forceNameHighlight ? "text-red-500" : "text-foreground"}`}>
+                    <label htmlFor="name-input" className={`block text-sm font-medium mb-2 transition-colors duration-300 ${forceNameHighlight ? "text-red-500" : "text-foreground"}`}>
                       Enter your name
                     </label>
                     <input
+                      id="name-input"
                       type="text"
                       value={formData.name}
                       onChange={(e) => handleInputChange("name", e.target.value)}
                       ref={nameInputRef}
-                      className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
+                      aria-required="true"
+                      aria-invalid={!!errors.name}
+                      aria-describedby={errors.name ? "name-error" : undefined}
+                      className={`w-full h-12 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
                         errors.name || forceNameHighlight ? "border-red-500" : "border-border"
                       }`}
                       placeholder="Your full name"
                     />
-                    {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
+                    {errors.name && <p id="name-error" role="alert" className="text-red-500 text-xs mt-1">{errors.name}</p>}
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
+                    <label htmlFor="email-input" className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
                       Enter your email
                     </label>
                     <input
+                      id="email-input"
                       type="email"
                       value={formData.email}
                       onChange={(e) => handleInputChange("email", e.target.value)}
-                      className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
+                      aria-required="true"
+                      aria-invalid={!!errors.email}
+                      aria-describedby={errors.email ? "email-error" : undefined}
+                      className={`w-full h-12 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
                         errors.email ? "border-red-500" : "border-border"
                       }`}
                       placeholder="your.email@example.com"
                     />
-                    {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+                    {errors.email && <p id="email-error" role="alert" className="text-red-500 text-xs mt-1">{errors.email}</p>}
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
+                    <label htmlFor="phone-input" className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
                       Enter your phone
                     </label>
                     <input
+                      id="phone-input"
                       type="tel"
                       value={formData.phone}
                       onChange={(e) => handleInputChange("phone", e.target.value)}
-                      className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
+                      aria-required="true"
+                      aria-invalid={!!errors.phone}
+                      aria-describedby={errors.phone ? "phone-error" : undefined}
+                      className={`w-full h-12 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
                         errors.phone ? "border-red-500" : "border-border"
                       }`}
                       placeholder="(555) 123-4567"
                     />
-                    {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
+                    {errors.phone && <p id="phone-error" role="alert" className="text-red-500 text-xs mt-1">{errors.phone}</p>}
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
+                    <label htmlFor="city-select" className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
                       Select city
                     </label>
                     <select
+                      id="city-select"
                       value={formData.city}
                       onChange={(e) => handleInputChange("city", e.target.value)}
-                      className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
+                      aria-required="true"
+                      aria-invalid={!!errors.city}
+                      aria-describedby={errors.city ? "city-error" : undefined}
+                      className={`w-full h-12 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
                         errors.city ? "border-red-500" : "border-border"
                       }`}
                     >
@@ -289,25 +321,29 @@ export function FormSection() {
                         <option key={city} value={city}>{city}</option>
                       ))}
                     </select>
-                    {errors.city && <p className="text-red-500 text-xs mt-1">{errors.city}</p>}
+                    {errors.city && <p id="city-error" role="alert" className="text-red-500 text-xs mt-1">{errors.city}</p>}
                   </div>
                 </div>
               </div>
 
               {/* Column 2: Vehicle Information */}
-              <div className="space-y-6">
-                <h3 className="text-lg font-semibold text-foreground border-b-2 border-brand-secondary pb-3 transition-colors duration-300">
+              <div className="flex flex-col">
+                <h3 className="text-lg font-semibold text-foreground border-b-2 border-brand-secondary pb-3 mb-6 transition-colors duration-300">
                   Vehicle Information
                 </h3>
-                <div className="space-y-4">
+                <div className="space-y-4 flex-1">
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
+                    <label htmlFor="make-select" className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
                       Select make
                     </label>
                     <select
+                      id="make-select"
                       value={formData.make}
                       onChange={(e) => handleInputChange("make", e.target.value)}
-                      className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
+                      aria-required="true"
+                      aria-invalid={!!errors.make}
+                      aria-describedby={errors.make ? "make-error" : undefined}
+                      className={`w-full h-12 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
                         errors.make ? "border-red-500" : "border-border"
                       }`}
                     >
@@ -316,7 +352,7 @@ export function FormSection() {
                         <option key={make} value={make}>{make}</option>
                       ))}
                     </select>
-                    {errors.make && <p className="text-red-500 text-xs mt-1">{errors.make}</p>}
+                    {errors.make && <p id="make-error" role="alert" className="text-red-500 text-xs mt-1">{errors.make}</p>}
                   </div>
 
                   <div>
@@ -327,7 +363,7 @@ export function FormSection() {
                       value={formData.model}
                       onChange={(e) => handleInputChange("model", e.target.value)}
                       disabled={!formData.make}
-                      className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
+                      className={`w-full h-12 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
                         errors.model ? "border-red-500" : "border-border"
                       } ${!formData.make ? "bg-muted cursor-not-allowed" : ""}`}
                     >
@@ -346,7 +382,7 @@ export function FormSection() {
                     <select
                       value={formData.year}
                       onChange={(e) => handleInputChange("year", e.target.value)}
-                      className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
+                      className={`w-full h-12 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
                         errors.year ? "border-red-500" : "border-border"
                       }`}
                     >
@@ -365,7 +401,7 @@ export function FormSection() {
                     <select
                       value={formData.condition}
                       onChange={(e) => handleInputChange("condition", e.target.value)}
-                      className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
+                      className={`w-full h-12 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
                         errors.condition ? "border-red-500" : "border-border"
                       }`}
                     >
@@ -380,11 +416,11 @@ export function FormSection() {
               </div>
 
               {/* Column 3: Additional Details */}
-              <div className="space-y-6">
-                <h3 className="text-lg font-semibold text-foreground border-b-2 border-brand-secondary pb-3 transition-colors duration-300">
+              <div className="flex flex-col">
+                <h3 className="text-lg font-semibold text-foreground border-b-2 border-brand-secondary pb-3 mb-6 transition-colors duration-300">
                   Additional Details
                 </h3>
-                <div className="space-y-4">
+                <div className="space-y-4 flex-1">
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
                       Choose color
@@ -392,7 +428,7 @@ export function FormSection() {
                     <select
                       value={formData.color}
                       onChange={(e) => handleInputChange("color", e.target.value)}
-                      className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
+                      className={`w-full h-12 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
                         errors.color ? "border-red-500" : "border-border"
                       }`}
                     >
@@ -406,13 +442,13 @@ export function FormSection() {
 
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
-                      Car mileage (miles)
+                      Car Mileage (KM)
                     </label>
                     <input
                       type="number"
                       value={formData.mileage}
                       onChange={(e) => handleInputChange("mileage", e.target.value)}
-                      className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
+                      className={`w-full h-12 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
                         errors.mileage ? "border-red-500" : "border-border"
                       }`}
                       placeholder="e.g., 50000"

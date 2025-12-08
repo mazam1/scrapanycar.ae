@@ -129,35 +129,34 @@ export function FeaturesSection() {
         </div>
 
         {/* Stats Section - Optimized background (static, not animated) */}
-        <div className="mt-32 relative group">
+        <div className="mt-32 relative group overflow-hidden rounded-3xl border border-brand-secondary/20 hover:border-brand-secondary/40 transition-all duration-500">
           {/* Static background - no animation for CLS prevention */}
-          <div className="absolute inset-0 -z-10 overflow-hidden">
-            <div className="absolute -inset-1 bg-gradient-to-br from-brand-secondary/25 via-brand-secondary/10 to-transparent rounded-3xl blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-            <div className="absolute inset-0 rounded-3xl border border-brand-secondary/20 group-hover:border-brand-secondary/40 transition-all duration-500" />
-            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-secondary/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-72 h-72 bg-brand-primary/15 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4 pointer-events-none" />
+          <div className="absolute inset-0 -z-10 overflow-hidden rounded-3xl">
+            <div className="absolute inset-0 bg-gradient-to-br from-brand-secondary/25 via-brand-secondary/10 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-secondary/20 rounded-full blur-3xl opacity-50" />
+            <div className="absolute bottom-0 left-0 w-72 h-72 bg-brand-primary/15 rounded-full blur-3xl opacity-50" />
           </div>
 
           <motion.div
-            className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center relative z-10 bg-white bg-opacity-50 rounded-3xl"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center relative z-10 bg-white/50 backdrop-blur-sm rounded-3xl p-8"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.4 }}
             viewport={{ once: true, amount: 0.2 }}
           >
-            <div className="p-8">
+            <div>
               <div className="text-3xl lg:text-4xl font-bold text-brand-secondary mb-2">10K+</div>
               <div className="text-muted-foreground">Cars Recycled</div>
             </div>
-            <div className="p-8">
+            <div>
               <div className="text-3xl lg:text-4xl font-bold text-brand-secondary mb-2">AED 2M+</div>
               <div className="text-muted-foreground">Paid to Customers</div>
             </div>
-            <div className="p-8">
+            <div>
               <div className="text-3xl lg:text-4xl font-bold text-brand-secondary mb-2">4.9★</div>
               <div className="text-muted-foreground">Customer Rating</div>
             </div>
-            <div className="p-8">
+            <div>
               <div className="text-3xl lg:text-4xl font-bold text-brand-secondary mb-2">24/7</div>
               <div className="text-muted-foreground">Support Available</div>
             </div>

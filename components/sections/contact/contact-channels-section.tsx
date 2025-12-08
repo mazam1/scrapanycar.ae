@@ -9,7 +9,7 @@ export function ContactChannelsSection() {
     {
       icon: PhoneCall,
       title: "WhatsApp Us",
-      value: "0568558762",
+      value: "0551988348",
       helper: "Available 24/7 for immediate assistance",
       badge: "WhatsApp",
     },

@@ -17,8 +17,8 @@ export function ContactHeroSection() {
     {
       icon: Phone,
       title: "WhatsApp Us",
-      detail: "+971568558762",
-      link: "https://wa.me/971568558762"
+      detail: "+971551988348",
+      link: "https://wa.me/971551988348"
     },
     {
       icon: Mail,

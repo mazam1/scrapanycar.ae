@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { useReducedMotion } from "framer-motion"
 import { Clock } from "lucide-react"
@@ -20,15 +21,24 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+      {/* Background Image - Optimized with Next.js Image */}
+      <div
+        className="absolute inset-0"
         style={{
-          backgroundImage: 'url(/hero_img.jpg)',
           transform: `translateY(${scrollY * 0.5}px)`
         }}
-      />
-      
+      >
+        <Image
+          src="/hero_img.jpg"
+          alt="Scrap car collection service in Dubai - Premium car buying and valuation"
+          fill
+          priority
+          quality={85}
+          className="object-cover"
+          sizes="100vw"
+        />
+      </div>
+
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/60" />
       

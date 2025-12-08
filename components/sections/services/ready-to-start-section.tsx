@@ -28,8 +28,8 @@ export default function ReadyToStartSection() {
             Join thousands of satisfied customers. Get your free valuation today and experience professional car buying.
           </p>
 
-          <motion.div 
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -38,7 +38,7 @@ export default function ReadyToStartSection() {
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
               <Button
                 size="lg"
-                className="font-semibold px-8 py-6 text-base bg-brand-primary hover:bg-brand-primary/90 text-white"
+                className="font-semibold px-8 py-3 text-base bg-brand-primary hover:bg-brand-primary/90 text-white flex items-center justify-center w-full sm:w-auto min-w-[200px]"
                 onClick={() => window.location.href = '/#valuation-form'}
               >
                 <span className="flex items-center gap-2">
@@ -47,15 +47,15 @@ export default function ReadyToStartSection() {
                 </span>
               </Button>
             </motion.div>
-            
+
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 variant="outline"
-                asChild 
-                className="font-semibold px-8 py-6 text-base border-2 border-brand-secondary text-brand-secondary hover:bg-brand-secondary/10"
+                asChild
+                className="font-semibold px-8 py-3 text-base border-2 border-brand-secondary text-brand-secondary hover:bg-brand-secondary/10 flex items-center justify-center w-full sm:w-auto min-w-[200px]"
               >
-                <a href="tel:00971551231231" className="flex items-center gap-2">
+                <a href="tel:00971551988348" className="flex items-center gap-2">
                   <Phone className="w-4 h-4" />
                   Call Now
                 </a>
