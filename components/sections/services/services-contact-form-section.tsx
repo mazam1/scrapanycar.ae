@@ -6,6 +6,7 @@ import { useReducedMotion } from "framer-motion"
 import { Send, Phone, Mail, MessageSquare } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { toast } from "sonner"
+import { submitGetInTouch } from "@/lib/vehicle-api"
 
 export function ServicesContactFormSection() {
   const shouldReduceMotion = useReducedMotion()
@@ -16,26 +17,88 @@ export function ServicesContactFormSection() {
   const [message, setMessage] = React.useState("")
   const [isSubmitting, setIsSubmitting] = React.useState(false)
 
+  const validateForm = (): boolean => {
+    // Only name and phone are required
+    if (!name.trim()) {
+      toast.error("Name is required", {
+        description: "Please enter your name.",
+        duration: 4000,
+      })
+      return false
+    }
+
+    if (!phone.trim()) {
+      toast.error("Phone number is required", {
+        description: "Please enter your phone number.",
+        duration: 4000,
+      })
+      return false
+    }
+
+    // Phone validation: minimum 10 digits (strip non-numeric characters)
+    const phoneDigits = phone.replace(/\D/g, "")
+    if (phoneDigits.length < 10) {
+      toast.error("Invalid phone number", {
+        description: "Phone number must be at least 10 digits.",
+        duration: 4000,
+      })
+      return false
+    }
+
+    // Optional email validation (only if provided)
+    if (email.trim() && !/\S+@\S+\.\S+/.test(email)) {
+      toast.error("Invalid email address", {
+        description: "Please enter a valid email address.",
+        duration: 4000,
+      })
+      return false
+    }
+
+    return true
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setIsSubmitting(true)
 
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000))
+    if (!validateForm()) {
+      return
+    }
 
-    console.log("Services contact form submitted", { name, phone, email, message })
+    try {
+      setIsSubmitting(true)
 
-    toast.success("Thank you for reaching out!", {
-      description: "We'll contact you shortly to discuss our services.",
-      duration: 5000,
-    })
+      const requestData = {
+        name: name.trim(),
+        phone_number: phone.trim(),
+        email: email.trim() || undefined,
+        questions: message.trim() || undefined,
+      }
 
-    // Reset form
-    setName("")
-    setPhone("")
-    setEmail("")
-    setMessage("")
-    setIsSubmitting(false)
+      const response = await submitGetInTouch(requestData)
+
+      if (response.success) {
+        toast.success("Thank you! We'll contact you soon.", {
+          description: "Our team will get back to you shortly.",
+          duration: 5000,
+        })
+
+        // Reset form after successful submission
+        setName("")
+        setPhone("")
+        setEmail("")
+        setMessage("")
+      } else {
+        throw new Error(response.message || "Failed to submit")
+      }
+    } catch (error) {
+      console.error("Form submission error:", error)
+      toast.error("Failed to submit. Please try again.", {
+        description: error instanceof Error ? error.message : "Please try again later.",
+        duration: 5000,
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -118,7 +181,7 @@ export function ServicesContactFormSection() {
               {/* Email Address */}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                  Email Address *
+                  Email Address (Optional)
                 </label>
                 <div className="relative">
                   <Mail className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-brand-secondary/60" />
@@ -129,7 +192,6 @@ export function ServicesContactFormSection() {
                     onChange={(e) => setEmail(e.target.value)}
                     className="w-full pl-12 pr-4 py-3.5 border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all duration-300 bg-background text-foreground"
                     placeholder="your.email@example.com"
-                    required
                   />
                 </div>
               </div>

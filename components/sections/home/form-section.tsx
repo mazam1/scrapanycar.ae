@@ -5,6 +5,8 @@ import { motion } from "framer-motion"
 import { useReducedMotion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { toast } from "sonner"
+import { fetchCarMakes, fetchCarModels, submitCarValuation } from "@/lib/vehicle-api"
+import type { CarMake, CarModel } from "@/lib/vehicle-api-types"
 
 interface FormData {
   // Personal Information
@@ -12,40 +14,17 @@ interface FormData {
   email: string
   phone: string
   city: string
-  
-  // Vehicle Information
-  make: string
-  model: string
+
+  // Vehicle Information (now using IDs)
+  makeId: string // Store as string for select value, convert to number for API
+  modelId: string // Store as string for select value, convert to number for API
   year: string
   condition: string
-  
+
   // Additional Details
   color: string
   mileage: string
   features: string[]
-}
-
-const carMakes = [
-  "Toyota", "Honda", "Ford", "Chevrolet", "Nissan", "BMW", "Mercedes-Benz", 
-  "Audi", "Volkswagen", "Hyundai", "Kia", "Mazda", "Subaru", "Lexus", "Acura"
-]
-
-const carModels: { [key: string]: string[] } = {
-  "Toyota": ["Camry", "Corolla", "RAV4", "Highlander", "Prius", "Tacoma", "Tundra"],
-  "Honda": ["Civic", "Accord", "CR-V", "Pilot", "Fit", "Ridgeline", "Passport"],
-  "Ford": ["F-150", "Escape", "Explorer", "Mustang", "Focus", "Fusion", "Edge"],
-  "Chevrolet": ["Silverado", "Equinox", "Malibu", "Traverse", "Camaro", "Cruze", "Tahoe"],
-  "Nissan": ["Altima", "Sentra", "Rogue", "Pathfinder", "Frontier", "Titan", "Murano"],
-  "BMW": ["3 Series", "5 Series", "X3", "X5", "7 Series", "X1", "4 Series"],
-  "Mercedes-Benz": ["C-Class", "E-Class", "S-Class", "GLC", "GLE", "A-Class", "CLA"],
-  "Audi": ["A4", "A6", "Q5", "Q7", "A3", "Q3", "A8"],
-  "Volkswagen": ["Jetta", "Passat", "Tiguan", "Atlas", "Golf", "Beetle", "Arteon"],
-  "Hyundai": ["Elantra", "Sonata", "Tucson", "Santa Fe", "Accent", "Palisade", "Kona"],
-  "Kia": ["Forte", "Optima", "Sorento", "Sportage", "Rio", "Telluride", "Soul"],
-  "Mazda": ["Mazda3", "Mazda6", "CX-5", "CX-9", "MX-5 Miata", "CX-3", "CX-30"],
-  "Subaru": ["Outback", "Forester", "Impreza", "Legacy", "Crosstrek", "Ascent", "WRX"],
-  "Lexus": ["ES", "RX", "NX", "GX", "LS", "IS", "LX"],
-  "Acura": ["TLX", "MDX", "RDX", "ILX", "NSX", "TL", "TSX"]
 }
 
 const cities = [
@@ -62,7 +41,7 @@ const cities = [
 const conditions = ["Excellent", "Good", "Fair", "Poor"]
 
 const colors = [
-  "White", "Black", "Silver", "Gray", "Red", "Blue", "Brown", "Green", 
+  "White", "Black", "Silver", "Gray", "Red", "Blue", "Brown", "Green",
   "Gold", "Orange", "Yellow", "Purple", "Other"
 ]
 
@@ -73,14 +52,14 @@ const years = Array.from({ length: 30 }, (_, i) => (currentYear - i).toString())
 
 export function FormSection() {
   const shouldReduceMotion = useReducedMotion()
-  
+
   const [formData, setFormData] = React.useState<FormData>({
     name: "",
     email: "",
     phone: "",
     city: "",
-    make: "",
-    model: "",
+    makeId: "",
+    modelId: "",
     year: "",
     condition: "",
     color: "",
@@ -89,12 +68,43 @@ export function FormSection() {
   })
 
   const [errors, setErrors] = React.useState<Partial<FormData>>({})
-  const [availableModels, setAvailableModels] = React.useState<string[]>([])
+
+  // API state management
+  const [carMakes, setCarMakes] = React.useState<CarMake[]>([])
+  const [carModels, setCarModels] = React.useState<CarModel[]>([])
+  const [isLoadingMakes, setIsLoadingMakes] = React.useState(true)
+  const [isLoadingModels, setIsLoadingModels] = React.useState(false)
+  const [isSubmitting, setIsSubmitting] = React.useState(false)
+  const [apiError, setApiError] = React.useState<string | null>(null)
 
   // Highlight state for name field and ref for focusing
   const [forceNameHighlight, setForceNameHighlight] = React.useState(false)
   const nameInputRef = React.useRef<HTMLInputElement>(null)
 
+  // Fetch car makes on component mount
+  React.useEffect(() => {
+    const loadCarMakes = async () => {
+      try {
+        setIsLoadingMakes(true)
+        setApiError(null)
+        const response = await fetchCarMakes()
+        setCarMakes(response.data || [])
+      } catch (error) {
+        console.error("Failed to load car makes:", error)
+        setApiError("Failed to load car makes. Please refresh the page.")
+        toast.error("Failed to load car makes", {
+          description: "Please refresh the page to try again.",
+          duration: 5000,
+        })
+      } finally {
+        setIsLoadingMakes(false)
+      }
+    }
+
+    loadCarMakes()
+  }, [])
+
+  // Event listener for name field highlight
   React.useEffect(() => {
     const handler = () => {
       setForceNameHighlight(true)
@@ -106,23 +116,41 @@ export function FormSection() {
 
   const handleInputChange = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }))
-    
+
     // Clear error when user starts typing
     if (errors[field]) {
       setErrors(prev => ({ ...prev, [field]: "" }))
     }
 
-    // Handle make selection to update available models
-    if (field === "make") {
-      setAvailableModels(carModels[value] || [])
-      setFormData(prev => ({ ...prev, model: "" })) // Reset model when make changes
+    // Handle make selection to fetch models dynamically
+    if (field === "makeId" && value) {
+      loadCarModels(Number(value))
+      setFormData(prev => ({ ...prev, modelId: "" })) // Reset model when make changes
+    }
+  }
+
+  const loadCarModels = async (makeId: number) => {
+    try {
+      setIsLoadingModels(true)
+      setApiError(null)
+      const response = await fetchCarModels(makeId)
+      setCarModels(response.data || [])
+    } catch (error) {
+      console.error("Failed to load car models:", error)
+      setCarModels([])
+      toast.error("Failed to load car models", {
+        description: "Please try selecting a different make.",
+        duration: 4000,
+      })
+    } finally {
+      setIsLoadingModels(false)
     }
   }
 
   const handleFeatureChange = (feature: string, checked: boolean) => {
     setFormData(prev => ({
       ...prev,
-      features: checked 
+      features: checked
         ? [...prev.features, feature]
         : prev.features.filter(f => f !== feature)
     }))
@@ -131,31 +159,28 @@ export function FormSection() {
   const validateForm = (): boolean => {
     const newErrors: Partial<FormData> = {}
 
-    // Personal Information validation
-    if (!formData.name.trim()) newErrors.name = "Name is required"
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required"
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email"
+    // Only name and phone are required
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required"
     }
+
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required"
-    } else if (!/^[\+]?[1-9][\d]{6,14}$/.test(formData.phone.replace(/\s|\(|\)|-/g, ""))) {
-      newErrors.phone = "Please enter a valid phone number"
+    } else {
+      // Phone validation: minimum 10 digits (numbers only)
+      const phoneDigits = formData.phone.replace(/\D/g, "")
+      if (phoneDigits.length < 10) {
+        newErrors.phone = "Phone number must be at least 10 digits"
+      }
     }
-    if (!formData.city) newErrors.city = "City is required"
 
-    // Vehicle Information validation
-    if (!formData.make) newErrors.make = "Make is required"
-    if (!formData.model) newErrors.model = "Model is required"
-    if (!formData.year) newErrors.year = "Year is required"
-    if (!formData.condition) newErrors.condition = "Condition is required"
+    // Optional email validation (only if provided)
+    if (formData.email.trim() && !/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email"
+    }
 
-    // Additional Details validation
-    if (!formData.color) newErrors.color = "Color is required"
-    if (!formData.mileage.trim()) {
-      newErrors.mileage = "Mileage is required"
-    } else if (isNaN(Number(formData.mileage)) || Number(formData.mileage) < 0) {
+    // Optional mileage validation (only if provided)
+    if (formData.mileage.trim() && (isNaN(Number(formData.mileage)) || Number(formData.mileage) < 0)) {
       newErrors.mileage = "Please enter a valid mileage"
     }
 
@@ -163,28 +188,63 @@ export function FormSection() {
     return Object.keys(newErrors).length === 0
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    if (validateForm()) {
-      console.log("Form submitted:", formData)
-      // Here you would typically send the data to your backend
-      toast.success("Thank you! We'll contact you soon with your free valuation.", {
-        description: "Our team will review your information and get back to you within 24 hours.",
-        duration: 5000,
-      })
-
-      // Reset form after successful submission
-      setFormData({
-        name: "", email: "", phone: "", city: "",
-        make: "", model: "", year: "", condition: "",
-        color: "", mileage: "", features: []
-      })
-    } else {
+    if (!validateForm()) {
       toast.error("Please fill in all required fields", {
-        description: "Check the form for any errors and try again.",
+        description: "Name and phone number are required.",
         duration: 4000,
       })
+      return
+    }
+
+    try {
+      setIsSubmitting(true)
+
+      // Map form data to API request format
+      const requestData = {
+        name: formData.name,
+        email: formData.email || undefined,
+        phone_number: formData.phone,
+        city: formData.city || undefined,
+        car_make_id: formData.makeId ? Number(formData.makeId) : undefined,
+        car_model_id: formData.modelId ? Number(formData.modelId) : undefined,
+        car_year: formData.year ? Number(formData.year) : undefined,
+        car_condition: formData.condition || undefined,
+        car_color: formData.color || undefined,
+        car_mileage: formData.mileage ? Number(formData.mileage) : undefined,
+        has_leather_seats: formData.features.includes("Leather Seats"),
+        has_sunroof: formData.features.includes("Sunroof"),
+        has_alloy_wheels: formData.features.includes("Alloy Wheels"),
+      }
+
+      const response = await submitCarValuation(requestData)
+
+      if (response.success) {
+        toast.success("Thank you! We'll contact you soon with your free valuation.", {
+          description: "Our team will review your information and get back to you within 24 hours.",
+          duration: 5000,
+        })
+
+        // Reset form after successful submission
+        setFormData({
+          name: "", email: "", phone: "", city: "",
+          makeId: "", modelId: "", year: "", condition: "",
+          color: "", mileage: "", features: []
+        })
+        setCarModels([]) // Clear models
+      } else {
+        throw new Error(response.message || "Failed to submit valuation")
+      }
+    } catch (error) {
+      console.error("Form submission error:", error)
+      toast.error("Failed to submit your request", {
+        description: error instanceof Error ? error.message : "Please try again later.",
+        duration: 5000,
+      })
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -221,6 +281,14 @@ export function FormSection() {
           </p>
         </motion.div>
 
+        {/* API Error Alert */}
+        {apiError && (
+          <div className="max-w-4xl mx-auto mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-800">
+            <p className="font-medium">Error loading data</p>
+            <p className="text-sm">{apiError}</p>
+          </div>
+        )}
+
         <div className="w-full mx-auto relative">
           <motion.div
             className="w-full bg-card rounded-3xl p-8 lg:p-12 relative border border-brand-secondary"
@@ -242,7 +310,7 @@ export function FormSection() {
                 <div className="space-y-4 flex-1">
                   <div>
                     <label htmlFor="name-input" className={`block text-sm font-medium mb-2 transition-colors duration-300 ${forceNameHighlight ? "text-red-500" : "text-foreground"}`}>
-                      Enter your name
+                      Enter your name <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="name-input"
@@ -270,7 +338,6 @@ export function FormSection() {
                       type="email"
                       value={formData.email}
                       onChange={(e) => handleInputChange("email", e.target.value)}
-                      aria-required="true"
                       aria-invalid={!!errors.email}
                       aria-describedby={errors.email ? "email-error" : undefined}
                       className={`w-full h-12 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
@@ -283,7 +350,7 @@ export function FormSection() {
 
                   <div>
                     <label htmlFor="phone-input" className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
-                      Enter your phone
+                      Enter your phone <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="phone-input"
@@ -296,7 +363,7 @@ export function FormSection() {
                       className={`w-full h-12 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
                         errors.phone ? "border-red-500" : "border-border"
                       }`}
-                      placeholder="(555) 123-4567"
+                      placeholder="+971501234567"
                     />
                     {errors.phone && <p id="phone-error" role="alert" className="text-red-500 text-xs mt-1">{errors.phone}</p>}
                   </div>
@@ -309,19 +376,13 @@ export function FormSection() {
                       id="city-select"
                       value={formData.city}
                       onChange={(e) => handleInputChange("city", e.target.value)}
-                      aria-required="true"
-                      aria-invalid={!!errors.city}
-                      aria-describedby={errors.city ? "city-error" : undefined}
-                      className={`w-full h-12 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
-                        errors.city ? "border-red-500" : "border-border"
-                      }`}
+                      className="w-full h-12 px-4 py-3 border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground"
                     >
                       <option value="">Choose your city</option>
                       {cities.map(city => (
                         <option key={city} value={city}>{city}</option>
                       ))}
                     </select>
-                    {errors.city && <p id="city-error" role="alert" className="text-red-500 text-xs mt-1">{errors.city}</p>}
                   </div>
                 </div>
               </div>
@@ -338,79 +399,76 @@ export function FormSection() {
                     </label>
                     <select
                       id="make-select"
-                      value={formData.make}
-                      onChange={(e) => handleInputChange("make", e.target.value)}
-                      aria-required="true"
-                      aria-invalid={!!errors.make}
-                      aria-describedby={errors.make ? "make-error" : undefined}
-                      className={`w-full h-12 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
-                        errors.make ? "border-red-500" : "border-border"
+                      value={formData.makeId}
+                      onChange={(e) => handleInputChange("makeId", e.target.value)}
+                      disabled={isLoadingMakes}
+                      className={`w-full h-12 px-4 py-3 border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
+                        isLoadingMakes ? "bg-muted cursor-not-allowed" : ""
                       }`}
                     >
-                      <option value="">Choose make</option>
+                      <option value="">
+                        {isLoadingMakes ? "Loading makes..." : "Choose make"}
+                      </option>
                       {carMakes.map(make => (
-                        <option key={make} value={make}>{make}</option>
+                        <option key={make.id} value={make.id}>{make.name}</option>
                       ))}
                     </select>
-                    {errors.make && <p id="make-error" role="alert" className="text-red-500 text-xs mt-1">{errors.make}</p>}
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
+                    <label htmlFor="model-select" className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
                       Select model
                     </label>
                     <select
-                      value={formData.model}
-                      onChange={(e) => handleInputChange("model", e.target.value)}
-                      disabled={!formData.make}
-                      className={`w-full h-12 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
-                        errors.model ? "border-red-500" : "border-border"
-                      } ${!formData.make ? "bg-muted cursor-not-allowed" : ""}`}
+                      id="model-select"
+                      value={formData.modelId}
+                      onChange={(e) => handleInputChange("modelId", e.target.value)}
+                      disabled={!formData.makeId || isLoadingModels}
+                      className={`w-full h-12 px-4 py-3 border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
+                        (!formData.makeId || isLoadingModels) ? "bg-muted cursor-not-allowed" : ""
+                      }`}
                     >
-                      <option value="">Choose model</option>
-                      {availableModels.map(model => (
-                        <option key={model} value={model}>{model}</option>
+                      <option value="">
+                        {isLoadingModels ? "Loading models..." : "Choose model"}
+                      </option>
+                      {carModels.map(model => (
+                        <option key={model.id} value={model.id}>{model.name}</option>
                       ))}
                     </select>
-                    {errors.model && <p className="text-red-500 text-xs mt-1">{errors.model}</p>}
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
+                    <label htmlFor="year-select" className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
                       Select year
                     </label>
                     <select
+                      id="year-select"
                       value={formData.year}
                       onChange={(e) => handleInputChange("year", e.target.value)}
-                      className={`w-full h-12 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
-                        errors.year ? "border-red-500" : "border-border"
-                      }`}
+                      className="w-full h-12 px-4 py-3 border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground"
                     >
                       <option value="">Choose year</option>
                       {years.map(year => (
                         <option key={year} value={year}>{year}</option>
                       ))}
                     </select>
-                    {errors.year && <p className="text-red-500 text-xs mt-1">{errors.year}</p>}
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
+                    <label htmlFor="condition-select" className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
                       Select condition
                     </label>
                     <select
+                      id="condition-select"
                       value={formData.condition}
                       onChange={(e) => handleInputChange("condition", e.target.value)}
-                      className={`w-full h-12 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
-                        errors.condition ? "border-red-500" : "border-border"
-                      }`}
+                      className="w-full h-12 px-4 py-3 border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground"
                     >
                       <option value="">Choose condition</option>
                       {conditions.map(condition => (
                         <option key={condition} value={condition}>{condition}</option>
                       ))}
                     </select>
-                    {errors.condition && <p className="text-red-500 text-xs mt-1">{errors.condition}</p>}
                   </div>
                 </div>
               </div>
@@ -422,39 +480,40 @@ export function FormSection() {
                 </h3>
                 <div className="space-y-4 flex-1">
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
+                    <label htmlFor="color-select" className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
                       Choose color
                     </label>
                     <select
+                      id="color-select"
                       value={formData.color}
                       onChange={(e) => handleInputChange("color", e.target.value)}
-                      className={`w-full h-12 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
-                        errors.color ? "border-red-500" : "border-border"
-                      }`}
+                      className="w-full h-12 px-4 py-3 border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground"
                     >
                       <option value="">Choose color</option>
                       {colors.map(color => (
                         <option key={color} value={color}>{color}</option>
                       ))}
                     </select>
-                    {errors.color && <p className="text-red-500 text-xs mt-1">{errors.color}</p>}
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
+                    <label htmlFor="mileage-input" className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
                       Car Mileage (KM)
                     </label>
                     <input
+                      id="mileage-input"
                       type="number"
                       value={formData.mileage}
                       onChange={(e) => handleInputChange("mileage", e.target.value)}
+                      aria-invalid={!!errors.mileage}
+                      aria-describedby={errors.mileage ? "mileage-error" : undefined}
                       className={`w-full h-12 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
                         errors.mileage ? "border-red-500" : "border-border"
                       }`}
                       placeholder="e.g., 50000"
                       min="0"
                     />
-                    {errors.mileage && <p className="text-red-500 text-xs mt-1">{errors.mileage}</p>}
+                    {errors.mileage && <p id="mileage-error" role="alert" className="text-red-500 text-xs mt-1">{errors.mileage}</p>}
                   </div>
 
                   <div>
@@ -483,9 +542,10 @@ export function FormSection() {
             <div className="text-center pt-6">
               <Button
                 type="submit"
-                className="w-full sm:w-auto bg-brand-primary hover:bg-brand-primary/90 text-white font-semibold px-6 sm:px-12 py-4 text-base sm:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                disabled={isSubmitting}
+                className="w-full sm:w-auto bg-brand-primary hover:bg-brand-primary/90 text-white font-semibold px-6 sm:px-12 py-4 text-base sm:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Request Free Valuation & Inspection
+                {isSubmitting ? "Submitting..." : "Request Free Valuation & Inspection"}
               </Button>
             </div>
           </form>

@@ -6,6 +6,8 @@ import { useReducedMotion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Phone, Mail, Car, MessageSquare, DollarSign, Users, Award } from "lucide-react"
 import { UaeDirhamIcon } from "@/components/icons/uae-dirham-icon"
+import { toast } from "sonner"
+import { submitGetInTouch } from "@/lib/vehicle-api"
 
 export function GetInTouchSection() {
   const shouldReduceMotion = useReducedMotion()
@@ -13,15 +15,90 @@ export function GetInTouchSection() {
   const [phone, setPhone] = React.useState("")
   const [email, setEmail] = React.useState("")
   const [message, setMessage] = React.useState("")
+  const [isSubmitting, setIsSubmitting] = React.useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validateForm = (): boolean => {
+    // Only name and phone are required
+    if (!name.trim()) {
+      toast.error("Name is required", {
+        description: "Please enter your name.",
+        duration: 4000,
+      })
+      return false
+    }
+
+    if (!phone.trim()) {
+      toast.error("Phone number is required", {
+        description: "Please enter your phone number.",
+        duration: 4000,
+      })
+      return false
+    }
+
+    // Phone validation: minimum 10 digits (strip non-numeric characters)
+    const phoneDigits = phone.replace(/\D/g, "")
+    if (phoneDigits.length < 10) {
+      toast.error("Invalid phone number", {
+        description: "Phone number must be at least 10 digits.",
+        duration: 4000,
+      })
+      return false
+    }
+
+    // Optional email validation (only if provided)
+    if (email.trim() && !/\S+@\S+\.\S+/.test(email)) {
+      toast.error("Invalid email address", {
+        description: "Please enter a valid email address.",
+        duration: 4000,
+      })
+      return false
+    }
+
+    return true
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Quick contact submitted", { name, phone, email, message })
-    alert("Thanks! We'll reach out shortly.")
-    setName("")
-    setPhone("")
-    setEmail("")
-    setMessage("")
+
+    if (!validateForm()) {
+      return
+    }
+
+    try {
+      setIsSubmitting(true)
+
+      const requestData = {
+        name: name.trim(),
+        phone_number: phone.trim(),
+        email: email.trim() || undefined,
+        questions: message.trim() || undefined,
+      }
+
+      const response = await submitGetInTouch(requestData)
+
+      if (response.success) {
+        toast.success("Thank you! We'll contact you soon.", {
+          description: "Our team will get back to you shortly.",
+          duration: 5000,
+        })
+
+        // Reset form after successful submission
+        setName("")
+        setPhone("")
+        setEmail("")
+        setMessage("")
+      } else {
+        throw new Error(response.message || "Failed to submit")
+      }
+    } catch (error) {
+      console.error("Form submission error:", error)
+      toast.error("Failed to submit. Please try again.", {
+        description: error instanceof Error ? error.message : "Please try again later.",
+        duration: 5000,
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -129,7 +206,7 @@ export function GetInTouchSection() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">Email Address</label>
+                <label className="block text-sm font-medium text-foreground mb-2">Email Address (Optional)</label>
                 <div className="relative">
                   <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <input
@@ -138,7 +215,6 @@ export function GetInTouchSection() {
                     onChange={(e) => setEmail(e.target.value)}
                     className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all duration-300 bg-background text-foreground border-border"
                     placeholder="your.email@example.com"
-                    required
                   />
                 </div>
               </div>
@@ -159,9 +235,10 @@ export function GetInTouchSection() {
               <div>
                 <Button
                   type="submit"
-                  className="bg-brand-primary hover:bg-brand-primary/90 text-white font-semibold px-12 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full"
+                  disabled={isSubmitting}
+                  className="bg-brand-primary hover:bg-brand-primary/90 text-white font-semibold px-12 py-4 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Submit
+                  {isSubmitting ? "Submitting..." : "Submit"}
                 </Button>
               </div>
 
