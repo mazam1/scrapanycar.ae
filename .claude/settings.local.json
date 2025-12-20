@@ -4,7 +4,9 @@
       "mcp__smithery-ai-puppeteer__puppeteer_navigate",
       "mcp__smithery-ai-puppeteer__puppeteer_screenshot",
       "mcp__smithery-ai-puppeteer__puppeteer_evaluate",
-      "mcp__smithery-ai-puppeteer__puppeteer_click"
+      "mcp__smithery-ai-puppeteer__puppeteer_click",
+      "Bash(npm run build:*)",
+      "Bash(timeout 15 npm run dev:*)"
     ],
     "deny": [],
     "ask": []
