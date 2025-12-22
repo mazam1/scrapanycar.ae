@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
+import { Button } from "../../ui/button"
 
 interface FormData {
   // Personal Information

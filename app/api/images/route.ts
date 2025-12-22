@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { saveImage, getImage, getAllImages, deleteImage } from '@/lib/db';
+import { saveImage, getImage, getAllImages, deleteImage } from '../../../lib/db';
 
 export async function POST(request: NextRequest) {
   try {

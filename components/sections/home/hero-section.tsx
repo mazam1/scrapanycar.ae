@@ -6,8 +6,8 @@ import { motion } from "framer-motion"
 import { useReducedMotion } from "framer-motion"
 import { Clock } from "lucide-react"
 
-import ActionButtons from "@/components/sections/home/action-buttons"
-import { UaeDirhamIcon } from "@/components/icons/uae-dirham-icon"
+import ActionButtons from "./action-buttons"
+import { UaeDirhamIcon } from "../../icons/uae-dirham-icon"
 
 export function HeroSection() {
   const shouldReduceMotion = useReducedMotion()

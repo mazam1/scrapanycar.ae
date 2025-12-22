@@ -3,11 +3,11 @@
 import * as React from "react"
 import { useState, useCallback, useEffect } from "react"
 import { useDropzone } from "react-dropzone"
-import { ImageWithFallback } from "@/components/ui/image-with-fallback"
-import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { ImageWithFallback } from "./image-with-fallback"
+import { Button } from "./button"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./dialog"
 import { Loader2, Upload, Search, X, Image as ImageIcon } from "lucide-react"
-import { searchUnsplashImages, UnsplashImage } from "@/lib/unsplash"
+import { searchUnsplashImages, UnsplashImage } from "../../lib/unsplash"
 
 interface ImageUploadProps {
   onImageSelect: (imageData: SelectedImage) => void

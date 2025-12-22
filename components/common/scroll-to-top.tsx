@@ -4,7 +4,7 @@ import * as React from "react"
 import { ArrowUp } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
-import { Button } from "@/components/ui/button"
+import { Button } from "../ui/button"
 
 export function ScrollToTop() {
   const [isVisible, setIsVisible] = React.useState(false)

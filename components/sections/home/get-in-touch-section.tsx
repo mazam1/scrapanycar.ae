@@ -3,11 +3,11 @@
 import * as React from "react"
 import { motion } from "framer-motion"
 import { useReducedMotion } from "framer-motion"
-import { Button } from "@/components/ui/button"
+import { Button } from "../../ui/button"
 import { Phone, Mail, Car, MessageSquare, DollarSign, Users, Award } from "lucide-react"
-import { UaeDirhamIcon } from "@/components/icons/uae-dirham-icon"
+import { UaeDirhamIcon } from "../../icons/uae-dirham-icon"
 import { toast } from "sonner"
-import { submitGetInTouch } from "@/lib/vehicle-api"
+import { submitGetInTouch } from "../../../lib/vehicle-api"
 
 export function GetInTouchSection() {
   const shouldReduceMotion = useReducedMotion()

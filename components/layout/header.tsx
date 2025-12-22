@@ -2,13 +2,13 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { ImageWithFallback } from "@/components/ui/image-with-fallback"
+import { ImageWithFallback } from "../ui/image-with-fallback"
 import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import { cn } from "../../lib/utils"
+import { Button } from "../ui/button"
 
 const navigation = [
   { name: "Home", href: "/" },

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
-import OrganizationSchema from "@/components/seo/organization-schema";
+import OrganizationSchema from "../components/seo/organization-schema";
 import { Toaster } from "sonner";
 // ThemeProvider removed to enforce light theme only
 

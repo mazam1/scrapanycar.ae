@@ -3,10 +3,10 @@
 import * as React from "react"
 import { motion } from "framer-motion"
 import { useReducedMotion } from "framer-motion"
-import { Button } from "@/components/ui/button"
+import { Button } from "../../ui/button"
 import { toast } from "sonner"
-import { fetchCarMakes, fetchCarModels, submitCarValuation } from "@/lib/vehicle-api"
-import type { CarMake, CarModel } from "@/lib/vehicle-api-types"
+import { fetchCarMakes, fetchCarModels, submitCarValuation } from "../../../lib/vehicle-api"
+import type { CarMake, CarModel } from "../../../lib/vehicle-api-types"
 
 interface FormData {
   // Personal Information

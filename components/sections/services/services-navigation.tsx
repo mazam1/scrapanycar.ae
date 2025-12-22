@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
-import { typography, spacing } from '@/lib/design-system'
+import { typography, spacing } from '../../../lib/design-system'
 import { throttle } from 'lodash'
 
 export default function ServicesNavigation() {

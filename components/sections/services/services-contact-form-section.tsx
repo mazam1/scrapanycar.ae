@@ -4,9 +4,9 @@ import * as React from "react"
 import { motion } from "framer-motion"
 import { useReducedMotion } from "framer-motion"
 import { Send, Phone, Mail, MessageSquare } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Button } from "../../ui/button"
 import { toast } from "sonner"
-import { submitGetInTouch } from "@/lib/vehicle-api"
+import { submitGetInTouch } from "../../../lib/vehicle-api"
 
 export function ServicesContactFormSection() {
   const shouldReduceMotion = useReducedMotion()

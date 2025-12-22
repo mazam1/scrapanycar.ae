@@ -2,14 +2,14 @@ import * as React from "react"
 import { Suspense } from "react"
 import { Metadata } from "next"
 
-import { Header } from "@/components/layout/header"
-import { Footer } from "@/components/layout/footer"
-import { ScrollToTop } from "@/components/common/scroll-to-top"
-import { ContactHeroSection } from "@/components/sections/contact/contact-hero-section"
-import { ContactFormSection } from "@/components/sections/contact/contact-form-section"
-import { ContactFAQSection } from "@/components/sections/contact/contact-faq-section"
-import LocalBusinessSchema from "@/components/seo/local-business-schema"
-import FAQSchema from "@/components/seo/faq-schema"
+import { Header } from "../../components/layout/header"
+import { Footer } from "../../components/layout/footer"
+import { ScrollToTop } from "../../components/common/scroll-to-top"
+import { ContactHeroSection } from "../../components/sections/contact/contact-hero-section"
+import { ContactFormSection } from "../../components/sections/contact/contact-form-section"
+import { ContactFAQSection } from "../../components/sections/contact/contact-faq-section"
+import LocalBusinessSchema from "../../components/seo/local-business-schema"
+import FAQSchema from "../../components/seo/faq-schema"
 
 export const metadata: Metadata = {
   title: "Contact Us - ScrapYourCar | Get Your Free Quote Today",

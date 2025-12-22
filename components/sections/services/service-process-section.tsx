@@ -15,7 +15,7 @@ import {
   Shield
 } from "lucide-react"
 
-import { Button } from "@/components/ui/button"
+import { Button } from "../../ui/button"
 
 const processSteps = [
   {

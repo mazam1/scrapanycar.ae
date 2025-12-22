@@ -1,12 +1,12 @@
 import { Suspense } from "react"
 import { Metadata } from "next"
-import { Header } from "@/components/layout/header"
-import { Footer } from "@/components/layout/footer"
-import { ScrollToTop } from "@/components/common/scroll-to-top"
-import { AboutHeroSection } from "@/components/sections/about/about-hero-section"
-import { AboutStorySection } from "@/components/sections/about/about-story-section"
+import { Header } from "../../components/layout/header"
+import { Footer } from "../../components/layout/footer"
+import { ScrollToTop } from "../../components/common/scroll-to-top"
+import { AboutHeroSection } from "../../components/sections/about/about-hero-section"
+import { AboutStorySection } from "../../components/sections/about/about-story-section"
 
-import { AboutValuesSection } from "@/components/sections/about/about-values-section"
+import { AboutValuesSection } from "../../components/sections/about/about-values-section"
 
 export const metadata: Metadata = {
   title: "About ScrapYourCar - Leading Car Buyers in Dubai & UAE",

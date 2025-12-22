@@ -5,8 +5,8 @@ import { Suspense } from "react"
 import Link from "next/link"
 import { useSearchParams } from "next/navigation"
 import { Facebook, Instagram, Mail, Phone, MapPin, Twitter, Youtube } from "lucide-react"
-import { ImageWithFallback } from "@/components/ui/image-with-fallback"
-import { Button } from "@/components/ui/button"
+import { ImageWithFallback } from "../ui/image-with-fallback"
+import { Button } from "../ui/button"
 
 type FooterVariant = "classic" | "compact" | "split"
 
