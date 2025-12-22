@@ -1,0 +1,27 @@
+name: SSH -> run server deploy script
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  run-deploy-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Start ssh-agent and add private key
+        uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Run remote deploy script (scrapanycar)
+        env:
+          SSH_USER: ${{ secrets.SSH_USER }}    # deploy
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+          API_BASE_URL: ${{ secrets.API_BASE_URL }}
+          VEHICLE_CRM_API_TOKEN: ${{ secrets.VEHICLE_CRM_API_TOKEN }}
+        run: |
+          # call the server script (force bash login shell) and forward envs
+          ssh -o StrictHostKeyChecking=no -p ${SSH_PORT} ${SSH_USER}@${SSH_HOST} "API_BASE_URL='${API_BASE_URL}' VEHICLE_CRM_API_TOKEN='${VEHICLE_CRM_API_TOKEN}' bash -l -c '/var/www/scrapyourcar/deploy_scrapyourcar.sh'"
