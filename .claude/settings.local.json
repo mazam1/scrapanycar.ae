@@ -6,7 +6,8 @@
       "mcp__smithery-ai-puppeteer__puppeteer_evaluate",
       "mcp__smithery-ai-puppeteer__puppeteer_click",
       "Bash(npm run build:*)",
-      "Bash(timeout 15 npm run dev:*)"
+      "Bash(timeout 15 npm run dev:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []

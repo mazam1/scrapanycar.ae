@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Removed 'output: export' to enable RSC support
+  output: 'export',
   trailingSlash: true,
   images: {
     unoptimized: true,
