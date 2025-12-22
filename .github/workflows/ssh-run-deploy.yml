@@ -24,4 +24,5 @@ jobs:
           VEHICLE_CRM_API_TOKEN: ${{ secrets.VEHICLE_CRM_API_TOKEN }}
         run: |
           # call the server script (force bash login shell) and forward envs
-          ssh -o StrictHostKeyChecking=no -p ${SSH_PORT} ${SSH_USER}@${SSH_HOST} "API_BASE_URL='${API_BASE_URL}' VEHICLE_CRM_API_TOKEN='${VEHICLE_CRM_API_TOKEN}' bash -l -c '/var/www/scrapyourcar/deploy_scrapyourcar.sh'"
+          ssh -o StrictHostKeyChecking=no -p ${SSH_PORT} root@${SSH_HOST} "API_BASE_URL='${API_BASE_URL}' VEHICLE_CRM_API_TOKEN='${VEHICLE_CRM_API_TOKEN}' /bin/bash /home/scrapyourcar/deploy_scrapyourcar.sh"
+
