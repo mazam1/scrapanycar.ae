@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import OrganizationSchema from "../components/seo/organization-schema";
 import { Toaster } from "sonner";
@@ -25,6 +26,11 @@ export const metadata: Metadata = {
   authors: [{ name: "Scrap Your Car" }],
   creator: "Scrap Your Car",
   publisher: "Scrap Your Car",
+  icons: {
+    icon: "/logo.ico",
+    shortcut: "/logo.ico",
+    apple: "/logo.ico",
+  },
   openGraph: {
     title: "Scrap Your Car - Premium Car Valuation & Instant Buying in UAE",
     description: "Sell your car in UAE with Scrap Your Car. Get instant, accurate valuations and fast, secure transactions.",
@@ -70,6 +76,20 @@ export default function RootLayout({
         {children}
         <Toaster position="top-center" richColors />
       </body>
+
+      {/* Google Analytics */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-FMW810Y38J"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-FMW810Y38J');
+        `}
+      </Script>
     </html>
   );
 }

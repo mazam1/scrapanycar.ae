@@ -4,6 +4,7 @@ import * as React from "react"
 import { motion } from "framer-motion"
 import { Button } from "../../ui/button"
 import { Phone, Mail, MapPin, Clock } from "lucide-react"
+import { sendConversionEvent } from "../../../lib/gtag"
 
 export function ContactFormSection() {
   const [formData, setFormData] = React.useState({
@@ -21,8 +22,12 @@ export function ContactFormSection() {
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
+    // Send Google Analytics conversion event
+    await sendConversionEvent()
+
     // Handle form submission
     console.log('Form submitted:', formData)
   }
