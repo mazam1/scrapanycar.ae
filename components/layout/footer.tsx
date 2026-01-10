@@ -17,8 +17,10 @@ const navigation = [
   { name: "Contact", href: "/contact" },
 ]
 
-// Legal links removed as requested
-const legalLinks = []
+const legalLinks = [
+  { name: "Privacy Policy", href: "/privacy" },
+  { name: "Terms & Conditions", href: "/terms" },
+]
 
 function NewsletterForm() {
   const [email, setEmail] = React.useState("")
@@ -145,7 +147,18 @@ function ClassicLayout({ currentYear, socialPlatforms }: { currentYear: number; 
       </div>
 
       <div className="mt-16 pt-8 border-t border-brand-secondary">
-        <div className="flex justify-center items-center">
+        <div className="flex flex-col items-center gap-4">
+          <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2">
+            {legalLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="text-white/70 hover:text-brand-secondary text-sm font-medium transition-colors duration-200"
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
           <p className="text-white/70 text-sm sm:text-base font-medium text-center">© 2025 Scrap Your Car. All rights reserved.</p>
         </div>
       </div>
@@ -233,7 +246,18 @@ function CompactLayout({ currentYear, socialPlatforms }: { currentYear: number; 
       </div>
 
       <div className="mt-16 pt-8 border-t border-brand-secondary">
-        <div className="flex justify-center items-center">
+        <div className="flex flex-col items-center gap-4">
+          <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2">
+            {legalLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="text-white/70 hover:text-brand-secondary text-sm font-medium transition-colors duration-200"
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
           <p className="text-white/70 text-sm sm:text-base font-medium text-center">© 2025 Scrap Your Car. All rights reserved.</p>
         </div>
       </div>
@@ -328,7 +352,18 @@ function SplitLayout({ currentYear, socialPlatforms }: { currentYear: number; so
         </div>
 
         <div className="mt-6 pt-8 border-t border-brand-secondary">
-          <div className="flex justify-center items-center">
+          <div className="flex flex-col items-center gap-4">
+            <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2">
+              {legalLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-white/70 hover:text-brand-secondary text-sm font-medium transition-colors duration-200"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
             <p className="text-white/70 text-sm sm:text-base font-medium text-center">© 2025 Scrap Your Car. All rights reserved.</p>
           </div>
         </div>
