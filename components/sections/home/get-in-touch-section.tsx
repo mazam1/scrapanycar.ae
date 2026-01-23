@@ -178,12 +178,11 @@ export function GetInTouchSection() {
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">Your Name</label>
                 <div className="relative">
-                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <input
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all duration-300 bg-background text-foreground border-border"
+                    className="w-full pl-2 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all duration-300 bg-background text-foreground border-border"
                     placeholder="Enter your name"
                     required
                   />
@@ -193,12 +192,11 @@ export function GetInTouchSection() {
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">Phone Number</label>
                 <div className="relative">
-                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <input
                     type="tel"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all duration-300 bg-background text-foreground border-border"
+                    className="w-full pl-2 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all duration-300 bg-background text-foreground border-border"
                     placeholder="+971 XX XXX XXXX"
                     required
                   />
@@ -208,12 +206,11 @@ export function GetInTouchSection() {
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">Email Address (Optional)</label>
                 <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                   <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all duration-300 bg-background text-foreground border-border"
+                    className="w-full pl-2 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all duration-300 bg-background text-foreground border-border"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -222,11 +219,10 @@ export function GetInTouchSection() {
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">Message (Optional)</label>
                 <div className="relative">
-                  <MessageSquare className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                   <textarea
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all duration-300 bg-background text-foreground border-border min-h-[100px] resize-none"
+                    className="w-full pl-2 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all duration-300 bg-background text-foreground border-border min-h-[100px] resize-none"
                     placeholder="Tell us more about your car's condition, mileage, etc."
                   ></textarea>
                 </div>

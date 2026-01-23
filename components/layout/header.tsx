@@ -55,7 +55,7 @@ export function Header() {
         animate={{ y: 0 }}
         transition={{ duration: 0.2, ease: "easeInOut" }}
       >
-        <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="flex items-center justify-between gap-2"
             initial={{ height: '80px' }}

@@ -10,21 +10,13 @@ import type { CarMake, CarModel } from "../../../lib/vehicle-api-types"
 
 interface FormData {
   // Personal Information
-  name: string
-  email: string
   phone: string
   city: string
 
   // Vehicle Information (now using IDs)
   makeId: string // Store as string for select value, convert to number for API
   modelId: string // Store as string for select value, convert to number for API
-  year: string
   condition: string
-
-  // Additional Details
-  color: string
-  mileage: string
-  features: string[]
 }
 
 const cities = [
@@ -40,31 +32,15 @@ const cities = [
 
 const conditions = ["Excellent", "Good", "Fair", "Poor"]
 
-const colors = [
-  "White", "Black", "Silver", "Gray", "Red", "Blue", "Brown", "Green",
-  "Gold", "Orange", "Yellow", "Purple", "Other"
-]
-
-const features = ["Leather Seats", "Sunroof", "Alloy Wheels"]
-
-const currentYear = new Date().getFullYear()
-const years = Array.from({ length: 30 }, (_, i) => (currentYear - i).toString())
-
 export function FormSection() {
   const shouldReduceMotion = useReducedMotion()
 
   const [formData, setFormData] = React.useState<FormData>({
-    name: "",
-    email: "",
     phone: "",
     city: "",
     makeId: "",
     modelId: "",
-    year: "",
-    condition: "",
-    color: "",
-    mileage: "",
-    features: []
+    condition: ""
   })
 
   const [errors, setErrors] = React.useState<Partial<FormData>>({})
@@ -77,9 +53,6 @@ export function FormSection() {
   const [isSubmitting, setIsSubmitting] = React.useState(false)
   const [apiError, setApiError] = React.useState<string | null>(null)
 
-  // Highlight state for name field and ref for focusing
-  const [forceNameHighlight, setForceNameHighlight] = React.useState(false)
-  const nameInputRef = React.useRef<HTMLInputElement>(null)
 
   // Fetch car makes on component mount
   React.useEffect(() => {
@@ -104,15 +77,6 @@ export function FormSection() {
     loadCarMakes()
   }, [])
 
-  // Event listener for name field highlight
-  React.useEffect(() => {
-    const handler = () => {
-      setForceNameHighlight(true)
-      nameInputRef.current?.focus()
-    }
-    window.addEventListener('highlight-name', handler)
-    return () => window.removeEventListener('highlight-name', handler)
-  }, [])
 
   const handleInputChange = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }))
@@ -147,23 +111,11 @@ export function FormSection() {
     }
   }
 
-  const handleFeatureChange = (feature: string, checked: boolean) => {
-    setFormData(prev => ({
-      ...prev,
-      features: checked
-        ? [...prev.features, feature]
-        : prev.features.filter(f => f !== feature)
-    }))
-  }
 
   const validateForm = (): boolean => {
     const newErrors: Partial<FormData> = {}
 
-    // Only name and phone are required
-    if (!formData.name.trim()) {
-      newErrors.name = "Name is required"
-    }
-
+    // Phone is required
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required"
     } else {
@@ -172,16 +124,6 @@ export function FormSection() {
       if (phoneDigits.length < 10) {
         newErrors.phone = "Phone number must be at least 10 digits"
       }
-    }
-
-    // Optional email validation (only if provided)
-    if (formData.email.trim() && !/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email"
-    }
-
-    // Optional mileage validation (only if provided)
-    if (formData.mileage.trim() && (isNaN(Number(formData.mileage)) || Number(formData.mileage) < 0)) {
-      newErrors.mileage = "Please enter a valid mileage"
     }
 
     setErrors(newErrors)
@@ -193,7 +135,7 @@ export function FormSection() {
 
     if (!validateForm()) {
       toast.error("Please fill in all required fields", {
-        description: "Name and phone number are required.",
+        description: "Phone number is required.",
         duration: 4000,
       })
       return
@@ -204,19 +146,15 @@ export function FormSection() {
 
       // Map form data to API request format
       const requestData = {
-        name: formData.name,
-        email: formData.email || undefined,
+        name: "Car Valuation Customer", // Default name since removed from form
+        email: "carvaluation@scrapyour.ae", // Hardcoded default email
         phone_number: formData.phone,
         city: formData.city || undefined,
         car_make_id: formData.makeId ? Number(formData.makeId) : undefined,
         car_model_id: formData.modelId ? Number(formData.modelId) : undefined,
-        car_year: formData.year ? Number(formData.year) : undefined,
+        car_year: 2000, // Default year for API validation
         car_condition: formData.condition || undefined,
-        car_color: formData.color || undefined,
-        car_mileage: formData.mileage ? Number(formData.mileage) : undefined,
-        has_leather_seats: formData.features.includes("Leather Seats"),
-        has_sunroof: formData.features.includes("Sunroof"),
-        has_alloy_wheels: formData.features.includes("Alloy Wheels"),
+        car_mileage: 0, // Default mileage for API validation
       }
 
       const response = await submitCarValuation(requestData)
@@ -229,9 +167,8 @@ export function FormSection() {
 
         // Reset form after successful submission
         setFormData({
-          name: "", email: "", phone: "", city: "",
-          makeId: "", modelId: "", year: "", condition: "",
-          color: "", mileage: "", features: []
+          phone: "", city: "",
+          makeId: "", modelId: "", condition: ""
         })
         setCarModels([]) // Clear models
       } else {
@@ -298,56 +235,16 @@ export function FormSection() {
             viewport={{ once: true, amount: 0.2 }}
             suppressHydrationWarning
           >
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Three-Column Layout */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+          <form onSubmit={handleSubmit} className="space-y-8">
+            {/* Two-Column Layout */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-              {/* Column 1: Personal Information */}
+              {/* Column 1: Contact Information */}
               <div className="flex flex-col">
                 <h3 className="text-lg font-semibold text-foreground border-b-2 border-brand-secondary pb-3 mb-6 transition-colors duration-300">
-                  Personal Information
+                  Contact Information
                 </h3>
                 <div className="space-y-4 flex-1">
-                  <div>
-                    <label htmlFor="name-input" className={`block text-sm font-medium mb-2 transition-colors duration-300 ${forceNameHighlight ? "text-red-500" : "text-foreground"}`}>
-                      Enter your name <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      id="name-input"
-                      type="text"
-                      value={formData.name}
-                      onChange={(e) => handleInputChange("name", e.target.value)}
-                      ref={nameInputRef}
-                      aria-required="true"
-                      aria-invalid={!!errors.name}
-                      aria-describedby={errors.name ? "name-error" : undefined}
-                      className={`w-full h-12 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
-                        errors.name || forceNameHighlight ? "border-red-500" : "border-border"
-                      }`}
-                      placeholder="Your full name"
-                    />
-                    {errors.name && <p id="name-error" role="alert" className="text-red-500 text-xs mt-1">{errors.name}</p>}
-                  </div>
-
-                  <div>
-                    <label htmlFor="email-input" className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
-                      Enter your email
-                    </label>
-                    <input
-                      id="email-input"
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => handleInputChange("email", e.target.value)}
-                      aria-invalid={!!errors.email}
-                      aria-describedby={errors.email ? "email-error" : undefined}
-                      className={`w-full h-12 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
-                        errors.email ? "border-red-500" : "border-border"
-                      }`}
-                      placeholder="your.email@example.com"
-                    />
-                    {errors.email && <p id="email-error" role="alert" className="text-red-500 text-xs mt-1">{errors.email}</p>}
-                  </div>
-
                   <div>
                     <label htmlFor="phone-input" className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
                       Enter your phone <span className="text-red-500">*</span>
@@ -363,7 +260,7 @@ export function FormSection() {
                       className={`w-full h-12 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
                         errors.phone ? "border-red-500" : "border-border"
                       }`}
-                      placeholder="+971501234567"
+                      placeholder="0501234567"
                     />
                     {errors.phone && <p id="phone-error" role="alert" className="text-red-500 text-xs mt-1">{errors.phone}</p>}
                   </div>
@@ -438,23 +335,6 @@ export function FormSection() {
                   </div>
 
                   <div>
-                    <label htmlFor="year-select" className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
-                      Select year
-                    </label>
-                    <select
-                      id="year-select"
-                      value={formData.year}
-                      onChange={(e) => handleInputChange("year", e.target.value)}
-                      className="w-full h-12 px-4 py-3 border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground"
-                    >
-                      <option value="">Choose year</option>
-                      {years.map(year => (
-                        <option key={year} value={year}>{year}</option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div>
                     <label htmlFor="condition-select" className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
                       Select condition
                     </label>
@@ -469,70 +349,6 @@ export function FormSection() {
                         <option key={condition} value={condition}>{condition}</option>
                       ))}
                     </select>
-                  </div>
-                </div>
-              </div>
-
-              {/* Column 3: Additional Details */}
-              <div className="flex flex-col">
-                <h3 className="text-lg font-semibold text-foreground border-b-2 border-brand-secondary pb-3 mb-6 transition-colors duration-300">
-                  Additional Details
-                </h3>
-                <div className="space-y-4 flex-1">
-                  <div>
-                    <label htmlFor="color-select" className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
-                      Choose color
-                    </label>
-                    <select
-                      id="color-select"
-                      value={formData.color}
-                      onChange={(e) => handleInputChange("color", e.target.value)}
-                      className="w-full h-12 px-4 py-3 border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground"
-                    >
-                      <option value="">Choose color</option>
-                      {colors.map(color => (
-                        <option key={color} value={color}>{color}</option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="mileage-input" className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
-                      Car Mileage (KM)
-                    </label>
-                    <input
-                      id="mileage-input"
-                      type="number"
-                      value={formData.mileage}
-                      onChange={(e) => handleInputChange("mileage", e.target.value)}
-                      aria-invalid={!!errors.mileage}
-                      aria-describedby={errors.mileage ? "mileage-error" : undefined}
-                      className={`w-full h-12 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary transition-all duration-300 bg-background text-foreground ${
-                        errors.mileage ? "border-red-500" : "border-border"
-                      }`}
-                      placeholder="e.g., 50000"
-                      min="0"
-                    />
-                    {errors.mileage && <p id="mileage-error" role="alert" className="text-red-500 text-xs mt-1">{errors.mileage}</p>}
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2 transition-colors duration-300">
-                      Features
-                    </label>
-                    <div className="space-y-3 pt-2">
-                      {features.map(feature => (
-                        <label key={feature} className="flex items-center cursor-pointer">
-                          <input
-                            type="checkbox"
-                            checked={formData.features.includes(feature)}
-                            onChange={(e) => handleFeatureChange(feature, e.target.checked)}
-                            className="mr-3 h-4 w-4 text-brand-primary bg-background border-brand-primary rounded focus:ring-2 focus:ring-brand-primary/50 transition-all duration-300 accent-brand-primary"
-                          />
-                          <span className="text-sm text-foreground transition-colors duration-300">{feature}</span>
-                        </label>
-                      ))}
-                    </div>
                   </div>
                 </div>
               </div>
