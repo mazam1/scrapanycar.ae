@@ -105,7 +105,7 @@ function ClassicLayout({ currentYear, socialPlatforms }: { currentYear: number; 
               <div className="flex-shrink-0 w-9 h-9 rounded-full bg-brand-secondary/10 border border-brand-secondary/20 flex items-center justify-center group-hover:bg-brand-secondary/15 transition-colors duration-200">
                 <Mail className="h-5 w-5 text-brand-secondary" />
               </div>
-              <a href="mailto:hello@scrapanycar.ae" className="text-sm sm:text-base font-medium">hello@scrapanycar.ae</a>
+              <a href="mailto:hello@scrapyourcar.ae" className="text-sm sm:text-base font-medium">hello@scrapyourcar.ae</a>
             </div>
             <div className="group flex items-center space-x-4 text-white/90 hover:text-brand-secondary transition-colors duration-200">
               <div className="flex-shrink-0 w-9 h-9 rounded-full bg-brand-secondary/10 border border-brand-secondary/20 flex items-center justify-center group-hover:bg-brand-secondary/15 transition-colors duration-200">
@@ -209,7 +209,7 @@ function CompactLayout({ currentYear, socialPlatforms }: { currentYear: number; 
               <div className="flex-shrink-0 w-9 h-9 rounded-full bg-brand-secondary/10 border border-brand-gold/20 flex items-center justify-center group-hover:bg-brand-secondary/15 transition-colors duration-200">
                 <Mail className="h-5 w-5" />
               </div>
-              <a href="mailto:hello@scrapanycar.ae" className="text-sm sm:text-base font-medium">hello@scrapanycar.ae</a>
+              <a href="mailto:hello@scrapyourcar.ae" className="text-sm sm:text-base font-medium">hello@scrapyourcar.ae</a>
             </div>
             <div className="group flex items-center space-x-4 text-white/90 hover:text-brand-secondary transition-colors duration-200">
               <div className="flex-shrink-0 w-9 h-9 rounded-full bg-brand-secondary/10 border border-brand-gold/20 flex items-center justify-center group-hover:bg-brand-secondary/15 transition-colors duration-200">
@@ -337,7 +337,7 @@ function SplitLayout({ currentYear, socialPlatforms }: { currentYear: number; so
                 <div className="flex-shrink-0 w-9 h-9 rounded-full bg-brand-secondary/10 border border-brand-gold/20 flex items-center justify-center group-hover:bg-brand-secondary/15 transition-colors duration-200">
                   <Mail className="h-5 w-5" />
                 </div>
-                <a href="mailto:hello@scrapanycar.ae" className="text-sm sm:text-base font-medium">hello@scrapanycar.ae</a>
+                <a href="mailto:hello@scrapyourcar.ae" className="text-sm sm:text-base font-medium">hello@scrapyourcar.ae</a>
               </div>
               <div className="group flex items-center space-x-4 text-white/90 hover:text-brand-secondary transition-colors duration-200">
                 <div className="flex-shrink-0 w-9 h-9 rounded-full bg-brand-secondary/10 border border-brand-gold/20 flex items-center justify-center group-hover:bg-brand-secondary/15 transition-colors duration-200">

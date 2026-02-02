@@ -4,8 +4,8 @@ export default function OrganizationSchema() {
     "@type": "Organization",
     "name": "ScrapYourCar",
     "alternateName": "Scrap Any Car UAE",
-    "url": "https://scrapanycar.ae",
-    "logo": "https://scrapanycar.ae/logo.png",
+    "url": "https://scrapyourcar.ae",
+    "logo": "https://scrapyourcar.ae/logo.png",
     "description": "Leading car scrapping and vehicle buying service in Dubai and UAE. We offer instant valuations, free pickup, and same-day payment.",
     "contactPoint": {
       "@type": "ContactPoint",

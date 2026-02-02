@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Scrap Your Car - Premium Car Valuation & Instant Buying in UAE",
     description: "Sell your car in UAE with Scrap Your Car. Get instant, accurate valuations and fast, secure transactions.",
-    url: "https://scrapanycar.ae",
+    url: "https://scrapyourcar.ae",
     siteName: "Scrap Your Car",
     locale: "en_AE",
     type: "website",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://scrapanycar.ae"
+    canonical: "https://scrapyourcar.ae"
   }
 };
 
@@ -72,12 +72,13 @@ export default function RootLayout({
       </head>
       <body
         className={`${inter.variable} ${poppins.variable} antialiased w-full overflow-x-hidden`}
+        suppressHydrationWarning
       >
         {children}
         <Toaster position="top-center" richColors />
       </body>
 
-      {/* Google Analytics */}
+      {/* Google Analytics & Google Ads */}
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-FMW810Y38J"
         strategy="afterInteractive"
@@ -88,6 +89,7 @@ export default function RootLayout({
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'G-FMW810Y38J');
+          gtag('config', 'AW-17831642270');
         `}
       </Script>
     </html>

@@ -4,7 +4,8 @@ import * as React from "react"
 import { motion } from "framer-motion"
 import { Button } from "../../ui/button"
 import { Phone, Mail, MapPin, Clock } from "lucide-react"
-import { sendConversionEvent } from "../../../lib/gtag"
+import { toast } from "sonner"
+import { trackContactFormSubmission } from "../../../lib/tracking"
 
 export function ContactFormSection() {
   const [formData, setFormData] = React.useState({
@@ -25,11 +26,25 @@ export function ContactFormSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    // Send Google Analytics conversion event
-    await sendConversionEvent()
-
     // Handle form submission
     console.log('Form submitted:', formData)
+
+    // Show success message
+    toast.success("Thank you! We'll contact you soon.", {
+      description: "Our team will get back to you shortly.",
+      duration: 5000,
+    })
+
+    // Track conversion after successful submission
+    await trackContactFormSubmission()
+
+    // Reset form
+    setFormData({
+      phoneNumber: '',
+      email: '',
+      carModel: '',
+      message: ''
+    })
   }
 
   const contactInfo = [

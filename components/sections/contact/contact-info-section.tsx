@@ -60,7 +60,7 @@ export function ContactInfoSection() {
               <h3 className="font-semibold card-text">Email</h3>
             </div>
             <div className="flex-1 space-y-1">
-              <p className="text-muted-foreground responsive-text-sm card-text break-all">support@scrapanycar.ae</p>
+              <p className="text-muted-foreground responsive-text-sm card-text break-all">support@scrapyourcar.ae</p>
               <p className="text-muted-foreground responsive-text-sm card-text">We reply within 2–4 hours</p>
             </div>
           </div>

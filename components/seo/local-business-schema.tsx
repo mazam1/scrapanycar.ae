@@ -4,7 +4,7 @@ export default function LocalBusinessSchema() {
     "@type": "AutomotiveBusiness",
     "name": "ScrapYourCar",
     "description": "Professional car scrapping and vehicle buying services across Dubai and UAE. Get instant, accurate valuations and fast, secure transactions.",
-    "url": "https://scrapanycar.ae",
+    "url": "https://scrapyourcar.ae",
     "telephone": "+971551988348",
     "email": "info@scrapyourcar.com",
     "address": {

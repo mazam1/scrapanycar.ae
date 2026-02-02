@@ -28,7 +28,7 @@ export function PrivacyContentSection() {
           {/* Introduction */}
           <div className="prose prose-lg max-w-none">
             <p className="text-brand-medium leading-relaxed">
-              ROOH AL SAQAR AUTO SPARE PARTS TRADING ("we," "us," or "our") operates scrapanycar.ae. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services. Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site.
+              ROOH AL SAQAR AUTO SPARE PARTS TRADING ("we," "us," or "our") operates scrapyourcar.ae. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services. Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site.
             </p>
           </div>
 

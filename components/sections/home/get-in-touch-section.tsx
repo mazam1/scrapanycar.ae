@@ -8,6 +8,7 @@ import { Phone, Mail, Car, MessageSquare, DollarSign, Users, Award } from "lucid
 import { UaeDirhamIcon } from "../../icons/uae-dirham-icon"
 import { toast } from "sonner"
 import { submitGetInTouch } from "../../../lib/vehicle-api"
+import { trackContactFormSubmission } from "../../../lib/tracking"
 
 export function GetInTouchSection() {
   const shouldReduceMotion = useReducedMotion()
@@ -87,6 +88,9 @@ export function GetInTouchSection() {
         setPhone("")
         setEmail("")
         setMessage("")
+
+        // Track conversion after successful submission and toast
+        await trackContactFormSubmission()
       } else {
         throw new Error(response.message || "Failed to submit")
       }

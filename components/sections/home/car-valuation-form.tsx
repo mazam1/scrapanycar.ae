@@ -3,7 +3,7 @@
 import * as React from "react"
 import { motion } from "framer-motion"
 import { Button } from "../../ui/button"
-import { sendConversionEvent } from "../../../lib/gtag"
+import { trackCarEvaluationSubmission } from "../../../lib/tracking"
 
 interface FormData {
   // Personal Information
@@ -151,12 +151,17 @@ export function CarValuationForm() {
     e.preventDefault()
 
     if (validateForm()) {
-      // Send Google Analytics conversion event
-      await sendConversionEvent()
-
       console.log("Form submitted:", formData)
       // Here you would typically send the data to your backend
       alert("Thank you! We'll contact you soon with your free valuation.")
+
+      // Track conversion after successful submission
+      await trackCarEvaluationSubmission({
+        city: formData.city,
+        make: formData.make,
+        model: formData.model,
+        condition: formData.condition,
+      })
     }
   }
 

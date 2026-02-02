@@ -7,6 +7,7 @@ import { Button } from "../../ui/button"
 import { toast } from "sonner"
 import { fetchCarMakes, fetchCarModels, submitCarValuation } from "../../../lib/vehicle-api"
 import type { CarMake, CarModel } from "../../../lib/vehicle-api-types"
+import { trackCarEvaluationSubmission } from "../../../lib/tracking"
 
 interface FormData {
   // Personal Information
@@ -171,6 +172,14 @@ export function FormSection() {
           makeId: "", modelId: "", condition: ""
         })
         setCarModels([]) // Clear models
+
+        // Track conversion after successful submission and toast
+        await trackCarEvaluationSubmission({
+          city: formData.city,
+          make: carMakes.find(m => m.id === Number(formData.makeId))?.name,
+          model: carModels.find(m => m.id === Number(formData.modelId))?.name,
+          condition: formData.condition,
+        })
       } else {
         throw new Error(response.message || "Failed to submit valuation")
       }

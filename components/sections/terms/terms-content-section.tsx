@@ -28,7 +28,7 @@ export function TermsContentSection() {
           {/* Introduction */}
           <div className="prose prose-lg max-w-none">
             <p className="text-brand-medium leading-relaxed">
-              These Terms and Conditions ("Terms") govern your use of the scrapanycar.ae website and services operated by ROOH AL SAQAR AUTO SPARE PARTS TRADING ("we," "us," or "our"). By accessing or using our website and services, you agree to be bound by these Terms. If you disagree with any part of these Terms, you may not access our website or use our services.
+              These Terms and Conditions ("Terms") govern your use of the scrapyourcar.ae website and services operated by ROOH AL SAQAR AUTO SPARE PARTS TRADING ("we," "us," or "our"). By accessing or using our website and services, you agree to be bound by these Terms. If you disagree with any part of these Terms, you may not access our website or use our services.
             </p>
           </div>
 
@@ -59,7 +59,7 @@ export function TermsContentSection() {
             </h2>
             <div className="space-y-4 text-brand-medium leading-relaxed">
               <p>
-                By accessing and using scrapanycar.ae, you acknowledge that you have read, understood, and agree to be bound by these Terms and our Privacy Policy. These Terms apply to all visitors, users, and others who access or use our services.
+                By accessing and using scrapyourcar.ae, you acknowledge that you have read, understood, and agree to be bound by these Terms and our Privacy Policy. These Terms apply to all visitors, users, and others who access or use our services.
               </p>
               <p>
                 If you are using our services on behalf of an organization, you represent and warrant that you have the authority to bind that organization to these Terms, and your acceptance of these Terms will be treated as acceptance by that organization.

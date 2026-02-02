@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_AE",
     siteName: "ScrapYourCar",
-    url: "https://scrapanycar.ae/services"
+    url: "https://scrapyourcar.ae/services"
   },
   twitter: {
     card: "summary_large_image",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description: "Professional car scrapping and vehicle buying services across Dubai and UAE. Free valuation, instant payment, and eco-friendly disposal."
   },
   alternates: {
-    canonical: "https://scrapanycar.ae/services"
+    canonical: "https://scrapyourcar.ae/services"
   }
 }
 

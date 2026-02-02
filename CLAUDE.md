@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Next.js 15 landing page for scrapanycar.ae, a car valuation and scrapping service. The project uses the App Router with TypeScript, Tailwind CSS, and Radix UI components.
+This is a Next.js 15 landing page for scrapyourcar.ae, a car valuation and scrapping service. The project uses the App Router with TypeScript, Tailwind CSS, and Radix UI components.
 
 ## Development Commands
 

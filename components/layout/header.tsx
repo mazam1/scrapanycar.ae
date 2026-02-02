@@ -78,7 +78,8 @@ export function Header() {
                   alt="Scrap Your Car Logo"
                   width={140}
                   height={50}
-                  className="object-contain w-full h-full text-foreground brightness-125 contrast-125 drop-shadow-lg"
+                  priority
+                  className="object-contain w-auto h-auto max-w-full max-h-full text-foreground brightness-125 contrast-125 drop-shadow-lg"
                 />
               </motion.div>
             </Link>

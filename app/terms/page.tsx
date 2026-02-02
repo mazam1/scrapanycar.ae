@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_AE",
     siteName: "ScrapYourCar",
-    url: "https://scrapanycar.ae/terms"
+    url: "https://scrapyourcar.ae/terms"
   },
   twitter: {
     card: "summary",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     description: "Read ScrapYourCar's terms and conditions to understand the rules and regulations governing our services."
   },
   alternates: {
-    canonical: "https://scrapanycar.ae/terms"
+    canonical: "https://scrapyourcar.ae/terms"
   }
 }
 

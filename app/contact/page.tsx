@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description: "Contact ScrapYourCar for instant scrap car quotes and pickup scheduling. Professional customer support available 24/7."
   },
   alternates: {
-    canonical: "https://scrapanycar.ae/contact"
+    canonical: "https://scrapyourcar.ae/contact"
   }
 }
 

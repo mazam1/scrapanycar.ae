@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://scrapanycar.ae/sitemap.xml',
+    sitemap: 'https://scrapyourcar.ae/sitemap.xml',
   }
 }

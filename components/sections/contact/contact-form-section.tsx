@@ -7,7 +7,7 @@ import { Send, Phone, Mail, MapPin } from "lucide-react"
 import { Button } from "../../ui/button"
 import { toast } from "sonner"
 import { submitGetInTouch } from "../../../lib/vehicle-api"
-import { sendConversionEvent } from "../../../lib/gtag"
+import { trackContactFormSubmission } from "../../../lib/tracking"
 
 export function ContactFormSection() {
   const shouldReduceMotion = useReducedMotion()
@@ -78,9 +78,6 @@ export function ContactFormSection() {
       const response = await submitGetInTouch(requestData)
 
       if (response.success) {
-        // Send Google Analytics conversion event
-        await sendConversionEvent()
-
         toast.success("Thank you! We'll contact you soon.", {
           description: "Our team will get back to you shortly.",
           duration: 5000,
@@ -91,6 +88,9 @@ export function ContactFormSection() {
         setPhone("")
         setEmail("")
         setMessage("")
+
+        // Track conversion after successful submission and toast
+        await trackContactFormSubmission()
       } else {
         throw new Error(response.message || "Failed to submit")
       }
